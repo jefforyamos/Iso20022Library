@@ -42,7 +42,7 @@ public class PaymentInstruction40_A : TestPublishedSample<PaymentInstruction40>
                 },
             },
             CreditTransferTransactionInformation =
-            [
+            
                 new()
                 {
                     PaymentIdentification = new Components.PaymentIdentification6
@@ -108,6 +108,6 @@ public class PaymentInstruction40_A : TestPublishedSample<PaymentInstruction40>
                     },
                 },
                 // Last transaction
-            ],
+            
         };
 }

@@ -13,13 +13,27 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 /// <summary>
 /// Technical component that contains the validated supplementary data information. This technical envelope allows to segregate the supplementary data information from any other information.
 /// </summary>
-[DataContract(Namespace = "")]
-public partial record SupplementaryDataEnvelope1 // : IIsoXmlSerilizable<SupplementaryDataEnvelope1>
+public partial record SupplementaryDataEnvelope1 : IIsoXmlSerilizable<SupplementaryDataEnvelope1>
 {
     #nullable enable
     
     
     #nullable disable
     
-    public void Serialize(XmlWriter writer, string xmlNamespace) {} 
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static SupplementaryDataEnvelope1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

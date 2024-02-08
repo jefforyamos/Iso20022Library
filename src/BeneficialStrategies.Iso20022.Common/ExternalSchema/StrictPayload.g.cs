@@ -14,13 +14,27 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 /// Specifies a data structure that allows the inclusion of any valid XML structure, for example, through an XML Schema. The property namespace is set to 'any'.
 /// The processContents value is 'strict' which according to the above specification and to ISO 20022: 2013 means that the application must understand and validate the content.
 /// </summary>
-[DataContract(Namespace = "")]
-public partial record StrictPayload // : IIsoXmlSerilizable<StrictPayload>
+public partial record StrictPayload : IIsoXmlSerilizable<StrictPayload>
 {
     #nullable enable
     
     
     #nullable disable
     
-    public void Serialize(XmlWriter writer, string xmlNamespace) {} 
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static StrictPayload Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

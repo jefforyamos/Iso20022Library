@@ -71,7 +71,7 @@ public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<I
                 },
             },
             CreditTransferTransactionInformation =
-            [
+            
                 new()
                 {
                     PaymentIdentification = new Components.PaymentIdentification6
@@ -137,7 +137,7 @@ public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<I
                     },
                 },
                 // Last transaction
-            ],
+            
         },
     };
 }
