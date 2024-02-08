@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.UserDefined;
 
@@ -13,11 +15,28 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 ///  XML Signature Syntax and Processing (Second Edition) W3C Recommendation 10 June 2008
 /// http://www.w3.org/TR/2008/REC-xmldsig-core-20080610/.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record XMLSignature
+     : IIsoXmlSerilizable<XMLSignature>
 {
     #nullable enable
     
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static XMLSignature Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

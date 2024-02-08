@@ -5,6 +5,8 @@
 //
 
 using BeneficialStrategies.Iso20022.Components;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.UserDefined;
 
@@ -12,11 +14,28 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 /// Technical extension structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
 /// The content of the extension MUST be validated by the receiver (processContent=strict), hence the receiver must have the description (e.g. the XML Schema) of the extension.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record ExtensionContents2
+     : IIsoXmlSerilizable<ExtensionContents2>
 {
     #nullable enable
     
     
     #nullable disable
+    
+    
+    /// <summary>
+    /// Used to format the various primative types during serialization.
+    /// </summary>
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    
+    /// <summary>
+    /// Serializes the state of this record according to Iso20022 specifications.
+    /// </summary>
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    public static ExtensionContents2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }
