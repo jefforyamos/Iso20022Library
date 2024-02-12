@@ -1,11 +1,13 @@
 # Beneficial Strategies ISO20022 Library
 
-This project defines the data structures to act as containers for ISO20022 messages.
+This project contains a .NET implementation of containers for 2,665 different types of data as defined by the ISO20022 standard.
 
 ## Let's talk why
 
-[ISO20022](https://iso20022.org) is fast becoming the defacto language for sending financial information between financial partners. There is limited analytical knowledge of the domain.
-It's not just for banks any more. Increasingly, this will be used in the corporate scenario for payables, receivables, payroll, etc. 
+[ISO20022](https://iso20022.org) is fast becoming the defacto [inter-partner financial communication language](https://businesspaymentscoalition.org/wp-content/uploads/0217-bpc-intro-iso20022.pdf) for sending financial information. It is being [adopted in the US](https://businesspaymentscoalition.org/wp-content/uploads/0517-us-adoption-iso20022.pdf) and also [being adopted world-wide](https://medium.datadriveninvestor.com/world-digital-currencies-are-already-here-cbdcs-bc756bd899b9).
+It's not just for banks any more. Experts are encouraging corporations to hasten with a [migration strategy](https://blogs.opentext.com/what-does-iso-20022-mean-for-corporates/). There is even work being done to pass [tokenized monetary value](https://ripple.com/insights/iso-20022-shaping-the-future-of-cross-border-payments/) itself across across the wire using this standard, causing the money/value to settle at the same moment the message itself settles.
+
+Even if you plan on changing toolsets somewhere down the road, it would be wise to start adapting your domain model to this new standard.
 
 ## Let's talk scope
 
