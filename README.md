@@ -1,6 +1,6 @@
 # Beneficial Strategies ISO20022 Library
 
-This project contains a .NET implementation of containers for 2,665 different types of data as defined by the ISO20022 standard.
+This project contains a .NET implementation of containers for 2,665 different types of financial services messages as defined by the ISO20022 standard.
 
 ## Let's talk why
 
