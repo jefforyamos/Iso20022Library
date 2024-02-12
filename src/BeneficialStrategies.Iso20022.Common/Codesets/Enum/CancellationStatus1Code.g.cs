@@ -47,22 +47,3 @@ public enum CancellationStatus1Code
     Pending = CancellationStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationStatus1CodeMetadataExtensions
-{
-    private static readonly CancellationStatus1CodeDropdownSource _dropdownSource = new CancellationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationStatus1CodeDropdownRow GetMetadata(this CancellationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

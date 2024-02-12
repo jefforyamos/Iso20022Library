@@ -191,22 +191,3 @@ public enum IssuerStatusCode
     PendingShareholderApproval,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IssuerStatusCodeMetadataExtensions
-{
-    private static readonly IssuerStatusCodeDropdownSource _dropdownSource = new IssuerStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIssuerStatusCodeDropdownRow GetMetadata(this IssuerStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

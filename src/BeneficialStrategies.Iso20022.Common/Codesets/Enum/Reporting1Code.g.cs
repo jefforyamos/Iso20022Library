@@ -38,22 +38,3 @@ public enum Reporting1Code
     RegulatoryOrganisation = ReportingCode.RegulatoryOrganisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Reporting1CodeMetadataExtensions
-{
-    private static readonly Reporting1CodeDropdownSource _dropdownSource = new Reporting1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReporting1CodeDropdownRow GetMetadata(this Reporting1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

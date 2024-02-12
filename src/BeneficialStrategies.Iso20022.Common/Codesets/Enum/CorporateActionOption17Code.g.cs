@@ -245,22 +245,3 @@ public enum CorporateActionOption17Code
     BeneficialOwnerBreakdownRequest = CorporateActionOptionCode.BeneficialOwnerBreakdownRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOption17CodeMetadataExtensions
-{
-    private static readonly CorporateActionOption17CodeDropdownSource _dropdownSource = new CorporateActionOption17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOption17CodeDropdownRow GetMetadata(this CorporateActionOption17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

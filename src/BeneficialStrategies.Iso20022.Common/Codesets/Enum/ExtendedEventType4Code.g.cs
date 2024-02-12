@@ -47,22 +47,3 @@ public enum ExtendedEventType4Code
     CertificateOfDepositEarlyRedemption = ExtendedEventTypeV2Code.CertificateOfDepositEarlyRedemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExtendedEventType4CodeMetadataExtensions
-{
-    private static readonly ExtendedEventType4CodeDropdownSource _dropdownSource = new ExtendedEventType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExtendedEventType4CodeDropdownRow GetMetadata(this ExtendedEventType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

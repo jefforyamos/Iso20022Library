@@ -38,22 +38,3 @@ public enum CRSSourceStatusCode
     Declared,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CRSSourceStatusCodeMetadataExtensions
-{
-    private static readonly CRSSourceStatusCodeDropdownSource _dropdownSource = new CRSSourceStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICRSSourceStatusCodeDropdownRow GetMetadata(this CRSSourceStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

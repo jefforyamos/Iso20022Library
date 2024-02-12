@@ -281,22 +281,3 @@ public enum FundingSourceTypeCode
     Loyaly,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundingSourceTypeCodeMetadataExtensions
-{
-    private static readonly FundingSourceTypeCodeDropdownSource _dropdownSource = new FundingSourceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundingSourceTypeCodeDropdownRow GetMetadata(this FundingSourceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

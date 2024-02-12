@@ -398,22 +398,3 @@ public enum SecuritiesTransactionTypeCode
     CorporateAction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionTypeCodeDropdownSource _dropdownSource = new SecuritiesTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionTypeCodeDropdownRow GetMetadata(this SecuritiesTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

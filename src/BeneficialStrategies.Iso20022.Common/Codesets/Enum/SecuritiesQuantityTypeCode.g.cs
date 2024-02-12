@@ -47,22 +47,3 @@ public enum SecuritiesQuantityTypeCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesQuantityTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesQuantityTypeCodeDropdownSource _dropdownSource = new SecuritiesQuantityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesQuantityTypeCodeDropdownRow GetMetadata(this SecuritiesQuantityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum EventConfirmationStatusCode
     Pending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventConfirmationStatusCodeMetadataExtensions
-{
-    private static readonly EventConfirmationStatusCodeDropdownSource _dropdownSource = new EventConfirmationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventConfirmationStatusCodeDropdownRow GetMetadata(this EventConfirmationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

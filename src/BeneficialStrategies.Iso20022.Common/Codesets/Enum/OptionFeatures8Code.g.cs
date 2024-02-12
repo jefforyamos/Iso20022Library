@@ -119,22 +119,3 @@ public enum OptionFeatures8Code
     ReducedWithholdingTax = OptionFeaturesCode.ReducedWithholdingTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeatures8CodeMetadataExtensions
-{
-    private static readonly OptionFeatures8CodeDropdownSource _dropdownSource = new OptionFeatures8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeatures8CodeDropdownRow GetMetadata(this OptionFeatures8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

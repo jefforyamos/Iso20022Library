@@ -146,22 +146,3 @@ public enum StatusCode
     Forwarded,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusCodeMetadataExtensions
-{
-    private static readonly StatusCodeDropdownSource _dropdownSource = new StatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusCodeDropdownRow GetMetadata(this StatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum PaymentInstrumentType1Code
     StoredValueAccount = PaymentInstrumentTypeCode.StoredValueAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentInstrumentType1CodeMetadataExtensions
-{
-    private static readonly PaymentInstrumentType1CodeDropdownSource _dropdownSource = new PaymentInstrumentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentInstrumentType1CodeDropdownRow GetMetadata(this PaymentInstrumentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -218,22 +218,3 @@ public enum SecuritiesEntryTypeCode
     InstructedBalance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesEntryTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesEntryTypeCodeDropdownSource _dropdownSource = new SecuritiesEntryTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesEntryTypeCodeDropdownRow GetMetadata(this SecuritiesEntryTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

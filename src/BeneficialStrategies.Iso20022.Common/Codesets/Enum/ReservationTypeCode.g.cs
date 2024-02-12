@@ -74,22 +74,3 @@ public enum ReservationTypeCode
     Blocked,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReservationTypeCodeMetadataExtensions
-{
-    private static readonly ReservationTypeCodeDropdownSource _dropdownSource = new ReservationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReservationTypeCodeDropdownRow GetMetadata(this ReservationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

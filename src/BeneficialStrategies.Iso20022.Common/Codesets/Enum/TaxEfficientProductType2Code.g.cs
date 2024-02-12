@@ -137,22 +137,3 @@ public enum TaxEfficientProductType2Code
     StocksAndShares = TaxEfficientProductTypeCode.StocksAndShares, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxEfficientProductType2CodeMetadataExtensions
-{
-    private static readonly TaxEfficientProductType2CodeDropdownSource _dropdownSource = new TaxEfficientProductType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxEfficientProductType2CodeDropdownRow GetMetadata(this TaxEfficientProductType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

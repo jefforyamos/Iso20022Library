@@ -47,22 +47,3 @@ public enum CryptographicKeyType2Code
     DUKPT2009 = CryptographicKeyTypeCode.DUKPT2009, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CryptographicKeyType2CodeMetadataExtensions
-{
-    private static readonly CryptographicKeyType2CodeDropdownSource _dropdownSource = new CryptographicKeyType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICryptographicKeyType2CodeDropdownRow GetMetadata(this CryptographicKeyType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

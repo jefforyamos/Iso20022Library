@@ -56,22 +56,3 @@ public enum AmountDirectionCode
     ReversalCredit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountDirectionCodeMetadataExtensions
-{
-    private static readonly AmountDirectionCodeDropdownSource _dropdownSource = new AmountDirectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountDirectionCodeDropdownRow GetMetadata(this AmountDirectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

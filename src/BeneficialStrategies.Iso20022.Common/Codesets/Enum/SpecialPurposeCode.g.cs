@@ -92,22 +92,3 @@ public enum SpecialPurposeCode
     False,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SpecialPurposeCodeMetadataExtensions
-{
-    private static readonly SpecialPurposeCodeDropdownSource _dropdownSource = new SpecialPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISpecialPurposeCodeDropdownRow GetMetadata(this SpecialPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

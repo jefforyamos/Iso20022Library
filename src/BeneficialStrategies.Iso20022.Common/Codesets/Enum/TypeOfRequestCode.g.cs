@@ -38,22 +38,3 @@ public enum TypeOfRequestCode
     Information,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfRequestCodeMetadataExtensions
-{
-    private static readonly TypeOfRequestCodeDropdownSource _dropdownSource = new TypeOfRequestCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfRequestCodeDropdownRow GetMetadata(this TypeOfRequestCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

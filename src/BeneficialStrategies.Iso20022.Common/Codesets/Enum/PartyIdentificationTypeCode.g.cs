@@ -362,22 +362,3 @@ public enum PartyIdentificationTypeCode
     BranchIdentification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly PartyIdentificationTypeCodeDropdownSource _dropdownSource = new PartyIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyIdentificationTypeCodeDropdownRow GetMetadata(this PartyIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum DisputeResolutionType2Code
     ReconcileNettedIndependentAmount = DisputeResolutionTypeCode.ReconcileNettedIndependentAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisputeResolutionType2CodeMetadataExtensions
-{
-    private static readonly DisputeResolutionType2CodeDropdownSource _dropdownSource = new DisputeResolutionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisputeResolutionType2CodeDropdownRow GetMetadata(this DisputeResolutionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

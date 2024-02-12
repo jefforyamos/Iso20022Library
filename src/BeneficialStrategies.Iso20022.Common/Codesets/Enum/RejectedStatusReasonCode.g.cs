@@ -767,22 +767,3 @@ public enum RejectedStatusReasonCode
     NotCompliantWithMarketPractice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReasonCodeMetadataExtensions
-{
-    private static readonly RejectedStatusReasonCodeDropdownSource _dropdownSource = new RejectedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReasonCodeDropdownRow GetMetadata(this RejectedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum NetDividendRateType2Code
     RealEstatePropertyIncomePortion = DividendRateTypeCode.RealEstatePropertyIncomePortion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NetDividendRateType2CodeMetadataExtensions
-{
-    private static readonly NetDividendRateType2CodeDropdownSource _dropdownSource = new NetDividendRateType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INetDividendRateType2CodeDropdownRow GetMetadata(this NetDividendRateType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

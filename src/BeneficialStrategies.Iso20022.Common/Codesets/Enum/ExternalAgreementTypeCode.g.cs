@@ -326,22 +326,3 @@ public enum ExternalAgreementTypeCode
     OtherTypeOfMasterAgreement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAgreementTypeCodeMetadataExtensions
-{
-    private static readonly ExternalAgreementTypeCodeDropdownSource _dropdownSource = new ExternalAgreementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAgreementTypeCodeDropdownRow GetMetadata(this ExternalAgreementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

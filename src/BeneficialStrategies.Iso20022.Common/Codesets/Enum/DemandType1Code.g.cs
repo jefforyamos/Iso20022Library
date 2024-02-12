@@ -38,22 +38,3 @@ public enum DemandType1Code
     PayOrExtend = DemandTypeCode.PayOrExtend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DemandType1CodeMetadataExtensions
-{
-    private static readonly DemandType1CodeDropdownSource _dropdownSource = new DemandType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDemandType1CodeDropdownRow GetMetadata(this DemandType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

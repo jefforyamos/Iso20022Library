@@ -101,22 +101,3 @@ public enum AttendanceAdmissionConditions2Code
     NotPossible = AttendanceAdmissionConditionsCode.NotPossible, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttendanceAdmissionConditions2CodeMetadataExtensions
-{
-    private static readonly AttendanceAdmissionConditions2CodeDropdownSource _dropdownSource = new AttendanceAdmissionConditions2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttendanceAdmissionConditions2CodeDropdownRow GetMetadata(this AttendanceAdmissionConditions2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

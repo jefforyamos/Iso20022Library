@@ -434,22 +434,3 @@ public enum RepairReason6Code
     Unknown = RepairReasonV2Code.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReason6CodeMetadataExtensions
-{
-    private static readonly RepairReason6CodeDropdownSource _dropdownSource = new RepairReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReason6CodeDropdownRow GetMetadata(this RepairReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

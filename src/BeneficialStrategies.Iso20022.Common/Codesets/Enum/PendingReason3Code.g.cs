@@ -614,22 +614,3 @@ public enum PendingReason3Code
     Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason3CodeMetadataExtensions
-{
-    private static readonly PendingReason3CodeDropdownSource _dropdownSource = new PendingReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason3CodeDropdownRow GetMetadata(this PendingReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

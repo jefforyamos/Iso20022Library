@@ -29,22 +29,3 @@ public enum PortfolioWithdrawalReason1Code
     FirstTimeResidentialProperty = PortfolioWithdrawalReasonCode.FirstTimeResidentialProperty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PortfolioWithdrawalReason1CodeMetadataExtensions
-{
-    private static readonly PortfolioWithdrawalReason1CodeDropdownSource _dropdownSource = new PortfolioWithdrawalReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPortfolioWithdrawalReason1CodeDropdownRow GetMetadata(this PortfolioWithdrawalReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

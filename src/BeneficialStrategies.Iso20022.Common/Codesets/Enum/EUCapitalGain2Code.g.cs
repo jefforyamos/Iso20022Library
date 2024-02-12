@@ -47,22 +47,3 @@ public enum EUCapitalGain2Code
     CapitalGainUnknown = EUCapitalGainCode.CapitalGainUnknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EUCapitalGain2CodeMetadataExtensions
-{
-    private static readonly EUCapitalGain2CodeDropdownSource _dropdownSource = new EUCapitalGain2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEUCapitalGain2CodeDropdownRow GetMetadata(this EUCapitalGain2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

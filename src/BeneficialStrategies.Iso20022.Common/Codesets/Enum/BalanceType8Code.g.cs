@@ -317,22 +317,3 @@ public enum BalanceType8Code
     CollectionExpected = BalanceTypeCode.CollectionExpected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType8CodeMetadataExtensions
-{
-    private static readonly BalanceType8CodeDropdownSource _dropdownSource = new BalanceType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType8CodeDropdownRow GetMetadata(this BalanceType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum ATMOperationCode
     Unloading,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMOperationCodeMetadataExtensions
-{
-    private static readonly ATMOperationCodeDropdownSource _dropdownSource = new ATMOperationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMOperationCodeDropdownRow GetMetadata(this ATMOperationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

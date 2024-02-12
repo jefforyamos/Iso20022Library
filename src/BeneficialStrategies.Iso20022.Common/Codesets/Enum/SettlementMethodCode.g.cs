@@ -56,22 +56,3 @@ public enum SettlementMethodCode
     ClearingSystem,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementMethodCodeMetadataExtensions
-{
-    private static readonly SettlementMethodCodeDropdownSource _dropdownSource = new SettlementMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementMethodCodeDropdownRow GetMetadata(this SettlementMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

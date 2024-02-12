@@ -128,22 +128,3 @@ public enum RejectionReason14Code
     MovementAlreadySettled = RejectionReasonCode.MovementAlreadySettled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason14CodeMetadataExtensions
-{
-    private static readonly RejectionReason14CodeDropdownSource _dropdownSource = new RejectionReason14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason14CodeDropdownRow GetMetadata(this RejectionReason14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

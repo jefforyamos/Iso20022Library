@@ -938,22 +938,3 @@ public enum ResultDetailCode
     InvalidService,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResultDetailCodeMetadataExtensions
-{
-    private static readonly ResultDetailCodeDropdownSource _dropdownSource = new ResultDetailCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResultDetailCodeDropdownRow GetMetadata(this ResultDetailCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

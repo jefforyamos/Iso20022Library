@@ -47,22 +47,3 @@ public enum ResidenceTypeCode
     Mixed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResidenceTypeCodeMetadataExtensions
-{
-    private static readonly ResidenceTypeCodeDropdownSource _dropdownSource = new ResidenceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResidenceTypeCodeDropdownRow GetMetadata(this ResidenceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

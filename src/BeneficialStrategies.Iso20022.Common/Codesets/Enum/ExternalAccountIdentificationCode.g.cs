@@ -58,22 +58,3 @@ public enum ExternalAccountIdentificationCode
     UPICIdentifier,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAccountIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalAccountIdentificationCodeDropdownSource _dropdownSource = new ExternalAccountIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAccountIdentificationCodeDropdownRow GetMetadata(this ExternalAccountIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

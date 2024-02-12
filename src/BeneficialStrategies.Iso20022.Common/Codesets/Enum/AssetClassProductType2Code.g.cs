@@ -29,22 +29,3 @@ public enum AssetClassProductType2Code
     Energy = AssetClassProductTypeCode.Energy, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType2CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType2CodeDropdownSource _dropdownSource = new AssetClassProductType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType2CodeDropdownRow GetMetadata(this AssetClassProductType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

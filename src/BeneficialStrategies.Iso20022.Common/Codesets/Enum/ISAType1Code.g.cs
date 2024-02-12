@@ -47,22 +47,3 @@ public enum ISAType1Code
     MiniCash = ISATypeCode.MiniCash, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ISAType1CodeMetadataExtensions
-{
-    private static readonly ISAType1CodeDropdownSource _dropdownSource = new ISAType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IISAType1CodeDropdownRow GetMetadata(this ISAType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

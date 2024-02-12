@@ -335,22 +335,3 @@ public enum RejectionReason57Code
     MissingTransactionType = RejectionReasonV3Code.MissingTransactionType, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason57CodeMetadataExtensions
-{
-    private static readonly RejectionReason57CodeDropdownSource _dropdownSource = new RejectionReason57CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason57CodeDropdownRow GetMetadata(this RejectionReason57Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

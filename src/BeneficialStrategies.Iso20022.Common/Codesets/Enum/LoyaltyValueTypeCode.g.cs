@@ -65,22 +65,3 @@ public enum LoyaltyValueTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyValueTypeCodeMetadataExtensions
-{
-    private static readonly LoyaltyValueTypeCodeDropdownSource _dropdownSource = new LoyaltyValueTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyValueTypeCodeDropdownRow GetMetadata(this LoyaltyValueTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

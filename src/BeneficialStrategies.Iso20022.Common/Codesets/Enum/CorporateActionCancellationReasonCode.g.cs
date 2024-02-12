@@ -38,22 +38,3 @@ public enum CorporateActionCancellationReasonCode
     Withrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionCancellationReasonCodeMetadataExtensions
-{
-    private static readonly CorporateActionCancellationReasonCodeDropdownSource _dropdownSource = new CorporateActionCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionCancellationReasonCodeDropdownRow GetMetadata(this CorporateActionCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

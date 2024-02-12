@@ -173,22 +173,3 @@ public enum RejectionReason40Code
     SettlementTransactionRejection = RejectionReasonV2Code.SettlementTransactionRejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason40CodeMetadataExtensions
-{
-    private static readonly RejectionReason40CodeDropdownSource _dropdownSource = new RejectionReason40CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason40CodeDropdownRow GetMetadata(this RejectionReason40Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

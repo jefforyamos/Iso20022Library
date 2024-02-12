@@ -38,22 +38,3 @@ public enum DeliveryStatusCode
     Success,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryStatusCodeMetadataExtensions
-{
-    private static readonly DeliveryStatusCodeDropdownSource _dropdownSource = new DeliveryStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryStatusCodeDropdownRow GetMetadata(this DeliveryStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

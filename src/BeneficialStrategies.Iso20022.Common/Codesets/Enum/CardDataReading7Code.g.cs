@@ -147,22 +147,3 @@ public enum CardDataReading7Code
     KeyEntered = CardDataReadingCode.KeyEntered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading7CodeMetadataExtensions
-{
-    private static readonly CardDataReading7CodeDropdownSource _dropdownSource = new CardDataReading7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading7CodeDropdownRow GetMetadata(this CardDataReading7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

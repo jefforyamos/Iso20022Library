@@ -263,22 +263,3 @@ public enum ModificationRejection2Code
     UnableToModifyInstructedAmount = PaymentModificationRejectionV2Code.UnableToModifyInstructedAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModificationRejection2CodeMetadataExtensions
-{
-    private static readonly ModificationRejection2CodeDropdownSource _dropdownSource = new ModificationRejection2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModificationRejection2CodeDropdownRow GetMetadata(this ModificationRejection2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum SecuritiesBalanceType4Code
     Holdback = SecuritiesBalanceTypeCode.Holdback, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType4CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType4CodeDropdownSource _dropdownSource = new SecuritiesBalanceType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType4CodeDropdownRow GetMetadata(this SecuritiesBalanceType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

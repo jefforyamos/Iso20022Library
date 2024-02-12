@@ -57,22 +57,3 @@ public enum ExternalTechnicalInputChannelCode
     Internet,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTechnicalInputChannelCodeMetadataExtensions
-{
-    private static readonly ExternalTechnicalInputChannelCodeDropdownSource _dropdownSource = new ExternalTechnicalInputChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTechnicalInputChannelCodeDropdownRow GetMetadata(this ExternalTechnicalInputChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

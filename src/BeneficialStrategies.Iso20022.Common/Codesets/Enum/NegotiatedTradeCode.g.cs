@@ -47,22 +47,3 @@ public enum NegotiatedTradeCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NegotiatedTradeCodeMetadataExtensions
-{
-    private static readonly NegotiatedTradeCodeDropdownSource _dropdownSource = new NegotiatedTradeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INegotiatedTradeCodeDropdownRow GetMetadata(this NegotiatedTradeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

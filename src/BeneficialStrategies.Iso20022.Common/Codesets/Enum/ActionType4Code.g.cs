@@ -74,22 +74,3 @@ public enum ActionType4Code
     NoReasonForDecline = ActionTypeCode.NoReasonForDecline, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType4CodeMetadataExtensions
-{
-    private static readonly ActionType4CodeDropdownSource _dropdownSource = new ActionType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType4CodeDropdownRow GetMetadata(this ActionType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

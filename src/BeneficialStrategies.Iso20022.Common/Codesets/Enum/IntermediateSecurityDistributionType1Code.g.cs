@@ -128,22 +128,3 @@ public enum IntermediateSecurityDistributionType1Code
     SpinOff = IntermediateSecurityDistributionTypeCode.SpinOff, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IntermediateSecurityDistributionType1CodeMetadataExtensions
-{
-    private static readonly IntermediateSecurityDistributionType1CodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIntermediateSecurityDistributionType1CodeDropdownRow GetMetadata(this IntermediateSecurityDistributionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

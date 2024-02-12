@@ -200,22 +200,3 @@ public enum Algorithm24Code
     UKPTwithAES256 = AlgorithmCode.UKPTwithAES256, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm24CodeMetadataExtensions
-{
-    private static readonly Algorithm24CodeDropdownSource _dropdownSource = new Algorithm24CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm24CodeDropdownRow GetMetadata(this Algorithm24Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

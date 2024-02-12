@@ -146,22 +146,3 @@ public enum CardPaymentServiceType9Code
     NonRefundable = CardPaymentServiceTypeCode.NonRefundable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType9CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType9CodeDropdownSource _dropdownSource = new CardPaymentServiceType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType9CodeDropdownRow GetMetadata(this CardPaymentServiceType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

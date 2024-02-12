@@ -101,22 +101,3 @@ public enum ProcessingType1Code
     CoSDBlocking = ProcessingTypeCode.CoSDBlocking, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessingType1CodeMetadataExtensions
-{
-    private static readonly ProcessingType1CodeDropdownSource _dropdownSource = new ProcessingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessingType1CodeDropdownRow GetMetadata(this ProcessingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

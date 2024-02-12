@@ -47,22 +47,3 @@ public enum ERISAEligibilityCode
     ERISAEligibilityUnknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ERISAEligibilityCodeMetadataExtensions
-{
-    private static readonly ERISAEligibilityCodeDropdownSource _dropdownSource = new ERISAEligibilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IERISAEligibilityCodeDropdownRow GetMetadata(this ERISAEligibilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

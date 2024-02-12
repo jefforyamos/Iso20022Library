@@ -119,22 +119,3 @@ public enum InvestmentFundRole7Code
     Investor = PartyRoleCode.Investor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundRole7CodeMetadataExtensions
-{
-    private static readonly InvestmentFundRole7CodeDropdownSource _dropdownSource = new InvestmentFundRole7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundRole7CodeDropdownRow GetMetadata(this InvestmentFundRole7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum Operation1Code
     And = OperationCode.And, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Operation1CodeMetadataExtensions
-{
-    private static readonly Operation1CodeDropdownSource _dropdownSource = new Operation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperation1CodeDropdownRow GetMetadata(this Operation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum CorporateActionChangeTypeCode
     Decimalisation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionChangeTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionChangeTypeCodeDropdownSource _dropdownSource = new CorporateActionChangeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionChangeTypeCodeDropdownRow GetMetadata(this CorporateActionChangeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

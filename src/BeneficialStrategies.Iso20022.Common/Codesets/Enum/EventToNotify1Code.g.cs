@@ -182,22 +182,3 @@ public enum EventToNotify1Code
     Connected = EventToNotifyCode.Connected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventToNotify1CodeMetadataExtensions
-{
-    private static readonly EventToNotify1CodeDropdownSource _dropdownSource = new EventToNotify1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventToNotify1CodeDropdownRow GetMetadata(this EventToNotify1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

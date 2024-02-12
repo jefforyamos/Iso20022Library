@@ -182,22 +182,3 @@ public enum MessageErrorCode
     IterativeDataError,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageErrorCodeMetadataExtensions
-{
-    private static readonly MessageErrorCodeDropdownSource _dropdownSource = new MessageErrorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageErrorCodeDropdownRow GetMetadata(this MessageErrorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

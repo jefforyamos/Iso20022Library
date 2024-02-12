@@ -65,22 +65,3 @@ public enum SequenceTypeCode
     Represented,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SequenceTypeCodeMetadataExtensions
-{
-    private static readonly SequenceTypeCodeDropdownSource _dropdownSource = new SequenceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISequenceTypeCodeDropdownRow GetMetadata(this SequenceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

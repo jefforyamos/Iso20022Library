@@ -38,22 +38,3 @@ public enum TaxLiabilityCode
     TaxAgent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxLiabilityCodeMetadataExtensions
-{
-    private static readonly TaxLiabilityCodeDropdownSource _dropdownSource = new TaxLiabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxLiabilityCodeDropdownRow GetMetadata(this TaxLiabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

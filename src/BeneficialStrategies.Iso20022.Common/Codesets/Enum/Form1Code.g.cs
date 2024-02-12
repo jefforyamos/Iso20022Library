@@ -47,22 +47,3 @@ public enum Form1Code
     SignatureRequired = FormCode.SignatureRequired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Form1CodeMetadataExtensions
-{
-    private static readonly Form1CodeDropdownSource _dropdownSource = new Form1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IForm1CodeDropdownRow GetMetadata(this Form1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum ATMCommand4Code
     CountersReport = ATMCommandCode.CountersReport, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCommand4CodeMetadataExtensions
-{
-    private static readonly ATMCommand4CodeDropdownSource _dropdownSource = new ATMCommand4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCommand4CodeDropdownRow GetMetadata(this ATMCommand4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

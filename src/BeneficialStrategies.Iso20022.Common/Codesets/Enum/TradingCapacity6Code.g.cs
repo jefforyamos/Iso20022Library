@@ -83,22 +83,3 @@ public enum TradingCapacity6Code
     Principal = TradingCapacityCode.Principal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingCapacity6CodeMetadataExtensions
-{
-    private static readonly TradingCapacity6CodeDropdownSource _dropdownSource = new TradingCapacity6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingCapacity6CodeDropdownRow GetMetadata(this TradingCapacity6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

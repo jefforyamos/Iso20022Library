@@ -38,22 +38,3 @@ public enum PositionEffect3Code
     Lifo = PositionEffectCode.Lifo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PositionEffect3CodeMetadataExtensions
-{
-    private static readonly PositionEffect3CodeDropdownSource _dropdownSource = new PositionEffect3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPositionEffect3CodeDropdownRow GetMetadata(this PositionEffect3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InformationType1Code
     RelayInstructions = InformationTypeCode.RelayInstructions, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InformationType1CodeMetadataExtensions
-{
-    private static readonly InformationType1CodeDropdownSource _dropdownSource = new InformationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInformationType1CodeDropdownRow GetMetadata(this InformationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

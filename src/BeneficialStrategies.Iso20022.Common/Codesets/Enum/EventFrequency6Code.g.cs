@@ -47,22 +47,3 @@ public enum EventFrequency6Code
     OnDemand = EventFrequencyCode.OnDemand, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency6CodeMetadataExtensions
-{
-    private static readonly EventFrequency6CodeDropdownSource _dropdownSource = new EventFrequency6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency6CodeDropdownRow GetMetadata(this EventFrequency6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

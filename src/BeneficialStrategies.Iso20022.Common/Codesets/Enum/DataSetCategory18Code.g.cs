@@ -218,22 +218,3 @@ public enum DataSetCategory18Code
     ServiceProviderParameters = DataSetCategoryCode.ServiceProviderParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory18CodeMetadataExtensions
-{
-    private static readonly DataSetCategory18CodeDropdownSource _dropdownSource = new DataSetCategory18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory18CodeDropdownRow GetMetadata(this DataSetCategory18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

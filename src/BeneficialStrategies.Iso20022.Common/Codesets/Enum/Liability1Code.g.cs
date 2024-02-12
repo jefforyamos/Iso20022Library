@@ -38,22 +38,3 @@ public enum Liability1Code
     Broker = LiabilityCode.Broker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Liability1CodeMetadataExtensions
-{
-    private static readonly Liability1CodeDropdownSource _dropdownSource = new Liability1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILiability1CodeDropdownRow GetMetadata(this Liability1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

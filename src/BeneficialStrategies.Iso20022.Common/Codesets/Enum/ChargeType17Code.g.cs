@@ -119,22 +119,3 @@ public enum ChargeType17Code
     MiscellaneousFee = ChargeTypeCode.MiscellaneousFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType17CodeMetadataExtensions
-{
-    private static readonly ChargeType17CodeDropdownSource _dropdownSource = new ChargeType17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType17CodeDropdownRow GetMetadata(this ChargeType17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

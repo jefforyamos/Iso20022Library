@@ -128,22 +128,3 @@ public enum VoteInstructionCode
     ThreeYears,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstructionCodeMetadataExtensions
-{
-    private static readonly VoteInstructionCodeDropdownSource _dropdownSource = new VoteInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstructionCodeDropdownRow GetMetadata(this VoteInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

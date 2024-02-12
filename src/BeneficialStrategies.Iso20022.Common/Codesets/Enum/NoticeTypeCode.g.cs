@@ -38,22 +38,3 @@ public enum NoticeTypeCode
     CedeAndCo,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NoticeTypeCodeMetadataExtensions
-{
-    private static readonly NoticeTypeCodeDropdownSource _dropdownSource = new NoticeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INoticeTypeCodeDropdownRow GetMetadata(this NoticeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

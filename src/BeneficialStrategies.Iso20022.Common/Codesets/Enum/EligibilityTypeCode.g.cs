@@ -49,22 +49,3 @@ public enum EligibilityTypeCode
     Country,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EligibilityTypeCodeMetadataExtensions
-{
-    private static readonly EligibilityTypeCodeDropdownSource _dropdownSource = new EligibilityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEligibilityTypeCodeDropdownRow GetMetadata(this EligibilityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

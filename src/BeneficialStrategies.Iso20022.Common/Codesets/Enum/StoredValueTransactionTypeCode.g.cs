@@ -101,22 +101,3 @@ public enum StoredValueTransactionTypeCode
     CloseAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StoredValueTransactionTypeCodeMetadataExtensions
-{
-    private static readonly StoredValueTransactionTypeCodeDropdownSource _dropdownSource = new StoredValueTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStoredValueTransactionTypeCodeDropdownRow GetMetadata(this StoredValueTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

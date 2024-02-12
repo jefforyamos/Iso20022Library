@@ -56,22 +56,3 @@ public enum PensionTransferScopeCode
     DrawdownTranche,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionTransferScopeCodeMetadataExtensions
-{
-    private static readonly PensionTransferScopeCodeDropdownSource _dropdownSource = new PensionTransferScopeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionTransferScopeCodeDropdownRow GetMetadata(this PensionTransferScopeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

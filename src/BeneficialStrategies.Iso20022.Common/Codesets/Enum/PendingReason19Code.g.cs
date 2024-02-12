@@ -74,22 +74,3 @@ public enum PendingReason19Code
     MissingCertification = PendingFailingReasonCode.MissingCertification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason19CodeMetadataExtensions
-{
-    private static readonly PendingReason19CodeDropdownSource _dropdownSource = new PendingReason19CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason19CodeDropdownRow GetMetadata(this PendingReason19Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

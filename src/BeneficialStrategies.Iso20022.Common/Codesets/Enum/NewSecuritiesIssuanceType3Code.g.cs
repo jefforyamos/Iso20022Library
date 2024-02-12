@@ -38,22 +38,3 @@ public enum NewSecuritiesIssuanceType3Code
     NonDefeasedSecurityIndicator = NewSecuritiesIssuanceTypeCode.NonDefeasedSecurityIndicator, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NewSecuritiesIssuanceType3CodeMetadataExtensions
-{
-    private static readonly NewSecuritiesIssuanceType3CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INewSecuritiesIssuanceType3CodeDropdownRow GetMetadata(this NewSecuritiesIssuanceType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

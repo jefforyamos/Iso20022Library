@@ -128,22 +128,3 @@ public enum InstalmentAmountDetailsTypeCode
     Principal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstalmentAmountDetailsTypeCodeMetadataExtensions
-{
-    private static readonly InstalmentAmountDetailsTypeCodeDropdownSource _dropdownSource = new InstalmentAmountDetailsTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstalmentAmountDetailsTypeCodeDropdownRow GetMetadata(this InstalmentAmountDetailsTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

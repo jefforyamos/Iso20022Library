@@ -47,22 +47,3 @@ public enum IdentificationType1Code
     CFETS = IdentificationTypeCode.CFETS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IdentificationType1CodeMetadataExtensions
-{
-    private static readonly IdentificationType1CodeDropdownSource _dropdownSource = new IdentificationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIdentificationType1CodeDropdownRow GetMetadata(this IdentificationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

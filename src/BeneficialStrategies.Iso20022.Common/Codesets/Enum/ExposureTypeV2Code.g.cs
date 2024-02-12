@@ -425,22 +425,3 @@ public enum ExposureTypeV2Code
     SuggestedCreditLine,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureTypeV2CodeMetadataExtensions
-{
-    private static readonly ExposureTypeV2CodeDropdownSource _dropdownSource = new ExposureTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureTypeV2CodeDropdownRow GetMetadata(this ExposureTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

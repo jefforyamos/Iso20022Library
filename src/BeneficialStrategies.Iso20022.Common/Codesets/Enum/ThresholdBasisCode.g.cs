@@ -47,22 +47,3 @@ public enum ThresholdBasisCode
     AllVoteCast,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ThresholdBasisCodeMetadataExtensions
-{
-    private static readonly ThresholdBasisCodeDropdownSource _dropdownSource = new ThresholdBasisCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IThresholdBasisCodeDropdownRow GetMetadata(this ThresholdBasisCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum Frequency10Code
     Quarterly = FrequencyCode.Quarterly, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency10CodeMetadataExtensions
-{
-    private static readonly Frequency10CodeDropdownSource _dropdownSource = new Frequency10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency10CodeDropdownRow GetMetadata(this Frequency10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

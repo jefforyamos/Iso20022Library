@@ -29,22 +29,3 @@ public enum BestExecution1Code
     Best = BestExecutionCode.Best, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BestExecution1CodeMetadataExtensions
-{
-    private static readonly BestExecution1CodeDropdownSource _dropdownSource = new BestExecution1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBestExecution1CodeDropdownRow GetMetadata(this BestExecution1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

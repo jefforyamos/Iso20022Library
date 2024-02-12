@@ -56,22 +56,3 @@ public enum UnderlyingProductIdentifier1Code
     ForeignExchangeSWAP = UnderlyingProductIdentifierCode.ForeignExchangeSWAP, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingProductIdentifier1CodeMetadataExtensions
-{
-    private static readonly UnderlyingProductIdentifier1CodeDropdownSource _dropdownSource = new UnderlyingProductIdentifier1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingProductIdentifier1CodeDropdownRow GetMetadata(this UnderlyingProductIdentifier1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

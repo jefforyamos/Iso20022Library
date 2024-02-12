@@ -416,22 +416,3 @@ public enum UnmatchedReason10Code
     InvestorParty = UnmatchedReasonCode.InvestorParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason10CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason10CodeDropdownSource _dropdownSource = new UnmatchedReason10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason10CodeDropdownRow GetMetadata(this UnmatchedReason10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

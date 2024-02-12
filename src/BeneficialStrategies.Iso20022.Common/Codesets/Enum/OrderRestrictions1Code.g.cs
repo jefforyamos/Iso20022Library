@@ -110,22 +110,3 @@ public enum OrderRestrictions1Code
     RisklessArbitrage = OrderClassificationCode.RisklessArbitrage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderRestrictions1CodeMetadataExtensions
-{
-    private static readonly OrderRestrictions1CodeDropdownSource _dropdownSource = new OrderRestrictions1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderRestrictions1CodeDropdownRow GetMetadata(this OrderRestrictions1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

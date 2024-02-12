@@ -578,22 +578,3 @@ public enum FinancialAssetBalanceTypeCode
     FXLoss,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialAssetBalanceTypeCodeMetadataExtensions
-{
-    private static readonly FinancialAssetBalanceTypeCodeDropdownSource _dropdownSource = new FinancialAssetBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialAssetBalanceTypeCodeDropdownRow GetMetadata(this FinancialAssetBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

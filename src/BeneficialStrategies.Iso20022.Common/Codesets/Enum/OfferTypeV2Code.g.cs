@@ -92,22 +92,3 @@ public enum OfferTypeV2Code
     DissenterRightsNotApplicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OfferTypeV2CodeMetadataExtensions
-{
-    private static readonly OfferTypeV2CodeDropdownSource _dropdownSource = new OfferTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOfferTypeV2CodeDropdownRow GetMetadata(this OfferTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

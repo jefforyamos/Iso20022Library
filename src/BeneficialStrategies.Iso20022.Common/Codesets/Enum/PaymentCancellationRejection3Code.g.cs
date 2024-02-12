@@ -101,22 +101,3 @@ public enum PaymentCancellationRejection3Code
     NoOriginalTransactionReceived = PaymentCancellationRejectionCode.NoOriginalTransactionReceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCancellationRejection3CodeMetadataExtensions
-{
-    private static readonly PaymentCancellationRejection3CodeDropdownSource _dropdownSource = new PaymentCancellationRejection3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCancellationRejection3CodeDropdownRow GetMetadata(this PaymentCancellationRejection3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum AutoRoutingCode
     SuperDOTSystem,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AutoRoutingCodeMetadataExtensions
-{
-    private static readonly AutoRoutingCodeDropdownSource _dropdownSource = new AutoRoutingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAutoRoutingCodeDropdownRow GetMetadata(this AutoRoutingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

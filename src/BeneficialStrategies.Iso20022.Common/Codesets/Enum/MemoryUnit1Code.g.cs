@@ -83,22 +83,3 @@ public enum MemoryUnit1Code
     TeraByte = MemoryUnitCode.TeraByte, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MemoryUnit1CodeMetadataExtensions
-{
-    private static readonly MemoryUnit1CodeDropdownSource _dropdownSource = new MemoryUnit1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMemoryUnit1CodeDropdownRow GetMetadata(this MemoryUnit1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

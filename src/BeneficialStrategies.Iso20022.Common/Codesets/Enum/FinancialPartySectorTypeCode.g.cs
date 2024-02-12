@@ -119,22 +119,3 @@ public enum FinancialPartySectorTypeCode
     CentralSecuritiesDepository,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialPartySectorTypeCodeMetadataExtensions
-{
-    private static readonly FinancialPartySectorTypeCodeDropdownSource _dropdownSource = new FinancialPartySectorTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialPartySectorTypeCodeDropdownRow GetMetadata(this FinancialPartySectorTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

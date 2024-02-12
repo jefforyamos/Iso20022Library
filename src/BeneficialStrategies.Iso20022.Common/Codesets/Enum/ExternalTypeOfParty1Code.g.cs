@@ -138,22 +138,3 @@ public enum ExternalTypeOfParty1Code
     SpecifiedAddress = ExternalTypeOfPartyCode.SpecifiedAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTypeOfParty1CodeMetadataExtensions
-{
-    private static readonly ExternalTypeOfParty1CodeDropdownSource _dropdownSource = new ExternalTypeOfParty1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTypeOfParty1CodeDropdownRow GetMetadata(this ExternalTypeOfParty1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

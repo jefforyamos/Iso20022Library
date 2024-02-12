@@ -65,22 +65,3 @@ public enum EquityInstrumentReportingClassification1Code
     Certificate = FinancialInstrumentReportingClassificationCode.Certificate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EquityInstrumentReportingClassification1CodeMetadataExtensions
-{
-    private static readonly EquityInstrumentReportingClassification1CodeDropdownSource _dropdownSource = new EquityInstrumentReportingClassification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEquityInstrumentReportingClassification1CodeDropdownRow GetMetadata(this EquityInstrumentReportingClassification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum DividendPolicyCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DividendPolicyCodeMetadataExtensions
-{
-    private static readonly DividendPolicyCodeDropdownSource _dropdownSource = new DividendPolicyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDividendPolicyCodeDropdownRow GetMetadata(this DividendPolicyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

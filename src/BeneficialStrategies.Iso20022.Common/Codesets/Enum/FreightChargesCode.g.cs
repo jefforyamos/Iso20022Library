@@ -38,22 +38,3 @@ public enum FreightChargesCode
     Prepaid,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FreightChargesCodeMetadataExtensions
-{
-    private static readonly FreightChargesCodeDropdownSource _dropdownSource = new FreightChargesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFreightChargesCodeDropdownRow GetMetadata(this FreightChargesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

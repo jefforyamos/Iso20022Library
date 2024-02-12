@@ -420,22 +420,3 @@ public enum ExternalCategoryPurposeCode
     CarrierGuardedWholesaleValuables,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCategoryPurposeCodeMetadataExtensions
-{
-    private static readonly ExternalCategoryPurposeCodeDropdownSource _dropdownSource = new ExternalCategoryPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCategoryPurposeCodeDropdownRow GetMetadata(this ExternalCategoryPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

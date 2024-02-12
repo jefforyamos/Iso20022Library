@@ -128,22 +128,3 @@ public enum ReinvestmentIncomeClassification1Code
     ReturnOfCapital = ReinvestmentIncomeClassificationCode.ReturnOfCapital, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReinvestmentIncomeClassification1CodeMetadataExtensions
-{
-    private static readonly ReinvestmentIncomeClassification1CodeDropdownSource _dropdownSource = new ReinvestmentIncomeClassification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReinvestmentIncomeClassification1CodeDropdownRow GetMetadata(this ReinvestmentIncomeClassification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

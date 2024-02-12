@@ -317,22 +317,3 @@ public enum RejectionReason62Code
     ClosingTransactionAmount = RejectionReasonV3Code.ClosingTransactionAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason62CodeMetadataExtensions
-{
-    private static readonly RejectionReason62CodeDropdownSource _dropdownSource = new RejectionReason62CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason62CodeDropdownRow GetMetadata(this RejectionReason62Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

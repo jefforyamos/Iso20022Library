@@ -83,22 +83,3 @@ public enum MaturityRedemptionTypeCode
     Put,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MaturityRedemptionTypeCodeMetadataExtensions
-{
-    private static readonly MaturityRedemptionTypeCodeDropdownSource _dropdownSource = new MaturityRedemptionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMaturityRedemptionTypeCodeDropdownRow GetMetadata(this MaturityRedemptionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

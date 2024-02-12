@@ -155,22 +155,3 @@ public enum OptionFeaturesCode
     ShareholderNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeaturesCodeMetadataExtensions
-{
-    private static readonly OptionFeaturesCodeDropdownSource _dropdownSource = new OptionFeaturesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeaturesCodeDropdownRow GetMetadata(this OptionFeaturesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

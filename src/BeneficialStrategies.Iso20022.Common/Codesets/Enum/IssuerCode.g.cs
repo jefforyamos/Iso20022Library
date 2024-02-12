@@ -830,22 +830,3 @@ public enum IssuerCode
     XClear,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IssuerCodeMetadataExtensions
-{
-    private static readonly IssuerCodeDropdownSource _dropdownSource = new IssuerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIssuerCodeDropdownRow GetMetadata(this IssuerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

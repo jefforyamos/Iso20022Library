@@ -47,22 +47,3 @@ public enum PriceReportFunctionCode
     PartialCorrectionPriceReport,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceReportFunctionCodeMetadataExtensions
-{
-    private static readonly PriceReportFunctionCodeDropdownSource _dropdownSource = new PriceReportFunctionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceReportFunctionCodeDropdownRow GetMetadata(this PriceReportFunctionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -57,22 +57,3 @@ public enum SenderTrigger1Code
     Forced = SenderTriggerCode.Forced, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SenderTrigger1CodeMetadataExtensions
-{
-    private static readonly SenderTrigger1CodeDropdownSource _dropdownSource = new SenderTrigger1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISenderTrigger1CodeDropdownRow GetMetadata(this SenderTrigger1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

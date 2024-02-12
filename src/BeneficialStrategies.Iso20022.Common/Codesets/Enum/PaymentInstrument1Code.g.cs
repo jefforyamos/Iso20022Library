@@ -110,22 +110,3 @@ public enum PaymentInstrument1Code
     CancellationRequest = PaymentInstrumentCode.CancellationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentInstrument1CodeMetadataExtensions
-{
-    private static readonly PaymentInstrument1CodeDropdownSource _dropdownSource = new PaymentInstrument1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentInstrument1CodeDropdownRow GetMetadata(this PaymentInstrument1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

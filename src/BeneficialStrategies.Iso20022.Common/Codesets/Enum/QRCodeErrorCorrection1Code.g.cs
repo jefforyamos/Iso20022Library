@@ -56,22 +56,3 @@ public enum QRCodeErrorCorrection1Code
     ErrorCorrection7Percent = QRCodeErrorCorrectionCode.ErrorCorrection7Percent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodeErrorCorrection1CodeMetadataExtensions
-{
-    private static readonly QRCodeErrorCorrection1CodeDropdownSource _dropdownSource = new QRCodeErrorCorrection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodeErrorCorrection1CodeDropdownRow GetMetadata(this QRCodeErrorCorrection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

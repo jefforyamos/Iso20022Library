@@ -200,22 +200,3 @@ public enum ResponseCode
     Warning,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResponseCodeMetadataExtensions
-{
-    private static readonly ResponseCodeDropdownSource _dropdownSource = new ResponseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponseCodeDropdownRow GetMetadata(this ResponseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum TrackerPaymentStatus1Code
     Rejected = TrackerPaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerPaymentStatus1CodeMetadataExtensions
-{
-    private static readonly TrackerPaymentStatus1CodeDropdownSource _dropdownSource = new TrackerPaymentStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerPaymentStatus1CodeDropdownRow GetMetadata(this TrackerPaymentStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

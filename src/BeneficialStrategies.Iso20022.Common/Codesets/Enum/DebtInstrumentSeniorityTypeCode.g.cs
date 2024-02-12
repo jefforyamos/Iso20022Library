@@ -65,22 +65,3 @@ public enum DebtInstrumentSeniorityTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DebtInstrumentSeniorityTypeCodeMetadataExtensions
-{
-    private static readonly DebtInstrumentSeniorityTypeCodeDropdownSource _dropdownSource = new DebtInstrumentSeniorityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDebtInstrumentSeniorityTypeCodeDropdownRow GetMetadata(this DebtInstrumentSeniorityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

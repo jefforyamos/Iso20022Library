@@ -29,22 +29,3 @@ public enum AssetClassProductType9Code
     Polypropylene = AssetClassProductTypeCode.Polypropylene, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType9CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType9CodeDropdownSource _dropdownSource = new AssetClassProductType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType9CodeDropdownRow GetMetadata(this AssetClassProductType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

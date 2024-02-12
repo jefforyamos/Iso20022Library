@@ -38,22 +38,3 @@ public enum PartialSettlementCode
     PreviouslyPartialConfirmed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartialSettlementCodeMetadataExtensions
-{
-    private static readonly PartialSettlementCodeDropdownSource _dropdownSource = new PartialSettlementCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartialSettlementCodeDropdownRow GetMetadata(this PartialSettlementCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

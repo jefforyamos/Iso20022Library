@@ -56,22 +56,3 @@ public enum BankRoleCode
     RecipientBank,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BankRoleCodeMetadataExtensions
-{
-    private static readonly BankRoleCodeDropdownSource _dropdownSource = new BankRoleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBankRoleCodeDropdownRow GetMetadata(this BankRoleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

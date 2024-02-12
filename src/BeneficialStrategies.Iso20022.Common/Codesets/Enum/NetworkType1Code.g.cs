@@ -38,22 +38,3 @@ public enum NetworkType1Code
     PublicTelephone = NetworkTypeCode.PublicTelephone, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NetworkType1CodeMetadataExtensions
-{
-    private static readonly NetworkType1CodeDropdownSource _dropdownSource = new NetworkType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INetworkType1CodeDropdownRow GetMetadata(this NetworkType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

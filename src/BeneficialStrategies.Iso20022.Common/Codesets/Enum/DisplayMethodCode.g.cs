@@ -47,22 +47,3 @@ public enum DisplayMethodCode
     Random,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisplayMethodCodeMetadataExtensions
-{
-    private static readonly DisplayMethodCodeDropdownSource _dropdownSource = new DisplayMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisplayMethodCodeDropdownRow GetMetadata(this DisplayMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

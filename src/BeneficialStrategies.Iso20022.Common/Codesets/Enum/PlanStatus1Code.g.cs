@@ -47,22 +47,3 @@ public enum PlanStatus1Code
     Suspended = PlanStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PlanStatus1CodeMetadataExtensions
-{
-    private static readonly PlanStatus1CodeDropdownSource _dropdownSource = new PlanStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPlanStatus1CodeDropdownRow GetMetadata(this PlanStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

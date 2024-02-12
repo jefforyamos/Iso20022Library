@@ -92,22 +92,3 @@ public enum ChargeType12Code
     TransferFee = ChargeTypeCode.TransferFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType12CodeMetadataExtensions
-{
-    private static readonly ChargeType12CodeDropdownSource _dropdownSource = new ChargeType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType12CodeDropdownRow GetMetadata(this ChargeType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

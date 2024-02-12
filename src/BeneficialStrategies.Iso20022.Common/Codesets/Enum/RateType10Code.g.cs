@@ -38,22 +38,3 @@ public enum RateType10Code
     Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateType10CodeMetadataExtensions
-{
-    private static readonly RateType10CodeDropdownSource _dropdownSource = new RateType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateType10CodeDropdownRow GetMetadata(this RateType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

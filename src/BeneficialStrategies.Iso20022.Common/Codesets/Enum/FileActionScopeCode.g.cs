@@ -38,22 +38,3 @@ public enum FileActionScopeCode
     Record,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FileActionScopeCodeMetadataExtensions
-{
-    private static readonly FileActionScopeCodeDropdownSource _dropdownSource = new FileActionScopeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFileActionScopeCodeDropdownRow GetMetadata(this FileActionScopeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

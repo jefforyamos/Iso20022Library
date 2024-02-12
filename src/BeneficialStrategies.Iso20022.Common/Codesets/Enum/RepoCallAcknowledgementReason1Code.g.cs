@@ -65,22 +65,3 @@ public enum RepoCallAcknowledgementReason1Code
     BeingProcessed = RepoCallAcknowledgementReasonCode.BeingProcessed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoCallAcknowledgementReason1CodeMetadataExtensions
-{
-    private static readonly RepoCallAcknowledgementReason1CodeDropdownSource _dropdownSource = new RepoCallAcknowledgementReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoCallAcknowledgementReason1CodeDropdownRow GetMetadata(this RepoCallAcknowledgementReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

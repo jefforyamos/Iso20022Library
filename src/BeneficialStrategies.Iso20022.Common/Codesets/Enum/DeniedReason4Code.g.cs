@@ -110,22 +110,3 @@ public enum DeniedReason4Code
     ConditionalRealignement = DeniedReasonCode.ConditionalRealignement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeniedReason4CodeMetadataExtensions
-{
-    private static readonly DeniedReason4CodeDropdownSource _dropdownSource = new DeniedReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeniedReason4CodeDropdownRow GetMetadata(this DeniedReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

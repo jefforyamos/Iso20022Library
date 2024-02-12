@@ -74,22 +74,3 @@ public enum OriginatorRole2Code
     TransfertAgent = OriginatorRoleCode.TransfertAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OriginatorRole2CodeMetadataExtensions
-{
-    private static readonly OriginatorRole2CodeDropdownSource _dropdownSource = new OriginatorRole2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOriginatorRole2CodeDropdownRow GetMetadata(this OriginatorRole2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

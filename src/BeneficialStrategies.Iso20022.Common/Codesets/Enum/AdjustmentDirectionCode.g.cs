@@ -38,22 +38,3 @@ public enum AdjustmentDirectionCode
     Substracted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdjustmentDirectionCodeMetadataExtensions
-{
-    private static readonly AdjustmentDirectionCodeDropdownSource _dropdownSource = new AdjustmentDirectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdjustmentDirectionCodeDropdownRow GetMetadata(this AdjustmentDirectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

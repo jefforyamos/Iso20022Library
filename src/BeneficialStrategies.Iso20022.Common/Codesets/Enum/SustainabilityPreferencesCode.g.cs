@@ -47,22 +47,3 @@ public enum SustainabilityPreferencesCode
     SustainablePreference,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SustainabilityPreferencesCodeMetadataExtensions
-{
-    private static readonly SustainabilityPreferencesCodeDropdownSource _dropdownSource = new SustainabilityPreferencesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISustainabilityPreferencesCodeDropdownRow GetMetadata(this SustainabilityPreferencesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

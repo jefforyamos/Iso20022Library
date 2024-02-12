@@ -38,22 +38,3 @@ public enum BuyInDeferral1Code
     BuyInNotDeferred = BuyInDeferralCode.BuyInNotDeferred, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BuyInDeferral1CodeMetadataExtensions
-{
-    private static readonly BuyInDeferral1CodeDropdownSource _dropdownSource = new BuyInDeferral1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBuyInDeferral1CodeDropdownRow GetMetadata(this BuyInDeferral1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum SubscriptionRequestCode
     Unsubscribe,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SubscriptionRequestCodeMetadataExtensions
-{
-    private static readonly SubscriptionRequestCodeDropdownSource _dropdownSource = new SubscriptionRequestCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISubscriptionRequestCodeDropdownRow GetMetadata(this SubscriptionRequestCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

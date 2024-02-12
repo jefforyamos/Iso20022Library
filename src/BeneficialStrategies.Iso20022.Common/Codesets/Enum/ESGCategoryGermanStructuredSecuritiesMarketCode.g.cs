@@ -56,22 +56,3 @@ public enum ESGCategoryGermanStructuredSecuritiesMarketCode
     ImpactSS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGCategoryGermanStructuredSecuritiesMarketCodeMetadataExtensions
-{
-    private static readonly ESGCategoryGermanStructuredSecuritiesMarketCodeDropdownSource _dropdownSource = new ESGCategoryGermanStructuredSecuritiesMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGCategoryGermanStructuredSecuritiesMarketCodeDropdownRow GetMetadata(this ESGCategoryGermanStructuredSecuritiesMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

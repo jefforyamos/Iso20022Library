@@ -29,22 +29,3 @@ public enum AssetClassProductType13Code
     MultiCommodityExotic = AssetClassProductTypeCode.MultiCommodityExotic, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType13CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType13CodeDropdownSource _dropdownSource = new AssetClassProductType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType13CodeDropdownRow GetMetadata(this AssetClassProductType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

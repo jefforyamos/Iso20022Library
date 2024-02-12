@@ -506,22 +506,3 @@ public enum RetailerServiceCode
     DeviceTransmissionMessageResponse,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerServiceCodeMetadataExtensions
-{
-    private static readonly RetailerServiceCodeDropdownSource _dropdownSource = new RetailerServiceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerServiceCodeDropdownRow GetMetadata(this RetailerServiceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

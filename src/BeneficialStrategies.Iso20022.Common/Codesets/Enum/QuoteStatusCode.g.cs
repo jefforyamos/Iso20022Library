@@ -164,22 +164,3 @@ public enum QuoteStatusCode
     CanceledDueToCrossMarket,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuoteStatusCodeMetadataExtensions
-{
-    private static readonly QuoteStatusCodeDropdownSource _dropdownSource = new QuoteStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuoteStatusCodeDropdownRow GetMetadata(this QuoteStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

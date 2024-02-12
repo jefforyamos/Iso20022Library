@@ -65,22 +65,3 @@ public enum RegisteredNumberType1Code
     Other = RegisteredNumberTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegisteredNumberType1CodeMetadataExtensions
-{
-    private static readonly RegisteredNumberType1CodeDropdownSource _dropdownSource = new RegisteredNumberType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegisteredNumberType1CodeDropdownRow GetMetadata(this RegisteredNumberType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

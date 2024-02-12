@@ -353,22 +353,3 @@ public enum DTCUnallocatedAdjustmentReason3Code
     CanadianDepositoryInventory = DTCUnallocatedAdjustmentReasonCode.CanadianDepositoryInventory, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCUnallocatedAdjustmentReason3CodeMetadataExtensions
-{
-    private static readonly DTCUnallocatedAdjustmentReason3CodeDropdownSource _dropdownSource = new DTCUnallocatedAdjustmentReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCUnallocatedAdjustmentReason3CodeDropdownRow GetMetadata(this DTCUnallocatedAdjustmentReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

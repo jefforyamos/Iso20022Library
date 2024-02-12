@@ -111,22 +111,3 @@ public enum ExternalModelFormIdentificationCode
     URDGCounterGuarantee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalModelFormIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalModelFormIdentificationCodeDropdownSource _dropdownSource = new ExternalModelFormIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalModelFormIdentificationCodeDropdownRow GetMetadata(this ExternalModelFormIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

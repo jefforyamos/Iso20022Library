@@ -47,22 +47,3 @@ public enum FleetServiceType1Code
     FullService = FleetServiceTypeCode.FullService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FleetServiceType1CodeMetadataExtensions
-{
-    private static readonly FleetServiceType1CodeDropdownSource _dropdownSource = new FleetServiceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFleetServiceType1CodeDropdownRow GetMetadata(this FleetServiceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

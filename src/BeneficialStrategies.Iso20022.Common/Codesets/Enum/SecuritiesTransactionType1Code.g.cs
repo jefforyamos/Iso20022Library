@@ -380,22 +380,3 @@ public enum SecuritiesTransactionType1Code
     AutoCollateralisation = SecuritiesTransactionTypeV2Code.AutoCollateralisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType1CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType1CodeDropdownSource _dropdownSource = new SecuritiesTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType1CodeDropdownRow GetMetadata(this SecuritiesTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

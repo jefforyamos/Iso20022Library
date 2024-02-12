@@ -47,22 +47,3 @@ public enum TaxType2Code
     EUTaxRetention = TaxTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType2CodeMetadataExtensions
-{
-    private static readonly TaxType2CodeDropdownSource _dropdownSource = new TaxType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType2CodeDropdownRow GetMetadata(this TaxType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

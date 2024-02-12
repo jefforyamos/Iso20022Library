@@ -110,22 +110,3 @@ public enum CollateralType6Code
     StockCertificate = CollateralTypeCode.StockCertificate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralType6CodeMetadataExtensions
-{
-    private static readonly CollateralType6CodeDropdownSource _dropdownSource = new CollateralType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralType6CodeDropdownRow GetMetadata(this CollateralType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

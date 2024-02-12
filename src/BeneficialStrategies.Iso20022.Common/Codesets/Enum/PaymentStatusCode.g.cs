@@ -173,22 +173,3 @@ public enum PaymentStatusCode
     NoCancellationProcess,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentStatusCodeMetadataExtensions
-{
-    private static readonly PaymentStatusCodeDropdownSource _dropdownSource = new PaymentStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentStatusCodeDropdownRow GetMetadata(this PaymentStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

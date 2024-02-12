@@ -119,22 +119,3 @@ public enum CancelledStatusReasonCode
     CancelledByIntermediary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReasonCodeMetadataExtensions
-{
-    private static readonly CancelledStatusReasonCodeDropdownSource _dropdownSource = new CancelledStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReasonCodeDropdownRow GetMetadata(this CancelledStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

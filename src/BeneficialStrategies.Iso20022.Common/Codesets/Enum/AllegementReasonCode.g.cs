@@ -29,22 +29,3 @@ public enum AllegementReasonCode
     AllegementReceived,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllegementReasonCodeMetadataExtensions
-{
-    private static readonly AllegementReasonCodeDropdownSource _dropdownSource = new AllegementReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllegementReasonCodeDropdownRow GetMetadata(this AllegementReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

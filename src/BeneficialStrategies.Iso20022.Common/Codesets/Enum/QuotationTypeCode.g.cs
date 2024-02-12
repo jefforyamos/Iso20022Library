@@ -38,22 +38,3 @@ public enum QuotationTypeCode
     ActualAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuotationTypeCodeMetadataExtensions
-{
-    private static readonly QuotationTypeCodeDropdownSource _dropdownSource = new QuotationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuotationTypeCodeDropdownRow GetMetadata(this QuotationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

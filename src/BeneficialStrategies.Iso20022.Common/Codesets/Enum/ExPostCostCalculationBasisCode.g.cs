@@ -38,22 +38,3 @@ public enum ExPostCostCalculationBasisCode
     FixedBasis,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExPostCostCalculationBasisCodeMetadataExtensions
-{
-    private static readonly ExPostCostCalculationBasisCodeDropdownSource _dropdownSource = new ExPostCostCalculationBasisCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExPostCostCalculationBasisCodeDropdownRow GetMetadata(this ExPostCostCalculationBasisCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum RepurchaseTypeV2Code
     PrincipalExposureAdjustment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepurchaseTypeV2CodeMetadataExtensions
-{
-    private static readonly RepurchaseTypeV2CodeDropdownSource _dropdownSource = new RepurchaseTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepurchaseTypeV2CodeDropdownRow GetMetadata(this RepurchaseTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

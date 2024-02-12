@@ -398,22 +398,3 @@ public enum BalanceType6Code
     TotalRejected = BalanceTypeCode.TotalRejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType6CodeMetadataExtensions
-{
-    private static readonly BalanceType6CodeDropdownSource _dropdownSource = new BalanceType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType6CodeDropdownRow GetMetadata(this BalanceType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

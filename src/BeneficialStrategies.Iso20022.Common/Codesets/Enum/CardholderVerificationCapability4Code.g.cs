@@ -155,22 +155,3 @@ public enum CardholderVerificationCapability4Code
     Other = CardholderVerificationCapabilityCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderVerificationCapability4CodeMetadataExtensions
-{
-    private static readonly CardholderVerificationCapability4CodeDropdownSource _dropdownSource = new CardholderVerificationCapability4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderVerificationCapability4CodeDropdownRow GetMetadata(this CardholderVerificationCapability4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

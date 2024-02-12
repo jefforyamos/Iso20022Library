@@ -92,22 +92,3 @@ public enum BatchManagementTypeCode
     IdentificationList,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BatchManagementTypeCodeMetadataExtensions
-{
-    private static readonly BatchManagementTypeCodeDropdownSource _dropdownSource = new BatchManagementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBatchManagementTypeCodeDropdownRow GetMetadata(this BatchManagementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum TaxableIncomePerShareCalculated2Code
     FundCalculatesUnknown = TaxableIncomePerShareCalculatedCode.FundCalculatesUnknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxableIncomePerShareCalculated2CodeMetadataExtensions
-{
-    private static readonly TaxableIncomePerShareCalculated2CodeDropdownSource _dropdownSource = new TaxableIncomePerShareCalculated2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxableIncomePerShareCalculated2CodeDropdownRow GetMetadata(this TaxableIncomePerShareCalculated2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

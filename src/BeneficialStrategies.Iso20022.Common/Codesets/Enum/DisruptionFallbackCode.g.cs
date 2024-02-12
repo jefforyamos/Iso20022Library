@@ -118,22 +118,3 @@ public enum DisruptionFallbackCode
     SettlementPostponement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisruptionFallbackCodeMetadataExtensions
-{
-    private static readonly DisruptionFallbackCodeDropdownSource _dropdownSource = new DisruptionFallbackCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisruptionFallbackCodeDropdownRow GetMetadata(this DisruptionFallbackCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

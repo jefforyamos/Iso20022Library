@@ -56,22 +56,3 @@ public enum AdjustmentType2Code
     Surcharge = AdjustmentTypeCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdjustmentType2CodeMetadataExtensions
-{
-    private static readonly AdjustmentType2CodeDropdownSource _dropdownSource = new AdjustmentType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdjustmentType2CodeDropdownRow GetMetadata(this AdjustmentType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

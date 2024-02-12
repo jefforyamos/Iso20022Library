@@ -29,22 +29,3 @@ public enum EventGroup3Code
     Distribution = EventGroupCode.Distribution, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventGroup3CodeMetadataExtensions
-{
-    private static readonly EventGroup3CodeDropdownSource _dropdownSource = new EventGroup3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventGroup3CodeDropdownRow GetMetadata(this EventGroup3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

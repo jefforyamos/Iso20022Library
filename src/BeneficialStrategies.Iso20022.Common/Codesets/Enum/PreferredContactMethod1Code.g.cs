@@ -65,22 +65,3 @@ public enum PreferredContactMethod1Code
     MobileOrCellPhone = PreferredContactMethodCode.MobileOrCellPhone, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PreferredContactMethod1CodeMetadataExtensions
-{
-    private static readonly PreferredContactMethod1CodeDropdownSource _dropdownSource = new PreferredContactMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPreferredContactMethod1CodeDropdownRow GetMetadata(this PreferredContactMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

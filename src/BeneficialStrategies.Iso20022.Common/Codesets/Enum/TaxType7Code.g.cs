@@ -182,22 +182,3 @@ public enum TaxType7Code
     Other = TaxTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType7CodeMetadataExtensions
-{
-    private static readonly TaxType7CodeDropdownSource _dropdownSource = new TaxType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType7CodeDropdownRow GetMetadata(this TaxType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

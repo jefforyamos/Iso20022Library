@@ -47,22 +47,3 @@ public enum InvestigationStatusCode
     NotApplicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationStatusCodeMetadataExtensions
-{
-    private static readonly InvestigationStatusCodeDropdownSource _dropdownSource = new InvestigationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationStatusCodeDropdownRow GetMetadata(this InvestigationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

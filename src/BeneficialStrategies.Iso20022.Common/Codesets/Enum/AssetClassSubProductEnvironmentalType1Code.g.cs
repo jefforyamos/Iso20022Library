@@ -47,22 +47,3 @@ public enum AssetClassSubProductEnvironmentalType1Code
     Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductEnvironmentalType1CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductEnvironmentalType1CodeDropdownSource _dropdownSource = new AssetClassSubProductEnvironmentalType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductEnvironmentalType1CodeDropdownRow GetMetadata(this AssetClassSubProductEnvironmentalType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

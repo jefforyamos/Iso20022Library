@@ -164,22 +164,3 @@ public enum MessageFunction43Code
     TransactionReportRequest = MessageFunctionCode.TransactionReportRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction43CodeMetadataExtensions
-{
-    private static readonly MessageFunction43CodeDropdownSource _dropdownSource = new MessageFunction43CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction43CodeDropdownRow GetMetadata(this MessageFunction43Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

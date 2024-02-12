@@ -147,22 +147,3 @@ public enum CardDataReading10Code
     AccountData = CardDataReadingCode.AccountData, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading10CodeMetadataExtensions
-{
-    private static readonly CardDataReading10CodeDropdownSource _dropdownSource = new CardDataReading10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading10CodeDropdownRow GetMetadata(this CardDataReading10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum CorporateActionTaxableIncomePerShareCalculated1Code
     Unknown = CorporateActionTaxableIncomePerShareCalculatedCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionTaxableIncomePerShareCalculated1CodeMetadataExtensions
-{
-    private static readonly CorporateActionTaxableIncomePerShareCalculated1CodeDropdownSource _dropdownSource = new CorporateActionTaxableIncomePerShareCalculated1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionTaxableIncomePerShareCalculated1CodeDropdownRow GetMetadata(this CorporateActionTaxableIncomePerShareCalculated1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

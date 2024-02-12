@@ -218,22 +218,3 @@ public enum ATMDevice2Code
     WithdrawalReceipt = ATMDeviceCode.WithdrawalReceipt, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMDevice2CodeMetadataExtensions
-{
-    private static readonly ATMDevice2CodeDropdownSource _dropdownSource = new ATMDevice2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMDevice2CodeDropdownRow GetMetadata(this ATMDevice2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum Validation2Code
     ValidationFailed = ValidationCode.ValidationFailed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Validation2CodeMetadataExtensions
-{
-    private static readonly Validation2CodeDropdownSource _dropdownSource = new Validation2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidation2CodeDropdownRow GetMetadata(this Validation2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum RejectionReason3Code
     InsufficientCredit = RejectionReasonCode.InsufficientCredit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason3CodeMetadataExtensions
-{
-    private static readonly RejectionReason3CodeDropdownSource _dropdownSource = new RejectionReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason3CodeDropdownRow GetMetadata(this RejectionReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

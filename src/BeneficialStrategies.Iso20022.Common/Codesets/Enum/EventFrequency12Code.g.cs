@@ -128,22 +128,3 @@ public enum EventFrequency12Code
     OnDemand = EventFrequencyCode.OnDemand, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency12CodeMetadataExtensions
-{
-    private static readonly EventFrequency12CodeDropdownSource _dropdownSource = new EventFrequency12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency12CodeDropdownRow GetMetadata(this EventFrequency12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

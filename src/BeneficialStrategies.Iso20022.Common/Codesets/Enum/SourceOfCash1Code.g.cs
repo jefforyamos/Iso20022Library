@@ -155,22 +155,3 @@ public enum SourceOfCash1Code
     Winnings = SourceOfCashCode.Winnings, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SourceOfCash1CodeMetadataExtensions
-{
-    private static readonly SourceOfCash1CodeDropdownSource _dropdownSource = new SourceOfCash1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISourceOfCash1CodeDropdownRow GetMetadata(this SourceOfCash1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

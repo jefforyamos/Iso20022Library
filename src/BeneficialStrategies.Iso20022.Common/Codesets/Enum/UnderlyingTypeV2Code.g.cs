@@ -218,22 +218,3 @@ public enum UnderlyingTypeV2Code
     InterestRateFutureFRA,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingTypeV2CodeMetadataExtensions
-{
-    private static readonly UnderlyingTypeV2CodeDropdownSource _dropdownSource = new UnderlyingTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingTypeV2CodeDropdownRow GetMetadata(this UnderlyingTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

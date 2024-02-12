@@ -56,22 +56,3 @@ public enum ProfileTypeCode
     Hedge,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProfileTypeCodeMetadataExtensions
-{
-    private static readonly ProfileTypeCodeDropdownSource _dropdownSource = new ProfileTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProfileTypeCodeDropdownRow GetMetadata(this ProfileTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

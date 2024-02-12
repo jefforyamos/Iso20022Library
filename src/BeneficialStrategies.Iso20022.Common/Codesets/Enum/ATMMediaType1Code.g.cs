@@ -83,22 +83,3 @@ public enum ATMMediaType1Code
     Undetermined = ATMMediaTypeCode.Undetermined, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMMediaType1CodeMetadataExtensions
-{
-    private static readonly ATMMediaType1CodeDropdownSource _dropdownSource = new ATMMediaType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMMediaType1CodeDropdownRow GetMetadata(this ATMMediaType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

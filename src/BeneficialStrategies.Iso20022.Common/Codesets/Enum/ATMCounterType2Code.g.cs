@@ -56,22 +56,3 @@ public enum ATMCounterType2Code
     OperatorAdjust = ATMCounterTypeCode.OperatorAdjust, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCounterType2CodeMetadataExtensions
-{
-    private static readonly ATMCounterType2CodeDropdownSource _dropdownSource = new ATMCounterType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCounterType2CodeDropdownRow GetMetadata(this ATMCounterType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

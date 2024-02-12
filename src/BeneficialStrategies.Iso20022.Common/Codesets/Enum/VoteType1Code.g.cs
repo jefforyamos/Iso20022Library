@@ -38,22 +38,3 @@ public enum VoteType1Code
     Binding = VoteTypeCode.Binding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteType1CodeMetadataExtensions
-{
-    private static readonly VoteType1CodeDropdownSource _dropdownSource = new VoteType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteType1CodeDropdownRow GetMetadata(this VoteType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

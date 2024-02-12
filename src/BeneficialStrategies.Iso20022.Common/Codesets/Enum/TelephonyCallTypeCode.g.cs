@@ -92,22 +92,3 @@ public enum TelephonyCallTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TelephonyCallTypeCodeMetadataExtensions
-{
-    private static readonly TelephonyCallTypeCodeDropdownSource _dropdownSource = new TelephonyCallTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITelephonyCallTypeCodeDropdownRow GetMetadata(this TelephonyCallTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

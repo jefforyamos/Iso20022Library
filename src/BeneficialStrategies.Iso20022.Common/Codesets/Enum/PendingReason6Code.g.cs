@@ -74,22 +74,3 @@ public enum PendingReason6Code
     ConditionalRealignement = PendingFailingReasonCode.ConditionalRealignement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason6CodeMetadataExtensions
-{
-    private static readonly PendingReason6CodeDropdownSource _dropdownSource = new PendingReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason6CodeDropdownRow GetMetadata(this PendingReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

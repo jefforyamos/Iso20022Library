@@ -83,22 +83,3 @@ public enum EnergyLoadTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnergyLoadTypeCodeMetadataExtensions
-{
-    private static readonly EnergyLoadTypeCodeDropdownSource _dropdownSource = new EnergyLoadTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnergyLoadTypeCodeDropdownRow GetMetadata(this EnergyLoadTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

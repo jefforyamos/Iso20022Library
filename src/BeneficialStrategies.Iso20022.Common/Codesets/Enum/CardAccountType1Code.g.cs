@@ -83,22 +83,3 @@ public enum CardAccountType1Code
     EpurseCard = CardAccountTypeCode.EpurseCard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardAccountType1CodeMetadataExtensions
-{
-    private static readonly CardAccountType1CodeDropdownSource _dropdownSource = new CardAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardAccountType1CodeDropdownRow GetMetadata(this CardAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

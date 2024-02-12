@@ -65,22 +65,3 @@ public enum AttendanceContext2Code
     SelfServe = AttendanceContextCode.SelfServe, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttendanceContext2CodeMetadataExtensions
-{
-    private static readonly AttendanceContext2CodeDropdownSource _dropdownSource = new AttendanceContext2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttendanceContext2CodeDropdownRow GetMetadata(this AttendanceContext2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

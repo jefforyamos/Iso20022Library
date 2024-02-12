@@ -29,22 +29,3 @@ public enum AssetClassSubProductType42Code
     Sulphur = AssetClassSubProductTypeCode.Sulphur, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType42CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType42CodeDropdownSource _dropdownSource = new AssetClassSubProductType42CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType42CodeDropdownRow GetMetadata(this AssetClassSubProductType42Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

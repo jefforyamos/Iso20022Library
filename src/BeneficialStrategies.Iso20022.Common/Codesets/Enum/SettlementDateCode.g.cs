@@ -227,22 +227,3 @@ public enum SettlementDateCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDateCodeMetadataExtensions
-{
-    private static readonly SettlementDateCodeDropdownSource _dropdownSource = new SettlementDateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDateCodeDropdownRow GetMetadata(this SettlementDateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

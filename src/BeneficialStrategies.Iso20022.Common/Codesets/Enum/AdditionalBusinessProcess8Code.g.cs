@@ -56,22 +56,3 @@ public enum AdditionalBusinessProcess8Code
     PartialPreFunding = AdditionalBusinessProcessCode.PartialPreFunding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess8CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess8CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess8CodeDropdownRow GetMetadata(this AdditionalBusinessProcess8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum ActionType7Code
     FallForward = ActionTypeCode.FallForward, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType7CodeMetadataExtensions
-{
-    private static readonly ActionType7CodeDropdownSource _dropdownSource = new ActionType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType7CodeDropdownRow GetMetadata(this ActionType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CorporateActionEventStatus3Code
     Inactive = CorporateActionEventStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStatus3CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStatus3CodeDropdownSource _dropdownSource = new CorporateActionEventStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStatus3CodeDropdownRow GetMetadata(this CorporateActionEventStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

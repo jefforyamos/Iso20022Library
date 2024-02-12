@@ -92,22 +92,3 @@ public enum RepurchaseType9Code
     Withdrawal = RepurchaseTypeV2Code.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepurchaseType9CodeMetadataExtensions
-{
-    private static readonly RepurchaseType9CodeDropdownSource _dropdownSource = new RepurchaseType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepurchaseType9CodeDropdownRow GetMetadata(this RepurchaseType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

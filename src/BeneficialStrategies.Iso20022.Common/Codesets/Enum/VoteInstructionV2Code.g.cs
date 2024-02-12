@@ -146,22 +146,3 @@ public enum VoteInstructionV2Code
     NoRecommendation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstructionV2CodeMetadataExtensions
-{
-    private static readonly VoteInstructionV2CodeDropdownSource _dropdownSource = new VoteInstructionV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstructionV2CodeDropdownRow GetMetadata(this VoteInstructionV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

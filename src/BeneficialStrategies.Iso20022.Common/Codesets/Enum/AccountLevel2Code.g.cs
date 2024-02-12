@@ -47,22 +47,3 @@ public enum AccountLevel2Code
     Detail = AccountLevelCode.Detail, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountLevel2CodeMetadataExtensions
-{
-    private static readonly AccountLevel2CodeDropdownSource _dropdownSource = new AccountLevel2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountLevel2CodeDropdownRow GetMetadata(this AccountLevel2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

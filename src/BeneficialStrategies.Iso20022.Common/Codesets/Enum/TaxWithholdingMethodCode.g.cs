@@ -101,22 +101,3 @@ public enum TaxWithholdingMethodCode
     MinorityInterestTax,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxWithholdingMethodCodeMetadataExtensions
-{
-    private static readonly TaxWithholdingMethodCodeDropdownSource _dropdownSource = new TaxWithholdingMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxWithholdingMethodCodeDropdownRow GetMetadata(this TaxWithholdingMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

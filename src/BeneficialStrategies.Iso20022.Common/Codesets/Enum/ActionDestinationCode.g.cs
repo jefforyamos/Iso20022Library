@@ -74,22 +74,3 @@ public enum ActionDestinationCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionDestinationCodeMetadataExtensions
-{
-    private static readonly ActionDestinationCodeDropdownSource _dropdownSource = new ActionDestinationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionDestinationCodeDropdownRow GetMetadata(this ActionDestinationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

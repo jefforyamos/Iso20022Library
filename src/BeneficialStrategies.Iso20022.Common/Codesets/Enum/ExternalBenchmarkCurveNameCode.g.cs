@@ -412,22 +412,3 @@ public enum ExternalBenchmarkCurveNameCode
     SOR,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBenchmarkCurveNameCodeMetadataExtensions
-{
-    private static readonly ExternalBenchmarkCurveNameCodeDropdownSource _dropdownSource = new ExternalBenchmarkCurveNameCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBenchmarkCurveNameCodeDropdownRow GetMetadata(this ExternalBenchmarkCurveNameCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum CorporateActionReversalReason2Code
     UnduePayment = CorporateActionReversalReasonV2Code.UnduePayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionReversalReason2CodeMetadataExtensions
-{
-    private static readonly CorporateActionReversalReason2CodeDropdownSource _dropdownSource = new CorporateActionReversalReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionReversalReason2CodeDropdownRow GetMetadata(this CorporateActionReversalReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

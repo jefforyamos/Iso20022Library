@@ -56,22 +56,3 @@ public enum DTCCashRoundingType1Code
     RoundUpToTheNearestDollar = DTCCashRoundingTypeCode.RoundUpToTheNearestDollar, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCashRoundingType1CodeMetadataExtensions
-{
-    private static readonly DTCCashRoundingType1CodeDropdownSource _dropdownSource = new DTCCashRoundingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCashRoundingType1CodeDropdownRow GetMetadata(this DTCCashRoundingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

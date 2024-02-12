@@ -37,22 +37,3 @@ public enum BookPriorityIndicatorCode
     Lost,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BookPriorityIndicatorCodeMetadataExtensions
-{
-    private static readonly BookPriorityIndicatorCodeDropdownSource _dropdownSource = new BookPriorityIndicatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBookPriorityIndicatorCodeDropdownRow GetMetadata(this BookPriorityIndicatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

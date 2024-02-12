@@ -56,22 +56,3 @@ public enum FractionDispositionType10Code
     IssueFraction = FractionDispositionTypeV2Code.IssueFraction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType10CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType10CodeDropdownSource _dropdownSource = new FractionDispositionType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType10CodeDropdownRow GetMetadata(this FractionDispositionType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

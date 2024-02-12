@@ -56,22 +56,3 @@ public enum MessageProtection1Code
     NoProtection = MessageProtectionCode.NoProtection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageProtection1CodeMetadataExtensions
-{
-    private static readonly MessageProtection1CodeDropdownSource _dropdownSource = new MessageProtection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageProtection1CodeDropdownRow GetMetadata(this MessageProtection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

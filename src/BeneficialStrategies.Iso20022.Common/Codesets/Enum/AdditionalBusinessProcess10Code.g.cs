@@ -92,22 +92,3 @@ public enum AdditionalBusinessProcess10Code
     IncentivePremiumPayment = AdditionalBusinessProcessCode.IncentivePremiumPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess10CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess10CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess10CodeDropdownRow GetMetadata(this AdditionalBusinessProcess10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

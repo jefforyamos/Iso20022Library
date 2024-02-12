@@ -38,22 +38,3 @@ public enum MessageRejectedReason2Code
     InvalidOrUnrecognisedReference = RejectedStatusReasonV2Code.InvalidOrUnrecognisedReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageRejectedReason2CodeMetadataExtensions
-{
-    private static readonly MessageRejectedReason2CodeDropdownSource _dropdownSource = new MessageRejectedReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageRejectedReason2CodeDropdownRow GetMetadata(this MessageRejectedReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

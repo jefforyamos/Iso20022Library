@@ -101,22 +101,3 @@ public enum Exemption2Code
     TransferSamePersonExemption = ExemptionCode.TransferSamePersonExemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Exemption2CodeMetadataExtensions
-{
-    private static readonly Exemption2CodeDropdownSource _dropdownSource = new Exemption2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExemption2CodeDropdownRow GetMetadata(this Exemption2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

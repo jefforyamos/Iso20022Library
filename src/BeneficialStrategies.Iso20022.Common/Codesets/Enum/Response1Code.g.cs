@@ -56,22 +56,3 @@ public enum Response1Code
     TechnicalError = ResponseCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response1CodeMetadataExtensions
-{
-    private static readonly Response1CodeDropdownSource _dropdownSource = new Response1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse1CodeDropdownRow GetMetadata(this Response1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

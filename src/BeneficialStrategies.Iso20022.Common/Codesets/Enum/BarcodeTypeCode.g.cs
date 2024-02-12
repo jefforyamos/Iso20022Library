@@ -92,22 +92,3 @@ public enum BarcodeTypeCode
     BarcodeEncodedAs2DQRCode,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BarcodeTypeCodeMetadataExtensions
-{
-    private static readonly BarcodeTypeCodeDropdownSource _dropdownSource = new BarcodeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBarcodeTypeCodeDropdownRow GetMetadata(this BarcodeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

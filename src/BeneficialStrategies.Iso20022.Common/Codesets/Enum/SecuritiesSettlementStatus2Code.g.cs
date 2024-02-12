@@ -65,22 +65,3 @@ public enum SecuritiesSettlementStatus2Code
     PartialSettlement = SecuritiesSettlementStatusCode.PartialSettlement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesSettlementStatus2CodeMetadataExtensions
-{
-    private static readonly SecuritiesSettlementStatus2CodeDropdownSource _dropdownSource = new SecuritiesSettlementStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesSettlementStatus2CodeDropdownRow GetMetadata(this SecuritiesSettlementStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

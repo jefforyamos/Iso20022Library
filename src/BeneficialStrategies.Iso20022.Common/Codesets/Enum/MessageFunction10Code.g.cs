@@ -218,22 +218,3 @@ public enum MessageFunction10Code
     CurrencyConversionResponse = MessageFunctionCode.CurrencyConversionResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction10CodeMetadataExtensions
-{
-    private static readonly MessageFunction10CodeDropdownSource _dropdownSource = new MessageFunction10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction10CodeDropdownRow GetMetadata(this MessageFunction10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

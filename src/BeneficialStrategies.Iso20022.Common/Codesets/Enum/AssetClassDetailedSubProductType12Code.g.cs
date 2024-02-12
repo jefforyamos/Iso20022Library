@@ -29,22 +29,3 @@ public enum AssetClassDetailedSubProductType12Code
     Tanker = AssetClassDetailedSubProductTypeCode.Tanker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType12CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType12CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType12CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

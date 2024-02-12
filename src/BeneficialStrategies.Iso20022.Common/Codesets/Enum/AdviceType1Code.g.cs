@@ -38,22 +38,3 @@ public enum AdviceType1Code
     AdviceWithoutDetails = AdviceTypeCode.AdviceWithoutDetails, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdviceType1CodeMetadataExtensions
-{
-    private static readonly AdviceType1CodeDropdownSource _dropdownSource = new AdviceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdviceType1CodeDropdownRow GetMetadata(this AdviceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

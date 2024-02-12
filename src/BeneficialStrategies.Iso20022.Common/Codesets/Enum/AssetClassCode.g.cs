@@ -47,22 +47,3 @@ public enum AssetClassCode
     MunicipalDebt,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassCodeMetadataExtensions
-{
-    private static readonly AssetClassCodeDropdownSource _dropdownSource = new AssetClassCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassCodeDropdownRow GetMetadata(this AssetClassCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

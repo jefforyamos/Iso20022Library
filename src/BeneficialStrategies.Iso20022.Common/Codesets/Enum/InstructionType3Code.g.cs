@@ -38,22 +38,3 @@ public enum InstructionType3Code
     PreMatch = InstructionTypeCode.PreMatch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionType3CodeMetadataExtensions
-{
-    private static readonly InstructionType3CodeDropdownSource _dropdownSource = new InstructionType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionType3CodeDropdownRow GetMetadata(this InstructionType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum CaseForwardingNotification1Code
     SentAdditionalInformation = CaseForwardingNotificationCode.SentAdditionalInformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CaseForwardingNotification1CodeMetadataExtensions
-{
-    private static readonly CaseForwardingNotification1CodeDropdownSource _dropdownSource = new CaseForwardingNotification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICaseForwardingNotification1CodeDropdownRow GetMetadata(this CaseForwardingNotification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

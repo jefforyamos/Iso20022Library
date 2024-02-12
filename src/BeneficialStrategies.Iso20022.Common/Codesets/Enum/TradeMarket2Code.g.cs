@@ -38,22 +38,3 @@ public enum TradeMarket2Code
     Foreign = TradeMarketCode.Foreign, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeMarket2CodeMetadataExtensions
-{
-    private static readonly TradeMarket2CodeDropdownSource _dropdownSource = new TradeMarket2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeMarket2CodeDropdownRow GetMetadata(this TradeMarket2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum MemoryUnitCode
     Byte,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MemoryUnitCodeMetadataExtensions
-{
-    private static readonly MemoryUnitCodeDropdownSource _dropdownSource = new MemoryUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMemoryUnitCodeDropdownRow GetMetadata(this MemoryUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

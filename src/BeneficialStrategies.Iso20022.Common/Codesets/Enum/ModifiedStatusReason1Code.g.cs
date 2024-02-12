@@ -38,22 +38,3 @@ public enum ModifiedStatusReason1Code
     Other = ModifiedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModifiedStatusReason1CodeMetadataExtensions
-{
-    private static readonly ModifiedStatusReason1CodeDropdownSource _dropdownSource = new ModifiedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModifiedStatusReason1CodeDropdownRow GetMetadata(this ModifiedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

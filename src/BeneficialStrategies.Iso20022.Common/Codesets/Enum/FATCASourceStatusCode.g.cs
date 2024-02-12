@@ -38,22 +38,3 @@ public enum FATCASourceStatusCode
     Calculated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FATCASourceStatusCodeMetadataExtensions
-{
-    private static readonly FATCASourceStatusCodeDropdownSource _dropdownSource = new FATCASourceStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFATCASourceStatusCodeDropdownRow GetMetadata(this FATCASourceStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

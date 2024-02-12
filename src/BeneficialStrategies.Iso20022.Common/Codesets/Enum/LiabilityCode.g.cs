@@ -47,22 +47,3 @@ public enum LiabilityCode
     Broker,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LiabilityCodeMetadataExtensions
-{
-    private static readonly LiabilityCodeDropdownSource _dropdownSource = new LiabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILiabilityCodeDropdownRow GetMetadata(this LiabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

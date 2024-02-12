@@ -84,22 +84,3 @@ public enum ExternalCreditorEnrolmentStatusReason1Code
     TechnicalRejection = ExternalCreditorEnrolmentStatusReasonCode.TechnicalRejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCreditorEnrolmentStatusReason1CodeMetadataExtensions
-{
-    private static readonly ExternalCreditorEnrolmentStatusReason1CodeDropdownSource _dropdownSource = new ExternalCreditorEnrolmentStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCreditorEnrolmentStatusReason1CodeDropdownRow GetMetadata(this ExternalCreditorEnrolmentStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

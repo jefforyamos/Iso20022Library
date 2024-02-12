@@ -83,22 +83,3 @@ public enum LocationCategory3Code
     VendingMachine = LocationCategoryCode.VendingMachine, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationCategory3CodeMetadataExtensions
-{
-    private static readonly LocationCategory3CodeDropdownSource _dropdownSource = new LocationCategory3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationCategory3CodeDropdownRow GetMetadata(this LocationCategory3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

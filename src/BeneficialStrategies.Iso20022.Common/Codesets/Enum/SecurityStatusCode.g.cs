@@ -92,22 +92,3 @@ public enum SecurityStatusCode
     Worthless,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecurityStatusCodeMetadataExtensions
-{
-    private static readonly SecurityStatusCodeDropdownSource _dropdownSource = new SecurityStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecurityStatusCodeDropdownRow GetMetadata(this SecurityStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

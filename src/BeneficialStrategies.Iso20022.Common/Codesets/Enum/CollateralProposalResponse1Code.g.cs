@@ -38,22 +38,3 @@ public enum CollateralProposalResponse1Code
     CounterProposal = CollateralProposalResponseCode.CounterProposal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralProposalResponse1CodeMetadataExtensions
-{
-    private static readonly CollateralProposalResponse1CodeDropdownSource _dropdownSource = new CollateralProposalResponse1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralProposalResponse1CodeDropdownRow GetMetadata(this CollateralProposalResponse1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

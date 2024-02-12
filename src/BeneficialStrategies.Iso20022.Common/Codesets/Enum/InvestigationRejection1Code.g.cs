@@ -83,22 +83,3 @@ public enum InvestigationRejection1Code
     MissingResolutionOfInvestigation = InvestigationRejectionCode.MissingResolutionOfInvestigation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationRejection1CodeMetadataExtensions
-{
-    private static readonly InvestigationRejection1CodeDropdownSource _dropdownSource = new InvestigationRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationRejection1CodeDropdownRow GetMetadata(this InvestigationRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

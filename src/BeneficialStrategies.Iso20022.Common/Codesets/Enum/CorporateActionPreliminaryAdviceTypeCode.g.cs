@@ -38,22 +38,3 @@ public enum CorporateActionPreliminaryAdviceTypeCode
     Replacement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionPreliminaryAdviceTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionPreliminaryAdviceTypeCodeDropdownSource _dropdownSource = new CorporateActionPreliminaryAdviceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionPreliminaryAdviceTypeCodeDropdownRow GetMetadata(this CorporateActionPreliminaryAdviceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

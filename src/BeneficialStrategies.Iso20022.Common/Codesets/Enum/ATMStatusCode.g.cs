@@ -65,22 +65,3 @@ public enum ATMStatusCode
     WaitingActivation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMStatusCodeMetadataExtensions
-{
-    private static readonly ATMStatusCodeDropdownSource _dropdownSource = new ATMStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMStatusCodeDropdownRow GetMetadata(this ATMStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

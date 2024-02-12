@@ -38,22 +38,3 @@ public enum AmountUnitCode
     Monetary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountUnitCodeMetadataExtensions
-{
-    private static readonly AmountUnitCodeDropdownSource _dropdownSource = new AmountUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountUnitCodeDropdownRow GetMetadata(this AmountUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

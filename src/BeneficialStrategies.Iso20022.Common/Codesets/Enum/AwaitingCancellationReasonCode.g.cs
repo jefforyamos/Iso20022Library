@@ -29,22 +29,3 @@ public enum AwaitingCancellationReasonCode
     AwaitingCancellation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AwaitingCancellationReasonCodeMetadataExtensions
-{
-    private static readonly AwaitingCancellationReasonCodeDropdownSource _dropdownSource = new AwaitingCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAwaitingCancellationReasonCodeDropdownRow GetMetadata(this AwaitingCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

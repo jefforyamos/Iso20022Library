@@ -38,22 +38,3 @@ public enum VariationTypeCode
     Decrease,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VariationTypeCodeMetadataExtensions
-{
-    private static readonly VariationTypeCodeDropdownSource _dropdownSource = new VariationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVariationTypeCodeDropdownRow GetMetadata(this VariationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum DistributionAccount1Code
     RRGAccount = DistributionAccountCode.RRGAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionAccount1CodeMetadataExtensions
-{
-    private static readonly DistributionAccount1CodeDropdownSource _dropdownSource = new DistributionAccount1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionAccount1CodeDropdownRow GetMetadata(this DistributionAccount1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

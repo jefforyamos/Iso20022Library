@@ -38,22 +38,3 @@ public enum MarketIdentification1Code
     Operating = MarketIdentificationCode.Operating, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketIdentification1CodeMetadataExtensions
-{
-    private static readonly MarketIdentification1CodeDropdownSource _dropdownSource = new MarketIdentification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketIdentification1CodeDropdownRow GetMetadata(this MarketIdentification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

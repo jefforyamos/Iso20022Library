@@ -101,22 +101,3 @@ public enum AdditionalBusinessProcess4Code
     SchemeOrPlanOfArrangement = AdditionalBusinessProcessCode.SchemeOrPlanOfArrangement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess4CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess4CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess4CodeDropdownRow GetMetadata(this AdditionalBusinessProcess4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

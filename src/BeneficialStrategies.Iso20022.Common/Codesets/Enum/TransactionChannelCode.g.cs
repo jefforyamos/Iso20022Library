@@ -110,22 +110,3 @@ public enum TransactionChannelCode
     MobilePOS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionChannelCodeMetadataExtensions
-{
-    private static readonly TransactionChannelCodeDropdownSource _dropdownSource = new TransactionChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionChannelCodeDropdownRow GetMetadata(this TransactionChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

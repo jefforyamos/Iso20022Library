@@ -866,22 +866,3 @@ public enum ResultDetail4Code
     InvalidService = ResultDetailCode.InvalidService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResultDetail4CodeMetadataExtensions
-{
-    private static readonly ResultDetail4CodeDropdownSource _dropdownSource = new ResultDetail4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResultDetail4CodeDropdownRow GetMetadata(this ResultDetail4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

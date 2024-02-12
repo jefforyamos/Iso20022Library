@@ -38,22 +38,3 @@ public enum OptionType1Code
     Put = OptionDefinitionTypeCode.Put, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionType1CodeMetadataExtensions
-{
-    private static readonly OptionType1CodeDropdownSource _dropdownSource = new OptionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionType1CodeDropdownRow GetMetadata(this OptionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

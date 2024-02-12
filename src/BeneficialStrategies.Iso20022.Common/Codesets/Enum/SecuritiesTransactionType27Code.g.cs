@@ -434,22 +434,3 @@ public enum SecuritiesTransactionType27Code
     TransferOut = SecuritiesTransactionTypeV4Code.TransferOut, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType27CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType27CodeDropdownSource _dropdownSource = new SecuritiesTransactionType27CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType27CodeDropdownRow GetMetadata(this SecuritiesTransactionType27Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -416,22 +416,3 @@ public enum SecuritiesTransactionType25Code
     Rebalancing = SecuritiesTransactionTypeV4Code.Rebalancing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType25CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType25CodeDropdownSource _dropdownSource = new SecuritiesTransactionType25CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType25CodeDropdownRow GetMetadata(this SecuritiesTransactionType25Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum PriceValueType5Code
     OpenDated = PriceValueTypeCode.OpenDated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType5CodeMetadataExtensions
-{
-    private static readonly PriceValueType5CodeDropdownSource _dropdownSource = new PriceValueType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType5CodeDropdownRow GetMetadata(this PriceValueType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

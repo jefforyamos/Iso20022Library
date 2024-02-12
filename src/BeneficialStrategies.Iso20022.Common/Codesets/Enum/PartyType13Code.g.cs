@@ -65,22 +65,3 @@ public enum PartyType13Code
     OriginatingTerminal = PartyTypeCode.OriginatingTerminal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType13CodeMetadataExtensions
-{
-    private static readonly PartyType13CodeDropdownSource _dropdownSource = new PartyType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType13CodeDropdownRow GetMetadata(this PartyType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

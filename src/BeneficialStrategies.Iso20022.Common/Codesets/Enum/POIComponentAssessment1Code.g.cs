@@ -47,22 +47,3 @@ public enum POIComponentAssessment1Code
     Evaluation = POIComponentAssessmentCode.Evaluation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentAssessment1CodeMetadataExtensions
-{
-    private static readonly POIComponentAssessment1CodeDropdownSource _dropdownSource = new POIComponentAssessment1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentAssessment1CodeDropdownRow GetMetadata(this POIComponentAssessment1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

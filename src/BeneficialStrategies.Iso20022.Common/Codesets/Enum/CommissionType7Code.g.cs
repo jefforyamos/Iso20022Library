@@ -38,22 +38,3 @@ public enum CommissionType7Code
     BackEndLoad = CommissionTypeV2Code.BackEndLoad, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionType7CodeMetadataExtensions
-{
-    private static readonly CommissionType7CodeDropdownSource _dropdownSource = new CommissionType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionType7CodeDropdownRow GetMetadata(this CommissionType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

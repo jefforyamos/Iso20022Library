@@ -218,22 +218,3 @@ public enum BalanceType5Code
     Noted = BalanceTypeCode.Noted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType5CodeMetadataExtensions
-{
-    private static readonly BalanceType5CodeDropdownSource _dropdownSource = new BalanceType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType5CodeDropdownRow GetMetadata(this BalanceType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

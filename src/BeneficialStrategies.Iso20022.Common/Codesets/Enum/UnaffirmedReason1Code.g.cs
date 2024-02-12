@@ -29,22 +29,3 @@ public enum UnaffirmedReason1Code
     CounterpartyNotAffirmed = UnaffirmedReasonCode.CounterpartyNotAffirmed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnaffirmedReason1CodeMetadataExtensions
-{
-    private static readonly UnaffirmedReason1CodeDropdownSource _dropdownSource = new UnaffirmedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnaffirmedReason1CodeDropdownRow GetMetadata(this UnaffirmedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -57,22 +57,3 @@ public enum SenderTriggerCode
     SufficientlySigned,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SenderTriggerCodeMetadataExtensions
-{
-    private static readonly SenderTriggerCodeDropdownSource _dropdownSource = new SenderTriggerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISenderTriggerCodeDropdownRow GetMetadata(this SenderTriggerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -30,22 +30,3 @@ public enum MessageFunction27Code
     Notification = MessageFunctionCode.Notification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction27CodeMetadataExtensions
-{
-    private static readonly MessageFunction27CodeDropdownSource _dropdownSource = new MessageFunction27CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction27CodeDropdownRow GetMetadata(this MessageFunction27Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum WeekDayCode
     DaysExcludingBankHolidays,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WeekDayCodeMetadataExtensions
-{
-    private static readonly WeekDayCodeDropdownSource _dropdownSource = new WeekDayCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWeekDayCodeDropdownRow GetMetadata(this WeekDayCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

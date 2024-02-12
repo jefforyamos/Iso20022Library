@@ -38,22 +38,3 @@ public enum SenderBusinessRole1Code
     AccountServicer = SenderBusinessRoleCode.AccountServicer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SenderBusinessRole1CodeMetadataExtensions
-{
-    private static readonly SenderBusinessRole1CodeDropdownSource _dropdownSource = new SenderBusinessRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISenderBusinessRole1CodeDropdownRow GetMetadata(this SenderBusinessRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

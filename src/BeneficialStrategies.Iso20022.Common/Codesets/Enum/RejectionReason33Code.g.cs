@@ -182,22 +182,3 @@ public enum RejectionReason33Code
     MultipleSettlementQuantity = RejectionReasonV2Code.MultipleSettlementQuantity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason33CodeMetadataExtensions
-{
-    private static readonly RejectionReason33CodeDropdownSource _dropdownSource = new RejectionReason33CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason33CodeDropdownRow GetMetadata(this RejectionReason33Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

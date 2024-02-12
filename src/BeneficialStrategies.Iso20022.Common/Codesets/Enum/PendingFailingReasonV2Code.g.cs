@@ -1154,22 +1154,3 @@ public enum PendingFailingReasonV2Code
     PartialDiffer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingFailingReasonV2CodeMetadataExtensions
-{
-    private static readonly PendingFailingReasonV2CodeDropdownSource _dropdownSource = new PendingFailingReasonV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingFailingReasonV2CodeDropdownRow GetMetadata(this PendingFailingReasonV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

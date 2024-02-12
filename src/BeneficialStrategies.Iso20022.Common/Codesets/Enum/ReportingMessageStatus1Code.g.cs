@@ -101,22 +101,3 @@ public enum ReportingMessageStatus1Code
     CorruptedFile = MessageStatusCode.CorruptedFile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingMessageStatus1CodeMetadataExtensions
-{
-    private static readonly ReportingMessageStatus1CodeDropdownSource _dropdownSource = new ReportingMessageStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingMessageStatus1CodeDropdownRow GetMetadata(this ReportingMessageStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

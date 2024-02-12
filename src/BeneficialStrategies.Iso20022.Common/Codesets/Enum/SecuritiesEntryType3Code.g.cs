@@ -47,22 +47,3 @@ public enum SecuritiesEntryType3Code
     InstructedBalance = SecuritiesEntryTypeCode.InstructedBalance, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesEntryType3CodeMetadataExtensions
-{
-    private static readonly SecuritiesEntryType3CodeDropdownSource _dropdownSource = new SecuritiesEntryType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesEntryType3CodeDropdownRow GetMetadata(this SecuritiesEntryType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

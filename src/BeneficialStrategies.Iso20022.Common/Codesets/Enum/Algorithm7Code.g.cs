@@ -38,22 +38,3 @@ public enum Algorithm7Code
     RSAES_OAEP = AlgorithmCode.RSAES_OAEP, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm7CodeMetadataExtensions
-{
-    private static readonly Algorithm7CodeDropdownSource _dropdownSource = new Algorithm7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm7CodeDropdownRow GetMetadata(this Algorithm7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

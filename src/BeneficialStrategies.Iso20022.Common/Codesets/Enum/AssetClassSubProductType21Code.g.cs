@@ -29,22 +29,3 @@ public enum AssetClassSubProductType21Code
     Forestry = AssetClassSubProductTypeCode.Forestry, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType21CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType21CodeDropdownSource _dropdownSource = new AssetClassSubProductType21CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType21CodeDropdownRow GetMetadata(this AssetClassSubProductType21Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum DrawdownStatusCode
     Full,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DrawdownStatusCodeMetadataExtensions
-{
-    private static readonly DrawdownStatusCodeDropdownSource _dropdownSource = new DrawdownStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDrawdownStatusCodeDropdownRow GetMetadata(this DrawdownStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

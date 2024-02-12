@@ -65,22 +65,3 @@ public enum StatementBasisCode
     FutureMarkToMarket,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementBasisCodeMetadataExtensions
-{
-    private static readonly StatementBasisCodeDropdownSource _dropdownSource = new StatementBasisCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementBasisCodeDropdownRow GetMetadata(this StatementBasisCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

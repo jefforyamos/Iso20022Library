@@ -191,22 +191,3 @@ public enum PriceValueTypeCode
     NegativeActualAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueTypeCodeMetadataExtensions
-{
-    private static readonly PriceValueTypeCodeDropdownSource _dropdownSource = new PriceValueTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueTypeCodeDropdownRow GetMetadata(this PriceValueTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

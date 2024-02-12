@@ -222,22 +222,3 @@ public enum InterestComputationMethodCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestComputationMethodCodeMetadataExtensions
-{
-    private static readonly InterestComputationMethodCodeDropdownSource _dropdownSource = new InterestComputationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestComputationMethodCodeDropdownRow GetMetadata(this InterestComputationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

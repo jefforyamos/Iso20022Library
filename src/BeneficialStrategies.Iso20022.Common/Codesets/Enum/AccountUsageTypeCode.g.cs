@@ -56,22 +56,3 @@ public enum AccountUsageTypeCode
     IssuingParticipant,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountUsageTypeCodeMetadataExtensions
-{
-    private static readonly AccountUsageTypeCodeDropdownSource _dropdownSource = new AccountUsageTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountUsageTypeCodeDropdownRow GetMetadata(this AccountUsageTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

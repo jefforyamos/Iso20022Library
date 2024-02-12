@@ -524,22 +524,3 @@ public enum RejectedStatusReason11Code
     DifferentValuationPoints = RejectedStatusReasonCode.DifferentValuationPoints, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason11CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason11CodeDropdownSource _dropdownSource = new RejectedStatusReason11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason11CodeDropdownRow GetMetadata(this RejectedStatusReason11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

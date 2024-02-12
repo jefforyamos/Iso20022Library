@@ -65,22 +65,3 @@ public enum IssuanceType1Code
     UndertakingViaAdvisingParty = IssuanceTypeCode.UndertakingViaAdvisingParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IssuanceType1CodeMetadataExtensions
-{
-    private static readonly IssuanceType1CodeDropdownSource _dropdownSource = new IssuanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIssuanceType1CodeDropdownRow GetMetadata(this IssuanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

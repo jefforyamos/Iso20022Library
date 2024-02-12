@@ -38,22 +38,3 @@ public enum DisclosureRequestCancellationReasonCode
     Withdrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisclosureRequestCancellationReasonCodeMetadataExtensions
-{
-    private static readonly DisclosureRequestCancellationReasonCodeDropdownSource _dropdownSource = new DisclosureRequestCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisclosureRequestCancellationReasonCodeDropdownRow GetMetadata(this DisclosureRequestCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

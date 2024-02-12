@@ -56,22 +56,3 @@ public enum TradeCertificateType2Code
     Undefined2 = TradeCertificateTypeCode.Undefined2, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeCertificateType2CodeMetadataExtensions
-{
-    private static readonly TradeCertificateType2CodeDropdownSource _dropdownSource = new TradeCertificateType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeCertificateType2CodeDropdownRow GetMetadata(this TradeCertificateType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -164,22 +164,3 @@ public enum RejectionReason79Code
     DuplicateInstruction = RejectionReasonV3Code.DuplicateInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason79CodeMetadataExtensions
-{
-    private static readonly RejectionReason79CodeDropdownSource _dropdownSource = new RejectionReason79CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason79CodeDropdownRow GetMetadata(this RejectionReason79Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

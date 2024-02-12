@@ -623,22 +623,3 @@ public enum CorporateActionEventType21Code
     SecuritiesHoldersMeeting = CorporateActionEventTypeV6Code.SecuritiesHoldersMeeting, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType21CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType21CodeDropdownSource _dropdownSource = new CorporateActionEventType21CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType21CodeDropdownRow GetMetadata(this CorporateActionEventType21Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

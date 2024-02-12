@@ -56,22 +56,3 @@ public enum OffsetTypeCode
     PriceTierLevel,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OffsetTypeCodeMetadataExtensions
-{
-    private static readonly OffsetTypeCodeDropdownSource _dropdownSource = new OffsetTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOffsetTypeCodeDropdownRow GetMetadata(this OffsetTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

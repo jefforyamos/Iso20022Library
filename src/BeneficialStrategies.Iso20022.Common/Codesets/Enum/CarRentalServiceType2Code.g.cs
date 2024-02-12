@@ -326,22 +326,3 @@ public enum CarRentalServiceType2Code
     Towing = CarRentalServiceTypeCode.Towing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CarRentalServiceType2CodeMetadataExtensions
-{
-    private static readonly CarRentalServiceType2CodeDropdownSource _dropdownSource = new CarRentalServiceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICarRentalServiceType2CodeDropdownRow GetMetadata(this CarRentalServiceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

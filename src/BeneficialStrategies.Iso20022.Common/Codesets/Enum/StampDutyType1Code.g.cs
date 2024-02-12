@@ -56,22 +56,3 @@ public enum StampDutyType1Code
     Exemption = StampDutyTypeCode.Exemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StampDutyType1CodeMetadataExtensions
-{
-    private static readonly StampDutyType1CodeDropdownSource _dropdownSource = new StampDutyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStampDutyType1CodeDropdownRow GetMetadata(this StampDutyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum TransportType1Code
     Ship = TransportTypeCode.Ship, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransportType1CodeMetadataExtensions
-{
-    private static readonly TransportType1CodeDropdownSource _dropdownSource = new TransportType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransportType1CodeDropdownRow GetMetadata(this TransportType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

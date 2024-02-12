@@ -65,22 +65,3 @@ public enum ReportTypeCode
     ForwardAmend,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportTypeCodeMetadataExtensions
-{
-    private static readonly ReportTypeCodeDropdownSource _dropdownSource = new ReportTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportTypeCodeDropdownRow GetMetadata(this ReportTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

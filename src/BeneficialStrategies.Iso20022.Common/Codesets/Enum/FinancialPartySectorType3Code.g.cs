@@ -119,22 +119,3 @@ public enum FinancialPartySectorType3Code
     Other = FinancialPartySectorTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialPartySectorType3CodeMetadataExtensions
-{
-    private static readonly FinancialPartySectorType3CodeDropdownSource _dropdownSource = new FinancialPartySectorType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialPartySectorType3CodeDropdownRow GetMetadata(this FinancialPartySectorType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

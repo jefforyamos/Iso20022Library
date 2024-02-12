@@ -1307,22 +1307,3 @@ public enum InstructionRejectionReasonV2Code
     EventAlreadyAllocated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionRejectionReasonV2CodeMetadataExtensions
-{
-    private static readonly InstructionRejectionReasonV2CodeDropdownSource _dropdownSource = new InstructionRejectionReasonV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionRejectionReasonV2CodeDropdownRow GetMetadata(this InstructionRejectionReasonV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

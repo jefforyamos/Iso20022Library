@@ -47,22 +47,3 @@ public enum ClearingObligationTypeCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingObligationTypeCodeMetadataExtensions
-{
-    private static readonly ClearingObligationTypeCodeDropdownSource _dropdownSource = new ClearingObligationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingObligationTypeCodeDropdownRow GetMetadata(this ClearingObligationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

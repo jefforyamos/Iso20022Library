@@ -47,22 +47,3 @@ public enum WithdrawalReasonCode
     Withdrawn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WithdrawalReasonCodeMetadataExtensions
-{
-    private static readonly WithdrawalReasonCodeDropdownSource _dropdownSource = new WithdrawalReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWithdrawalReasonCodeDropdownRow GetMetadata(this WithdrawalReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

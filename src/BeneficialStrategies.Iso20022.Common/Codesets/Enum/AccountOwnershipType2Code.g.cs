@@ -137,22 +137,3 @@ public enum AccountOwnershipType2Code
     GovernmentOrganisation = AccountOwnershipTypeCode.GovernmentOrganisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountOwnershipType2CodeMetadataExtensions
-{
-    private static readonly AccountOwnershipType2CodeDropdownSource _dropdownSource = new AccountOwnershipType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountOwnershipType2CodeDropdownRow GetMetadata(this AccountOwnershipType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

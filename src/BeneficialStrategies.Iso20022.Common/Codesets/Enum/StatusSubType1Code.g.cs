@@ -56,22 +56,3 @@ public enum StatusSubType1Code
     SameDayAndPendingFlagsTrue = StatusSubTypeCode.SameDayAndPendingFlagsTrue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusSubType1CodeMetadataExtensions
-{
-    private static readonly StatusSubType1CodeDropdownSource _dropdownSource = new StatusSubType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusSubType1CodeDropdownRow GetMetadata(this StatusSubType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

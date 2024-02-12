@@ -65,22 +65,3 @@ public enum MeetingTypeClassification2Code
     VotingRightsHolderInitiated = MeetingTypeClassificationCode.VotingRightsHolderInitiated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingTypeClassification2CodeMetadataExtensions
-{
-    private static readonly MeetingTypeClassification2CodeDropdownSource _dropdownSource = new MeetingTypeClassification2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingTypeClassification2CodeDropdownRow GetMetadata(this MeetingTypeClassification2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

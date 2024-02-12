@@ -38,22 +38,3 @@ public enum InstalmentPeriod1Code
     Annual = InstalmentPeriodCode.Annual, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstalmentPeriod1CodeMetadataExtensions
-{
-    private static readonly InstalmentPeriod1CodeDropdownSource _dropdownSource = new InstalmentPeriod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstalmentPeriod1CodeDropdownRow GetMetadata(this InstalmentPeriod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

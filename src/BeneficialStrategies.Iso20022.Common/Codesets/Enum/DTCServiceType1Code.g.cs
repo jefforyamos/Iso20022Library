@@ -47,22 +47,3 @@ public enum DTCServiceType1Code
     ForeignTaxRelief = DTCServiceType.ForeignTaxRelief, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCServiceType1CodeMetadataExtensions
-{
-    private static readonly DTCServiceType1CodeDropdownSource _dropdownSource = new DTCServiceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCServiceType1CodeDropdownRow GetMetadata(this DTCServiceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

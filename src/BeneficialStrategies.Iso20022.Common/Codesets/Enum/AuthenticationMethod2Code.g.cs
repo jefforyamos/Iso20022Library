@@ -128,22 +128,3 @@ public enum AuthenticationMethod2Code
     UnknownMethod = AuthenticationMethodCode.UnknownMethod, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethod2CodeMetadataExtensions
-{
-    private static readonly AuthenticationMethod2CodeDropdownSource _dropdownSource = new AuthenticationMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethod2CodeDropdownRow GetMetadata(this AuthenticationMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

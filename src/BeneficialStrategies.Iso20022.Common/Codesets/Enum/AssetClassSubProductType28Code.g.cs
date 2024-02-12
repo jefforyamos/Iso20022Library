@@ -29,22 +29,3 @@ public enum AssetClassSubProductType28Code
     RenewableEnergy = AssetClassSubProductTypeCode.RenewableEnergy, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType28CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType28CodeDropdownSource _dropdownSource = new AssetClassSubProductType28CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType28CodeDropdownRow GetMetadata(this AssetClassSubProductType28Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

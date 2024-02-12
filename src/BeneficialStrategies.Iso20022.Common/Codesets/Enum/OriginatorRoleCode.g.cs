@@ -74,22 +74,3 @@ public enum OriginatorRoleCode
     TransfertAgent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OriginatorRoleCodeMetadataExtensions
-{
-    private static readonly OriginatorRoleCodeDropdownSource _dropdownSource = new OriginatorRoleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOriginatorRoleCodeDropdownRow GetMetadata(this OriginatorRoleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

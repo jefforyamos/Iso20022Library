@@ -101,22 +101,3 @@ public enum TransactionOperationType3Code
     Other = TransactionOperationTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType3CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType3CodeDropdownSource _dropdownSource = new TransactionOperationType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType3CodeDropdownRow GetMetadata(this TransactionOperationType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

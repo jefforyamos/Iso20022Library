@@ -38,22 +38,3 @@ public enum SubscriptionChargeApplicationTypeCode
     Immediate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SubscriptionChargeApplicationTypeCodeMetadataExtensions
-{
-    private static readonly SubscriptionChargeApplicationTypeCodeDropdownSource _dropdownSource = new SubscriptionChargeApplicationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISubscriptionChargeApplicationTypeCodeDropdownRow GetMetadata(this SubscriptionChargeApplicationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

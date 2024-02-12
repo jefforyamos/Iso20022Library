@@ -137,22 +137,3 @@ public enum TypeOfAmount12Code
     PreDCC = TypeOfAmountCode.PreDCC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount12CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount12CodeDropdownSource _dropdownSource = new TypeOfAmount12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount12CodeDropdownRow GetMetadata(this TypeOfAmount12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

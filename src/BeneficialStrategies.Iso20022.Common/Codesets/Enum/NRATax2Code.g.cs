@@ -317,22 +317,3 @@ public enum NRATax2Code
     SpinOff = NRATaxCode.SpinOff, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NRATax2CodeMetadataExtensions
-{
-    private static readonly NRATax2CodeDropdownSource _dropdownSource = new NRATax2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INRATax2CodeDropdownRow GetMetadata(this NRATax2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

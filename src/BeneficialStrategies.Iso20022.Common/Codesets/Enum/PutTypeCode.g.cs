@@ -47,22 +47,3 @@ public enum PutTypeCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PutTypeCodeMetadataExtensions
-{
-    private static readonly PutTypeCodeDropdownSource _dropdownSource = new PutTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPutTypeCodeDropdownRow GetMetadata(this PutTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

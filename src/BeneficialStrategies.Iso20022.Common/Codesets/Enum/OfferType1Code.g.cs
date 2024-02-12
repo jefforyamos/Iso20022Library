@@ -83,22 +83,3 @@ public enum OfferType1Code
     SqueezeOutBid = OfferTypeCode.SqueezeOutBid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OfferType1CodeMetadataExtensions
-{
-    private static readonly OfferType1CodeDropdownSource _dropdownSource = new OfferType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOfferType1CodeDropdownRow GetMetadata(this OfferType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

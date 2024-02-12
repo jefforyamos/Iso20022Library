@@ -38,22 +38,3 @@ public enum ClosedStatusReasonCode
     AccountServicerInstruction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClosedStatusReasonCodeMetadataExtensions
-{
-    private static readonly ClosedStatusReasonCodeDropdownSource _dropdownSource = new ClosedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClosedStatusReasonCodeDropdownRow GetMetadata(this ClosedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

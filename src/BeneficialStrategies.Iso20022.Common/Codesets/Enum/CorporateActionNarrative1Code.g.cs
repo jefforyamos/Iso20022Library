@@ -74,22 +74,3 @@ public enum CorporateActionNarrative1Code
     ConfirmationOfHoldingTransfer = CorporateActionNarrativeCode.ConfirmationOfHoldingTransfer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionNarrative1CodeMetadataExtensions
-{
-    private static readonly CorporateActionNarrative1CodeDropdownSource _dropdownSource = new CorporateActionNarrative1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionNarrative1CodeDropdownRow GetMetadata(this CorporateActionNarrative1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

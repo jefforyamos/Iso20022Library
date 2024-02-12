@@ -65,22 +65,3 @@ public enum NotificationStatusCode
     EventUnconfirmed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotificationStatusCodeMetadataExtensions
-{
-    private static readonly NotificationStatusCodeDropdownSource _dropdownSource = new NotificationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotificationStatusCodeDropdownRow GetMetadata(this NotificationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

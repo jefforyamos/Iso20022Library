@@ -74,22 +74,3 @@ public enum SettlementDate6Code
     SameDay = SettlementDateCode.SameDay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDate6CodeMetadataExtensions
-{
-    private static readonly SettlementDate6CodeDropdownSource _dropdownSource = new SettlementDate6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDate6CodeDropdownRow GetMetadata(this SettlementDate6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

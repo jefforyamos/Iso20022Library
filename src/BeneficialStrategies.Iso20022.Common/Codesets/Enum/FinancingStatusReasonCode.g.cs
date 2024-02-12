@@ -164,22 +164,3 @@ public enum FinancingStatusReasonCode
     FinancingProcessAlreadyInitiated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancingStatusReasonCodeMetadataExtensions
-{
-    private static readonly FinancingStatusReasonCodeDropdownSource _dropdownSource = new FinancingStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancingStatusReasonCodeDropdownRow GetMetadata(this FinancingStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

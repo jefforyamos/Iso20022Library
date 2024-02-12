@@ -38,22 +38,3 @@ public enum FailureReason5Code
     Hardware = FailureReasonCode.Hardware, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason5CodeMetadataExtensions
-{
-    private static readonly FailureReason5CodeDropdownSource _dropdownSource = new FailureReason5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason5CodeDropdownRow GetMetadata(this FailureReason5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

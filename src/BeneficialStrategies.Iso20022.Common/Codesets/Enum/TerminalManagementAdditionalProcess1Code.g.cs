@@ -47,22 +47,3 @@ public enum TerminalManagementAdditionalProcess1Code
     RestartSystem = TerminalManagementAdditionalProcessCode.RestartSystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAdditionalProcess1CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAdditionalProcess1CodeDropdownSource _dropdownSource = new TerminalManagementAdditionalProcess1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAdditionalProcess1CodeDropdownRow GetMetadata(this TerminalManagementAdditionalProcess1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -213,22 +213,3 @@ public enum InterestComputationMethod4Code
     OneOne = InterestComputationMethodCode.OneOne, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestComputationMethod4CodeMetadataExtensions
-{
-    private static readonly InterestComputationMethod4CodeDropdownSource _dropdownSource = new InterestComputationMethod4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestComputationMethod4CodeDropdownRow GetMetadata(this InterestComputationMethod4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

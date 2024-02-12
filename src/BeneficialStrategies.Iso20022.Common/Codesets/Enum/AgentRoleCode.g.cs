@@ -83,22 +83,3 @@ public enum AgentRoleCode
     PayingAgent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgentRoleCodeMetadataExtensions
-{
-    private static readonly AgentRoleCodeDropdownSource _dropdownSource = new AgentRoleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgentRoleCodeDropdownRow GetMetadata(this AgentRoleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

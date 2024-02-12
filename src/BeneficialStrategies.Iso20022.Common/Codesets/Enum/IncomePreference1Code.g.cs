@@ -38,22 +38,3 @@ public enum IncomePreference1Code
     DividendReinvestment = IncomePreferenceCode.DividendReinvestment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IncomePreference1CodeMetadataExtensions
-{
-    private static readonly IncomePreference1CodeDropdownSource _dropdownSource = new IncomePreference1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIncomePreference1CodeDropdownRow GetMetadata(this IncomePreference1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

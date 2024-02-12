@@ -47,22 +47,3 @@ public enum CorporateActionEventStage4Code
     SupplementalCancellation = CorporateActionEventStageV2Code.SupplementalCancellation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStage4CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStage4CodeDropdownSource _dropdownSource = new CorporateActionEventStage4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStage4CodeDropdownRow GetMetadata(this CorporateActionEventStage4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

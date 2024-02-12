@@ -614,22 +614,3 @@ public enum PendingSettlementStatusReasonCode
     FinalVerification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingSettlementStatusReasonCodeMetadataExtensions
-{
-    private static readonly PendingSettlementStatusReasonCodeDropdownSource _dropdownSource = new PendingSettlementStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingSettlementStatusReasonCodeDropdownRow GetMetadata(this PendingSettlementStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

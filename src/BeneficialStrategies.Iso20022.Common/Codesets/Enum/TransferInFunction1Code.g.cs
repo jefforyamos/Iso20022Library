@@ -38,22 +38,3 @@ public enum TransferInFunction1Code
     Instruction = TransferInFunctionCode.Instruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferInFunction1CodeMetadataExtensions
-{
-    private static readonly TransferInFunction1CodeDropdownSource _dropdownSource = new TransferInFunction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferInFunction1CodeDropdownRow GetMetadata(this TransferInFunction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

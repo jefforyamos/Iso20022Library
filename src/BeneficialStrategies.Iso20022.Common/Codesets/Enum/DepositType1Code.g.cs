@@ -38,22 +38,3 @@ public enum DepositType1Code
     Call = DepositTypeCode.Call, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DepositType1CodeMetadataExtensions
-{
-    private static readonly DepositType1CodeDropdownSource _dropdownSource = new DepositType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDepositType1CodeDropdownRow GetMetadata(this DepositType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

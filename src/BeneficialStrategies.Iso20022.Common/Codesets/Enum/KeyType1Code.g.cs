@@ -56,22 +56,3 @@ public enum KeyType1Code
     PINTranslationKeyIssuer = KeyTypeCode.PINTranslationKeyIssuer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class KeyType1CodeMetadataExtensions
-{
-    private static readonly KeyType1CodeDropdownSource _dropdownSource = new KeyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IKeyType1CodeDropdownRow GetMetadata(this KeyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

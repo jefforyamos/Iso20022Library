@@ -38,22 +38,3 @@ public enum GeneralInvestmentAccountType2Code
     ShareSavingsAccount = GeneralInvestmentAccountTypeCode.ShareSavingsAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeneralInvestmentAccountType2CodeMetadataExtensions
-{
-    private static readonly GeneralInvestmentAccountType2CodeDropdownSource _dropdownSource = new GeneralInvestmentAccountType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeneralInvestmentAccountType2CodeDropdownRow GetMetadata(this GeneralInvestmentAccountType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

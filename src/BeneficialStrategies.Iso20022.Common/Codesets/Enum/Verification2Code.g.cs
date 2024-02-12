@@ -101,22 +101,3 @@ public enum Verification2Code
     TechnicalError = VerificationCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Verification2CodeMetadataExtensions
-{
-    private static readonly Verification2CodeDropdownSource _dropdownSource = new Verification2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerification2CodeDropdownRow GetMetadata(this Verification2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

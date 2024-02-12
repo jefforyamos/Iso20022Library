@@ -38,22 +38,3 @@ public enum TaxIdentificationNumberTypeCode
     GlobalIntermediaryIdentificationNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxIdentificationNumberTypeCodeMetadataExtensions
-{
-    private static readonly TaxIdentificationNumberTypeCodeDropdownSource _dropdownSource = new TaxIdentificationNumberTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxIdentificationNumberTypeCodeDropdownRow GetMetadata(this TaxIdentificationNumberTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

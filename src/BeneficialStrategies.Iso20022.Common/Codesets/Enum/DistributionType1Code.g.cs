@@ -29,22 +29,3 @@ public enum DistributionType1Code
     RollingBasis = DistributionTypeCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionType1CodeMetadataExtensions
-{
-    private static readonly DistributionType1CodeDropdownSource _dropdownSource = new DistributionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionType1CodeDropdownRow GetMetadata(this DistributionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

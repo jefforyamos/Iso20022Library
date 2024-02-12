@@ -67,22 +67,3 @@ public enum ExternalTaxAmountTypeCode
     StateTax,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTaxAmountTypeCodeMetadataExtensions
-{
-    private static readonly ExternalTaxAmountTypeCodeDropdownSource _dropdownSource = new ExternalTaxAmountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTaxAmountTypeCodeDropdownRow GetMetadata(this ExternalTaxAmountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

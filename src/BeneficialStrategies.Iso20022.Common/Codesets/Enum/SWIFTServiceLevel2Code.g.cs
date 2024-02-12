@@ -38,22 +38,3 @@ public enum SWIFTServiceLevel2Code
     Standard = SWIFTServiceLevelCode.Standard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SWIFTServiceLevel2CodeMetadataExtensions
-{
-    private static readonly SWIFTServiceLevel2CodeDropdownSource _dropdownSource = new SWIFTServiceLevel2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISWIFTServiceLevel2CodeDropdownRow GetMetadata(this SWIFTServiceLevel2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

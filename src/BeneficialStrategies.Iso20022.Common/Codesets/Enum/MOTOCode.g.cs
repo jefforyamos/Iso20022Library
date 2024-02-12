@@ -47,22 +47,3 @@ public enum MOTOCode
     MailOrderOrTelephoneOrder,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MOTOCodeMetadataExtensions
-{
-    private static readonly MOTOCodeDropdownSource _dropdownSource = new MOTOCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMOTOCodeDropdownRow GetMetadata(this MOTOCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

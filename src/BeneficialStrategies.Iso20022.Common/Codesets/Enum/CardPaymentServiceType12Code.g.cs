@@ -191,22 +191,3 @@ public enum CardPaymentServiceType12Code
     CardInitiatingDirectDebit = CardPaymentServiceTypeCode.CardInitiatingDirectDebit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType12CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType12CodeDropdownSource _dropdownSource = new CardPaymentServiceType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType12CodeDropdownRow GetMetadata(this CardPaymentServiceType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

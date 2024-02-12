@@ -47,22 +47,3 @@ public enum MultilegReportTypeCode
     ByInstrumentLeg,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MultilegReportTypeCodeMetadataExtensions
-{
-    private static readonly MultilegReportTypeCodeDropdownSource _dropdownSource = new MultilegReportTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMultilegReportTypeCodeDropdownRow GetMetadata(this MultilegReportTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

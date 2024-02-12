@@ -47,22 +47,3 @@ public enum TransactionIndividualStatus5Code
     AcceptedCreditSettlementCompleted = PaymentStatusCode.AcceptedCreditSettlementCompleted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionIndividualStatus5CodeMetadataExtensions
-{
-    private static readonly TransactionIndividualStatus5CodeDropdownSource _dropdownSource = new TransactionIndividualStatus5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionIndividualStatus5CodeDropdownRow GetMetadata(this TransactionIndividualStatus5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

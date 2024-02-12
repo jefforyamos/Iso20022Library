@@ -119,22 +119,3 @@ public enum ActionType3Code
     AcceptCurrencyConversion = ActionTypeCode.AcceptCurrencyConversion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType3CodeMetadataExtensions
-{
-    private static readonly ActionType3CodeDropdownSource _dropdownSource = new ActionType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType3CodeDropdownRow GetMetadata(this ActionType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

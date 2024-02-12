@@ -60,22 +60,3 @@ public enum ShareholdingType1Code
     Unknown = ShareholdingTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ShareholdingType1CodeMetadataExtensions
-{
-    private static readonly ShareholdingType1CodeDropdownSource _dropdownSource = new ShareholdingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IShareholdingType1CodeDropdownRow GetMetadata(this ShareholdingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

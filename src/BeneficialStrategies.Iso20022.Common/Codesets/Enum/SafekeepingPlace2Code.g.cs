@@ -38,22 +38,3 @@ public enum SafekeepingPlace2Code
     AllPlaces = SafekeepingPlaceCode.AllPlaces, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SafekeepingPlace2CodeMetadataExtensions
-{
-    private static readonly SafekeepingPlace2CodeDropdownSource _dropdownSource = new SafekeepingPlace2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISafekeepingPlace2CodeDropdownRow GetMetadata(this SafekeepingPlace2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

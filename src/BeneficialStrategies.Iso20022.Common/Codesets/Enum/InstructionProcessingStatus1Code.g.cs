@@ -308,22 +308,3 @@ public enum InstructionProcessingStatus1Code
     ModificationRequested = InstructionProcessingStatusCode.ModificationRequested, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly InstructionProcessingStatus1CodeDropdownSource _dropdownSource = new InstructionProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionProcessingStatus1CodeDropdownRow GetMetadata(this InstructionProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

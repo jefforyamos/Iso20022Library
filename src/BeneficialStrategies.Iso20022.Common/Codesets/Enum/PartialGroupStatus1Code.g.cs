@@ -74,22 +74,3 @@ public enum PartialGroupStatus1Code
     AcceptedWithChange = PaymentStatusCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartialGroupStatus1CodeMetadataExtensions
-{
-    private static readonly PartialGroupStatus1CodeDropdownSource _dropdownSource = new PartialGroupStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartialGroupStatus1CodeDropdownRow GetMetadata(this PartialGroupStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

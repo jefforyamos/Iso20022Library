@@ -65,22 +65,3 @@ public enum Response9Code
     TechnicalError = ResponseCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response9CodeMetadataExtensions
-{
-    private static readonly Response9CodeDropdownSource _dropdownSource = new Response9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse9CodeDropdownRow GetMetadata(this Response9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

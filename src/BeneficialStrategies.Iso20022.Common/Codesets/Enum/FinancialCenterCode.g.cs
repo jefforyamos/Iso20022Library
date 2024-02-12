@@ -532,22 +532,3 @@ public enum FinancialCenterCode
     Zurich,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialCenterCodeMetadataExtensions
-{
-    private static readonly FinancialCenterCodeDropdownSource _dropdownSource = new FinancialCenterCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialCenterCodeDropdownRow GetMetadata(this FinancialCenterCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum FundCashAccount1Code
     Other = FundCashAccountCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundCashAccount1CodeMetadataExtensions
-{
-    private static readonly FundCashAccount1CodeDropdownSource _dropdownSource = new FundCashAccount1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundCashAccount1CodeDropdownRow GetMetadata(this FundCashAccount1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

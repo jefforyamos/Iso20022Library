@@ -281,22 +281,3 @@ public enum POIComponentTypeCode
     ReportFile,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentTypeCodeMetadataExtensions
-{
-    private static readonly POIComponentTypeCodeDropdownSource _dropdownSource = new POIComponentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentTypeCodeDropdownRow GetMetadata(this POIComponentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

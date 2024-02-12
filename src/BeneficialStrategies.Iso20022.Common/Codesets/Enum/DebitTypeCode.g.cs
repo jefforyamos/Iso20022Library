@@ -38,22 +38,3 @@ public enum DebitTypeCode
     Single,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DebitTypeCodeMetadataExtensions
-{
-    private static readonly DebitTypeCodeDropdownSource _dropdownSource = new DebitTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDebitTypeCodeDropdownRow GetMetadata(this DebitTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

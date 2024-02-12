@@ -83,22 +83,3 @@ public enum SchemeIdentificationTypeCode
     MarginAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SchemeIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly SchemeIdentificationTypeCodeDropdownSource _dropdownSource = new SchemeIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISchemeIdentificationTypeCodeDropdownRow GetMetadata(this SchemeIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

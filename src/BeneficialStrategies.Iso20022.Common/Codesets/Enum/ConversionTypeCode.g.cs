@@ -38,22 +38,3 @@ public enum ConversionTypeCode
     Interim,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConversionTypeCodeMetadataExtensions
-{
-    private static readonly ConversionTypeCodeDropdownSource _dropdownSource = new ConversionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConversionTypeCodeDropdownRow GetMetadata(this ConversionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

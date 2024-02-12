@@ -209,22 +209,3 @@ public enum CorporateActionOption11Code
     UnknownProceeds = CorporateActionOptionCode.UnknownProceeds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOption11CodeMetadataExtensions
-{
-    private static readonly CorporateActionOption11CodeDropdownSource _dropdownSource = new CorporateActionOption11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOption11CodeDropdownRow GetMetadata(this CorporateActionOption11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -353,22 +353,3 @@ public enum RejectionReason64Code
     InvalidPaperwork = RejectionReasonV3Code.InvalidPaperwork, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason64CodeMetadataExtensions
-{
-    private static readonly RejectionReason64CodeDropdownSource _dropdownSource = new RejectionReason64CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason64CodeDropdownRow GetMetadata(this RejectionReason64Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -290,22 +290,3 @@ public enum ExposureType1Code
     ToBeAnnounced = ExposureTypeCode.ToBeAnnounced, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType1CodeMetadataExtensions
-{
-    private static readonly ExposureType1CodeDropdownSource _dropdownSource = new ExposureType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType1CodeDropdownRow GetMetadata(this ExposureType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

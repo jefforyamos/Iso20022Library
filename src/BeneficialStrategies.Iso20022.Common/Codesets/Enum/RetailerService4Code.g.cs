@@ -47,22 +47,3 @@ public enum RetailerService4Code
     AdministrativeSessionManagementDiagnosisRequest = RetailerServiceCode.AdministrativeSessionManagementDiagnosisRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService4CodeMetadataExtensions
-{
-    private static readonly RetailerService4CodeDropdownSource _dropdownSource = new RetailerService4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService4CodeDropdownRow GetMetadata(this RetailerService4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

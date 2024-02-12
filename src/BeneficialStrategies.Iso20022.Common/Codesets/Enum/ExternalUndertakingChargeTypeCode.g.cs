@@ -111,22 +111,3 @@ public enum ExternalUndertakingChargeTypeCode
     Telecommunication,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingChargeTypeCodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingChargeTypeCodeDropdownSource _dropdownSource = new ExternalUndertakingChargeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingChargeTypeCodeDropdownRow GetMetadata(this ExternalUndertakingChargeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

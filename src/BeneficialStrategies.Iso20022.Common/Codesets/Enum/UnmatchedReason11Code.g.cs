@@ -380,22 +380,3 @@ public enum UnmatchedReason11Code
     UnmatchedMarketSide = UnmatchedReasonCode.UnmatchedMarketSide, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason11CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason11CodeDropdownSource _dropdownSource = new UnmatchedReason11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason11CodeDropdownRow GetMetadata(this UnmatchedReason11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

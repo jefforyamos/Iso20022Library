@@ -182,22 +182,3 @@ public enum AccountOwnershipType4Code
     SingleOwnerAccount = AccountOwnershipTypeCode.SingleOwnerAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountOwnershipType4CodeMetadataExtensions
-{
-    private static readonly AccountOwnershipType4CodeDropdownSource _dropdownSource = new AccountOwnershipType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountOwnershipType4CodeDropdownRow GetMetadata(this AccountOwnershipType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

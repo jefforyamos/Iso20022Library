@@ -48,22 +48,3 @@ public enum ExternalShipmentConditionCode
     TradeLoan,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalShipmentConditionCodeMetadataExtensions
-{
-    private static readonly ExternalShipmentConditionCodeDropdownSource _dropdownSource = new ExternalShipmentConditionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalShipmentConditionCodeDropdownRow GetMetadata(this ExternalShipmentConditionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

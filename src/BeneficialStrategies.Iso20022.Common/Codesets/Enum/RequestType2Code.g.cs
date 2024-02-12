@@ -65,22 +65,3 @@ public enum RequestType2Code
     PendingInwardCreditsEnquiry = RequestTypeCode.PendingInwardCreditsEnquiry, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestType2CodeMetadataExtensions
-{
-    private static readonly RequestType2CodeDropdownSource _dropdownSource = new RequestType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestType2CodeDropdownRow GetMetadata(this RequestType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

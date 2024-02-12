@@ -47,22 +47,3 @@ public enum OrderOriginatorEligibilityCode
     Professional,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderOriginatorEligibilityCodeMetadataExtensions
-{
-    private static readonly OrderOriginatorEligibilityCodeDropdownSource _dropdownSource = new OrderOriginatorEligibilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderOriginatorEligibilityCodeDropdownRow GetMetadata(this OrderOriginatorEligibilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum CustomerTypeCode
     Consumer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerTypeCodeMetadataExtensions
-{
-    private static readonly CustomerTypeCodeDropdownSource _dropdownSource = new CustomerTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerTypeCodeDropdownRow GetMetadata(this CustomerTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

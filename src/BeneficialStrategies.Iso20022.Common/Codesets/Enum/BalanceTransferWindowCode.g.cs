@@ -38,22 +38,3 @@ public enum BalanceTransferWindowCode
     InHours,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceTransferWindowCodeMetadataExtensions
-{
-    private static readonly BalanceTransferWindowCodeDropdownSource _dropdownSource = new BalanceTransferWindowCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceTransferWindowCodeDropdownRow GetMetadata(this BalanceTransferWindowCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

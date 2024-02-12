@@ -92,22 +92,3 @@ public enum TradeCounterpartyTypeCode
     EntityResponsibleForReport,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeCounterpartyTypeCodeMetadataExtensions
-{
-    private static readonly TradeCounterpartyTypeCodeDropdownSource _dropdownSource = new TradeCounterpartyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeCounterpartyTypeCodeDropdownRow GetMetadata(this TradeCounterpartyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

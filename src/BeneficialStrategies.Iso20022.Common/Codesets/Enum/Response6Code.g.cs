@@ -92,22 +92,3 @@ public enum Response6Code
     UnderReview = ResponseCode.UnderReview, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response6CodeMetadataExtensions
-{
-    private static readonly Response6CodeDropdownSource _dropdownSource = new Response6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse6CodeDropdownRow GetMetadata(this Response6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

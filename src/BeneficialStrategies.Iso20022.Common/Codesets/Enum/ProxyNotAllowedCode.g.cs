@@ -29,22 +29,3 @@ public enum ProxyNotAllowedCode
     NotAllowed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProxyNotAllowedCodeMetadataExtensions
-{
-    private static readonly ProxyNotAllowedCodeDropdownSource _dropdownSource = new ProxyNotAllowedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProxyNotAllowedCodeDropdownRow GetMetadata(this ProxyNotAllowedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum FundOrderType1Code
     Switch = FundOrderTypeCode.Switch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOrderType1CodeMetadataExtensions
-{
-    private static readonly FundOrderType1CodeDropdownSource _dropdownSource = new FundOrderType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOrderType1CodeDropdownRow GetMetadata(this FundOrderType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -236,22 +236,3 @@ public enum InvestmentFundFeeCode
     SpecialConcessions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundFeeCodeMetadataExtensions
-{
-    private static readonly InvestmentFundFeeCodeDropdownSource _dropdownSource = new InvestmentFundFeeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundFeeCodeDropdownRow GetMetadata(this InvestmentFundFeeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

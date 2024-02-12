@@ -56,22 +56,3 @@ public enum AdministrativeTypeCode
     CurrencyConversionRateData,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdministrativeTypeCodeMetadataExtensions
-{
-    private static readonly AdministrativeTypeCodeDropdownSource _dropdownSource = new AdministrativeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdministrativeTypeCodeDropdownRow GetMetadata(this AdministrativeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

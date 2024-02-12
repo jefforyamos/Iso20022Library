@@ -47,22 +47,3 @@ public enum FrequencyRateFixing1Code
     Periodic = FrequencyRateFixingCode.Periodic, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FrequencyRateFixing1CodeMetadataExtensions
-{
-    private static readonly FrequencyRateFixing1CodeDropdownSource _dropdownSource = new FrequencyRateFixing1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequencyRateFixing1CodeDropdownRow GetMetadata(this FrequencyRateFixing1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

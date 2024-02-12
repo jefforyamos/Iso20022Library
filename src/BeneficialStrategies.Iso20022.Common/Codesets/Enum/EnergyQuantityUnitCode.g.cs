@@ -200,22 +200,3 @@ public enum EnergyQuantityUnitCode
     GigaJoulePerDay,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnergyQuantityUnitCodeMetadataExtensions
-{
-    private static readonly EnergyQuantityUnitCodeDropdownSource _dropdownSource = new EnergyQuantityUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnergyQuantityUnitCodeDropdownRow GetMetadata(this EnergyQuantityUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

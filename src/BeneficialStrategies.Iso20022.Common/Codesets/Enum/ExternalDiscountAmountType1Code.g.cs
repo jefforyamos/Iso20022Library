@@ -49,22 +49,3 @@ public enum ExternalDiscountAmountType1Code
     TermsDiscount = ExternalDiscountAmountTypeCode.TermsDiscount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDiscountAmountType1CodeMetadataExtensions
-{
-    private static readonly ExternalDiscountAmountType1CodeDropdownSource _dropdownSource = new ExternalDiscountAmountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDiscountAmountType1CodeDropdownRow GetMetadata(this ExternalDiscountAmountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

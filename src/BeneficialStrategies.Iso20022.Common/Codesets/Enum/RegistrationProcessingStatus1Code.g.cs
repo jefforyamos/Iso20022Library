@@ -38,22 +38,3 @@ public enum RegistrationProcessingStatus1Code
     Rejected = RegistrationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegistrationProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly RegistrationProcessingStatus1CodeDropdownSource _dropdownSource = new RegistrationProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegistrationProcessingStatus1CodeDropdownRow GetMetadata(this RegistrationProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

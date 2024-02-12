@@ -56,22 +56,3 @@ public enum StatusSubTypeCode
     SameDayAndPendingFlagsTrue,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusSubTypeCodeMetadataExtensions
-{
-    private static readonly StatusSubTypeCodeDropdownSource _dropdownSource = new StatusSubTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusSubTypeCodeDropdownRow GetMetadata(this StatusSubTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

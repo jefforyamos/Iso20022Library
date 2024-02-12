@@ -49,22 +49,3 @@ public enum ExternalAcceptedReasonCode
     MarketPracticeRuleDiscrepency,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAcceptedReasonCodeMetadataExtensions
-{
-    private static readonly ExternalAcceptedReasonCodeDropdownSource _dropdownSource = new ExternalAcceptedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAcceptedReasonCodeDropdownRow GetMetadata(this ExternalAcceptedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

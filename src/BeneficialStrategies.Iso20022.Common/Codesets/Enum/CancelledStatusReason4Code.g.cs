@@ -92,22 +92,3 @@ public enum CancelledStatusReason4Code
     SecuritiesNoLongerEligible = CancelledStatusReasonV2Code.SecuritiesNoLongerEligible, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason4CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason4CodeDropdownSource _dropdownSource = new CancelledStatusReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason4CodeDropdownRow GetMetadata(this CancelledStatusReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

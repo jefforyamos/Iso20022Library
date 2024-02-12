@@ -632,22 +632,3 @@ public enum CorporateActionEventType24Code
     Information = CorporateActionEventTypeV6Code.Information, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType24CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType24CodeDropdownSource _dropdownSource = new CorporateActionEventType24CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType24CodeDropdownRow GetMetadata(this CorporateActionEventType24Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

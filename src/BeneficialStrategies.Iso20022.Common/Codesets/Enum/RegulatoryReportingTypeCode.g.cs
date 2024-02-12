@@ -47,22 +47,3 @@ public enum RegulatoryReportingTypeCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegulatoryReportingTypeCodeMetadataExtensions
-{
-    private static readonly RegulatoryReportingTypeCodeDropdownSource _dropdownSource = new RegulatoryReportingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegulatoryReportingTypeCodeDropdownRow GetMetadata(this RegulatoryReportingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

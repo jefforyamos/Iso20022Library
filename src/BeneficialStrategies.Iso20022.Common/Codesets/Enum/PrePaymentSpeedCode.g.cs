@@ -92,22 +92,3 @@ public enum PrePaymentSpeedCode
     ManufacturedHousingPrePaymentCurve,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PrePaymentSpeedCodeMetadataExtensions
-{
-    private static readonly PrePaymentSpeedCodeDropdownSource _dropdownSource = new PrePaymentSpeedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPrePaymentSpeedCodeDropdownRow GetMetadata(this PrePaymentSpeedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

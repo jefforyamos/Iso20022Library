@@ -47,22 +47,3 @@ public enum InvestmentNeed2Code
     IslamicBanking = InvestmentNeedCode.IslamicBanking, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentNeed2CodeMetadataExtensions
-{
-    private static readonly InvestmentNeed2CodeDropdownSource _dropdownSource = new InvestmentNeed2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentNeed2CodeDropdownRow GetMetadata(this InvestmentNeed2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

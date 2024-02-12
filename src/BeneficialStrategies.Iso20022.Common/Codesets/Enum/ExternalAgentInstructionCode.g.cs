@@ -111,22 +111,3 @@ public enum ExternalAgentInstructionCode
     TimeTill,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAgentInstructionCodeMetadataExtensions
-{
-    private static readonly ExternalAgentInstructionCodeDropdownSource _dropdownSource = new ExternalAgentInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAgentInstructionCodeDropdownRow GetMetadata(this ExternalAgentInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

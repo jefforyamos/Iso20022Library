@@ -56,22 +56,3 @@ public enum TradeType2Code
     GuaranteedClose = TradeTypeCode.GuaranteedClose, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeType2CodeMetadataExtensions
-{
-    private static readonly TradeType2CodeDropdownSource _dropdownSource = new TradeType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeType2CodeDropdownRow GetMetadata(this TradeType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

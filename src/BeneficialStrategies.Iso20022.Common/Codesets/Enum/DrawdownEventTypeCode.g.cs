@@ -38,22 +38,3 @@ public enum DrawdownEventTypeCode
     Drawdown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DrawdownEventTypeCodeMetadataExtensions
-{
-    private static readonly DrawdownEventTypeCodeDropdownSource _dropdownSource = new DrawdownEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDrawdownEventTypeCodeDropdownRow GetMetadata(this DrawdownEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

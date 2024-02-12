@@ -47,22 +47,3 @@ public enum CallIn1Code
     CallForCurrencyClose = CallInCode.CallForCurrencyClose, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CallIn1CodeMetadataExtensions
-{
-    private static readonly CallIn1CodeDropdownSource _dropdownSource = new CallIn1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICallIn1CodeDropdownRow GetMetadata(this CallIn1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

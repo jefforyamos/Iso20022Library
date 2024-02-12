@@ -344,22 +344,3 @@ public enum OrderStatusCode
     RoutedOrders,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderStatusCodeMetadataExtensions
-{
-    private static readonly OrderStatusCodeDropdownSource _dropdownSource = new OrderStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderStatusCodeDropdownRow GetMetadata(this OrderStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

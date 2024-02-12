@@ -47,22 +47,3 @@ public enum StatusResponse1Code
     CompleteResponse = StatusResponseCode.CompleteResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusResponse1CodeMetadataExtensions
-{
-    private static readonly StatusResponse1CodeDropdownSource _dropdownSource = new StatusResponse1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusResponse1CodeDropdownRow GetMetadata(this StatusResponse1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

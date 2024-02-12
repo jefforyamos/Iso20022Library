@@ -74,22 +74,3 @@ public enum ResourceActionCode
     Resume,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResourceActionCodeMetadataExtensions
-{
-    private static readonly ResourceActionCodeDropdownSource _dropdownSource = new ResourceActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResourceActionCodeDropdownRow GetMetadata(this ResourceActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

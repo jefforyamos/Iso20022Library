@@ -38,22 +38,3 @@ public enum UnrealisedCode
     Loss,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnrealisedCodeMetadataExtensions
-{
-    private static readonly UnrealisedCodeDropdownSource _dropdownSource = new UnrealisedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnrealisedCodeDropdownRow GetMetadata(this UnrealisedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

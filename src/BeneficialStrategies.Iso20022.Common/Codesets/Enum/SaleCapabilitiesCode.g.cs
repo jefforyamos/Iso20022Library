@@ -128,22 +128,3 @@ public enum SaleCapabilitiesCode
     PrinterVoucher,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SaleCapabilitiesCodeMetadataExtensions
-{
-    private static readonly SaleCapabilitiesCodeDropdownSource _dropdownSource = new SaleCapabilitiesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISaleCapabilitiesCodeDropdownRow GetMetadata(this SaleCapabilitiesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

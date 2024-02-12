@@ -47,22 +47,3 @@ public enum ReconciliationFunction1Code
     Convey = ReconciliationFunctionCode.Convey, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationFunction1CodeMetadataExtensions
-{
-    private static readonly ReconciliationFunction1CodeDropdownSource _dropdownSource = new ReconciliationFunction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationFunction1CodeDropdownRow GetMetadata(this ReconciliationFunction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InterestRequestSequenceCode
     Updated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRequestSequenceCodeMetadataExtensions
-{
-    private static readonly InterestRequestSequenceCodeDropdownSource _dropdownSource = new InterestRequestSequenceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRequestSequenceCodeDropdownRow GetMetadata(this InterestRequestSequenceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

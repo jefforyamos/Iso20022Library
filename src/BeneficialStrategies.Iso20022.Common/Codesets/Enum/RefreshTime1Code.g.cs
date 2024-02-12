@@ -38,22 +38,3 @@ public enum RefreshTime1Code
     Exhaust = RefreshTimeCode.Exhaust, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RefreshTime1CodeMetadataExtensions
-{
-    private static readonly RefreshTime1CodeDropdownSource _dropdownSource = new RefreshTime1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRefreshTime1CodeDropdownRow GetMetadata(this RefreshTime1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

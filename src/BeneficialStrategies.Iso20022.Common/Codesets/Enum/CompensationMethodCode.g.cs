@@ -56,22 +56,3 @@ public enum CompensationMethodCode
     DelayedDebit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CompensationMethodCodeMetadataExtensions
-{
-    private static readonly CompensationMethodCodeDropdownSource _dropdownSource = new CompensationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICompensationMethodCodeDropdownRow GetMetadata(this CompensationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

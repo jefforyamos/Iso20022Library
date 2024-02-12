@@ -38,22 +38,3 @@ public enum CashBalanceType1Code
     Restricted = BalanceTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashBalanceType1CodeMetadataExtensions
-{
-    private static readonly CashBalanceType1CodeDropdownSource _dropdownSource = new CashBalanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashBalanceType1CodeDropdownRow GetMetadata(this CashBalanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

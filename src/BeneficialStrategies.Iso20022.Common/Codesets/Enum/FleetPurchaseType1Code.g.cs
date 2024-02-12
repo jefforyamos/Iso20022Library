@@ -47,22 +47,3 @@ public enum FleetPurchaseType1Code
     FuelAndNonFuel = FleetPurchaseTypeCode.FuelAndNonFuel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FleetPurchaseType1CodeMetadataExtensions
-{
-    private static readonly FleetPurchaseType1CodeDropdownSource _dropdownSource = new FleetPurchaseType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFleetPurchaseType1CodeDropdownRow GetMetadata(this FleetPurchaseType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

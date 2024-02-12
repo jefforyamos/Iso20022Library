@@ -83,22 +83,3 @@ public enum TypeOfAmount11Code
     Deposit = TypeOfAmountCode.Deposit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount11CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount11CodeDropdownSource _dropdownSource = new TypeOfAmount11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount11CodeDropdownRow GetMetadata(this TypeOfAmount11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

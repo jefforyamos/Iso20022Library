@@ -29,22 +29,3 @@ public enum AssetClassSubProductType37Code
     Pulp = AssetClassSubProductTypeCode.Pulp, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType37CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType37CodeDropdownSource _dropdownSource = new AssetClassSubProductType37CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType37CodeDropdownRow GetMetadata(this AssetClassSubProductType37Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

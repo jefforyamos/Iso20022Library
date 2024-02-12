@@ -29,22 +29,3 @@ public enum RateValueType7Code
     Unknown = RateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateValueType7CodeMetadataExtensions
-{
-    private static readonly RateValueType7CodeDropdownSource _dropdownSource = new RateValueType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateValueType7CodeDropdownRow GetMetadata(this RateValueType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

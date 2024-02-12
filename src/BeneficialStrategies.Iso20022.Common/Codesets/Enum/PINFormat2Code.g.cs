@@ -65,22 +65,3 @@ public enum PINFormat2Code
     ISO4 = PINFormatCode.ISO4, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINFormat2CodeMetadataExtensions
-{
-    private static readonly PINFormat2CodeDropdownSource _dropdownSource = new PINFormat2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINFormat2CodeDropdownRow GetMetadata(this PINFormat2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

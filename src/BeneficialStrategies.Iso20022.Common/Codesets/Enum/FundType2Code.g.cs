@@ -57,22 +57,3 @@ public enum FundType2Code
     RealEstateInvestmentTrust = FundTypeCode.RealEstateInvestmentTrust, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundType2CodeMetadataExtensions
-{
-    private static readonly FundType2CodeDropdownSource _dropdownSource = new FundType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundType2CodeDropdownRow GetMetadata(this FundType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

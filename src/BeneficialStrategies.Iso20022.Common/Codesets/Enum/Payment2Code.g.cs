@@ -29,22 +29,3 @@ public enum Payment2Code
     ActualPayment = PaymentCode.ActualPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Payment2CodeMetadataExtensions
-{
-    private static readonly Payment2CodeDropdownSource _dropdownSource = new Payment2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPayment2CodeDropdownRow GetMetadata(this Payment2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

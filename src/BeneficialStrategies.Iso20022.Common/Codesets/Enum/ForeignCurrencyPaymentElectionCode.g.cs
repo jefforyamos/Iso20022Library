@@ -47,22 +47,3 @@ public enum ForeignCurrencyPaymentElectionCode
     Mandatory,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ForeignCurrencyPaymentElectionCodeMetadataExtensions
-{
-    private static readonly ForeignCurrencyPaymentElectionCodeDropdownSource _dropdownSource = new ForeignCurrencyPaymentElectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IForeignCurrencyPaymentElectionCodeDropdownRow GetMetadata(this ForeignCurrencyPaymentElectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

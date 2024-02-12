@@ -47,22 +47,3 @@ public enum TaxRateMarkerCode
     AmountQuotedLessLifeAssurance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxRateMarkerCodeMetadataExtensions
-{
-    private static readonly TaxRateMarkerCodeDropdownSource _dropdownSource = new TaxRateMarkerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxRateMarkerCodeDropdownRow GetMetadata(this TaxRateMarkerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

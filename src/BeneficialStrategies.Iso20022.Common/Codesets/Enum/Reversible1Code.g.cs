@@ -47,22 +47,3 @@ public enum Reversible1Code
     CallBack = ReversibleCode.CallBack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Reversible1CodeMetadataExtensions
-{
-    private static readonly Reversible1CodeDropdownSource _dropdownSource = new Reversible1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReversible1CodeDropdownRow GetMetadata(this Reversible1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

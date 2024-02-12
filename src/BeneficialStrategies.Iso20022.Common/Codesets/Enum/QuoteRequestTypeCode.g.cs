@@ -38,22 +38,3 @@ public enum QuoteRequestTypeCode
     Automatic,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuoteRequestTypeCodeMetadataExtensions
-{
-    private static readonly QuoteRequestTypeCodeDropdownSource _dropdownSource = new QuoteRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuoteRequestTypeCodeDropdownRow GetMetadata(this QuoteRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

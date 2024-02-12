@@ -47,22 +47,3 @@ public enum HoldingTransferableCode
     ReferToFundOrderDesk,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HoldingTransferableCodeMetadataExtensions
-{
-    private static readonly HoldingTransferableCodeDropdownSource _dropdownSource = new HoldingTransferableCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHoldingTransferableCodeDropdownRow GetMetadata(this HoldingTransferableCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

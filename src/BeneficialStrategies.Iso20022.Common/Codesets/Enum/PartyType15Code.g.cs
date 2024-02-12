@@ -47,22 +47,3 @@ public enum PartyType15Code
     SinglePOI = PartyTypeCode.SinglePOI, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType15CodeMetadataExtensions
-{
-    private static readonly PartyType15CodeDropdownSource _dropdownSource = new PartyType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType15CodeDropdownRow GetMetadata(this PartyType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

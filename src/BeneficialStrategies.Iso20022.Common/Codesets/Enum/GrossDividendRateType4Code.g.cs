@@ -137,22 +137,3 @@ public enum GrossDividendRateType4Code
     ConduitForeignIncome = DividendRateTypeCode.ConduitForeignIncome, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GrossDividendRateType4CodeMetadataExtensions
-{
-    private static readonly GrossDividendRateType4CodeDropdownSource _dropdownSource = new GrossDividendRateType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGrossDividendRateType4CodeDropdownRow GetMetadata(this GrossDividendRateType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

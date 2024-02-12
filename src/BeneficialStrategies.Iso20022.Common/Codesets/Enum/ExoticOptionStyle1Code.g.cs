@@ -56,22 +56,3 @@ public enum ExoticOptionStyle1Code
     VanillaOption = ExoticOptionStyleCode.VanillaOption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExoticOptionStyle1CodeMetadataExtensions
-{
-    private static readonly ExoticOptionStyle1CodeDropdownSource _dropdownSource = new ExoticOptionStyle1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExoticOptionStyle1CodeDropdownRow GetMetadata(this ExoticOptionStyle1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum Side5Code
     Undisclosed = SideCode.Undisclosed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Side5CodeMetadataExtensions
-{
-    private static readonly Side5CodeDropdownSource _dropdownSource = new Side5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISide5CodeDropdownRow GetMetadata(this Side5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

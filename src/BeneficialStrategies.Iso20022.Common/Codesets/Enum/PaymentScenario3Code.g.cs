@@ -47,22 +47,3 @@ public enum PaymentScenario3Code
     CustomerCreditTransferWithCover = PaymentScenarioCode.CustomerCreditTransferWithCover, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentScenario3CodeMetadataExtensions
-{
-    private static readonly PaymentScenario3CodeDropdownSource _dropdownSource = new PaymentScenario3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentScenario3CodeDropdownRow GetMetadata(this PaymentScenario3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

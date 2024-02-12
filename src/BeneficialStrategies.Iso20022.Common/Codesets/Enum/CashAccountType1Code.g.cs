@@ -47,22 +47,3 @@ public enum CashAccountType1Code
     Savings = CashAccountTypeCode.Savings, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashAccountType1CodeMetadataExtensions
-{
-    private static readonly CashAccountType1CodeDropdownSource _dropdownSource = new CashAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashAccountType1CodeDropdownRow GetMetadata(this CashAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

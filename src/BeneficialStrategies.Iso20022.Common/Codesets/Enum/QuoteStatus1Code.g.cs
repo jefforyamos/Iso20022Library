@@ -164,22 +164,3 @@ public enum QuoteStatus1Code
     CanceledDueToCrossMarket = QuoteStatusCode.CanceledDueToCrossMarket, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuoteStatus1CodeMetadataExtensions
-{
-    private static readonly QuoteStatus1CodeDropdownSource _dropdownSource = new QuoteStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuoteStatus1CodeDropdownRow GetMetadata(this QuoteStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

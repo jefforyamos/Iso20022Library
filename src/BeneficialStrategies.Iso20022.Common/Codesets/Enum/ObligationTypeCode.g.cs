@@ -47,22 +47,3 @@ public enum ObligationTypeCode
     CorporateEvent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ObligationTypeCodeMetadataExtensions
-{
-    private static readonly ObligationTypeCodeDropdownSource _dropdownSource = new ObligationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IObligationTypeCodeDropdownRow GetMetadata(this ObligationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

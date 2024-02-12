@@ -47,22 +47,3 @@ public enum TerminalManagementErrorActionCode
     StopSequence,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementErrorActionCodeMetadataExtensions
-{
-    private static readonly TerminalManagementErrorActionCodeDropdownSource _dropdownSource = new TerminalManagementErrorActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementErrorActionCodeDropdownRow GetMetadata(this TerminalManagementErrorActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

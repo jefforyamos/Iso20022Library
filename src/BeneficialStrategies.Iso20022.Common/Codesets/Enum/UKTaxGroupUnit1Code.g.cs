@@ -38,22 +38,3 @@ public enum UKTaxGroupUnit1Code
     Group2 = UKTaxGroupUnitCode.Group2, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UKTaxGroupUnit1CodeMetadataExtensions
-{
-    private static readonly UKTaxGroupUnit1CodeDropdownSource _dropdownSource = new UKTaxGroupUnit1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUKTaxGroupUnit1CodeDropdownRow GetMetadata(this UKTaxGroupUnit1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

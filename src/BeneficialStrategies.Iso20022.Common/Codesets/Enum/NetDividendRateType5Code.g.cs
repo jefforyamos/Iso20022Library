@@ -137,22 +137,3 @@ public enum NetDividendRateType5Code
     ConduitForeignIncome = DividendRateTypeCode.ConduitForeignIncome, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NetDividendRateType5CodeMetadataExtensions
-{
-    private static readonly NetDividendRateType5CodeDropdownSource _dropdownSource = new NetDividendRateType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INetDividendRateType5CodeDropdownRow GetMetadata(this NetDividendRateType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

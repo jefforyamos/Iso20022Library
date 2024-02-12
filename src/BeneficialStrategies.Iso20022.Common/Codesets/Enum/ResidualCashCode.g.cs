@@ -38,22 +38,3 @@ public enum ResidualCashCode
     NotResidualCashTransfer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResidualCashCodeMetadataExtensions
-{
-    private static readonly ResidualCashCodeDropdownSource _dropdownSource = new ResidualCashCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResidualCashCodeDropdownRow GetMetadata(this ResidualCashCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum ErrorHandlingCode
     DataNotAvailable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ErrorHandlingCodeMetadataExtensions
-{
-    private static readonly ErrorHandlingCodeDropdownSource _dropdownSource = new ErrorHandlingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IErrorHandlingCodeDropdownRow GetMetadata(this ErrorHandlingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

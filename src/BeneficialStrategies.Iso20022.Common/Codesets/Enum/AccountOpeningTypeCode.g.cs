@@ -38,22 +38,3 @@ public enum AccountOpeningTypeCode
     SupplementaryAccountOpening,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountOpeningTypeCodeMetadataExtensions
-{
-    private static readonly AccountOpeningTypeCodeDropdownSource _dropdownSource = new AccountOpeningTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountOpeningTypeCodeDropdownRow GetMetadata(this AccountOpeningTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

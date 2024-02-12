@@ -65,22 +65,3 @@ public enum CardServiceType5Code
     RequestKey = CardServiceTypeCode.RequestKey, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardServiceType5CodeMetadataExtensions
-{
-    private static readonly CardServiceType5CodeDropdownSource _dropdownSource = new CardServiceType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardServiceType5CodeDropdownRow GetMetadata(this CardServiceType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

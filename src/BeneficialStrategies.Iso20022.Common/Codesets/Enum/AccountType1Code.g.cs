@@ -38,22 +38,3 @@ public enum AccountType1Code
     Securities = AccountTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountType1CodeMetadataExtensions
-{
-    private static readonly AccountType1CodeDropdownSource _dropdownSource = new AccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountType1CodeDropdownRow GetMetadata(this AccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

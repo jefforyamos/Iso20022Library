@@ -65,22 +65,3 @@ public enum EmbeddedTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EmbeddedTypeCodeMetadataExtensions
-{
-    private static readonly EmbeddedTypeCodeDropdownSource _dropdownSource = new EmbeddedTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEmbeddedTypeCodeDropdownRow GetMetadata(this EmbeddedTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

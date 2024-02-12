@@ -110,22 +110,3 @@ public enum TransactionOperationType6Code
     Error = TransactionOperationTypeCode.Error, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType6CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType6CodeDropdownSource _dropdownSource = new TransactionOperationType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType6CodeDropdownRow GetMetadata(this TransactionOperationType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

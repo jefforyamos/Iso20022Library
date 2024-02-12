@@ -74,22 +74,3 @@ public enum FractionDispositionType7Code
     RoundToNearest = FractionDispositionTypeCode.RoundToNearest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType7CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType7CodeDropdownSource _dropdownSource = new FractionDispositionType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType7CodeDropdownRow GetMetadata(this FractionDispositionType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

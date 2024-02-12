@@ -398,22 +398,3 @@ public enum SettlementTransactionConditionV2Code
     Transformation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionConditionV2CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionConditionV2CodeDropdownSource _dropdownSource = new SettlementTransactionConditionV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionConditionV2CodeDropdownRow GetMetadata(this SettlementTransactionConditionV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

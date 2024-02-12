@@ -29,22 +29,3 @@ public enum AssetClassProductType7Code
     Metal = AssetClassProductTypeCode.Metal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType7CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType7CodeDropdownSource _dropdownSource = new AssetClassProductType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType7CodeDropdownRow GetMetadata(this AssetClassProductType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

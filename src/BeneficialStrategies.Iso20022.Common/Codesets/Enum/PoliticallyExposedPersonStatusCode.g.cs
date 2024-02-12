@@ -52,22 +52,3 @@ public enum PoliticallyExposedPersonStatusCode
     CloseAssociate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PoliticallyExposedPersonStatusCodeMetadataExtensions
-{
-    private static readonly PoliticallyExposedPersonStatusCodeDropdownSource _dropdownSource = new PoliticallyExposedPersonStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPoliticallyExposedPersonStatusCodeDropdownRow GetMetadata(this PoliticallyExposedPersonStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

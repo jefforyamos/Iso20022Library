@@ -38,22 +38,3 @@ public enum Registration1Code
     Registered = RegistrationCode.Registered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Registration1CodeMetadataExtensions
-{
-    private static readonly Registration1CodeDropdownSource _dropdownSource = new Registration1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegistration1CodeDropdownRow GetMetadata(this Registration1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum CollateralQualityTypeCode
     NonApplicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralQualityTypeCodeMetadataExtensions
-{
-    private static readonly CollateralQualityTypeCodeDropdownSource _dropdownSource = new CollateralQualityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralQualityTypeCodeDropdownRow GetMetadata(this CollateralQualityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

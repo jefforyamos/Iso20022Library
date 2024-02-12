@@ -74,22 +74,3 @@ public enum OutputFormat3Code
     XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OutputFormat3CodeMetadataExtensions
-{
-    private static readonly OutputFormat3CodeDropdownSource _dropdownSource = new OutputFormat3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOutputFormat3CodeDropdownRow GetMetadata(this OutputFormat3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

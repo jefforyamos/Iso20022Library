@@ -56,22 +56,3 @@ public enum TerminationReason1Code
     WarrantyObligationPeriodExpired = TerminationReasonCode.WarrantyObligationPeriodExpired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminationReason1CodeMetadataExtensions
-{
-    private static readonly TerminationReason1CodeDropdownSource _dropdownSource = new TerminationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminationReason1CodeDropdownRow GetMetadata(this TerminationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

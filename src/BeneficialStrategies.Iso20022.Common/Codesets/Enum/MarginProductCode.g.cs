@@ -38,22 +38,3 @@ public enum MarginProductCode
     FixedIncome,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarginProductCodeMetadataExtensions
-{
-    private static readonly MarginProductCodeDropdownSource _dropdownSource = new MarginProductCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarginProductCodeDropdownRow GetMetadata(this MarginProductCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

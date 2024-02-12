@@ -875,22 +875,3 @@ public enum DTCAssetType2Code
     ZeroCouponBond = DTCAssetTypeCode.ZeroCouponBond, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAssetType2CodeMetadataExtensions
-{
-    private static readonly DTCAssetType2CodeDropdownSource _dropdownSource = new DTCAssetType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAssetType2CodeDropdownRow GetMetadata(this DTCAssetType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

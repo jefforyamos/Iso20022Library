@@ -137,22 +137,3 @@ public enum IncotermsCode
     DeliveredDutyPaid,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IncotermsCodeMetadataExtensions
-{
-    private static readonly IncotermsCodeDropdownSource _dropdownSource = new IncotermsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIncotermsCodeDropdownRow GetMetadata(this IncotermsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -994,22 +994,3 @@ public enum ExternalLocalInstrumentCode
     MultiDayPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalLocalInstrumentCodeMetadataExtensions
-{
-    private static readonly ExternalLocalInstrumentCodeDropdownSource _dropdownSource = new ExternalLocalInstrumentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalLocalInstrumentCodeDropdownRow GetMetadata(this ExternalLocalInstrumentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -263,22 +263,3 @@ public enum FailureReasonCode
     CustomerTimeOut,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReasonCodeMetadataExtensions
-{
-    private static readonly FailureReasonCodeDropdownSource _dropdownSource = new FailureReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReasonCodeDropdownRow GetMetadata(this FailureReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

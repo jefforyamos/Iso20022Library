@@ -65,22 +65,3 @@ public enum NamePrefix2Code
     GenderNeutral = NamePrefixCode.GenderNeutral, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NamePrefix2CodeMetadataExtensions
-{
-    private static readonly NamePrefix2CodeDropdownSource _dropdownSource = new NamePrefix2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INamePrefix2CodeDropdownRow GetMetadata(this NamePrefix2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

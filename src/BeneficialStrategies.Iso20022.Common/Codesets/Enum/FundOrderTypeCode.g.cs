@@ -281,22 +281,3 @@ public enum FundOrderTypeCode
     Withdrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOrderTypeCodeMetadataExtensions
-{
-    private static readonly FundOrderTypeCodeDropdownSource _dropdownSource = new FundOrderTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOrderTypeCodeDropdownRow GetMetadata(this FundOrderTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

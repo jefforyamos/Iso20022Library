@@ -1262,22 +1262,3 @@ public enum InstructionRejectionReason3Code
     WithdrawError = InstructionRejectionReasonV2Code.WithdrawError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionRejectionReason3CodeMetadataExtensions
-{
-    private static readonly InstructionRejectionReason3CodeDropdownSource _dropdownSource = new InstructionRejectionReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionRejectionReason3CodeDropdownRow GetMetadata(this InstructionRejectionReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

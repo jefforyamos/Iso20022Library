@@ -407,22 +407,3 @@ public enum AccountInformationTypeCode
     IntermediaryBankBICCodeOfContraCurrency,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountInformationTypeCodeMetadataExtensions
-{
-    private static readonly AccountInformationTypeCodeDropdownSource _dropdownSource = new AccountInformationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountInformationTypeCodeDropdownRow GetMetadata(this AccountInformationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

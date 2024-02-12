@@ -47,22 +47,3 @@ public enum CustodianRecordAgreementType1Code
     NoComposite = CustodianRecordAgreementTypeCode.NoComposite, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustodianRecordAgreementType1CodeMetadataExtensions
-{
-    private static readonly CustodianRecordAgreementType1CodeDropdownSource _dropdownSource = new CustodianRecordAgreementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustodianRecordAgreementType1CodeDropdownRow GetMetadata(this CustodianRecordAgreementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

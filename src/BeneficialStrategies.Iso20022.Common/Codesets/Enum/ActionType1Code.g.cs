@@ -101,22 +101,3 @@ public enum ActionType1Code
     IdentificationRequired = ActionTypeCode.IdentificationRequired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType1CodeMetadataExtensions
-{
-    private static readonly ActionType1CodeDropdownSource _dropdownSource = new ActionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType1CodeDropdownRow GetMetadata(this ActionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

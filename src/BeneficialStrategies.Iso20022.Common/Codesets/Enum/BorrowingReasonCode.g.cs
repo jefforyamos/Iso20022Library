@@ -47,22 +47,3 @@ public enum BorrowingReasonCode
     MarketMakingPurpose,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BorrowingReasonCodeMetadataExtensions
-{
-    private static readonly BorrowingReasonCodeDropdownSource _dropdownSource = new BorrowingReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBorrowingReasonCodeDropdownRow GetMetadata(this BorrowingReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

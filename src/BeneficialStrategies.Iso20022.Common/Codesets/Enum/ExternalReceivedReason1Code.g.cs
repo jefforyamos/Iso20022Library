@@ -31,22 +31,3 @@ public enum ExternalReceivedReason1Code
     NotStraightThroughProcessing = ExternalReceivedReasonCode.NotStraightThroughProcessing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReceivedReason1CodeMetadataExtensions
-{
-    private static readonly ExternalReceivedReason1CodeDropdownSource _dropdownSource = new ExternalReceivedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReceivedReason1CodeDropdownRow GetMetadata(this ExternalReceivedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

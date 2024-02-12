@@ -38,22 +38,3 @@ public enum CollateralManagementCancellationReasonCode
     PendingNewSubmission,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralManagementCancellationReasonCodeMetadataExtensions
-{
-    private static readonly CollateralManagementCancellationReasonCodeDropdownSource _dropdownSource = new CollateralManagementCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralManagementCancellationReasonCodeDropdownRow GetMetadata(this CollateralManagementCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

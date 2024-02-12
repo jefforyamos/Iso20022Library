@@ -74,22 +74,3 @@ public enum GracePeriodUnitType1Code
     Days = GracePeriodUnitTypeCode.Days, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GracePeriodUnitType1CodeMetadataExtensions
-{
-    private static readonly GracePeriodUnitType1CodeDropdownSource _dropdownSource = new GracePeriodUnitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGracePeriodUnitType1CodeDropdownRow GetMetadata(this GracePeriodUnitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

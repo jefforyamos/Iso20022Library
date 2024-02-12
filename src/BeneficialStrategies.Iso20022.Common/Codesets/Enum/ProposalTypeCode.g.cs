@@ -38,22 +38,3 @@ public enum ProposalTypeCode
     Counter,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProposalTypeCodeMetadataExtensions
-{
-    private static readonly ProposalTypeCodeDropdownSource _dropdownSource = new ProposalTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProposalTypeCodeDropdownRow GetMetadata(this ProposalTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

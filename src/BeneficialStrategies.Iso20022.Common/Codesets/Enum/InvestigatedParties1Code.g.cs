@@ -38,22 +38,3 @@ public enum InvestigatedParties1Code
     Owner = InvestigatedPartiesCode.Owner, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigatedParties1CodeMetadataExtensions
-{
-    private static readonly InvestigatedParties1CodeDropdownSource _dropdownSource = new InvestigatedParties1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigatedParties1CodeDropdownRow GetMetadata(this InvestigatedParties1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

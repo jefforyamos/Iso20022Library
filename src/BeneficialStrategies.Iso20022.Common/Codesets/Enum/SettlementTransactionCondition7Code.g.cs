@@ -146,22 +146,3 @@ public enum SettlementTransactionCondition7Code
     Unexposed = SettlementTransactionConditionV2Code.Unexposed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition7CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition7CodeDropdownSource _dropdownSource = new SettlementTransactionCondition7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition7CodeDropdownRow GetMetadata(this SettlementTransactionCondition7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

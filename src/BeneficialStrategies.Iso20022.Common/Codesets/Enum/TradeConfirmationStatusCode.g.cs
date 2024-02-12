@@ -101,22 +101,3 @@ public enum TradeConfirmationStatusCode
     AllStatus,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeConfirmationStatusCodeMetadataExtensions
-{
-    private static readonly TradeConfirmationStatusCodeDropdownSource _dropdownSource = new TradeConfirmationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeConfirmationStatusCodeDropdownRow GetMetadata(this TradeConfirmationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

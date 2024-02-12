@@ -173,22 +173,3 @@ public enum TransactionOperationTypeCode
     PortOut,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationTypeCodeMetadataExtensions
-{
-    private static readonly TransactionOperationTypeCodeDropdownSource _dropdownSource = new TransactionOperationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationTypeCodeDropdownRow GetMetadata(this TransactionOperationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

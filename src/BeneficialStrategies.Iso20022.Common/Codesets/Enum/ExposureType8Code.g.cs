@@ -407,22 +407,3 @@ public enum ExposureType8Code
     TotalOpenMarketCreditOperations = ExposureTypeCode.TotalOpenMarketCreditOperations, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType8CodeMetadataExtensions
-{
-    private static readonly ExposureType8CodeDropdownSource _dropdownSource = new ExposureType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType8CodeDropdownRow GetMetadata(this ExposureType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

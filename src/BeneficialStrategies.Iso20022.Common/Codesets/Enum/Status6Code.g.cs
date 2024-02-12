@@ -47,22 +47,3 @@ public enum Status6Code
     Queued = StatusCode.Queued, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status6CodeMetadataExtensions
-{
-    private static readonly Status6CodeDropdownSource _dropdownSource = new Status6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus6CodeDropdownRow GetMetadata(this Status6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

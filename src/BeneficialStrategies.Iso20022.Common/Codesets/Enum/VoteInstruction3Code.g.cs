@@ -119,22 +119,3 @@ public enum VoteInstruction3Code
     TwoYears = VoteInstructionCode.TwoYears, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstruction3CodeMetadataExtensions
-{
-    private static readonly VoteInstruction3CodeDropdownSource _dropdownSource = new VoteInstruction3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstruction3CodeDropdownRow GetMetadata(this VoteInstruction3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

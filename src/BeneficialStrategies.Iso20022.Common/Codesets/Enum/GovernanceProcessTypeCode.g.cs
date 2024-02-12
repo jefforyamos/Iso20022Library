@@ -56,22 +56,3 @@ public enum GovernanceProcessTypeCode
     NoInformation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GovernanceProcessTypeCodeMetadataExtensions
-{
-    private static readonly GovernanceProcessTypeCodeDropdownSource _dropdownSource = new GovernanceProcessTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGovernanceProcessTypeCodeDropdownRow GetMetadata(this GovernanceProcessTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

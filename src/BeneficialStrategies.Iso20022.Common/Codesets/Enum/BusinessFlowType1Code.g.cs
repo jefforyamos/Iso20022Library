@@ -47,22 +47,3 @@ public enum BusinessFlowType1Code
     DoubleLegProcess = BusinessFlowTypeCode.DoubleLegProcess, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessFlowType1CodeMetadataExtensions
-{
-    private static readonly BusinessFlowType1CodeDropdownSource _dropdownSource = new BusinessFlowType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessFlowType1CodeDropdownRow GetMetadata(this BusinessFlowType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

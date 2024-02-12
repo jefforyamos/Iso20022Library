@@ -83,22 +83,3 @@ public enum CryptographicKeyType4Code
     Working = CryptographicKeyTypeCode.Working, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CryptographicKeyType4CodeMetadataExtensions
-{
-    private static readonly CryptographicKeyType4CodeDropdownSource _dropdownSource = new CryptographicKeyType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICryptographicKeyType4CodeDropdownRow GetMetadata(this CryptographicKeyType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

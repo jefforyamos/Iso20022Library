@@ -668,22 +668,3 @@ public enum AssetClassDetailedSubProductTypeCode
     OffPeak,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductTypeCodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductTypeCodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductTypeCodeDropdownRow GetMetadata(this AssetClassDetailedSubProductTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -434,22 +434,3 @@ public enum DTCCSubEventType10Code
     UnitCombination = DTCCSubEventTypeCode.UnitCombination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType10CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType10CodeDropdownSource _dropdownSource = new DTCCSubEventType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType10CodeDropdownRow GetMetadata(this DTCCSubEventType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

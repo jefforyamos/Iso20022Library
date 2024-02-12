@@ -92,22 +92,3 @@ public enum MessageTypeCode
     Transparency,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageTypeCodeMetadataExtensions
-{
-    private static readonly MessageTypeCodeDropdownSource _dropdownSource = new MessageTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageTypeCodeDropdownRow GetMetadata(this MessageTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

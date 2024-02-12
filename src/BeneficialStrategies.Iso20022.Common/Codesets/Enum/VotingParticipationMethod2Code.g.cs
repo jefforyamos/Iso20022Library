@@ -29,22 +29,3 @@ public enum VotingParticipationMethod2Code
     NotVoting = VotingParticipationMethodCode.NotVoting, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VotingParticipationMethod2CodeMetadataExtensions
-{
-    private static readonly VotingParticipationMethod2CodeDropdownSource _dropdownSource = new VotingParticipationMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVotingParticipationMethod2CodeDropdownRow GetMetadata(this VotingParticipationMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

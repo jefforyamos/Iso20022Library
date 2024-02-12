@@ -38,22 +38,3 @@ public enum CollateralSubstitutionConfirmationCode
     CollateralSubstitutionReturned,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralSubstitutionConfirmationCodeMetadataExtensions
-{
-    private static readonly CollateralSubstitutionConfirmationCodeDropdownSource _dropdownSource = new CollateralSubstitutionConfirmationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralSubstitutionConfirmationCodeDropdownRow GetMetadata(this CollateralSubstitutionConfirmationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

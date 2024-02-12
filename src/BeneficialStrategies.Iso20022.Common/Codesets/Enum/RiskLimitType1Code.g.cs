@@ -56,22 +56,3 @@ public enum RiskLimitType1Code
     IndirectBilateral = LimitTypeCode.IndirectBilateral, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RiskLimitType1CodeMetadataExtensions
-{
-    private static readonly RiskLimitType1CodeDropdownSource _dropdownSource = new RiskLimitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRiskLimitType1CodeDropdownRow GetMetadata(this RiskLimitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

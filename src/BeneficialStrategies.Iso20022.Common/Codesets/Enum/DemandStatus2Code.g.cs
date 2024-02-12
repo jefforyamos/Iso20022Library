@@ -29,22 +29,3 @@ public enum DemandStatus2Code
     Refused = DemandStatusCode.Refused, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DemandStatus2CodeMetadataExtensions
-{
-    private static readonly DemandStatus2CodeDropdownSource _dropdownSource = new DemandStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDemandStatus2CodeDropdownRow GetMetadata(this DemandStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

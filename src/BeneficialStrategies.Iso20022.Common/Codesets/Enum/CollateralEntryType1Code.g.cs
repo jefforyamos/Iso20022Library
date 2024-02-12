@@ -38,22 +38,3 @@ public enum CollateralEntryType1Code
     Received = EntryTypeCode.Received, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralEntryType1CodeMetadataExtensions
-{
-    private static readonly CollateralEntryType1CodeDropdownSource _dropdownSource = new CollateralEntryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralEntryType1CodeDropdownRow GetMetadata(this CollateralEntryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

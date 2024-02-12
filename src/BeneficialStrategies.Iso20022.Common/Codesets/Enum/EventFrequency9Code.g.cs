@@ -146,22 +146,3 @@ public enum EventFrequency9Code
     None = EventFrequencyCode.None, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency9CodeMetadataExtensions
-{
-    private static readonly EventFrequency9CodeDropdownSource _dropdownSource = new EventFrequency9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency9CodeDropdownRow GetMetadata(this EventFrequency9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

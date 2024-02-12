@@ -101,22 +101,3 @@ public enum VerificationEntityCode
     AcceptanceDevice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VerificationEntityCodeMetadataExtensions
-{
-    private static readonly VerificationEntityCodeDropdownSource _dropdownSource = new VerificationEntityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerificationEntityCodeDropdownRow GetMetadata(this VerificationEntityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

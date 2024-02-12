@@ -38,22 +38,3 @@ public enum DTCLate1Code
     LateAnnouncementPending = DTCLateCode.LateAnnouncementPending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCLate1CodeMetadataExtensions
-{
-    private static readonly DTCLate1CodeDropdownSource _dropdownSource = new DTCLate1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCLate1CodeDropdownRow GetMetadata(this DTCLate1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

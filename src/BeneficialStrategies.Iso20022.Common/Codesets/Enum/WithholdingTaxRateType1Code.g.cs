@@ -47,22 +47,3 @@ public enum WithholdingTaxRateType1Code
     NRATax = WithholdingTaxRateTypeCode.NRATax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WithholdingTaxRateType1CodeMetadataExtensions
-{
-    private static readonly WithholdingTaxRateType1CodeDropdownSource _dropdownSource = new WithholdingTaxRateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWithholdingTaxRateType1CodeDropdownRow GetMetadata(this WithholdingTaxRateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

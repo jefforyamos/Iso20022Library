@@ -146,22 +146,3 @@ public enum Algorithm17Code
     CMACAES256 = AlgorithmCode.CMACAES256, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm17CodeMetadataExtensions
-{
-    private static readonly Algorithm17CodeDropdownSource _dropdownSource = new Algorithm17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm17CodeDropdownRow GetMetadata(this Algorithm17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

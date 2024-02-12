@@ -236,22 +236,3 @@ public enum CardholderVerificationCapabilityCode
     NoOnLinePINEntry,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderVerificationCapabilityCodeMetadataExtensions
-{
-    private static readonly CardholderVerificationCapabilityCodeDropdownSource _dropdownSource = new CardholderVerificationCapabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderVerificationCapabilityCodeDropdownRow GetMetadata(this CardholderVerificationCapabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum DeemedRateType1Code
     DeemedRoyaltiesProceeds = DeemedRateTypeCode.DeemedRoyaltiesProceeds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeemedRateType1CodeMetadataExtensions
-{
-    private static readonly DeemedRateType1CodeDropdownSource _dropdownSource = new DeemedRateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeemedRateType1CodeDropdownRow GetMetadata(this DeemedRateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InsuranceCode
     PermanentDisabilityInsurance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InsuranceCodeMetadataExtensions
-{
-    private static readonly InsuranceCodeDropdownSource _dropdownSource = new InsuranceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInsuranceCodeDropdownRow GetMetadata(this InsuranceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

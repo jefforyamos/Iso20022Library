@@ -227,22 +227,3 @@ public enum ATMServiceTypeCode
     Payment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMServiceTypeCodeMetadataExtensions
-{
-    private static readonly ATMServiceTypeCodeDropdownSource _dropdownSource = new ATMServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMServiceTypeCodeDropdownRow GetMetadata(this ATMServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

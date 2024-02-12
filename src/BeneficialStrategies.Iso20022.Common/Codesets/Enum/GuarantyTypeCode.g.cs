@@ -91,22 +91,3 @@ public enum GuarantyTypeCode
     Insurance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GuarantyTypeCodeMetadataExtensions
-{
-    private static readonly GuarantyTypeCodeDropdownSource _dropdownSource = new GuarantyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGuarantyTypeCodeDropdownRow GetMetadata(this GuarantyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

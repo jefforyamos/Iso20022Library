@@ -119,22 +119,3 @@ public enum TradeCertificateTypeCode
     Undefined2,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeCertificateTypeCodeMetadataExtensions
-{
-    private static readonly TradeCertificateTypeCodeDropdownSource _dropdownSource = new TradeCertificateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeCertificateTypeCodeDropdownRow GetMetadata(this TradeCertificateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

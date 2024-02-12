@@ -38,22 +38,3 @@ public enum CertificationFormatTypeCode
     Physical,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CertificationFormatTypeCodeMetadataExtensions
-{
-    private static readonly CertificationFormatTypeCodeDropdownSource _dropdownSource = new CertificationFormatTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICertificationFormatTypeCodeDropdownRow GetMetadata(this CertificationFormatTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

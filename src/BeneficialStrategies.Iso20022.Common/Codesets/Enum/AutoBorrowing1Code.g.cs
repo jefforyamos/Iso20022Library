@@ -47,22 +47,3 @@ public enum AutoBorrowing1Code
     Automatic = AutoBorrowingCode.Automatic, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AutoBorrowing1CodeMetadataExtensions
-{
-    private static readonly AutoBorrowing1CodeDropdownSource _dropdownSource = new AutoBorrowing1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAutoBorrowing1CodeDropdownRow GetMetadata(this AutoBorrowing1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

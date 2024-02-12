@@ -128,22 +128,3 @@ public enum CardPaymentServiceType6Code
     CashBack = CardPaymentServiceTypeCode.CashBack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType6CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType6CodeDropdownSource _dropdownSource = new CardPaymentServiceType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType6CodeDropdownRow GetMetadata(this CardPaymentServiceType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

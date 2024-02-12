@@ -74,22 +74,3 @@ public enum IdentificationTypeCode
     UserDefined,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IdentificationTypeCodeMetadataExtensions
-{
-    private static readonly IdentificationTypeCodeDropdownSource _dropdownSource = new IdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIdentificationTypeCodeDropdownRow GetMetadata(this IdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

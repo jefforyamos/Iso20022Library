@@ -182,22 +182,3 @@ public enum TaxType17Code
     Zwischengewinn = TaxTypeCode.Zwischengewinn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType17CodeMetadataExtensions
-{
-    private static readonly TaxType17CodeDropdownSource _dropdownSource = new TaxType17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType17CodeDropdownRow GetMetadata(this TaxType17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum ChargeType14Code
     IssuanceFee = ChargeTypeCode.IssuanceFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType14CodeMetadataExtensions
-{
-    private static readonly ChargeType14CodeDropdownSource _dropdownSource = new ChargeType14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType14CodeDropdownRow GetMetadata(this ChargeType14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

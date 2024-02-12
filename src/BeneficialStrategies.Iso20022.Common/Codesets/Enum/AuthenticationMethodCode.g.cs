@@ -650,22 +650,3 @@ public enum AuthenticationMethodCode
     NationalIdentifier,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethodCodeMetadataExtensions
-{
-    private static readonly AuthenticationMethodCodeDropdownSource _dropdownSource = new AuthenticationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethodCodeDropdownRow GetMetadata(this AuthenticationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

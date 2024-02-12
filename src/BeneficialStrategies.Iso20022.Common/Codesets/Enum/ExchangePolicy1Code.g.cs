@@ -92,22 +92,3 @@ public enum ExchangePolicy1Code
     None = ExchangePolicyCode.None, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangePolicy1CodeMetadataExtensions
-{
-    private static readonly ExchangePolicy1CodeDropdownSource _dropdownSource = new ExchangePolicy1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangePolicy1CodeDropdownRow GetMetadata(this ExchangePolicy1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

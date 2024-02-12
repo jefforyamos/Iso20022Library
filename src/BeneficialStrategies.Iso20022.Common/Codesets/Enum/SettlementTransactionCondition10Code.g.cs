@@ -236,22 +236,3 @@ public enum SettlementTransactionCondition10Code
     Unexposed = SettlementTransactionConditionCode.Unexposed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition10CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition10CodeDropdownSource _dropdownSource = new SettlementTransactionCondition10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition10CodeDropdownRow GetMetadata(this SettlementTransactionCondition10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

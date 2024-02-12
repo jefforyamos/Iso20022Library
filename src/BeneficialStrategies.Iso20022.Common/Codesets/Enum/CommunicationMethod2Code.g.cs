@@ -65,22 +65,3 @@ public enum CommunicationMethod2Code
     PostalService = CommunicationMethodCode.PostalService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommunicationMethod2CodeMetadataExtensions
-{
-    private static readonly CommunicationMethod2CodeDropdownSource _dropdownSource = new CommunicationMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommunicationMethod2CodeDropdownRow GetMetadata(this CommunicationMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

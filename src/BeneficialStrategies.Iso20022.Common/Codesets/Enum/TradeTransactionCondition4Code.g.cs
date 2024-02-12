@@ -220,22 +220,3 @@ public enum TradeTransactionCondition4Code
     DeliverCountryIncorporation = TradeTransactionConditionCode.DeliverCountryIncorporation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTransactionCondition4CodeMetadataExtensions
-{
-    private static readonly TradeTransactionCondition4CodeDropdownSource _dropdownSource = new TradeTransactionCondition4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTransactionCondition4CodeDropdownRow GetMetadata(this TradeTransactionCondition4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

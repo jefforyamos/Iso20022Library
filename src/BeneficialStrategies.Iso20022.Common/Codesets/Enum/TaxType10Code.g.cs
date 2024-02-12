@@ -164,22 +164,3 @@ public enum TaxType10Code
     Zwischengewinn = TaxTypeCode.Zwischengewinn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType10CodeMetadataExtensions
-{
-    private static readonly TaxType10CodeDropdownSource _dropdownSource = new TaxType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType10CodeDropdownRow GetMetadata(this TaxType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

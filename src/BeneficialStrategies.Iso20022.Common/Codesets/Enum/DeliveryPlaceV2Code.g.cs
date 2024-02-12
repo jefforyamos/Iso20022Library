@@ -65,22 +65,3 @@ public enum DeliveryPlaceV2Code
     Email,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryPlaceV2CodeMetadataExtensions
-{
-    private static readonly DeliveryPlaceV2CodeDropdownSource _dropdownSource = new DeliveryPlaceV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryPlaceV2CodeDropdownRow GetMetadata(this DeliveryPlaceV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

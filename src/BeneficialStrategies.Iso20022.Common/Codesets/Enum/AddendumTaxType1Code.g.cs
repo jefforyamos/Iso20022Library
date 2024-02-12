@@ -1064,22 +1064,3 @@ public enum AddendumTaxType1Code
     WithholdingTax = AddendumTaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AddendumTaxType1CodeMetadataExtensions
-{
-    private static readonly AddendumTaxType1CodeDropdownSource _dropdownSource = new AddendumTaxType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAddendumTaxType1CodeDropdownRow GetMetadata(this AddendumTaxType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum CustodianRecordCompletenessTypeCode
     ConditionallyComplete,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustodianRecordCompletenessTypeCodeMetadataExtensions
-{
-    private static readonly CustodianRecordCompletenessTypeCodeDropdownSource _dropdownSource = new CustodianRecordCompletenessTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustodianRecordCompletenessTypeCodeDropdownRow GetMetadata(this CustodianRecordCompletenessTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum ConductClassification1Code
     Standard = ConductClassificationCode.Standard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConductClassification1CodeMetadataExtensions
-{
-    private static readonly ConductClassification1CodeDropdownSource _dropdownSource = new ConductClassification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConductClassification1CodeDropdownRow GetMetadata(this ConductClassification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

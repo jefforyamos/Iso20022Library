@@ -605,22 +605,3 @@ public enum CorporateActionEventType10Code
     NonOfficialOffer = CorporateActionEventTypeV4Code.NonOfficialOffer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType10CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType10CodeDropdownSource _dropdownSource = new CorporateActionEventType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType10CodeDropdownRow GetMetadata(this CorporateActionEventType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

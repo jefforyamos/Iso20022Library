@@ -66,22 +66,3 @@ public enum ExternalDocumentFormatCode
     XSLT,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDocumentFormatCodeMetadataExtensions
-{
-    private static readonly ExternalDocumentFormatCodeDropdownSource _dropdownSource = new ExternalDocumentFormatCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDocumentFormatCodeDropdownRow GetMetadata(this ExternalDocumentFormatCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

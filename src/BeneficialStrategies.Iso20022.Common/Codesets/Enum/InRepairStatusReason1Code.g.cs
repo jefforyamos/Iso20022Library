@@ -29,22 +29,3 @@ public enum InRepairStatusReason1Code
     CommercialAgreement = InRepairStatusReasonCode.CommercialAgreement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InRepairStatusReason1CodeMetadataExtensions
-{
-    private static readonly InRepairStatusReason1CodeDropdownSource _dropdownSource = new InRepairStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInRepairStatusReason1CodeDropdownRow GetMetadata(this InRepairStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

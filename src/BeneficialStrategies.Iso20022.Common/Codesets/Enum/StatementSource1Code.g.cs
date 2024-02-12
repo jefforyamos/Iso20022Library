@@ -38,22 +38,3 @@ public enum StatementSource1Code
     Custody = StatementSourceCode.Custody, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementSource1CodeMetadataExtensions
-{
-    private static readonly StatementSource1CodeDropdownSource _dropdownSource = new StatementSource1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementSource1CodeDropdownRow GetMetadata(this StatementSource1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

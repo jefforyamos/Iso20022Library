@@ -66,22 +66,3 @@ public enum ExternalDateFrequencyCode
     Annual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDateFrequencyCodeMetadataExtensions
-{
-    private static readonly ExternalDateFrequencyCodeDropdownSource _dropdownSource = new ExternalDateFrequencyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDateFrequencyCodeDropdownRow GetMetadata(this ExternalDateFrequencyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

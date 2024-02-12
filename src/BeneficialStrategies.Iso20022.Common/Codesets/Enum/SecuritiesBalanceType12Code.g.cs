@@ -254,22 +254,3 @@ public enum SecuritiesBalanceType12Code
     BeingTransferred = SecuritiesBalanceTypeV2Code.BeingTransferred, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType12CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType12CodeDropdownSource _dropdownSource = new SecuritiesBalanceType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType12CodeDropdownRow GetMetadata(this SecuritiesBalanceType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

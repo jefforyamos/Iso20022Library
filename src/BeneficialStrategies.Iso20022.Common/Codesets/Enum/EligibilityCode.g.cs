@@ -47,22 +47,3 @@ public enum EligibilityCode
     ProfessionalClient,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EligibilityCodeMetadataExtensions
-{
-    private static readonly EligibilityCodeDropdownSource _dropdownSource = new EligibilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEligibilityCodeDropdownRow GetMetadata(this EligibilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

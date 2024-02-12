@@ -38,22 +38,3 @@ public enum ChargePaymentMethodCode
     Unit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargePaymentMethodCodeMetadataExtensions
-{
-    private static readonly ChargePaymentMethodCodeDropdownSource _dropdownSource = new ChargePaymentMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargePaymentMethodCodeDropdownRow GetMetadata(this ChargePaymentMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

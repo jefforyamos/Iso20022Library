@@ -47,22 +47,3 @@ public enum SoundActionCode
     SetDefaultVolume,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SoundActionCodeMetadataExtensions
-{
-    private static readonly SoundActionCodeDropdownSource _dropdownSource = new SoundActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISoundActionCodeDropdownRow GetMetadata(this SoundActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

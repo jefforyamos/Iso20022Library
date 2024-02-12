@@ -1119,22 +1119,3 @@ public enum ExternalCashClearingSystemCode
     KoreaBOKWire,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCashClearingSystemCodeMetadataExtensions
-{
-    private static readonly ExternalCashClearingSystemCodeDropdownSource _dropdownSource = new ExternalCashClearingSystemCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCashClearingSystemCodeDropdownRow GetMetadata(this ExternalCashClearingSystemCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

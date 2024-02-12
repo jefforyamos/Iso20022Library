@@ -47,22 +47,3 @@ public enum IncomePreferenceCode
     Securities,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IncomePreferenceCodeMetadataExtensions
-{
-    private static readonly IncomePreferenceCodeDropdownSource _dropdownSource = new IncomePreferenceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIncomePreferenceCodeDropdownRow GetMetadata(this IncomePreferenceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

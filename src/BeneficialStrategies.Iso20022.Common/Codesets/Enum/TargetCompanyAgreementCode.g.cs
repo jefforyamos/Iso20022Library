@@ -46,22 +46,3 @@ public enum TargetCompanyAgreementCode
     NotDecided,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TargetCompanyAgreementCodeMetadataExtensions
-{
-    private static readonly TargetCompanyAgreementCodeDropdownSource _dropdownSource = new TargetCompanyAgreementCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITargetCompanyAgreementCodeDropdownRow GetMetadata(this TargetCompanyAgreementCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

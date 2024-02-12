@@ -64,22 +64,3 @@ public enum InstitutionalClassificationCode
     Parent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstitutionalClassificationCodeMetadataExtensions
-{
-    private static readonly InstitutionalClassificationCodeDropdownSource _dropdownSource = new InstitutionalClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstitutionalClassificationCodeDropdownRow GetMetadata(this InstitutionalClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

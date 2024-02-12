@@ -74,22 +74,3 @@ public enum ListStatusType1Code
     Timed = ListStatusTypeCode.Timed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ListStatusType1CodeMetadataExtensions
-{
-    private static readonly ListStatusType1CodeDropdownSource _dropdownSource = new ListStatusType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IListStatusType1CodeDropdownRow GetMetadata(this ListStatusType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

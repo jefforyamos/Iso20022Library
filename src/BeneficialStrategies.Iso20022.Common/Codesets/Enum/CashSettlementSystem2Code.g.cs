@@ -38,22 +38,3 @@ public enum CashSettlementSystem2Code
     NetSettlementSystem = CashSettlementSystemCode.NetSettlementSystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashSettlementSystem2CodeMetadataExtensions
-{
-    private static readonly CashSettlementSystem2CodeDropdownSource _dropdownSource = new CashSettlementSystem2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashSettlementSystem2CodeDropdownRow GetMetadata(this CashSettlementSystem2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

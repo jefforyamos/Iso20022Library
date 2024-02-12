@@ -29,22 +29,3 @@ public enum AssetClassProductType16Code
     Index = AssetClassProductTypeCode.Index, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType16CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType16CodeDropdownSource _dropdownSource = new AssetClassProductType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType16CodeDropdownRow GetMetadata(this AssetClassProductType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

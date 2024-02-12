@@ -47,22 +47,3 @@ public enum ReportPeriodActivityCode
     CorruptedReport,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportPeriodActivityCodeMetadataExtensions
-{
-    private static readonly ReportPeriodActivityCodeDropdownSource _dropdownSource = new ReportPeriodActivityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportPeriodActivityCodeDropdownRow GetMetadata(this ReportPeriodActivityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

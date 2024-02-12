@@ -110,22 +110,3 @@ public enum InformationQualifyCode
     Voucher,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InformationQualifyCodeMetadataExtensions
-{
-    private static readonly InformationQualifyCodeDropdownSource _dropdownSource = new InformationQualifyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInformationQualifyCodeDropdownRow GetMetadata(this InformationQualifyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

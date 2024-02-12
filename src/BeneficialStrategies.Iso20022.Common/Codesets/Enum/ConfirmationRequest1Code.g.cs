@@ -47,22 +47,3 @@ public enum ConfirmationRequest1Code
     Status = ConfirmationRequestCode.Status, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationRequest1CodeMetadataExtensions
-{
-    private static readonly ConfirmationRequest1CodeDropdownSource _dropdownSource = new ConfirmationRequest1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationRequest1CodeDropdownRow GetMetadata(this ConfirmationRequest1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

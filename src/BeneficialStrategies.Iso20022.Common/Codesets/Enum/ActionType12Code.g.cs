@@ -173,22 +173,3 @@ public enum ActionType12Code
     StopOneRecurring = ActionTypeCode.StopOneRecurring, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType12CodeMetadataExtensions
-{
-    private static readonly ActionType12CodeDropdownSource _dropdownSource = new ActionType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType12CodeDropdownRow GetMetadata(this ActionType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

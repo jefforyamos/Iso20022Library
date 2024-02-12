@@ -2451,22 +2451,3 @@ public enum ExternalStatusReasonCode
     SettlementNotReceived,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalStatusReasonCodeMetadataExtensions
-{
-    private static readonly ExternalStatusReasonCodeDropdownSource _dropdownSource = new ExternalStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalStatusReasonCodeDropdownRow GetMetadata(this ExternalStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum ProductStructure1Code
     NonUCITS = ProductStructureCode.NonUCITS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductStructure1CodeMetadataExtensions
-{
-    private static readonly ProductStructure1CodeDropdownSource _dropdownSource = new ProductStructure1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductStructure1CodeDropdownRow GetMetadata(this ProductStructure1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

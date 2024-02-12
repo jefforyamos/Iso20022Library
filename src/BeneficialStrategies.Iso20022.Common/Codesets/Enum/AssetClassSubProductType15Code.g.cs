@@ -29,22 +29,3 @@ public enum AssetClassSubProductType15Code
     NonPrecious = AssetClassSubProductTypeCode.NonPrecious, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType15CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType15CodeDropdownSource _dropdownSource = new AssetClassSubProductType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType15CodeDropdownRow GetMetadata(this AssetClassSubProductType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

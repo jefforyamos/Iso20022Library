@@ -83,22 +83,3 @@ public enum ATMNoteType2Code
     Unrecognised = ATMNoteTypeCode.Unrecognised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMNoteType2CodeMetadataExtensions
-{
-    private static readonly ATMNoteType2CodeDropdownSource _dropdownSource = new ATMNoteType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMNoteType2CodeDropdownRow GetMetadata(this ATMNoteType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

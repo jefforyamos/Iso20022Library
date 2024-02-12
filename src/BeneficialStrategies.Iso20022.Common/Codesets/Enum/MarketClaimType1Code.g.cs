@@ -38,22 +38,3 @@ public enum MarketClaimType1Code
     ReverseMarketClaim = MarketClaimTypeCode.ReverseMarketClaim, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketClaimType1CodeMetadataExtensions
-{
-    private static readonly MarketClaimType1CodeDropdownSource _dropdownSource = new MarketClaimType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketClaimType1CodeDropdownRow GetMetadata(this MarketClaimType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

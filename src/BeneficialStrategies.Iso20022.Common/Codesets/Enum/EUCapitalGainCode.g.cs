@@ -56,22 +56,3 @@ public enum EUCapitalGainCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EUCapitalGainCodeMetadataExtensions
-{
-    private static readonly EUCapitalGainCodeDropdownSource _dropdownSource = new EUCapitalGainCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEUCapitalGainCodeDropdownRow GetMetadata(this EUCapitalGainCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

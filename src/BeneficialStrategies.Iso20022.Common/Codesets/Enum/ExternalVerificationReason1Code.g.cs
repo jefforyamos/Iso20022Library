@@ -48,22 +48,3 @@ public enum ExternalVerificationReason1Code
     DuplicateRequest = ExternalVerificationReasonCode.DuplicateRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalVerificationReason1CodeMetadataExtensions
-{
-    private static readonly ExternalVerificationReason1CodeDropdownSource _dropdownSource = new ExternalVerificationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalVerificationReason1CodeDropdownRow GetMetadata(this ExternalVerificationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

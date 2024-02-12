@@ -92,22 +92,3 @@ public enum PrePaymentSpeed1Code
     ManufacturedHousingPrePaymentCurve = PrePaymentSpeedCode.ManufacturedHousingPrePaymentCurve, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PrePaymentSpeed1CodeMetadataExtensions
-{
-    private static readonly PrePaymentSpeed1CodeDropdownSource _dropdownSource = new PrePaymentSpeed1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPrePaymentSpeed1CodeDropdownRow GetMetadata(this PrePaymentSpeed1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -75,22 +75,3 @@ public enum ExternalPaymentRole1Code
     SettlementManager = ExternalPaymentRoleCode.SettlementManager, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentRole1CodeMetadataExtensions
-{
-    private static readonly ExternalPaymentRole1CodeDropdownSource _dropdownSource = new ExternalPaymentRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentRole1CodeDropdownRow GetMetadata(this ExternalPaymentRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

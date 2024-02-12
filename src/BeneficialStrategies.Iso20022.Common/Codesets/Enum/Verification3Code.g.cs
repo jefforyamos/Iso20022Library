@@ -110,22 +110,3 @@ public enum Verification3Code
     TechnicalError = VerificationCode.TechnicalError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Verification3CodeMetadataExtensions
-{
-    private static readonly Verification3CodeDropdownSource _dropdownSource = new Verification3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerification3CodeDropdownRow GetMetadata(this Verification3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

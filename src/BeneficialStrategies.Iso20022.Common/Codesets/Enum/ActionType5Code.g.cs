@@ -119,22 +119,3 @@ public enum ActionType5Code
     UpdateTrack = ActionTypeCode.UpdateTrack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType5CodeMetadataExtensions
-{
-    private static readonly ActionType5CodeDropdownSource _dropdownSource = new ActionType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType5CodeDropdownRow GetMetadata(this ActionType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

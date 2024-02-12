@@ -66,22 +66,3 @@ public enum MessageFunction16Code
     Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction16CodeMetadataExtensions
-{
-    private static readonly MessageFunction16CodeDropdownSource _dropdownSource = new MessageFunction16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction16CodeDropdownRow GetMetadata(this MessageFunction16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

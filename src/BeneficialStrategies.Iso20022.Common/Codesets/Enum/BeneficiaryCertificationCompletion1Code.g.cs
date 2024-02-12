@@ -47,22 +47,3 @@ public enum BeneficiaryCertificationCompletion1Code
     PhysicalCertification = BeneficiaryCertificationCompletionCode.PhysicalCertification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryCertificationCompletion1CodeMetadataExtensions
-{
-    private static readonly BeneficiaryCertificationCompletion1CodeDropdownSource _dropdownSource = new BeneficiaryCertificationCompletion1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryCertificationCompletion1CodeDropdownRow GetMetadata(this BeneficiaryCertificationCompletion1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum TypeOfAmount19Code
     Usage = TypeOfAmountCode.Usage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount19CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount19CodeDropdownSource _dropdownSource = new TypeOfAmount19CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount19CodeDropdownRow GetMetadata(this TypeOfAmount19Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum RetailerService9Code
     DeviceTransmissionMessageResponse = RetailerServiceCode.DeviceTransmissionMessageResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService9CodeMetadataExtensions
-{
-    private static readonly RetailerService9CodeDropdownSource _dropdownSource = new RetailerService9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService9CodeDropdownRow GetMetadata(this RetailerService9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

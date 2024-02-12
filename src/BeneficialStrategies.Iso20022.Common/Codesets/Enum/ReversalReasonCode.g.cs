@@ -56,22 +56,3 @@ public enum ReversalReasonCode
     UnableToComplete,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReversalReasonCodeMetadataExtensions
-{
-    private static readonly ReversalReasonCodeDropdownSource _dropdownSource = new ReversalReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReversalReasonCodeDropdownRow GetMetadata(this ReversalReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

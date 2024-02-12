@@ -164,22 +164,3 @@ public enum DocumentType6Code
     PurchaseOrder = DocumentTypeCode.PurchaseOrder, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DocumentType6CodeMetadataExtensions
-{
-    private static readonly DocumentType6CodeDropdownSource _dropdownSource = new DocumentType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDocumentType6CodeDropdownRow GetMetadata(this DocumentType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

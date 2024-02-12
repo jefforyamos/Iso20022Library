@@ -65,22 +65,3 @@ public enum BalanceStatusCode
     SettledRegistered,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceStatusCodeMetadataExtensions
-{
-    private static readonly BalanceStatusCodeDropdownSource _dropdownSource = new BalanceStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceStatusCodeDropdownRow GetMetadata(this BalanceStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

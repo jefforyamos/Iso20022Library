@@ -146,22 +146,3 @@ public enum ClearingFeeType1Code
     MoreThanFiveYearOwnAccount = ClearingFeeTypeCode.MoreThanFiveYearOwnAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingFeeType1CodeMetadataExtensions
-{
-    private static readonly ClearingFeeType1CodeDropdownSource _dropdownSource = new ClearingFeeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingFeeType1CodeDropdownRow GetMetadata(this ClearingFeeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

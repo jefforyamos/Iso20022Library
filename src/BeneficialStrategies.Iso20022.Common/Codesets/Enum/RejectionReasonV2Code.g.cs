@@ -1658,22 +1658,3 @@ public enum RejectionReasonV2Code
     NotAvailable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReasonV2CodeMetadataExtensions
-{
-    private static readonly RejectionReasonV2CodeDropdownSource _dropdownSource = new RejectionReasonV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReasonV2CodeDropdownRow GetMetadata(this RejectionReasonV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum TransactionOperationType5Code
     CollateralUpdate = TransactionOperationTypeCode.CollateralUpdate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType5CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType5CodeDropdownSource _dropdownSource = new TransactionOperationType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType5CodeDropdownRow GetMetadata(this TransactionOperationType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

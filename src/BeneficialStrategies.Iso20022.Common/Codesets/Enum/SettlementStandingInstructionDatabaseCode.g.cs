@@ -47,22 +47,3 @@ public enum SettlementStandingInstructionDatabaseCode
     VendorDatabase,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementStandingInstructionDatabaseCodeMetadataExtensions
-{
-    private static readonly SettlementStandingInstructionDatabaseCodeDropdownSource _dropdownSource = new SettlementStandingInstructionDatabaseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementStandingInstructionDatabaseCodeDropdownRow GetMetadata(this SettlementStandingInstructionDatabaseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

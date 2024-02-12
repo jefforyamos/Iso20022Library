@@ -38,22 +38,3 @@ public enum Operation3Code
     Or = OperationV2Code.Or, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Operation3CodeMetadataExtensions
-{
-    private static readonly Operation3CodeDropdownSource _dropdownSource = new Operation3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperation3CodeDropdownRow GetMetadata(this Operation3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

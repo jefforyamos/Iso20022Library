@@ -425,22 +425,3 @@ public enum ExposureType13Code
     UnclearedDerivativeMarginSegregation = ExposureTypeV3Code.UnclearedDerivativeMarginSegregation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType13CodeMetadataExtensions
-{
-    private static readonly ExposureType13CodeDropdownSource _dropdownSource = new ExposureType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType13CodeDropdownRow GetMetadata(this ExposureType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

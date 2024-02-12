@@ -38,22 +38,3 @@ public enum DateMode1Code
     EODY = DateModeCode.EODY, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateMode1CodeMetadataExtensions
-{
-    private static readonly DateMode1CodeDropdownSource _dropdownSource = new DateMode1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateMode1CodeDropdownRow GetMetadata(this DateMode1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

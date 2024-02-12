@@ -92,22 +92,3 @@ public enum ProductCodeTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductCodeTypeCodeMetadataExtensions
-{
-    private static readonly ProductCodeTypeCodeDropdownSource _dropdownSource = new ProductCodeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductCodeTypeCodeDropdownRow GetMetadata(this ProductCodeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

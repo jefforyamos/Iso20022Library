@@ -38,22 +38,3 @@ public enum CancellationStatus4Code
     Rejected = CancellationStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationStatus4CodeMetadataExtensions
-{
-    private static readonly CancellationStatus4CodeDropdownSource _dropdownSource = new CancellationStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationStatus4CodeDropdownRow GetMetadata(this CancellationStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum RemittanceLocationMethodCode
     SMS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RemittanceLocationMethodCodeMetadataExtensions
-{
-    private static readonly RemittanceLocationMethodCodeDropdownSource _dropdownSource = new RemittanceLocationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRemittanceLocationMethodCodeDropdownRow GetMetadata(this RemittanceLocationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum TypeOfAmount21Code
     MinimumInterchangeFee = TypeOfAmountCode.MinimumInterchangeFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount21CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount21CodeDropdownSource _dropdownSource = new TypeOfAmount21CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount21CodeDropdownRow GetMetadata(this TypeOfAmount21Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

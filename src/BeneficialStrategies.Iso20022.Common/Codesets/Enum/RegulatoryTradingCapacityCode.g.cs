@@ -47,22 +47,3 @@ public enum RegulatoryTradingCapacityCode
     AnyOtherCapacity,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegulatoryTradingCapacityCodeMetadataExtensions
-{
-    private static readonly RegulatoryTradingCapacityCodeDropdownSource _dropdownSource = new RegulatoryTradingCapacityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegulatoryTradingCapacityCodeDropdownRow GetMetadata(this RegulatoryTradingCapacityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

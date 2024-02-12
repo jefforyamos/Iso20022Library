@@ -47,22 +47,3 @@ public enum MailType1Code
     RegisteredMail = MailTypeCode.RegisteredMail, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MailType1CodeMetadataExtensions
-{
-    private static readonly MailType1CodeDropdownSource _dropdownSource = new MailType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMailType1CodeDropdownRow GetMetadata(this MailType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

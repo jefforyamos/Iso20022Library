@@ -47,22 +47,3 @@ public enum PendingCancellationReason7Code
     Other = PendingFailingReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingCancellationReason7CodeMetadataExtensions
-{
-    private static readonly PendingCancellationReason7CodeDropdownSource _dropdownSource = new PendingCancellationReason7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingCancellationReason7CodeDropdownRow GetMetadata(this PendingCancellationReason7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

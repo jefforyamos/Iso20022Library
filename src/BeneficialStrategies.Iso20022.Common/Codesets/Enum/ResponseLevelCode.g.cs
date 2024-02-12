@@ -47,22 +47,3 @@ public enum ResponseLevelCode
     AcknowledgementEach,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResponseLevelCodeMetadataExtensions
-{
-    private static readonly ResponseLevelCodeDropdownSource _dropdownSource = new ResponseLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponseLevelCodeDropdownRow GetMetadata(this ResponseLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

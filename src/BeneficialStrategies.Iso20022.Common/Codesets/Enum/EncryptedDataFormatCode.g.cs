@@ -74,22 +74,3 @@ public enum EncryptedDataFormatCode
     EBCDIC,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EncryptedDataFormatCodeMetadataExtensions
-{
-    private static readonly EncryptedDataFormatCodeDropdownSource _dropdownSource = new EncryptedDataFormatCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEncryptedDataFormatCodeDropdownRow GetMetadata(this EncryptedDataFormatCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

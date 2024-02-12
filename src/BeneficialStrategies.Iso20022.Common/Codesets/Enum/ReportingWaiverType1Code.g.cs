@@ -74,22 +74,3 @@ public enum ReportingWaiverType1Code
     AboveSpecificSizeTransaction = ReportingWaiverTypeCode.AboveSpecificSizeTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingWaiverType1CodeMetadataExtensions
-{
-    private static readonly ReportingWaiverType1CodeDropdownSource _dropdownSource = new ReportingWaiverType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingWaiverType1CodeDropdownRow GetMetadata(this ReportingWaiverType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

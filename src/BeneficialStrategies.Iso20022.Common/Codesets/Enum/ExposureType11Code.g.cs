@@ -344,22 +344,3 @@ public enum ExposureType11Code
     ShortSell = ExposureTypeV3Code.ShortSell, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType11CodeMetadataExtensions
-{
-    private static readonly ExposureType11CodeDropdownSource _dropdownSource = new ExposureType11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType11CodeDropdownRow GetMetadata(this ExposureType11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum CommunicationMethodCode
     File,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommunicationMethodCodeMetadataExtensions
-{
-    private static readonly CommunicationMethodCodeDropdownSource _dropdownSource = new CommunicationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommunicationMethodCodeDropdownRow GetMetadata(this CommunicationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

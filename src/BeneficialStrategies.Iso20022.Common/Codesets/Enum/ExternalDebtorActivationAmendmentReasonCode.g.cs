@@ -66,22 +66,3 @@ public enum ExternalDebtorActivationAmendmentReasonCode
     UnknownCreditor,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDebtorActivationAmendmentReasonCodeMetadataExtensions
-{
-    private static readonly ExternalDebtorActivationAmendmentReasonCodeDropdownSource _dropdownSource = new ExternalDebtorActivationAmendmentReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDebtorActivationAmendmentReasonCodeDropdownRow GetMetadata(this ExternalDebtorActivationAmendmentReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum PaymentTime4Code
     EndOfMonthOfDelivery = PaymentTimeCode.EndOfMonthOfDelivery, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTime4CodeMetadataExtensions
-{
-    private static readonly PaymentTime4CodeDropdownSource _dropdownSource = new PaymentTime4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTime4CodeDropdownRow GetMetadata(this PaymentTime4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

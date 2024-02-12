@@ -65,22 +65,3 @@ public enum PaymentCancellationStatusReasonCode
     AddedToCancellationList,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCancellationStatusReasonCodeMetadataExtensions
-{
-    private static readonly PaymentCancellationStatusReasonCodeDropdownSource _dropdownSource = new PaymentCancellationStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCancellationStatusReasonCodeDropdownRow GetMetadata(this PaymentCancellationStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

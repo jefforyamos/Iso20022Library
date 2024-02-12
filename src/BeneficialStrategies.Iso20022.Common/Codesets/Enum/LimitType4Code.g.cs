@@ -47,22 +47,3 @@ public enum LimitType4Code
     AutoCollateralisation = LimitTypeCode.AutoCollateralisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LimitType4CodeMetadataExtensions
-{
-    private static readonly LimitType4CodeDropdownSource _dropdownSource = new LimitType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILimitType4CodeDropdownRow GetMetadata(this LimitType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

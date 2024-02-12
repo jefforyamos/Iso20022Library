@@ -56,22 +56,3 @@ public enum Reporting3Code
     StockExchange = ReportingCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Reporting3CodeMetadataExtensions
-{
-    private static readonly Reporting3CodeDropdownSource _dropdownSource = new Reporting3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReporting3CodeDropdownRow GetMetadata(this Reporting3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

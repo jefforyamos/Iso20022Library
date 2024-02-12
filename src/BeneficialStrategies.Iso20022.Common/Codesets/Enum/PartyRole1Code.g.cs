@@ -38,22 +38,3 @@ public enum PartyRole1Code
     Investor = PartyRoleCode.Investor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyRole1CodeMetadataExtensions
-{
-    private static readonly PartyRole1CodeDropdownSource _dropdownSource = new PartyRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyRole1CodeDropdownRow GetMetadata(this PartyRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

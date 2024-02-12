@@ -74,22 +74,3 @@ public enum TrackFormat1Code
     JISIIFormat = TrackFormatCode.JISIIFormat, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackFormat1CodeMetadataExtensions
-{
-    private static readonly TrackFormat1CodeDropdownSource _dropdownSource = new TrackFormat1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackFormat1CodeDropdownRow GetMetadata(this TrackFormat1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

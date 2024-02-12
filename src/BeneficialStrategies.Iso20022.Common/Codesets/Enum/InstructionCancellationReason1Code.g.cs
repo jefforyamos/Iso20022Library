@@ -47,22 +47,3 @@ public enum InstructionCancellationReason1Code
     CancelledByAgent = InstructionCancellationReasonCode.CancelledByAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionCancellationReason1CodeMetadataExtensions
-{
-    private static readonly InstructionCancellationReason1CodeDropdownSource _dropdownSource = new InstructionCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionCancellationReason1CodeDropdownRow GetMetadata(this InstructionCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

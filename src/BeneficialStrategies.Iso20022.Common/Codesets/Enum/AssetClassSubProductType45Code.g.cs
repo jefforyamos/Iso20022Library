@@ -29,22 +29,3 @@ public enum AssetClassSubProductType45Code
     Potato = AssetClassSubProductTypeCode.Potato, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType45CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType45CodeDropdownSource _dropdownSource = new AssetClassSubProductType45CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType45CodeDropdownRow GetMetadata(this AssetClassSubProductType45Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

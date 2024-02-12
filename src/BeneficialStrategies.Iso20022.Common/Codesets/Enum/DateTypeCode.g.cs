@@ -128,22 +128,3 @@ public enum DateTypeCode
     BlockingTillPremiumPaymentDate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateTypeCodeMetadataExtensions
-{
-    private static readonly DateTypeCodeDropdownSource _dropdownSource = new DateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateTypeCodeDropdownRow GetMetadata(this DateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

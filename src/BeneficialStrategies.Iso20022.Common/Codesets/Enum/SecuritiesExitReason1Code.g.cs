@@ -47,22 +47,3 @@ public enum SecuritiesExitReason1Code
     Other = SecuritiesExitReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesExitReason1CodeMetadataExtensions
-{
-    private static readonly SecuritiesExitReason1CodeDropdownSource _dropdownSource = new SecuritiesExitReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesExitReason1CodeDropdownRow GetMetadata(this SecuritiesExitReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

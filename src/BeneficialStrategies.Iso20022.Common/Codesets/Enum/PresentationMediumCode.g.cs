@@ -56,22 +56,3 @@ public enum PresentationMediumCode
     Biometric,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PresentationMediumCodeMetadataExtensions
-{
-    private static readonly PresentationMediumCodeDropdownSource _dropdownSource = new PresentationMediumCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPresentationMediumCodeDropdownRow GetMetadata(this PresentationMediumCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

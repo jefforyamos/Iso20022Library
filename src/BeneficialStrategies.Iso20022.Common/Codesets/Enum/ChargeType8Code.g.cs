@@ -137,22 +137,3 @@ public enum ChargeType8Code
     TransportCharges = ChargeTypeCode.TransportCharges, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType8CodeMetadataExtensions
-{
-    private static readonly ChargeType8CodeDropdownSource _dropdownSource = new ChargeType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType8CodeDropdownRow GetMetadata(this ChargeType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

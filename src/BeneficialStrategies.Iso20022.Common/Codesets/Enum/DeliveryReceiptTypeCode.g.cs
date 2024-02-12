@@ -38,22 +38,3 @@ public enum DeliveryReceiptTypeCode
     AgainstPaymentSettlement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryReceiptTypeCodeMetadataExtensions
-{
-    private static readonly DeliveryReceiptTypeCodeDropdownSource _dropdownSource = new DeliveryReceiptTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryReceiptTypeCodeDropdownRow GetMetadata(this DeliveryReceiptTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

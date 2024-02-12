@@ -308,22 +308,3 @@ public enum ExposureType4Code
     TreasuryCorssProduct = ExposureTypeCode.TreasuryCorssProduct, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType4CodeMetadataExtensions
-{
-    private static readonly ExposureType4CodeDropdownSource _dropdownSource = new ExposureType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType4CodeDropdownRow GetMetadata(this ExposureType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum AnnualChargePaymentType1Code
     Income = AnnualChargePaymentTypeCode.Income, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AnnualChargePaymentType1CodeMetadataExtensions
-{
-    private static readonly AnnualChargePaymentType1CodeDropdownSource _dropdownSource = new AnnualChargePaymentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAnnualChargePaymentType1CodeDropdownRow GetMetadata(this AnnualChargePaymentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

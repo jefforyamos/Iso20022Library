@@ -74,22 +74,3 @@ public enum SecuritiesAccountPurposeType1Code
     Physical = SecuritiesAccountPurposeTypeCode.Physical, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesAccountPurposeType1CodeMetadataExtensions
-{
-    private static readonly SecuritiesAccountPurposeType1CodeDropdownSource _dropdownSource = new SecuritiesAccountPurposeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesAccountPurposeType1CodeDropdownRow GetMetadata(this SecuritiesAccountPurposeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

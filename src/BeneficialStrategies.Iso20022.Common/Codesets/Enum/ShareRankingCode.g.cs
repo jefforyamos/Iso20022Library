@@ -38,22 +38,3 @@ public enum ShareRankingCode
     PariPassu,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ShareRankingCodeMetadataExtensions
-{
-    private static readonly ShareRankingCodeDropdownSource _dropdownSource = new ShareRankingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IShareRankingCodeDropdownRow GetMetadata(this ShareRankingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

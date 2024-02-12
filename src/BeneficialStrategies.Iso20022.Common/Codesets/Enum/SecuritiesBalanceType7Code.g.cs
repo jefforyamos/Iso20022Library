@@ -101,22 +101,3 @@ public enum SecuritiesBalanceType7Code
     QuasiIssued = SecuritiesBalanceTypeV2Code.QuasiIssued, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType7CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType7CodeDropdownSource _dropdownSource = new SecuritiesBalanceType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType7CodeDropdownRow GetMetadata(this SecuritiesBalanceType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -254,22 +254,3 @@ public enum TransferRejectedStatusReason2Code
     DuplicateTransferReference = RejectedStatusReasonCode.DuplicateTransferReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferRejectedStatusReason2CodeMetadataExtensions
-{
-    private static readonly TransferRejectedStatusReason2CodeDropdownSource _dropdownSource = new TransferRejectedStatusReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferRejectedStatusReason2CodeDropdownRow GetMetadata(this TransferRejectedStatusReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

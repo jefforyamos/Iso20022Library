@@ -47,22 +47,3 @@ public enum GoodTillBookingInstruction1Code
     AccumulateTillTold = GoodTillBookingInstructionCode.AccumulateTillTold, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodTillBookingInstruction1CodeMetadataExtensions
-{
-    private static readonly GoodTillBookingInstruction1CodeDropdownSource _dropdownSource = new GoodTillBookingInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodTillBookingInstruction1CodeDropdownRow GetMetadata(this GoodTillBookingInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

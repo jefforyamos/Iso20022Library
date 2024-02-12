@@ -38,22 +38,3 @@ public enum ProformaStatusReason1Code
     Rights = ProformaStatusReasonCode.Rights, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProformaStatusReason1CodeMetadataExtensions
-{
-    private static readonly ProformaStatusReason1CodeDropdownSource _dropdownSource = new ProformaStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProformaStatusReason1CodeDropdownRow GetMetadata(this ProformaStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

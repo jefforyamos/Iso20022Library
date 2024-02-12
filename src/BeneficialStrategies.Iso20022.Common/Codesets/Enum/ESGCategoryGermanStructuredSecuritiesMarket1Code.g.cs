@@ -56,22 +56,3 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
     BasicCategorySS = ESGCategoryGermanStructuredSecuritiesMarketCode.BasicCategorySS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGCategoryGermanStructuredSecuritiesMarket1CodeMetadataExtensions
-{
-    private static readonly ESGCategoryGermanStructuredSecuritiesMarket1CodeDropdownSource _dropdownSource = new ESGCategoryGermanStructuredSecuritiesMarket1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGCategoryGermanStructuredSecuritiesMarket1CodeDropdownRow GetMetadata(this ESGCategoryGermanStructuredSecuritiesMarket1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

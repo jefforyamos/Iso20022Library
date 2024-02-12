@@ -821,22 +821,3 @@ public enum PartyIssuerCode
     ParticipantTrustCompany = IssuerCode.ParticipantTrustCompany, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyIssuerCodeMetadataExtensions
-{
-    private static readonly PartyIssuerCodeDropdownSource _dropdownSource = new PartyIssuerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyIssuerCodeDropdownRow GetMetadata(this PartyIssuerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

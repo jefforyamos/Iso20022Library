@@ -74,22 +74,3 @@ public enum CardDepositTypeCode
     Card,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDepositTypeCodeMetadataExtensions
-{
-    private static readonly CardDepositTypeCodeDropdownSource _dropdownSource = new CardDepositTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDepositTypeCodeDropdownRow GetMetadata(this CardDepositTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

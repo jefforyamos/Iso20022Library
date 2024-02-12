@@ -47,22 +47,3 @@ public enum RejectionReason52Code
     ServiceNotOffered = RejectionReasonV3Code.ServiceNotOffered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason52CodeMetadataExtensions
-{
-    private static readonly RejectionReason52CodeDropdownSource _dropdownSource = new RejectionReason52CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason52CodeDropdownRow GetMetadata(this RejectionReason52Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

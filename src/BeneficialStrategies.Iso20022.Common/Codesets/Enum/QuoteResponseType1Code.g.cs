@@ -74,22 +74,3 @@ public enum QuoteResponseType1Code
     Pass = QuoteResponseTypeCode.Pass, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuoteResponseType1CodeMetadataExtensions
-{
-    private static readonly QuoteResponseType1CodeDropdownSource _dropdownSource = new QuoteResponseType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuoteResponseType1CodeDropdownRow GetMetadata(this QuoteResponseType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

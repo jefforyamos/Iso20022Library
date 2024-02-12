@@ -263,22 +263,3 @@ public enum DTCUnallocatedAdjustmentReason1Code
     GracePeriod = DTCUnallocatedAdjustmentReasonCode.GracePeriod, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCUnallocatedAdjustmentReason1CodeMetadataExtensions
-{
-    private static readonly DTCUnallocatedAdjustmentReason1CodeDropdownSource _dropdownSource = new DTCUnallocatedAdjustmentReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCUnallocatedAdjustmentReason1CodeDropdownRow GetMetadata(this DTCUnallocatedAdjustmentReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

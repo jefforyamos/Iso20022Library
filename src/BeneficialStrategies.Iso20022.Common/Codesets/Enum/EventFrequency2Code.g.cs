@@ -83,22 +83,3 @@ public enum EventFrequency2Code
     Closed = EventFrequencyCode.Closed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency2CodeMetadataExtensions
-{
-    private static readonly EventFrequency2CodeDropdownSource _dropdownSource = new EventFrequency2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency2CodeDropdownRow GetMetadata(this EventFrequency2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

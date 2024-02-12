@@ -56,22 +56,3 @@ public enum ReconciliationTypeCode
     PreviousReconciliation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationTypeCodeMetadataExtensions
-{
-    private static readonly ReconciliationTypeCodeDropdownSource _dropdownSource = new ReconciliationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationTypeCodeDropdownRow GetMetadata(this ReconciliationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum OptionAvailabilityStatus1Code
     Cancelled = OptionAvailabilityStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionAvailabilityStatus1CodeMetadataExtensions
-{
-    private static readonly OptionAvailabilityStatus1CodeDropdownSource _dropdownSource = new OptionAvailabilityStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionAvailabilityStatus1CodeDropdownRow GetMetadata(this OptionAvailabilityStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

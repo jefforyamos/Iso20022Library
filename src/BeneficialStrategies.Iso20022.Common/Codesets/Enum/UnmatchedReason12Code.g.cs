@@ -362,22 +362,3 @@ public enum UnmatchedReason12Code
     CumEx = UnmatchedReasonCode.CumEx, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason12CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason12CodeDropdownSource _dropdownSource = new UnmatchedReason12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason12CodeDropdownRow GetMetadata(this UnmatchedReason12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

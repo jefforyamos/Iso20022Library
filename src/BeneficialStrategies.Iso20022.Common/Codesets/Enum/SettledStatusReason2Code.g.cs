@@ -65,22 +65,3 @@ public enum SettledStatusReason2Code
     UnitsPartiallySettled = SettledStatusReasonCode.UnitsPartiallySettled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettledStatusReason2CodeMetadataExtensions
-{
-    private static readonly SettledStatusReason2CodeDropdownSource _dropdownSource = new SettledStatusReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettledStatusReason2CodeDropdownRow GetMetadata(this SettledStatusReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

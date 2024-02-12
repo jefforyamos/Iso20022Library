@@ -38,22 +38,3 @@ public enum AllOtherCashCode
     NotLiquidatedTransferAsCash,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllOtherCashCodeMetadataExtensions
-{
-    private static readonly AllOtherCashCodeDropdownSource _dropdownSource = new AllOtherCashCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllOtherCashCodeDropdownRow GetMetadata(this AllOtherCashCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

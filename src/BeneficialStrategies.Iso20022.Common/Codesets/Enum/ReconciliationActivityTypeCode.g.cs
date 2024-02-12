@@ -65,22 +65,3 @@ public enum ReconciliationActivityTypeCode
     OtherNational,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationActivityTypeCodeMetadataExtensions
-{
-    private static readonly ReconciliationActivityTypeCodeDropdownSource _dropdownSource = new ReconciliationActivityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationActivityTypeCodeDropdownRow GetMetadata(this ReconciliationActivityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

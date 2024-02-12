@@ -74,22 +74,3 @@ public enum QueryTradeStatus1Code
     QueryReplacedTrade = QueryTradeStatusCode.QueryReplacedTrade, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QueryTradeStatus1CodeMetadataExtensions
-{
-    private static readonly QueryTradeStatus1CodeDropdownSource _dropdownSource = new QueryTradeStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQueryTradeStatus1CodeDropdownRow GetMetadata(this QueryTradeStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

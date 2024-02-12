@@ -975,22 +975,3 @@ public enum SystemBalanceTypeCode
     Information,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemBalanceTypeCodeMetadataExtensions
-{
-    private static readonly SystemBalanceTypeCodeDropdownSource _dropdownSource = new SystemBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemBalanceTypeCodeDropdownRow GetMetadata(this SystemBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

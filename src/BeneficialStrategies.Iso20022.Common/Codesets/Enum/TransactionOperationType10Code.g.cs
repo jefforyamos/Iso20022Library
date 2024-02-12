@@ -128,22 +128,3 @@ public enum TransactionOperationType10Code
     PortOut = TransactionOperationTypeV2Code.PortOut, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType10CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType10CodeDropdownSource _dropdownSource = new TransactionOperationType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType10CodeDropdownRow GetMetadata(this TransactionOperationType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

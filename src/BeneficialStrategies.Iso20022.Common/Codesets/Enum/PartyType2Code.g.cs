@@ -155,22 +155,3 @@ public enum PartyType2Code
     StepInBroker = PartyTypeCode.StepInBroker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType2CodeMetadataExtensions
-{
-    private static readonly PartyType2CodeDropdownSource _dropdownSource = new PartyType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType2CodeDropdownRow GetMetadata(this PartyType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum DTCCQuantitySoughtCode
     Percentage,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCQuantitySoughtCodeMetadataExtensions
-{
-    private static readonly DTCCQuantitySoughtCodeDropdownSource _dropdownSource = new DTCCQuantitySoughtCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCQuantitySoughtCodeDropdownRow GetMetadata(this DTCCQuantitySoughtCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

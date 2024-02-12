@@ -38,22 +38,3 @@ public enum BlockTrade1Code
     Child = BlockTradeCode.Child, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BlockTrade1CodeMetadataExtensions
-{
-    private static readonly BlockTrade1CodeDropdownSource _dropdownSource = new BlockTrade1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBlockTrade1CodeDropdownRow GetMetadata(this BlockTrade1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

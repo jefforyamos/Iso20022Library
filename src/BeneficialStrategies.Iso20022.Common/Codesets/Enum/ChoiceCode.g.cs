@@ -37,22 +37,3 @@ public enum ChoiceCode
     Mandatory,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChoiceCodeMetadataExtensions
-{
-    private static readonly ChoiceCodeDropdownSource _dropdownSource = new ChoiceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChoiceCodeDropdownRow GetMetadata(this ChoiceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

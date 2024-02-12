@@ -47,22 +47,3 @@ public enum InstructionLockout1Code
     NotLocked = InstructionLockoutCode.NotLocked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionLockout1CodeMetadataExtensions
-{
-    private static readonly InstructionLockout1CodeDropdownSource _dropdownSource = new InstructionLockout1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionLockout1CodeDropdownRow GetMetadata(this InstructionLockout1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum TradingMethodCode
     Broker,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingMethodCodeMetadataExtensions
-{
-    private static readonly TradingMethodCodeDropdownSource _dropdownSource = new TradingMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingMethodCodeDropdownRow GetMetadata(this TradingMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

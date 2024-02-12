@@ -47,22 +47,3 @@ public enum GoodsAndServices1Code
     ElectronicAndPhysical = GoodsAndServicesCode.ElectronicAndPhysical, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodsAndServices1CodeMetadataExtensions
-{
-    private static readonly GoodsAndServices1CodeDropdownSource _dropdownSource = new GoodsAndServices1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodsAndServices1CodeDropdownRow GetMetadata(this GoodsAndServices1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum ATMSecurityScheme4Code
     TR34 = ATMSecuritySchemeCode.TR34, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMSecurityScheme4CodeMetadataExtensions
-{
-    private static readonly ATMSecurityScheme4CodeDropdownSource _dropdownSource = new ATMSecurityScheme4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMSecurityScheme4CodeDropdownRow GetMetadata(this ATMSecurityScheme4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum TerminalTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalTypeCodeMetadataExtensions
-{
-    private static readonly TerminalTypeCodeDropdownSource _dropdownSource = new TerminalTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalTypeCodeDropdownRow GetMetadata(this TerminalTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

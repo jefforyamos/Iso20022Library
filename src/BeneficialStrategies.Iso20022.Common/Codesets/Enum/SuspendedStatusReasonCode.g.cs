@@ -65,22 +65,3 @@ public enum SuspendedStatusReasonCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SuspendedStatusReasonCodeMetadataExtensions
-{
-    private static readonly SuspendedStatusReasonCodeDropdownSource _dropdownSource = new SuspendedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISuspendedStatusReasonCodeDropdownRow GetMetadata(this SuspendedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

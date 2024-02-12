@@ -38,22 +38,3 @@ public enum SettlementUnitTypeCode
     Unit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementUnitTypeCodeMetadataExtensions
-{
-    private static readonly SettlementUnitTypeCodeDropdownSource _dropdownSource = new SettlementUnitTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementUnitTypeCodeDropdownRow GetMetadata(this SettlementUnitTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

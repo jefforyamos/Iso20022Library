@@ -38,22 +38,3 @@ public enum OffMarketCode
     NotAdmittedOnExchange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OffMarketCodeMetadataExtensions
-{
-    private static readonly OffMarketCodeDropdownSource _dropdownSource = new OffMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOffMarketCodeDropdownRow GetMetadata(this OffMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum GeneratedReason3Code
     Transformation = GeneratedReasonCode.Transformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeneratedReason3CodeMetadataExtensions
-{
-    private static readonly GeneratedReason3CodeDropdownSource _dropdownSource = new GeneratedReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeneratedReason3CodeDropdownRow GetMetadata(this GeneratedReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

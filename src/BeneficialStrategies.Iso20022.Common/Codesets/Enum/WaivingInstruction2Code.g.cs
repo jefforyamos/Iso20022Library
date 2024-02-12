@@ -47,22 +47,3 @@ public enum WaivingInstruction2Code
     Other = WaivingInstructionCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WaivingInstruction2CodeMetadataExtensions
-{
-    private static readonly WaivingInstruction2CodeDropdownSource _dropdownSource = new WaivingInstruction2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWaivingInstruction2CodeDropdownRow GetMetadata(this WaivingInstruction2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

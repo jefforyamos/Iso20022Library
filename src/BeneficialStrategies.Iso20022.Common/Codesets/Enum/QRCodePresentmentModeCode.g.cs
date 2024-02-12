@@ -56,22 +56,3 @@ public enum QRCodePresentmentModeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodePresentmentModeCodeMetadataExtensions
-{
-    private static readonly QRCodePresentmentModeCodeDropdownSource _dropdownSource = new QRCodePresentmentModeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodePresentmentModeCodeDropdownRow GetMetadata(this QRCodePresentmentModeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

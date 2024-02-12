@@ -47,22 +47,3 @@ public enum CancelledStatusReason3Code
     CancelledByIntermediary = CancelledStatusReasonCode.CancelledByIntermediary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason3CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason3CodeDropdownSource _dropdownSource = new CancelledStatusReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason3CodeDropdownRow GetMetadata(this CancelledStatusReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

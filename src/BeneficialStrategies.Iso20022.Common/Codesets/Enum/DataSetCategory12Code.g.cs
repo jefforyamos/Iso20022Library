@@ -173,22 +173,3 @@ public enum DataSetCategory12Code
     CertificateManagementRequest = DataSetCategoryCode.CertificateManagementRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory12CodeMetadataExtensions
-{
-    private static readonly DataSetCategory12CodeDropdownSource _dropdownSource = new DataSetCategory12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory12CodeDropdownRow GetMetadata(this DataSetCategory12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

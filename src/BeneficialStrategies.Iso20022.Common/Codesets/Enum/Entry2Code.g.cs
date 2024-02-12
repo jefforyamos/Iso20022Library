@@ -47,22 +47,3 @@ public enum Entry2Code
     Requested = EntryCode.Requested, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Entry2CodeMetadataExtensions
-{
-    private static readonly Entry2CodeDropdownSource _dropdownSource = new Entry2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntry2CodeDropdownRow GetMetadata(this Entry2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

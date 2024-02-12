@@ -38,22 +38,3 @@ public enum AcknowledgementReason1Code
     MarketPracticeRuleDiscrepency = AcknowledgementReasonCode.MarketPracticeRuleDiscrepency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReason1CodeMetadataExtensions
-{
-    private static readonly AcknowledgementReason1CodeDropdownSource _dropdownSource = new AcknowledgementReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReason1CodeDropdownRow GetMetadata(this AcknowledgementReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum ClearingSideCode
     Borrow,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingSideCodeMetadataExtensions
-{
-    private static readonly ClearingSideCodeDropdownSource _dropdownSource = new ClearingSideCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingSideCodeDropdownRow GetMetadata(this ClearingSideCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

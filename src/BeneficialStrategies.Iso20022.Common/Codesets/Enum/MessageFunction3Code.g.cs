@@ -119,22 +119,3 @@ public enum MessageFunction3Code
     ReversalAdvice = MessageFunctionCode.ReversalAdvice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction3CodeMetadataExtensions
-{
-    private static readonly MessageFunction3CodeDropdownSource _dropdownSource = new MessageFunction3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction3CodeDropdownRow GetMetadata(this MessageFunction3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

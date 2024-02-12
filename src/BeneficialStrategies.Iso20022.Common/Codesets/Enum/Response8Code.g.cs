@@ -83,22 +83,3 @@ public enum Response8Code
     OtherPrivate = ResponseCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response8CodeMetadataExtensions
-{
-    private static readonly Response8CodeDropdownSource _dropdownSource = new Response8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse8CodeDropdownRow GetMetadata(this Response8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

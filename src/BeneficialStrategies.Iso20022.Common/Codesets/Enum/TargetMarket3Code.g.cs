@@ -38,22 +38,3 @@ public enum TargetMarket3Code
     NotInScope = TargetMarketCode.NotInScope, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TargetMarket3CodeMetadataExtensions
-{
-    private static readonly TargetMarket3CodeDropdownSource _dropdownSource = new TargetMarket3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITargetMarket3CodeDropdownRow GetMetadata(this TargetMarket3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

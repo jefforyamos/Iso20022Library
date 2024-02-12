@@ -38,22 +38,3 @@ public enum FormOfSecurityCode
     Bearer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FormOfSecurityCodeMetadataExtensions
-{
-    private static readonly FormOfSecurityCodeDropdownSource _dropdownSource = new FormOfSecurityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFormOfSecurityCodeDropdownRow GetMetadata(this FormOfSecurityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

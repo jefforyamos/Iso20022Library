@@ -38,22 +38,3 @@ public enum PairingStatusCode
     Unpaired,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PairingStatusCodeMetadataExtensions
-{
-    private static readonly PairingStatusCodeDropdownSource _dropdownSource = new PairingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPairingStatusCodeDropdownRow GetMetadata(this PairingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

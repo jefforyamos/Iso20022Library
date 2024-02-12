@@ -38,22 +38,3 @@ public enum TradingCapacity7Code
     Principal = TradingCapacityCode.Principal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingCapacity7CodeMetadataExtensions
-{
-    private static readonly TradingCapacity7CodeDropdownSource _dropdownSource = new TradingCapacity7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingCapacity7CodeDropdownRow GetMetadata(this TradingCapacity7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

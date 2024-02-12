@@ -74,22 +74,3 @@ public enum CorporateActionEventStatusCode
     Inactive,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStatusCodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStatusCodeDropdownSource _dropdownSource = new CorporateActionEventStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStatusCodeDropdownRow GetMetadata(this CorporateActionEventStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

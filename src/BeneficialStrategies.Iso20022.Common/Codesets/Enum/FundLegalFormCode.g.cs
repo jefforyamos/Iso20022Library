@@ -46,22 +46,3 @@ public enum FundLegalFormCode
     Corporate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundLegalFormCodeMetadataExtensions
-{
-    private static readonly FundLegalFormCodeDropdownSource _dropdownSource = new FundLegalFormCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundLegalFormCodeDropdownRow GetMetadata(this FundLegalFormCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum Algorithm5Code
     SHA512 = AlgorithmCode.SHA512, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm5CodeMetadataExtensions
-{
-    private static readonly Algorithm5CodeDropdownSource _dropdownSource = new Algorithm5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm5CodeDropdownRow GetMetadata(this Algorithm5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

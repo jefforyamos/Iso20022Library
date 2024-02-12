@@ -101,22 +101,3 @@ public enum PegTypeCode
     LimitPrice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PegTypeCodeMetadataExtensions
-{
-    private static readonly PegTypeCodeDropdownSource _dropdownSource = new PegTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPegTypeCodeDropdownRow GetMetadata(this PegTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -255,22 +255,3 @@ public enum BenchmarkCurveName2Code
     BBSW = BenchmarkCurveNameCode.BBSW, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BenchmarkCurveName2CodeMetadataExtensions
-{
-    private static readonly BenchmarkCurveName2CodeDropdownSource _dropdownSource = new BenchmarkCurveName2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBenchmarkCurveName2CodeDropdownRow GetMetadata(this BenchmarkCurveName2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

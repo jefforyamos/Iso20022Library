@@ -47,22 +47,3 @@ public enum InvestmentFundPlanType1Code
     WithdrawalPlan = InvestmentFundPlanTypeCode.WithdrawalPlan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundPlanType1CodeMetadataExtensions
-{
-    private static readonly InvestmentFundPlanType1CodeDropdownSource _dropdownSource = new InvestmentFundPlanType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundPlanType1CodeDropdownRow GetMetadata(this InvestmentFundPlanType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

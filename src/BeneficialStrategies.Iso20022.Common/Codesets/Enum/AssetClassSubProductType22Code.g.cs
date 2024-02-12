@@ -29,22 +29,3 @@ public enum AssetClassSubProductType22Code
     Livestock = AssetClassSubProductTypeCode.Livestock, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType22CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType22CodeDropdownSource _dropdownSource = new AssetClassSubProductType22CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType22CodeDropdownRow GetMetadata(this AssetClassSubProductType22Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum LoyaltyValueType1Code
     PrivateCurrency = LoyaltyValueTypeCode.PrivateCurrency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyValueType1CodeMetadataExtensions
-{
-    private static readonly LoyaltyValueType1CodeDropdownSource _dropdownSource = new LoyaltyValueType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyValueType1CodeDropdownRow GetMetadata(this LoyaltyValueType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

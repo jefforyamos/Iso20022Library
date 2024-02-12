@@ -47,22 +47,3 @@ public enum HoldingsPlanTypeCode
     WithdrawalPlan,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HoldingsPlanTypeCodeMetadataExtensions
-{
-    private static readonly HoldingsPlanTypeCodeDropdownSource _dropdownSource = new HoldingsPlanTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHoldingsPlanTypeCodeDropdownRow GetMetadata(this HoldingsPlanTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

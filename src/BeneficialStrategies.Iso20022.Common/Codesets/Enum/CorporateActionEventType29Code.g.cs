@@ -596,22 +596,3 @@ public enum CorporateActionEventType29Code
     Worthless = CorporateActionEventTypeV6Code.Worthless, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType29CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType29CodeDropdownSource _dropdownSource = new CorporateActionEventType29CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType29CodeDropdownRow GetMetadata(this CorporateActionEventType29Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

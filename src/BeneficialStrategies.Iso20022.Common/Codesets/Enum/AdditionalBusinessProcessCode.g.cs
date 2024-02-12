@@ -155,22 +155,3 @@ public enum AdditionalBusinessProcessCode
     IncentivePremiumPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcessCodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcessCodeDropdownSource _dropdownSource = new AdditionalBusinessProcessCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcessCodeDropdownRow GetMetadata(this AdditionalBusinessProcessCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

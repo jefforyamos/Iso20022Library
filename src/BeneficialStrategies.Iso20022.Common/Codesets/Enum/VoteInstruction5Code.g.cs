@@ -119,22 +119,3 @@ public enum VoteInstruction5Code
     NoRecommendation = VoteInstructionV2Code.NoRecommendation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstruction5CodeMetadataExtensions
-{
-    private static readonly VoteInstruction5CodeDropdownSource _dropdownSource = new VoteInstruction5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstruction5CodeDropdownRow GetMetadata(this VoteInstruction5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

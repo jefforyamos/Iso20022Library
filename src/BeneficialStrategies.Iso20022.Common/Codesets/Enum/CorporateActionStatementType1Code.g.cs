@@ -38,22 +38,3 @@ public enum CorporateActionStatementType1Code
     All = CorporateActionStatementTypeCode.All, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionStatementType1CodeMetadataExtensions
-{
-    private static readonly CorporateActionStatementType1CodeDropdownSource _dropdownSource = new CorporateActionStatementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionStatementType1CodeDropdownRow GetMetadata(this CorporateActionStatementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum ResponseStatusCode
     NotRecognised,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResponseStatusCodeMetadataExtensions
-{
-    private static readonly ResponseStatusCodeDropdownSource _dropdownSource = new ResponseStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponseStatusCodeDropdownRow GetMetadata(this ResponseStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

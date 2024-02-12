@@ -245,22 +245,3 @@ public enum CommissionTypeV2Code
     PercentageCommissionWaivedAsAdditionalUnits,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionTypeV2CodeMetadataExtensions
-{
-    private static readonly CommissionTypeV2CodeDropdownSource _dropdownSource = new CommissionTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionTypeV2CodeDropdownRow GetMetadata(this CommissionTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

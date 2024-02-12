@@ -443,22 +443,3 @@ public enum RejectedStatusReason13Code
     NotCompliantWithMarketPractice = RejectedStatusReasonCode.NotCompliantWithMarketPractice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason13CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason13CodeDropdownSource _dropdownSource = new RejectedStatusReason13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason13CodeDropdownRow GetMetadata(this RejectedStatusReason13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

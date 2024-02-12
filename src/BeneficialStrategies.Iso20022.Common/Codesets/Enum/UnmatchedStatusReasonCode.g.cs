@@ -354,22 +354,3 @@ public enum UnmatchedStatusReasonCode
     DisagreementReceivingOrDeliveringCustodian,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedStatusReasonCodeMetadataExtensions
-{
-    private static readonly UnmatchedStatusReasonCodeDropdownSource _dropdownSource = new UnmatchedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedStatusReasonCodeDropdownRow GetMetadata(this UnmatchedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

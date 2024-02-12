@@ -74,22 +74,3 @@ public enum DocumentType7Code
     Voucher = DocumentTypeCode.Voucher, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DocumentType7CodeMetadataExtensions
-{
-    private static readonly DocumentType7CodeDropdownSource _dropdownSource = new DocumentType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDocumentType7CodeDropdownRow GetMetadata(this DocumentType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

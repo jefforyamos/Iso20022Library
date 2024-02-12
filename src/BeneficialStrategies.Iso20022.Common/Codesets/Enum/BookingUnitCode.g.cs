@@ -47,22 +47,3 @@ public enum BookingUnitCode
     AggregateExecutions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BookingUnitCodeMetadataExtensions
-{
-    private static readonly BookingUnitCodeDropdownSource _dropdownSource = new BookingUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBookingUnitCodeDropdownRow GetMetadata(this BookingUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

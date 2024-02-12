@@ -101,22 +101,3 @@ public enum DurationTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DurationTypeCodeMetadataExtensions
-{
-    private static readonly DurationTypeCodeDropdownSource _dropdownSource = new DurationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDurationTypeCodeDropdownRow GetMetadata(this DurationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

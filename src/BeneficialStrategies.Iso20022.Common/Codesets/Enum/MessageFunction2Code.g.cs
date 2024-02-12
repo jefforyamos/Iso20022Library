@@ -38,22 +38,3 @@ public enum MessageFunction2Code
     Response = MessageFunctionCode.Response, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction2CodeMetadataExtensions
-{
-    private static readonly MessageFunction2CodeDropdownSource _dropdownSource = new MessageFunction2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction2CodeDropdownRow GetMetadata(this MessageFunction2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

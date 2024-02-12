@@ -101,22 +101,3 @@ public enum TrackerEventTypeCode
     StatusUpdateFinancialInstitutionCreditTransferPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerEventTypeCodeMetadataExtensions
-{
-    private static readonly TrackerEventTypeCodeDropdownSource _dropdownSource = new TrackerEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerEventTypeCodeDropdownRow GetMetadata(this TrackerEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

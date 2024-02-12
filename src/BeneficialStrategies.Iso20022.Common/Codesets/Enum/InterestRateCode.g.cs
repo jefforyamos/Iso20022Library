@@ -56,22 +56,3 @@ public enum InterestRateCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRateCodeMetadataExtensions
-{
-    private static readonly InterestRateCodeDropdownSource _dropdownSource = new InterestRateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRateCodeDropdownRow GetMetadata(this InterestRateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

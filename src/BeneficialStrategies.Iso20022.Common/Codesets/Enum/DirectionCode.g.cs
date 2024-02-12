@@ -38,22 +38,3 @@ public enum DirectionCode
     Up,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DirectionCodeMetadataExtensions
-{
-    private static readonly DirectionCodeDropdownSource _dropdownSource = new DirectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDirectionCodeDropdownRow GetMetadata(this DirectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

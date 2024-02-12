@@ -65,22 +65,3 @@ public enum StampDutyTypeCode
     Applicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StampDutyTypeCodeMetadataExtensions
-{
-    private static readonly StampDutyTypeCodeDropdownSource _dropdownSource = new StampDutyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStampDutyTypeCodeDropdownRow GetMetadata(this StampDutyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

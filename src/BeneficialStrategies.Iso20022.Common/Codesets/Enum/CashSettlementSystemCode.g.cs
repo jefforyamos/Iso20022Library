@@ -83,22 +83,3 @@ public enum CashSettlementSystemCode
     FedWireUS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashSettlementSystemCodeMetadataExtensions
-{
-    private static readonly CashSettlementSystemCodeDropdownSource _dropdownSource = new CashSettlementSystemCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashSettlementSystemCodeDropdownRow GetMetadata(this CashSettlementSystemCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

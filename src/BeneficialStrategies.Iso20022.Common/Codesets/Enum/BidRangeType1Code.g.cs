@@ -47,22 +47,3 @@ public enum BidRangeType1Code
     InMultiple = BidRangeTypeCode.InMultiple, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BidRangeType1CodeMetadataExtensions
-{
-    private static readonly BidRangeType1CodeDropdownSource _dropdownSource = new BidRangeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBidRangeType1CodeDropdownRow GetMetadata(this BidRangeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

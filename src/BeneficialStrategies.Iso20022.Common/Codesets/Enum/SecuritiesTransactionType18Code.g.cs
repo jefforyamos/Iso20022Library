@@ -335,22 +335,3 @@ public enum SecuritiesTransactionType18Code
     SyndicateUnderwriters = SecuritiesTransactionTypeV2Code.SyndicateUnderwriters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType18CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType18CodeDropdownSource _dropdownSource = new SecuritiesTransactionType18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType18CodeDropdownRow GetMetadata(this SecuritiesTransactionType18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

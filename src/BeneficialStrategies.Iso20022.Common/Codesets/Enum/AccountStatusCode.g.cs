@@ -65,22 +65,3 @@ public enum AccountStatusCode
     Pending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatusCodeMetadataExtensions
-{
-    private static readonly AccountStatusCodeDropdownSource _dropdownSource = new AccountStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatusCodeDropdownRow GetMetadata(this AccountStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

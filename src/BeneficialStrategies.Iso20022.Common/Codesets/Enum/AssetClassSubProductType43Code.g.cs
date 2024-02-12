@@ -29,22 +29,3 @@ public enum AssetClassSubProductType43Code
     Urea = AssetClassSubProductTypeCode.Urea, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType43CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType43CodeDropdownSource _dropdownSource = new AssetClassSubProductType43CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType43CodeDropdownRow GetMetadata(this AssetClassSubProductType43Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

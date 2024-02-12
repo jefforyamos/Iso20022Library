@@ -56,22 +56,3 @@ public enum MatchingStatusCode
     MisMatched,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MatchingStatusCodeMetadataExtensions
-{
-    private static readonly MatchingStatusCodeDropdownSource _dropdownSource = new MatchingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMatchingStatusCodeDropdownRow GetMetadata(this MatchingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

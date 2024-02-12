@@ -29,22 +29,3 @@ public enum UnderlyingEquityType3Code
     Basket = UnderlyingTypeV2Code.Basket, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingEquityType3CodeMetadataExtensions
-{
-    private static readonly UnderlyingEquityType3CodeDropdownSource _dropdownSource = new UnderlyingEquityType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingEquityType3CodeDropdownRow GetMetadata(this UnderlyingEquityType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

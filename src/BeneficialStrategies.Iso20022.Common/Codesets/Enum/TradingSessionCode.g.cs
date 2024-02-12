@@ -38,22 +38,3 @@ public enum TradingSessionCode
     Continuous,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingSessionCodeMetadataExtensions
-{
-    private static readonly TradingSessionCodeDropdownSource _dropdownSource = new TradingSessionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingSessionCodeDropdownRow GetMetadata(this TradingSessionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

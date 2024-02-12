@@ -101,22 +101,3 @@ public enum ATMSecurityScheme1Code
     Unitialised = ATMSecuritySchemeCode.Unitialised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMSecurityScheme1CodeMetadataExtensions
-{
-    private static readonly ATMSecurityScheme1CodeDropdownSource _dropdownSource = new ATMSecurityScheme1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMSecurityScheme1CodeDropdownRow GetMetadata(this ATMSecurityScheme1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

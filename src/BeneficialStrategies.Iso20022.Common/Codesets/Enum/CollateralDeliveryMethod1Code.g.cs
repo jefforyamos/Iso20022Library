@@ -47,22 +47,3 @@ public enum CollateralDeliveryMethod1Code
     TitleTransferCollateralArrangement = CollateralDeliveryMethodCode.TitleTransferCollateralArrangement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralDeliveryMethod1CodeMetadataExtensions
-{
-    private static readonly CollateralDeliveryMethod1CodeDropdownSource _dropdownSource = new CollateralDeliveryMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralDeliveryMethod1CodeDropdownRow GetMetadata(this CollateralDeliveryMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

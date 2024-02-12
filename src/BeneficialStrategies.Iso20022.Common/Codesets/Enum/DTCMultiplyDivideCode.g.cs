@@ -38,22 +38,3 @@ public enum DTCMultiplyDivideCode
     Divide,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCMultiplyDivideCodeMetadataExtensions
-{
-    private static readonly DTCMultiplyDivideCodeDropdownSource _dropdownSource = new DTCMultiplyDivideCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCMultiplyDivideCodeDropdownRow GetMetadata(this DTCMultiplyDivideCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

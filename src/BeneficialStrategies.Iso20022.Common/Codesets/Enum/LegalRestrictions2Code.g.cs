@@ -65,22 +65,3 @@ public enum LegalRestrictions2Code
     Privilege = LegalRestrictionsCode.Privilege, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalRestrictions2CodeMetadataExtensions
-{
-    private static readonly LegalRestrictions2CodeDropdownSource _dropdownSource = new LegalRestrictions2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalRestrictions2CodeDropdownRow GetMetadata(this LegalRestrictions2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

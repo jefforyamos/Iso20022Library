@@ -38,22 +38,3 @@ public enum ShortLongCode
     Long,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ShortLongCodeMetadataExtensions
-{
-    private static readonly ShortLongCodeDropdownSource _dropdownSource = new ShortLongCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IShortLongCodeDropdownRow GetMetadata(this ShortLongCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -182,22 +182,3 @@ public enum InterestRateTypeCode
     SwicthOptionality,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRateTypeCodeMetadataExtensions
-{
-    private static readonly InterestRateTypeCodeDropdownSource _dropdownSource = new InterestRateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRateTypeCodeDropdownRow GetMetadata(this InterestRateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

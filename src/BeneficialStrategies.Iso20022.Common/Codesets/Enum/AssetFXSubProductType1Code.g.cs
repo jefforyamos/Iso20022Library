@@ -47,22 +47,3 @@ public enum AssetFXSubProductType1Code
     ForeignExchangeMajor = AssetClassDetailedSubProductTypeCode.ForeignExchangeMajor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetFXSubProductType1CodeMetadataExtensions
-{
-    private static readonly AssetFXSubProductType1CodeDropdownSource _dropdownSource = new AssetFXSubProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetFXSubProductType1CodeDropdownRow GetMetadata(this AssetFXSubProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

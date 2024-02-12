@@ -47,22 +47,3 @@ public enum CommissionType5Code
     Other = CommissionTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionType5CodeMetadataExtensions
-{
-    private static readonly CommissionType5CodeDropdownSource _dropdownSource = new CommissionType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionType5CodeDropdownRow GetMetadata(this CommissionType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

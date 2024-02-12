@@ -74,22 +74,3 @@ public enum NonTradingDayReasonCode
     Weekend,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonTradingDayReasonCodeMetadataExtensions
-{
-    private static readonly NonTradingDayReasonCodeDropdownSource _dropdownSource = new NonTradingDayReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonTradingDayReasonCodeDropdownRow GetMetadata(this NonTradingDayReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

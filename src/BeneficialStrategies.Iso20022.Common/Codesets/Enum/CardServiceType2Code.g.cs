@@ -65,22 +65,3 @@ public enum CardServiceType2Code
     SignOn = CardServiceTypeCode.SignOn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardServiceType2CodeMetadataExtensions
-{
-    private static readonly CardServiceType2CodeDropdownSource _dropdownSource = new CardServiceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardServiceType2CodeDropdownRow GetMetadata(this CardServiceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

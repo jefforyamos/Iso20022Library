@@ -38,22 +38,3 @@ public enum DeliveryStatus1Code
     Success = DeliveryStatusCode.Success, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryStatus1CodeMetadataExtensions
-{
-    private static readonly DeliveryStatus1CodeDropdownSource _dropdownSource = new DeliveryStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryStatus1CodeDropdownRow GetMetadata(this DeliveryStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum ReceiptTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReceiptTypeCodeMetadataExtensions
-{
-    private static readonly ReceiptTypeCodeDropdownSource _dropdownSource = new ReceiptTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReceiptTypeCodeDropdownRow GetMetadata(this ReceiptTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

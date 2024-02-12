@@ -355,22 +355,3 @@ public enum TradeTransactionCondition3Code
     NonMarketPrice = TradeTransactionConditionCode.NonMarketPrice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTransactionCondition3CodeMetadataExtensions
-{
-    private static readonly TradeTransactionCondition3CodeDropdownSource _dropdownSource = new TradeTransactionCondition3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTransactionCondition3CodeDropdownRow GetMetadata(this TradeTransactionCondition3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

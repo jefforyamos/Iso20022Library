@@ -38,22 +38,3 @@ public enum StatementUpdateType1Code
     Delta = StatementUpdateTypeV2Code.Delta, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementUpdateType1CodeMetadataExtensions
-{
-    private static readonly StatementUpdateType1CodeDropdownSource _dropdownSource = new StatementUpdateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementUpdateType1CodeDropdownRow GetMetadata(this StatementUpdateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

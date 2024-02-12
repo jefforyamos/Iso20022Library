@@ -443,22 +443,3 @@ public enum RejectedStatusReason7Code
     InvalidSettlementAmount = RejectedStatusReasonCode.InvalidSettlementAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason7CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason7CodeDropdownSource _dropdownSource = new RejectedStatusReason7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason7CodeDropdownRow GetMetadata(this RejectedStatusReason7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum OrderQuantityType1Code
     Other = OrderQuantityTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderQuantityType1CodeMetadataExtensions
-{
-    private static readonly OrderQuantityType1CodeDropdownSource _dropdownSource = new OrderQuantityType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderQuantityType1CodeDropdownRow GetMetadata(this OrderQuantityType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

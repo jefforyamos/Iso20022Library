@@ -38,22 +38,3 @@ public enum PreConfirmationCode
     PreConfirmSecurities,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PreConfirmationCodeMetadataExtensions
-{
-    private static readonly PreConfirmationCodeDropdownSource _dropdownSource = new PreConfirmationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPreConfirmationCodeDropdownRow GetMetadata(this PreConfirmationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

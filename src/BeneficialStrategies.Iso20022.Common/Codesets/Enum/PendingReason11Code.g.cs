@@ -146,22 +146,3 @@ public enum PendingReason11Code
     WrongCertificatesNumbers = PendingFailingReasonCode.WrongCertificatesNumbers, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason11CodeMetadataExtensions
-{
-    private static readonly PendingReason11CodeDropdownSource _dropdownSource = new PendingReason11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason11CodeDropdownRow GetMetadata(this PendingReason11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

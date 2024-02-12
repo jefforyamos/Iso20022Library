@@ -74,22 +74,3 @@ public enum CorporateActionInstructionProcessingStatus1Code
     StandingInstruction = CorporateActionInstructionProcessingStatusCode.StandingInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionInstructionProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly CorporateActionInstructionProcessingStatus1CodeDropdownSource _dropdownSource = new CorporateActionInstructionProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionInstructionProcessingStatus1CodeDropdownRow GetMetadata(this CorporateActionInstructionProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

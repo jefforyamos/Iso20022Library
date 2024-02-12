@@ -138,22 +138,3 @@ public enum ExternalTypeOfPartyCode
     SpecifiedAddress,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTypeOfPartyCodeMetadataExtensions
-{
-    private static readonly ExternalTypeOfPartyCodeDropdownSource _dropdownSource = new ExternalTypeOfPartyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTypeOfPartyCodeDropdownRow GetMetadata(this ExternalTypeOfPartyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

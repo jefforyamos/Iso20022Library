@@ -281,22 +281,3 @@ public enum RepairReason4Code
     ReceivingDeliveringParty2 = RepairReasonV2Code.ReceivingDeliveringParty2, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReason4CodeMetadataExtensions
-{
-    private static readonly RepairReason4CodeDropdownSource _dropdownSource = new RepairReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReason4CodeDropdownRow GetMetadata(this RepairReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -524,22 +524,3 @@ public enum PendingReason1Code
     SystemOnHold = PendingFailingReasonCode.SystemOnHold, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason1CodeMetadataExtensions
-{
-    private static readonly PendingReason1CodeDropdownSource _dropdownSource = new PendingReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason1CodeDropdownRow GetMetadata(this PendingReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

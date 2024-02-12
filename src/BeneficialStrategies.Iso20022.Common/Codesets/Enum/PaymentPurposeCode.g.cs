@@ -875,22 +875,3 @@ public enum PaymentPurposeCode
     WithHolding,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentPurposeCodeMetadataExtensions
-{
-    private static readonly PaymentPurposeCodeDropdownSource _dropdownSource = new PaymentPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentPurposeCodeDropdownRow GetMetadata(this PaymentPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

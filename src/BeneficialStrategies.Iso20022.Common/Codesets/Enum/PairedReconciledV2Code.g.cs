@@ -65,22 +65,3 @@ public enum PairedReconciledV2Code
     CollateralReconciled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PairedReconciledV2CodeMetadataExtensions
-{
-    private static readonly PairedReconciledV2CodeDropdownSource _dropdownSource = new PairedReconciledV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPairedReconciledV2CodeDropdownRow GetMetadata(this PairedReconciledV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

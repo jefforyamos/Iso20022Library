@@ -246,22 +246,3 @@ public enum ExternalRejectedReasonCode
     MissingISIN,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalRejectedReasonCodeMetadataExtensions
-{
-    private static readonly ExternalRejectedReasonCodeDropdownSource _dropdownSource = new ExternalRejectedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalRejectedReasonCodeDropdownRow GetMetadata(this ExternalRejectedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

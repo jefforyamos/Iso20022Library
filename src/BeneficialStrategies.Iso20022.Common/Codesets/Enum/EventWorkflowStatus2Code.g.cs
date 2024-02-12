@@ -38,22 +38,3 @@ public enum EventWorkflowStatus2Code
     Cancelled = EventWorkflowStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventWorkflowStatus2CodeMetadataExtensions
-{
-    private static readonly EventWorkflowStatus2CodeDropdownSource _dropdownSource = new EventWorkflowStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventWorkflowStatus2CodeDropdownRow GetMetadata(this EventWorkflowStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

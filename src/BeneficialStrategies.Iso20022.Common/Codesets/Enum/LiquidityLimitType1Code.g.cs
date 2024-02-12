@@ -56,22 +56,3 @@ public enum LiquidityLimitType1Code
     NetSSSReservation = LiquidityLimitTypeCode.NetSSSReservation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LiquidityLimitType1CodeMetadataExtensions
-{
-    private static readonly LiquidityLimitType1CodeDropdownSource _dropdownSource = new LiquidityLimitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILiquidityLimitType1CodeDropdownRow GetMetadata(this LiquidityLimitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

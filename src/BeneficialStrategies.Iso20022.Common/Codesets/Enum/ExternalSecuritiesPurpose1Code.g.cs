@@ -49,22 +49,3 @@ public enum ExternalSecuritiesPurpose1Code
     Settlements = ExternalSecuritiesPurposeCode.Settlements, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSecuritiesPurpose1CodeMetadataExtensions
-{
-    private static readonly ExternalSecuritiesPurpose1CodeDropdownSource _dropdownSource = new ExternalSecuritiesPurpose1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSecuritiesPurpose1CodeDropdownRow GetMetadata(this ExternalSecuritiesPurpose1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

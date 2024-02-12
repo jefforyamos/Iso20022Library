@@ -38,22 +38,3 @@ public enum QueryDataType1Code
     QueryOptionTradingData = QueryDataTypeCode.QueryOptionTradingData, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QueryDataType1CodeMetadataExtensions
-{
-    private static readonly QueryDataType1CodeDropdownSource _dropdownSource = new QueryDataType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQueryDataType1CodeDropdownRow GetMetadata(this QueryDataType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

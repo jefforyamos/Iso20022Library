@@ -120,22 +120,3 @@ public enum ExternalReportingSource1Code
     ParticipantFrontEnd = ExternalReportingSourceCode.ParticipantFrontEnd, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReportingSource1CodeMetadataExtensions
-{
-    private static readonly ExternalReportingSource1CodeDropdownSource _dropdownSource = new ExternalReportingSource1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReportingSource1CodeDropdownRow GetMetadata(this ExternalReportingSource1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

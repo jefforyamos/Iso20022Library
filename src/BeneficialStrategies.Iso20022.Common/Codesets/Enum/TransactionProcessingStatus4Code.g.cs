@@ -92,22 +92,3 @@ public enum TransactionProcessingStatus4Code
     ModificationRequested = InstructionProcessingStatusCode.ModificationRequested, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionProcessingStatus4CodeMetadataExtensions
-{
-    private static readonly TransactionProcessingStatus4CodeDropdownSource _dropdownSource = new TransactionProcessingStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionProcessingStatus4CodeDropdownRow GetMetadata(this TransactionProcessingStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

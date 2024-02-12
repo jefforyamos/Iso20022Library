@@ -38,22 +38,3 @@ public enum TR34Status1Code
     Unbound = TR34StatusCode.Unbound, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TR34Status1CodeMetadataExtensions
-{
-    private static readonly TR34Status1CodeDropdownSource _dropdownSource = new TR34Status1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITR34Status1CodeDropdownRow GetMetadata(this TR34Status1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

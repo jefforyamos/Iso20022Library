@@ -38,22 +38,3 @@ public enum CollateralSubstitutionSequence1Code
     Updated = CollateralSubstitutionSequenceCode.Updated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralSubstitutionSequence1CodeMetadataExtensions
-{
-    private static readonly CollateralSubstitutionSequence1CodeDropdownSource _dropdownSource = new CollateralSubstitutionSequence1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralSubstitutionSequence1CodeDropdownRow GetMetadata(this CollateralSubstitutionSequence1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum MessageItemCondition2Code
     ListMinimumValues = MessageItemConditionCode.ListMinimumValues, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageItemCondition2CodeMetadataExtensions
-{
-    private static readonly MessageItemCondition2CodeDropdownSource _dropdownSource = new MessageItemCondition2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageItemCondition2CodeDropdownRow GetMetadata(this MessageItemCondition2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

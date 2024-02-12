@@ -47,22 +47,3 @@ public enum CustomerOrderCapacity1Code
     MemberOtherMember = CustomerOrderCapacityCode.MemberOtherMember, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerOrderCapacity1CodeMetadataExtensions
-{
-    private static readonly CustomerOrderCapacity1CodeDropdownSource _dropdownSource = new CustomerOrderCapacity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerOrderCapacity1CodeDropdownRow GetMetadata(this CustomerOrderCapacity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

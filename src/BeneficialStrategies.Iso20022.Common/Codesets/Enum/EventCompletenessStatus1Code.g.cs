@@ -38,22 +38,3 @@ public enum EventCompletenessStatus1Code
     Incomplete = EventCompletenessStatusCode.Incomplete, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventCompletenessStatus1CodeMetadataExtensions
-{
-    private static readonly EventCompletenessStatus1CodeDropdownSource _dropdownSource = new EventCompletenessStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventCompletenessStatus1CodeDropdownRow GetMetadata(this EventCompletenessStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

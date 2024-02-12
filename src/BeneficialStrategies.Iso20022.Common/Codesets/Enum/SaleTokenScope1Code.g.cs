@@ -38,22 +38,3 @@ public enum SaleTokenScope1Code
     SingleUse = SaleTokenScopeCode.SingleUse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SaleTokenScope1CodeMetadataExtensions
-{
-    private static readonly SaleTokenScope1CodeDropdownSource _dropdownSource = new SaleTokenScope1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISaleTokenScope1CodeDropdownRow GetMetadata(this SaleTokenScope1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

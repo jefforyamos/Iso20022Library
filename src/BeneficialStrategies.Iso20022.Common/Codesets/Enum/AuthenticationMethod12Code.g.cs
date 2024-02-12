@@ -587,22 +587,3 @@ public enum AuthenticationMethod12Code
     CardholderCertificateSerialNumber = AuthenticationMethodCode.CardholderCertificateSerialNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethod12CodeMetadataExtensions
-{
-    private static readonly AuthenticationMethod12CodeDropdownSource _dropdownSource = new AuthenticationMethod12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethod12CodeDropdownRow GetMetadata(this AuthenticationMethod12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

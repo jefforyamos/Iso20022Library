@@ -965,22 +965,3 @@ public enum UnmatchedReasonCode
     SettlementProcess,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReasonCodeMetadataExtensions
-{
-    private static readonly UnmatchedReasonCodeDropdownSource _dropdownSource = new UnmatchedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReasonCodeDropdownRow GetMetadata(this UnmatchedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

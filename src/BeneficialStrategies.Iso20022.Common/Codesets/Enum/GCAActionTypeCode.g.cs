@@ -83,22 +83,3 @@ public enum GCAActionTypeCode
     Invalid,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GCAActionTypeCodeMetadataExtensions
-{
-    private static readonly GCAActionTypeCodeDropdownSource _dropdownSource = new GCAActionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGCAActionTypeCodeDropdownRow GetMetadata(this GCAActionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

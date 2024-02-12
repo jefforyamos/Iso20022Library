@@ -155,22 +155,3 @@ public enum InterestComputationMethod2Code
     Narrative = InterestComputationMethodCode.Narrative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestComputationMethod2CodeMetadataExtensions
-{
-    private static readonly InterestComputationMethod2CodeDropdownSource _dropdownSource = new InterestComputationMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestComputationMethod2CodeDropdownRow GetMetadata(this InterestComputationMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

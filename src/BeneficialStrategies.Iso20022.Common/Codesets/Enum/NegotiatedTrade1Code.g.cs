@@ -47,22 +47,3 @@ public enum NegotiatedTrade1Code
     Unknown = NegotiatedTradeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NegotiatedTrade1CodeMetadataExtensions
-{
-    private static readonly NegotiatedTrade1CodeDropdownSource _dropdownSource = new NegotiatedTrade1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INegotiatedTrade1CodeDropdownRow GetMetadata(this NegotiatedTrade1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

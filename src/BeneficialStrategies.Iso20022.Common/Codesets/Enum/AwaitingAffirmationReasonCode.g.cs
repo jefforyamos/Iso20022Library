@@ -29,22 +29,3 @@ public enum AwaitingAffirmationReasonCode
     AwaitingAffirmation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AwaitingAffirmationReasonCodeMetadataExtensions
-{
-    private static readonly AwaitingAffirmationReasonCodeDropdownSource _dropdownSource = new AwaitingAffirmationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAwaitingAffirmationReasonCodeDropdownRow GetMetadata(this AwaitingAffirmationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

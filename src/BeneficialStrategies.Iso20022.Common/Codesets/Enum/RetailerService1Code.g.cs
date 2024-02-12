@@ -506,22 +506,3 @@ public enum RetailerService1Code
     SystemMessageStatusResponse = RetailerServiceCode.SystemMessageStatusResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService1CodeMetadataExtensions
-{
-    private static readonly RetailerService1CodeDropdownSource _dropdownSource = new RetailerService1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService1CodeDropdownRow GetMetadata(this RetailerService1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

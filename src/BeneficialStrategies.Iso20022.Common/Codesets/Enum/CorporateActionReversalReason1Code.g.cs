@@ -101,22 +101,3 @@ public enum CorporateActionReversalReason1Code
     IncorrectPaymentCurrency = CorporateActionReversalReasonCode.IncorrectPaymentCurrency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionReversalReason1CodeMetadataExtensions
-{
-    private static readonly CorporateActionReversalReason1CodeDropdownSource _dropdownSource = new CorporateActionReversalReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionReversalReason1CodeDropdownRow GetMetadata(this CorporateActionReversalReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

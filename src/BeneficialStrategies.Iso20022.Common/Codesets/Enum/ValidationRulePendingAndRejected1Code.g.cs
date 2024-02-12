@@ -39,22 +39,3 @@ public enum ValidationRulePendingAndRejected1Code
     Pending = ValidationRuleCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRulePendingAndRejected1CodeMetadataExtensions
-{
-    private static readonly ValidationRulePendingAndRejected1CodeDropdownSource _dropdownSource = new ValidationRulePendingAndRejected1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRulePendingAndRejected1CodeDropdownRow GetMetadata(this ValidationRulePendingAndRejected1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

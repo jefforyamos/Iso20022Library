@@ -128,22 +128,3 @@ public enum TerminalManagementAction5Code
     DeviceRequest = TerminalManagementActionCode.DeviceRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAction5CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAction5CodeDropdownSource _dropdownSource = new TerminalManagementAction5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAction5CodeDropdownRow GetMetadata(this TerminalManagementAction5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

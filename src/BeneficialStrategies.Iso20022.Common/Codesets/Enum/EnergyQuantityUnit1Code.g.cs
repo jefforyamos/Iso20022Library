@@ -137,22 +137,3 @@ public enum EnergyQuantityUnit1Code
     GW = EnergyQuantityUnitCode.GW, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnergyQuantityUnit1CodeMetadataExtensions
-{
-    private static readonly EnergyQuantityUnit1CodeDropdownSource _dropdownSource = new EnergyQuantityUnit1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnergyQuantityUnit1CodeDropdownRow GetMetadata(this EnergyQuantityUnit1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

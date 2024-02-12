@@ -47,22 +47,3 @@ public enum ServiceTaxDesignationCode
     Taxable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceTaxDesignationCodeMetadataExtensions
-{
-    private static readonly ServiceTaxDesignationCodeDropdownSource _dropdownSource = new ServiceTaxDesignationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceTaxDesignationCodeDropdownRow GetMetadata(this ServiceTaxDesignationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

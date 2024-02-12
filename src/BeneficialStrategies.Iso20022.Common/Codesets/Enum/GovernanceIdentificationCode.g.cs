@@ -56,22 +56,3 @@ public enum GovernanceIdentificationCode
     None,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GovernanceIdentificationCodeMetadataExtensions
-{
-    private static readonly GovernanceIdentificationCodeDropdownSource _dropdownSource = new GovernanceIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGovernanceIdentificationCodeDropdownRow GetMetadata(this GovernanceIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

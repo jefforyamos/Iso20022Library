@@ -56,22 +56,3 @@ public enum TMSContactLevel2Code
     EndCustomerSession = TMSContactLevelCode.EndCustomerSession, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TMSContactLevel2CodeMetadataExtensions
-{
-    private static readonly TMSContactLevel2CodeDropdownSource _dropdownSource = new TMSContactLevel2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITMSContactLevel2CodeDropdownRow GetMetadata(this TMSContactLevel2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

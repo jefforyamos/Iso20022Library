@@ -38,22 +38,3 @@ public enum RenounceableStatus1Code
     Renounceable = RenounceableStatusCode.Renounceable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RenounceableStatus1CodeMetadataExtensions
-{
-    private static readonly RenounceableStatus1CodeDropdownSource _dropdownSource = new RenounceableStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRenounceableStatus1CodeDropdownRow GetMetadata(this RenounceableStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

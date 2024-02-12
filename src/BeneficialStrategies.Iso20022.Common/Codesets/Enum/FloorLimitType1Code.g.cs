@@ -47,22 +47,3 @@ public enum FloorLimitType1Code
     Both = FloorLimitTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FloorLimitType1CodeMetadataExtensions
-{
-    private static readonly FloorLimitType1CodeDropdownSource _dropdownSource = new FloorLimitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFloorLimitType1CodeDropdownRow GetMetadata(this FloorLimitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -416,22 +416,3 @@ public enum TaxExemptReasonCode
     Administrator,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxExemptReasonCodeMetadataExtensions
-{
-    private static readonly TaxExemptReasonCodeDropdownSource _dropdownSource = new TaxExemptReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxExemptReasonCodeDropdownRow GetMetadata(this TaxExemptReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum Algorithm10Code
     SHA256CMACwithAES128 = AlgorithmCode.SHA256CMACwithAES128, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm10CodeMetadataExtensions
-{
-    private static readonly Algorithm10CodeDropdownSource _dropdownSource = new Algorithm10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm10CodeDropdownRow GetMetadata(this Algorithm10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

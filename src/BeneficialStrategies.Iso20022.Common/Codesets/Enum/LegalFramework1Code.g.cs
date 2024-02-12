@@ -29,22 +29,3 @@ public enum LegalFramework1Code
     PensionLivree = LegalFrameworkCode.PensionLivree, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalFramework1CodeMetadataExtensions
-{
-    private static readonly LegalFramework1CodeDropdownSource _dropdownSource = new LegalFramework1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalFramework1CodeDropdownRow GetMetadata(this LegalFramework1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

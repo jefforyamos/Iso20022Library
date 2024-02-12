@@ -74,22 +74,3 @@ public enum CompanyLink1Code
     Relative = CompanyLinkCode.Relative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CompanyLink1CodeMetadataExtensions
-{
-    private static readonly CompanyLink1CodeDropdownSource _dropdownSource = new CompanyLink1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICompanyLink1CodeDropdownRow GetMetadata(this CompanyLink1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

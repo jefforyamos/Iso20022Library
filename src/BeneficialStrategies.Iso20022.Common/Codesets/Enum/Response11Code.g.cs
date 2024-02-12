@@ -47,22 +47,3 @@ public enum Response11Code
     Success = ResponseCode.Success, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response11CodeMetadataExtensions
-{
-    private static readonly Response11CodeDropdownSource _dropdownSource = new Response11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse11CodeDropdownRow GetMetadata(this Response11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

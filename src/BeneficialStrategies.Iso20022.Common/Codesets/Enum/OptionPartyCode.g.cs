@@ -56,22 +56,3 @@ public enum OptionPartyCode
     Maker,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionPartyCodeMetadataExtensions
-{
-    private static readonly OptionPartyCodeDropdownSource _dropdownSource = new OptionPartyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionPartyCodeDropdownRow GetMetadata(this OptionPartyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

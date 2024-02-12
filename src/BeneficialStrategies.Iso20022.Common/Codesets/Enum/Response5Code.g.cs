@@ -47,22 +47,3 @@ public enum Response5Code
     PartialApproved = ResponseCode.PartialApproved, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response5CodeMetadataExtensions
-{
-    private static readonly Response5CodeDropdownSource _dropdownSource = new Response5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse5CodeDropdownRow GetMetadata(this Response5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

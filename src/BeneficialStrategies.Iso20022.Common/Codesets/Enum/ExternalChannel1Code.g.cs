@@ -138,22 +138,3 @@ public enum ExternalChannel1Code
     WebUploadDownload = ExternalChannelCode.WebUploadDownload, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalChannel1CodeMetadataExtensions
-{
-    private static readonly ExternalChannel1CodeDropdownSource _dropdownSource = new ExternalChannel1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalChannel1CodeDropdownRow GetMetadata(this ExternalChannel1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

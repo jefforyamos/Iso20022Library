@@ -47,22 +47,3 @@ public enum AccountManagementType2Code
     GetAccountDetails = AccountManagementTypeCode.GetAccountDetails, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountManagementType2CodeMetadataExtensions
-{
-    private static readonly AccountManagementType2CodeDropdownSource _dropdownSource = new AccountManagementType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountManagementType2CodeDropdownRow GetMetadata(this AccountManagementType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

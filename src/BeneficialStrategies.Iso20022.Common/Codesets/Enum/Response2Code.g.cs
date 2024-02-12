@@ -38,22 +38,3 @@ public enum Response2Code
     Declined = ResponseCode.Declined, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response2CodeMetadataExtensions
-{
-    private static readonly Response2CodeDropdownSource _dropdownSource = new Response2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse2CodeDropdownRow GetMetadata(this Response2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

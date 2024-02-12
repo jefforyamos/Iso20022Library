@@ -56,22 +56,3 @@ public enum PriceProtectionScopeCode
     NationalExcludingLocal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceProtectionScopeCodeMetadataExtensions
-{
-    private static readonly PriceProtectionScopeCodeDropdownSource _dropdownSource = new PriceProtectionScopeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceProtectionScopeCodeDropdownRow GetMetadata(this PriceProtectionScopeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

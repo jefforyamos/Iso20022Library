@@ -146,22 +146,3 @@ public enum PendingSettlementStatusReason1Code
     MissingInformation = PendingSettlementStatusReasonCode.MissingInformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingSettlementStatusReason1CodeMetadataExtensions
-{
-    private static readonly PendingSettlementStatusReason1CodeDropdownSource _dropdownSource = new PendingSettlementStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingSettlementStatusReason1CodeDropdownRow GetMetadata(this PendingSettlementStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

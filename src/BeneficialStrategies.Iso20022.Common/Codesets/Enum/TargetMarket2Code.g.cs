@@ -38,22 +38,3 @@ public enum TargetMarket2Code
     InScope = TargetMarketCode.InScope, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TargetMarket2CodeMetadataExtensions
-{
-    private static readonly TargetMarket2CodeDropdownSource _dropdownSource = new TargetMarket2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITargetMarket2CodeDropdownRow GetMetadata(this TargetMarket2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

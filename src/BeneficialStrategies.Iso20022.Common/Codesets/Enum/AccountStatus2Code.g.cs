@@ -47,22 +47,3 @@ public enum AccountStatus2Code
     ProForma = AccountStatusCode.ProForma, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatus2CodeMetadataExtensions
-{
-    private static readonly AccountStatus2CodeDropdownSource _dropdownSource = new AccountStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatus2CodeDropdownRow GetMetadata(this AccountStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum BusinessFlowDirectionTypeCode
     AssetsToBeReceived,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessFlowDirectionTypeCodeMetadataExtensions
-{
-    private static readonly BusinessFlowDirectionTypeCodeDropdownSource _dropdownSource = new BusinessFlowDirectionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessFlowDirectionTypeCodeDropdownRow GetMetadata(this BusinessFlowDirectionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

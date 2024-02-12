@@ -38,22 +38,3 @@ public enum ResourceTypeCode
     UniformResourceIdentifier,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResourceTypeCodeMetadataExtensions
-{
-    private static readonly ResourceTypeCodeDropdownSource _dropdownSource = new ResourceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResourceTypeCodeDropdownRow GetMetadata(this ResourceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

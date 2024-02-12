@@ -182,22 +182,3 @@ public enum TaxRecordPeriodCode
     SecondHalf,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxRecordPeriodCodeMetadataExtensions
-{
-    private static readonly TaxRecordPeriodCodeDropdownSource _dropdownSource = new TaxRecordPeriodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxRecordPeriodCodeDropdownRow GetMetadata(this TaxRecordPeriodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

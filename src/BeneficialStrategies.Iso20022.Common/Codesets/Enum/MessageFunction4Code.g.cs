@@ -227,22 +227,3 @@ public enum MessageFunction4Code
     CurrencyConversionResponse = MessageFunctionCode.CurrencyConversionResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction4CodeMetadataExtensions
-{
-    private static readonly MessageFunction4CodeDropdownSource _dropdownSource = new MessageFunction4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction4CodeDropdownRow GetMetadata(this MessageFunction4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

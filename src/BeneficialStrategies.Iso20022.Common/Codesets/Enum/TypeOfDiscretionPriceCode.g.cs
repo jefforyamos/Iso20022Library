@@ -83,22 +83,3 @@ public enum TypeOfDiscretionPriceCode
     AveragePriceGuarantee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfDiscretionPriceCodeMetadataExtensions
-{
-    private static readonly TypeOfDiscretionPriceCodeDropdownSource _dropdownSource = new TypeOfDiscretionPriceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfDiscretionPriceCodeDropdownRow GetMetadata(this TypeOfDiscretionPriceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

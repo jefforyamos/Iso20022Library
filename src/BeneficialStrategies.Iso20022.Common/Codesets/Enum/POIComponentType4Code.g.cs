@@ -173,22 +173,3 @@ public enum POIComponentType4Code
     TMSProtocolParameters = POIComponentTypeCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentType4CodeMetadataExtensions
-{
-    private static readonly POIComponentType4CodeDropdownSource _dropdownSource = new POIComponentType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentType4CodeDropdownRow GetMetadata(this POIComponentType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

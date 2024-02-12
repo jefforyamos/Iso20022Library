@@ -47,22 +47,3 @@ public enum TaxationBasis3Code
     Other = TaxationBasisCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxationBasis3CodeMetadataExtensions
-{
-    private static readonly TaxationBasis3CodeDropdownSource _dropdownSource = new TaxationBasis3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxationBasis3CodeDropdownRow GetMetadata(this TaxationBasis3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

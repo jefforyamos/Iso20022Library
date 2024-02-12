@@ -38,22 +38,3 @@ public enum FATCASourceStatus1Code
     Declared = FATCASourceStatusCode.Declared, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FATCASourceStatus1CodeMetadataExtensions
-{
-    private static readonly FATCASourceStatus1CodeDropdownSource _dropdownSource = new FATCASourceStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFATCASourceStatus1CodeDropdownRow GetMetadata(this FATCASourceStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

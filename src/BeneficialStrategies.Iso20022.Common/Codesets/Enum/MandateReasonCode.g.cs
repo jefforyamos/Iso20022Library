@@ -74,22 +74,3 @@ public enum MandateReasonCode
     IncorrectAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MandateReasonCodeMetadataExtensions
-{
-    private static readonly MandateReasonCodeDropdownSource _dropdownSource = new MandateReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMandateReasonCodeDropdownRow GetMetadata(this MandateReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

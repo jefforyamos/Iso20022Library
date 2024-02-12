@@ -155,22 +155,3 @@ public enum ESGLabelOrStandardCode
     GreenfinLabel,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGLabelOrStandardCodeMetadataExtensions
-{
-    private static readonly ESGLabelOrStandardCodeDropdownSource _dropdownSource = new ESGLabelOrStandardCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGLabelOrStandardCodeDropdownRow GetMetadata(this ESGLabelOrStandardCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

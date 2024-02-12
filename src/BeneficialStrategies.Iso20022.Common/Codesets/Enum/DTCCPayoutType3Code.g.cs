@@ -101,22 +101,3 @@ public enum DTCCPayoutType3Code
     ShortTermCapitalGains = DTCCPayoutTypeCode.ShortTermCapitalGains, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCPayoutType3CodeMetadataExtensions
-{
-    private static readonly DTCCPayoutType3CodeDropdownSource _dropdownSource = new DTCCPayoutType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCPayoutType3CodeDropdownRow GetMetadata(this DTCCPayoutType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

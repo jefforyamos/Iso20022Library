@@ -29,22 +29,3 @@ public enum AssetClassSubProductType41Code
     Potash = AssetClassSubProductTypeCode.Potash, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType41CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType41CodeDropdownSource _dropdownSource = new AssetClassSubProductType41CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType41CodeDropdownRow GetMetadata(this AssetClassSubProductType41Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

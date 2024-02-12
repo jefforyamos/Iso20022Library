@@ -65,22 +65,3 @@ public enum CaseStatusCode
     Overdue,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CaseStatusCodeMetadataExtensions
-{
-    private static readonly CaseStatusCodeDropdownSource _dropdownSource = new CaseStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICaseStatusCodeDropdownRow GetMetadata(this CaseStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

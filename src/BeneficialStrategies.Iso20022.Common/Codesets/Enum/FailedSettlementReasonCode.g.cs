@@ -83,22 +83,3 @@ public enum FailedSettlementReasonCode
     InsufficientCash,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailedSettlementReasonCodeMetadataExtensions
-{
-    private static readonly FailedSettlementReasonCodeDropdownSource _dropdownSource = new FailedSettlementReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailedSettlementReasonCodeDropdownRow GetMetadata(this FailedSettlementReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -164,22 +164,3 @@ public enum RateType2Code
     WithholdingTax = RateTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateType2CodeMetadataExtensions
-{
-    private static readonly RateType2CodeDropdownSource _dropdownSource = new RateType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateType2CodeDropdownRow GetMetadata(this RateType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum HolderTypeCode
     Transferor,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HolderTypeCodeMetadataExtensions
-{
-    private static readonly HolderTypeCodeDropdownSource _dropdownSource = new HolderTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHolderTypeCodeDropdownRow GetMetadata(this HolderTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

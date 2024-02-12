@@ -173,22 +173,3 @@ public enum TypeOfPrice30Code
     SubscriptionNAV = TypeOfPriceCode.SubscriptionNAV, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice30CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice30CodeDropdownSource _dropdownSource = new TypeOfPrice30CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice30CodeDropdownRow GetMetadata(this TypeOfPrice30Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

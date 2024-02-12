@@ -56,22 +56,3 @@ public enum LimitStatusCode
     Requested,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LimitStatusCodeMetadataExtensions
-{
-    private static readonly LimitStatusCodeDropdownSource _dropdownSource = new LimitStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILimitStatusCodeDropdownRow GetMetadata(this LimitStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum TaxRecord1Code
     Other = TaxRecordCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxRecord1CodeMetadataExtensions
-{
-    private static readonly TaxRecord1CodeDropdownSource _dropdownSource = new TaxRecord1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxRecord1CodeDropdownRow GetMetadata(this TaxRecord1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

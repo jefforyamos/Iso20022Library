@@ -38,22 +38,3 @@ public enum SecuritiesSettlementStatus3Code
     Settled = SecuritiesSettlementStatusCode.Settled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesSettlementStatus3CodeMetadataExtensions
-{
-    private static readonly SecuritiesSettlementStatus3CodeDropdownSource _dropdownSource = new SecuritiesSettlementStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesSettlementStatus3CodeDropdownRow GetMetadata(this SecuritiesSettlementStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

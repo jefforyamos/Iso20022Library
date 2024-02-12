@@ -272,22 +272,3 @@ public enum CardAccountTypeCode
     Benefit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardAccountTypeCodeMetadataExtensions
-{
-    private static readonly CardAccountTypeCodeDropdownSource _dropdownSource = new CardAccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardAccountTypeCodeDropdownRow GetMetadata(this CardAccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

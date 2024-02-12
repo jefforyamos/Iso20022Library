@@ -65,22 +65,3 @@ public enum TypeOfAmount10Code
     InternationalServiceAssessmentFees = TypeOfAmountCode.InternationalServiceAssessmentFees, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount10CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount10CodeDropdownSource _dropdownSource = new TypeOfAmount10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount10CodeDropdownRow GetMetadata(this TypeOfAmount10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

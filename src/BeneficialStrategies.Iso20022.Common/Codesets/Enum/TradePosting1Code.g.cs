@@ -38,22 +38,3 @@ public enum TradePosting1Code
     Net = TradePostingCode.Net, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradePosting1CodeMetadataExtensions
-{
-    private static readonly TradePosting1CodeDropdownSource _dropdownSource = new TradePosting1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradePosting1CodeDropdownRow GetMetadata(this TradePosting1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum BlockedReason1Code
     Transfer = BlockedReasonCode.Transfer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BlockedReason1CodeMetadataExtensions
-{
-    private static readonly BlockedReason1CodeDropdownSource _dropdownSource = new BlockedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBlockedReason1CodeDropdownRow GetMetadata(this BlockedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

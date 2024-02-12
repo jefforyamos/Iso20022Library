@@ -47,22 +47,3 @@ public enum OversubscriptionTypeCode
     NoOversubscription,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OversubscriptionTypeCodeMetadataExtensions
-{
-    private static readonly OversubscriptionTypeCodeDropdownSource _dropdownSource = new OversubscriptionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOversubscriptionTypeCodeDropdownRow GetMetadata(this OversubscriptionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

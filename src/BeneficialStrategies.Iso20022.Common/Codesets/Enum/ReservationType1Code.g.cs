@@ -65,22 +65,3 @@ public enum ReservationType1Code
     ThresholdForInvestment = ReservationTypeCode.ThresholdForInvestment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReservationType1CodeMetadataExtensions
-{
-    private static readonly ReservationType1CodeDropdownSource _dropdownSource = new ReservationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReservationType1CodeDropdownRow GetMetadata(this ReservationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

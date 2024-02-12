@@ -229,22 +229,3 @@ public enum ExternalCashAccountType1Code
     NonResidentForeignCurrencyAccount = ExternalCashAccountTypeCode.NonResidentForeignCurrencyAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCashAccountType1CodeMetadataExtensions
-{
-    private static readonly ExternalCashAccountType1CodeDropdownSource _dropdownSource = new ExternalCashAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCashAccountType1CodeDropdownRow GetMetadata(this ExternalCashAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

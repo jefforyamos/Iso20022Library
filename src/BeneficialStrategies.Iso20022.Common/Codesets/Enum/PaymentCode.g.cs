@@ -38,22 +38,3 @@ public enum PaymentCode
     ContractualPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCodeMetadataExtensions
-{
-    private static readonly PaymentCodeDropdownSource _dropdownSource = new PaymentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCodeDropdownRow GetMetadata(this PaymentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum FileActionResultCode
     Unsuccessful,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FileActionResultCodeMetadataExtensions
-{
-    private static readonly FileActionResultCodeDropdownSource _dropdownSource = new FileActionResultCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFileActionResultCodeDropdownRow GetMetadata(this FileActionResultCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

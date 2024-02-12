@@ -47,22 +47,3 @@ public enum CallInCode
     CallForCurrencyClose,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CallInCodeMetadataExtensions
-{
-    private static readonly CallInCodeDropdownSource _dropdownSource = new CallInCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICallInCodeDropdownRow GetMetadata(this CallInCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

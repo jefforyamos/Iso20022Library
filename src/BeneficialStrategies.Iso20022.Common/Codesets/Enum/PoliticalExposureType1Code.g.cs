@@ -47,22 +47,3 @@ public enum PoliticalExposureType1Code
     PoliticalExposureDomestic = PoliticalExposureTypeCode.PoliticalExposureDomestic, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PoliticalExposureType1CodeMetadataExtensions
-{
-    private static readonly PoliticalExposureType1CodeDropdownSource _dropdownSource = new PoliticalExposureType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPoliticalExposureType1CodeDropdownRow GetMetadata(this PoliticalExposureType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

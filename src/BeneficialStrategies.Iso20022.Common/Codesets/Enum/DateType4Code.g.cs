@@ -38,22 +38,3 @@ public enum DateType4Code
     Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateType4CodeMetadataExtensions
-{
-    private static readonly DateType4CodeDropdownSource _dropdownSource = new DateType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateType4CodeDropdownRow GetMetadata(this DateType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

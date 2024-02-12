@@ -83,22 +83,3 @@ public enum StorageLocationCode
     OtherNational,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StorageLocationCodeMetadataExtensions
-{
-    private static readonly StorageLocationCodeDropdownSource _dropdownSource = new StorageLocationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStorageLocationCodeDropdownRow GetMetadata(this StorageLocationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

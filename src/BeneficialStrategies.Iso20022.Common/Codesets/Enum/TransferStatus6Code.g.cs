@@ -92,22 +92,3 @@ public enum TransferStatus6Code
     Settled = TransferStatusCode.Settled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatus6CodeMetadataExtensions
-{
-    private static readonly TransferStatus6CodeDropdownSource _dropdownSource = new TransferStatus6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatus6CodeDropdownRow GetMetadata(this TransferStatus6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

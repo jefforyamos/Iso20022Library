@@ -38,22 +38,3 @@ public enum AddressType1Code
     Business = AddressTypeCode.Business, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AddressType1CodeMetadataExtensions
-{
-    private static readonly AddressType1CodeDropdownSource _dropdownSource = new AddressType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAddressType1CodeDropdownRow GetMetadata(this AddressType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

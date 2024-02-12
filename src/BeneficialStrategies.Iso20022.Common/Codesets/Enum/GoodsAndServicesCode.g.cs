@@ -47,22 +47,3 @@ public enum GoodsAndServicesCode
     ElectronicAndPhysical,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodsAndServicesCodeMetadataExtensions
-{
-    private static readonly GoodsAndServicesCodeDropdownSource _dropdownSource = new GoodsAndServicesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodsAndServicesCodeDropdownRow GetMetadata(this GoodsAndServicesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum CorporateSectorIdentifier1Code
     UCITS = CorporateSectorIdentifierCode.UCITS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateSectorIdentifier1CodeMetadataExtensions
-{
-    private static readonly CorporateSectorIdentifier1CodeDropdownSource _dropdownSource = new CorporateSectorIdentifier1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateSectorIdentifier1CodeDropdownRow GetMetadata(this CorporateSectorIdentifier1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

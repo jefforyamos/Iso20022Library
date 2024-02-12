@@ -830,22 +830,3 @@ public enum PaymentTypeCode
     PrincipalExchange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTypeCodeMetadataExtensions
-{
-    private static readonly PaymentTypeCodeDropdownSource _dropdownSource = new PaymentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTypeCodeDropdownRow GetMetadata(this PaymentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

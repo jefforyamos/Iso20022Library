@@ -56,22 +56,3 @@ public enum AmountPriceTypeCode
     Premium,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountPriceTypeCodeMetadataExtensions
-{
-    private static readonly AmountPriceTypeCodeDropdownSource _dropdownSource = new AmountPriceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountPriceTypeCodeDropdownRow GetMetadata(this AmountPriceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

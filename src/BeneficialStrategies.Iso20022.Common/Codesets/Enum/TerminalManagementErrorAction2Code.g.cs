@@ -38,22 +38,3 @@ public enum TerminalManagementErrorAction2Code
     StopSequence = TerminalManagementErrorActionCode.StopSequence, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementErrorAction2CodeMetadataExtensions
-{
-    private static readonly TerminalManagementErrorAction2CodeDropdownSource _dropdownSource = new TerminalManagementErrorAction2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementErrorAction2CodeDropdownRow GetMetadata(this TerminalManagementErrorAction2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

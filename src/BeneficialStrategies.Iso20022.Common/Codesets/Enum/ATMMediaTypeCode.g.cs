@@ -146,22 +146,3 @@ public enum ATMMediaTypeCode
     Unrecognised,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMMediaTypeCodeMetadataExtensions
-{
-    private static readonly ATMMediaTypeCodeDropdownSource _dropdownSource = new ATMMediaTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMMediaTypeCodeDropdownRow GetMetadata(this ATMMediaTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

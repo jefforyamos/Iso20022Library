@@ -29,22 +29,3 @@ public enum ServiceLevel3Code
     SingleEuroPaymentsArea = ServiceLevelCode.SingleEuroPaymentsArea, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceLevel3CodeMetadataExtensions
-{
-    private static readonly ServiceLevel3CodeDropdownSource _dropdownSource = new ServiceLevel3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceLevel3CodeDropdownRow GetMetadata(this ServiceLevel3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

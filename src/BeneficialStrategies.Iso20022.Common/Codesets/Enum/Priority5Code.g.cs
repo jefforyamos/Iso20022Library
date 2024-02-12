@@ -56,22 +56,3 @@ public enum Priority5Code
     Urgent = PriorityCode.Urgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Priority5CodeMetadataExtensions
-{
-    private static readonly Priority5CodeDropdownSource _dropdownSource = new Priority5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriority5CodeDropdownRow GetMetadata(this Priority5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

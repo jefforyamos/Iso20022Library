@@ -29,22 +29,3 @@ public enum TransactionIndividualStatus2Code
     Rejected = PaymentStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionIndividualStatus2CodeMetadataExtensions
-{
-    private static readonly TransactionIndividualStatus2CodeDropdownSource _dropdownSource = new TransactionIndividualStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionIndividualStatus2CodeDropdownRow GetMetadata(this TransactionIndividualStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

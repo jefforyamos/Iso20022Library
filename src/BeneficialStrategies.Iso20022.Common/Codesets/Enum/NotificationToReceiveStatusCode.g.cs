@@ -47,22 +47,3 @@ public enum NotificationToReceiveStatusCode
     NotReceived,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotificationToReceiveStatusCodeMetadataExtensions
-{
-    private static readonly NotificationToReceiveStatusCodeDropdownSource _dropdownSource = new NotificationToReceiveStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotificationToReceiveStatusCodeDropdownRow GetMetadata(this NotificationToReceiveStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

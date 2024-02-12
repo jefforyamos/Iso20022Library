@@ -92,22 +92,3 @@ public enum MessageItemConditionCode
     ListMinimumValues,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageItemConditionCodeMetadataExtensions
-{
-    private static readonly MessageItemConditionCodeDropdownSource _dropdownSource = new MessageItemConditionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageItemConditionCodeDropdownRow GetMetadata(this MessageItemConditionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

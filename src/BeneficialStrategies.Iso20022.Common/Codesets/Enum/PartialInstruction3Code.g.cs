@@ -47,22 +47,3 @@ public enum PartialInstruction3Code
     Telecom = InstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartialInstruction3CodeMetadataExtensions
-{
-    private static readonly PartialInstruction3CodeDropdownSource _dropdownSource = new PartialInstruction3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartialInstruction3CodeDropdownRow GetMetadata(this PartialInstruction3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

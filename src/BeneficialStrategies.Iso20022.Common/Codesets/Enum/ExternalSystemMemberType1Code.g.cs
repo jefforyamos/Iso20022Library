@@ -66,22 +66,3 @@ public enum ExternalSystemMemberType1Code
     STEP1 = ExternalSystemMemberTypeCode.STEP1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSystemMemberType1CodeMetadataExtensions
-{
-    private static readonly ExternalSystemMemberType1CodeDropdownSource _dropdownSource = new ExternalSystemMemberType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSystemMemberType1CodeDropdownRow GetMetadata(this ExternalSystemMemberType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

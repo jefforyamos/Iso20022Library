@@ -38,22 +38,3 @@ public enum ResolutionSubStatus1Code
     NewResolution = ResolutionSubStatusCode.NewResolution, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResolutionSubStatus1CodeMetadataExtensions
-{
-    private static readonly ResolutionSubStatus1CodeDropdownSource _dropdownSource = new ResolutionSubStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResolutionSubStatus1CodeDropdownRow GetMetadata(this ResolutionSubStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -227,22 +227,3 @@ public enum RejectionReason50Code
     LackofSecurities = RejectionReasonV3Code.LackofSecurities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason50CodeMetadataExtensions
-{
-    private static readonly RejectionReason50CodeDropdownSource _dropdownSource = new RejectionReason50CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason50CodeDropdownRow GetMetadata(this RejectionReason50Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

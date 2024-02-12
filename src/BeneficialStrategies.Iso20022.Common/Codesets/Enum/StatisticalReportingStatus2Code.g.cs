@@ -47,22 +47,3 @@ public enum StatisticalReportingStatus2Code
     Warning = StatisticalReportingStatusCode.Warning, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatisticalReportingStatus2CodeMetadataExtensions
-{
-    private static readonly StatisticalReportingStatus2CodeDropdownSource _dropdownSource = new StatisticalReportingStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatisticalReportingStatus2CodeDropdownRow GetMetadata(this StatisticalReportingStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

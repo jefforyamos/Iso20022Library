@@ -92,22 +92,3 @@ public enum VerificationEntity2Code
     CardApplication = VerificationEntityCode.CardApplication, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VerificationEntity2CodeMetadataExtensions
-{
-    private static readonly VerificationEntity2CodeDropdownSource _dropdownSource = new VerificationEntity2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerificationEntity2CodeDropdownRow GetMetadata(this VerificationEntity2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

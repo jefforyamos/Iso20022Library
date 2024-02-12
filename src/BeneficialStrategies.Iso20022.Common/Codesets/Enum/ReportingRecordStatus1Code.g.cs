@@ -83,22 +83,3 @@ public enum ReportingRecordStatus1Code
     Warning = RecordStatusCode.Warning, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingRecordStatus1CodeMetadataExtensions
-{
-    private static readonly ReportingRecordStatus1CodeDropdownSource _dropdownSource = new ReportingRecordStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingRecordStatus1CodeDropdownRow GetMetadata(this ReportingRecordStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

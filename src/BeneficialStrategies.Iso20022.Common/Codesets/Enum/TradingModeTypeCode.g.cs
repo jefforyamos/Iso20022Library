@@ -83,22 +83,3 @@ public enum TradingModeTypeCode
     Matching,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingModeTypeCodeMetadataExtensions
-{
-    private static readonly TradingModeTypeCodeDropdownSource _dropdownSource = new TradingModeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingModeTypeCodeDropdownRow GetMetadata(this TradingModeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

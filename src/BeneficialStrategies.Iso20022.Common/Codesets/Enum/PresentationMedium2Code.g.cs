@@ -56,22 +56,3 @@ public enum PresentationMedium2Code
     PaperElectronic = PresentationMediumCode.PaperElectronic, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PresentationMedium2CodeMetadataExtensions
-{
-    private static readonly PresentationMedium2CodeDropdownSource _dropdownSource = new PresentationMedium2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPresentationMedium2CodeDropdownRow GetMetadata(this PresentationMedium2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

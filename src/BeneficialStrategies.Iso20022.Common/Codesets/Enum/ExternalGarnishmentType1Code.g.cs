@@ -47,22 +47,3 @@ public enum ExternalGarnishmentType1Code
     GarnishmentToTaxingAgency = ExternalGarnishmentTypeCode.GarnishmentToTaxingAgency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalGarnishmentType1CodeMetadataExtensions
-{
-    private static readonly ExternalGarnishmentType1CodeDropdownSource _dropdownSource = new ExternalGarnishmentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalGarnishmentType1CodeDropdownRow GetMetadata(this ExternalGarnishmentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

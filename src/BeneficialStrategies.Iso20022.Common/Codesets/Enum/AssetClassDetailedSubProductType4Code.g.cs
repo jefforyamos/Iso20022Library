@@ -29,22 +29,3 @@ public enum AssetClassDetailedSubProductType4Code
     Lampante = AssetClassDetailedSubProductTypeCode.Lampante, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType4CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType4CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType4CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

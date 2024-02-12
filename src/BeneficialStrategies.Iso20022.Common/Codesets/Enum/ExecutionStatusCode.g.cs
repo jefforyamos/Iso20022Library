@@ -38,22 +38,3 @@ public enum ExecutionStatusCode
     PendingInitiation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExecutionStatusCodeMetadataExtensions
-{
-    private static readonly ExecutionStatusCodeDropdownSource _dropdownSource = new ExecutionStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExecutionStatusCodeDropdownRow GetMetadata(this ExecutionStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

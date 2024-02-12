@@ -38,22 +38,3 @@ public enum TradeRepositoryReportingTypeCode
     DualSided,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeRepositoryReportingTypeCodeMetadataExtensions
-{
-    private static readonly TradeRepositoryReportingTypeCodeDropdownSource _dropdownSource = new TradeRepositoryReportingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeRepositoryReportingTypeCodeDropdownRow GetMetadata(this TradeRepositoryReportingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum FundOrderType4Code
     ReinvestmentOfDividend = FundOrderTypeCode.ReinvestmentOfDividend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOrderType4CodeMetadataExtensions
-{
-    private static readonly FundOrderType4CodeDropdownSource _dropdownSource = new FundOrderType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOrderType4CodeDropdownRow GetMetadata(this FundOrderType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

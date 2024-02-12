@@ -38,22 +38,3 @@ public enum EventFrequency10Code
     Adhoc = EventFrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency10CodeMetadataExtensions
-{
-    private static readonly EventFrequency10CodeDropdownSource _dropdownSource = new EventFrequency10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency10CodeDropdownRow GetMetadata(this EventFrequency10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

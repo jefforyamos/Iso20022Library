@@ -119,22 +119,3 @@ public enum RoundingDirectionCode
     Retain,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RoundingDirectionCodeMetadataExtensions
-{
-    private static readonly RoundingDirectionCodeDropdownSource _dropdownSource = new RoundingDirectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRoundingDirectionCodeDropdownRow GetMetadata(this RoundingDirectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

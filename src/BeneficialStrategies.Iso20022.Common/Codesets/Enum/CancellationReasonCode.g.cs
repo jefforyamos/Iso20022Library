@@ -128,22 +128,3 @@ public enum CancellationReasonCode
     CoverCancelledOrReturned,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationReasonCodeMetadataExtensions
-{
-    private static readonly CancellationReasonCodeDropdownSource _dropdownSource = new CancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationReasonCodeDropdownRow GetMetadata(this CancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

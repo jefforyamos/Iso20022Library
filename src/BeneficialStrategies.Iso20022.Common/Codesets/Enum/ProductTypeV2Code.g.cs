@@ -200,22 +200,3 @@ public enum ProductTypeV2Code
     Sovereign,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductTypeV2CodeMetadataExtensions
-{
-    private static readonly ProductTypeV2CodeDropdownSource _dropdownSource = new ProductTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductTypeV2CodeDropdownRow GetMetadata(this ProductTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

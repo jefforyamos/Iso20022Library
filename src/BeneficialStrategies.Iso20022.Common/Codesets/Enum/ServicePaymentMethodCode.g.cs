@@ -74,22 +74,3 @@ public enum ServicePaymentMethodCode
     Free,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServicePaymentMethodCodeMetadataExtensions
-{
-    private static readonly ServicePaymentMethodCodeDropdownSource _dropdownSource = new ServicePaymentMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServicePaymentMethodCodeDropdownRow GetMetadata(this ServicePaymentMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -191,22 +191,3 @@ public enum CancelledStatusReasonV2Code
     CancelledDueToBuyIn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReasonV2CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReasonV2CodeDropdownSource _dropdownSource = new CancelledStatusReasonV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReasonV2CodeDropdownRow GetMetadata(this CancelledStatusReasonV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

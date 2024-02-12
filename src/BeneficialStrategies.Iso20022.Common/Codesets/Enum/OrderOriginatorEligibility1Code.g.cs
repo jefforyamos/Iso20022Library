@@ -47,22 +47,3 @@ public enum OrderOriginatorEligibility1Code
     Professional = OrderOriginatorEligibilityCode.Professional, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderOriginatorEligibility1CodeMetadataExtensions
-{
-    private static readonly OrderOriginatorEligibility1CodeDropdownSource _dropdownSource = new OrderOriginatorEligibility1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderOriginatorEligibility1CodeDropdownRow GetMetadata(this OrderOriginatorEligibility1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

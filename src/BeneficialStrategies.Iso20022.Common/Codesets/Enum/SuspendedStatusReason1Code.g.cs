@@ -38,22 +38,3 @@ public enum SuspendedStatusReason1Code
     SuspendedBySystem = SuspendedStatusReasonCode.SuspendedBySystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SuspendedStatusReason1CodeMetadataExtensions
-{
-    private static readonly SuspendedStatusReason1CodeDropdownSource _dropdownSource = new SuspendedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISuspendedStatusReason1CodeDropdownRow GetMetadata(this SuspendedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

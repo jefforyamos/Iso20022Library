@@ -137,22 +137,3 @@ public enum StoredValueAccountTypeCode
     CompanyPrepaidAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StoredValueAccountTypeCodeMetadataExtensions
-{
-    private static readonly StoredValueAccountTypeCodeDropdownSource _dropdownSource = new StoredValueAccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStoredValueAccountTypeCodeDropdownRow GetMetadata(this StoredValueAccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

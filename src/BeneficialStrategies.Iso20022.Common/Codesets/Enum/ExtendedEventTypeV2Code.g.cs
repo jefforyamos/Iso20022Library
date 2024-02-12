@@ -119,22 +119,3 @@ public enum ExtendedEventTypeV2Code
     RedemptionOfWarrant,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExtendedEventTypeV2CodeMetadataExtensions
-{
-    private static readonly ExtendedEventTypeV2CodeDropdownSource _dropdownSource = new ExtendedEventTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExtendedEventTypeV2CodeDropdownRow GetMetadata(this ExtendedEventTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum PreferenceToIncome1Code
     Preferred = PreferenceToIncomeCode.Preferred, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PreferenceToIncome1CodeMetadataExtensions
-{
-    private static readonly PreferenceToIncome1CodeDropdownSource _dropdownSource = new PreferenceToIncome1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPreferenceToIncome1CodeDropdownRow GetMetadata(this PreferenceToIncome1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

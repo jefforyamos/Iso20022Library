@@ -1451,22 +1451,3 @@ public enum DTCAdjustmentPaymentSubReasonCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentSubReasonCodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentSubReasonCodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentSubReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentSubReasonCodeDropdownRow GetMetadata(this DTCAdjustmentPaymentSubReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

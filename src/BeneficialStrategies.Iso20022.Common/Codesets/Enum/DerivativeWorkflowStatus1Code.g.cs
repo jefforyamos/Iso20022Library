@@ -65,22 +65,3 @@ public enum DerivativeWorkflowStatus1Code
     Deleted = DerivativeWorkflowStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DerivativeWorkflowStatus1CodeMetadataExtensions
-{
-    private static readonly DerivativeWorkflowStatus1CodeDropdownSource _dropdownSource = new DerivativeWorkflowStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDerivativeWorkflowStatus1CodeDropdownRow GetMetadata(this DerivativeWorkflowStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -218,22 +218,3 @@ public enum TypeOfAmount20Code
     TicketDelivery = TypeOfAmountCode.TicketDelivery, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount20CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount20CodeDropdownSource _dropdownSource = new TypeOfAmount20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount20CodeDropdownRow GetMetadata(this TypeOfAmount20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

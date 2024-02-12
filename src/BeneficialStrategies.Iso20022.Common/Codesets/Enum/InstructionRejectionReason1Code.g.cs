@@ -1217,22 +1217,3 @@ public enum InstructionRejectionReason1Code
     WithdrawalTransactionTypeInvalid = InstructionRejectionReasonCode.WithdrawalTransactionTypeInvalid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionRejectionReason1CodeMetadataExtensions
-{
-    private static readonly InstructionRejectionReason1CodeDropdownSource _dropdownSource = new InstructionRejectionReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionRejectionReason1CodeDropdownRow GetMetadata(this InstructionRejectionReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

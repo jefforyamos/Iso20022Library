@@ -29,22 +29,3 @@ public enum SettlementTransactionCondition11Code
     NoAutomaticMarketClaim = SettlementTransactionConditionCode.NoAutomaticMarketClaim, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition11CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition11CodeDropdownSource _dropdownSource = new SettlementTransactionCondition11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition11CodeDropdownRow GetMetadata(this SettlementTransactionCondition11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

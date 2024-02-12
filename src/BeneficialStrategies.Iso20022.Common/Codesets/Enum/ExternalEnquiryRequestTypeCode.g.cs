@@ -76,22 +76,3 @@ public enum ExternalEnquiryRequestTypeCode
     PendingInwardCreditsEnquiry,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalEnquiryRequestTypeCodeMetadataExtensions
-{
-    private static readonly ExternalEnquiryRequestTypeCodeDropdownSource _dropdownSource = new ExternalEnquiryRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalEnquiryRequestTypeCodeDropdownRow GetMetadata(this ExternalEnquiryRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

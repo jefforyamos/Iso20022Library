@@ -66,22 +66,3 @@ public enum SystemPartyTypeCode
     ExternalCentralSecuritiesDepository,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemPartyTypeCodeMetadataExtensions
-{
-    private static readonly SystemPartyTypeCodeDropdownSource _dropdownSource = new SystemPartyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemPartyTypeCodeDropdownRow GetMetadata(this SystemPartyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

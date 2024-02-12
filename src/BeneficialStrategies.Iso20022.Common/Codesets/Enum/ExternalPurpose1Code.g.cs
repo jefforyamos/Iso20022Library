@@ -2965,22 +2965,3 @@ public enum ExternalPurpose1Code
     RetailPayment = ExternalPurposeCode.RetailPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPurpose1CodeMetadataExtensions
-{
-    private static readonly ExternalPurpose1CodeDropdownSource _dropdownSource = new ExternalPurpose1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPurpose1CodeDropdownRow GetMetadata(this ExternalPurpose1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum SettlementReportTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementReportTypeCodeMetadataExtensions
-{
-    private static readonly SettlementReportTypeCodeDropdownSource _dropdownSource = new SettlementReportTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementReportTypeCodeDropdownRow GetMetadata(this SettlementReportTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

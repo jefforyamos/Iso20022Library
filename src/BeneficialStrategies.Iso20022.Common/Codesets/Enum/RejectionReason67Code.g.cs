@@ -92,22 +92,3 @@ public enum RejectionReason67Code
     RejectedByIssuerAgent = RejectionReasonV3Code.RejectedByIssuerAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason67CodeMetadataExtensions
-{
-    private static readonly RejectionReason67CodeDropdownSource _dropdownSource = new RejectionReason67CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason67CodeDropdownRow GetMetadata(this RejectionReason67Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

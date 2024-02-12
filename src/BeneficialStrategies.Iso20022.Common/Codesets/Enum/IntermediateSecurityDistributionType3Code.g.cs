@@ -137,22 +137,3 @@ public enum IntermediateSecurityDistributionType3Code
     StockSplit = IntermediateSecurityDistributionTypeCode.StockSplit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IntermediateSecurityDistributionType3CodeMetadataExtensions
-{
-    private static readonly IntermediateSecurityDistributionType3CodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIntermediateSecurityDistributionType3CodeDropdownRow GetMetadata(this IntermediateSecurityDistributionType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

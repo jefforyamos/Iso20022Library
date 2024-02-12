@@ -200,22 +200,3 @@ public enum InstrumentSubStructureTypeCode
     WholeBusinessSecurity,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstrumentSubStructureTypeCodeMetadataExtensions
-{
-    private static readonly InstrumentSubStructureTypeCodeDropdownSource _dropdownSource = new InstrumentSubStructureTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstrumentSubStructureTypeCodeDropdownRow GetMetadata(this InstrumentSubStructureTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

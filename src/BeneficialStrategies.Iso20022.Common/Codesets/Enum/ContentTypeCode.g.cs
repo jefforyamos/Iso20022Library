@@ -83,22 +83,3 @@ public enum ContentTypeCode
     ISOFinancialServicesDataEncryption,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ContentTypeCodeMetadataExtensions
-{
-    private static readonly ContentTypeCodeDropdownSource _dropdownSource = new ContentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IContentTypeCodeDropdownRow GetMetadata(this ContentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

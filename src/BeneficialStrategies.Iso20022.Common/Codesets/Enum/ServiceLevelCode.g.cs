@@ -47,22 +47,3 @@ public enum ServiceLevelCode
     EBAPriorityService,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceLevelCodeMetadataExtensions
-{
-    private static readonly ServiceLevelCodeDropdownSource _dropdownSource = new ServiceLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceLevelCodeDropdownRow GetMetadata(this ServiceLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

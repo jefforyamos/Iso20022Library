@@ -46,22 +46,3 @@ public enum CashSystemTypeCode
     RTGS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashSystemTypeCodeMetadataExtensions
-{
-    private static readonly CashSystemTypeCodeDropdownSource _dropdownSource = new CashSystemTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashSystemTypeCodeDropdownRow GetMetadata(this CashSystemTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

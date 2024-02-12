@@ -92,22 +92,3 @@ public enum Algorithm1Code
     RSAEncryption = AlgorithmCode.RSAEncryption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm1CodeMetadataExtensions
-{
-    private static readonly Algorithm1CodeDropdownSource _dropdownSource = new Algorithm1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm1CodeDropdownRow GetMetadata(this Algorithm1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

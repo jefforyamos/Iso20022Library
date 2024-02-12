@@ -65,22 +65,3 @@ public enum Status1Code
     ReceivedByIssuerOrRegistrar = StatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status1CodeMetadataExtensions
-{
-    private static readonly Status1CodeDropdownSource _dropdownSource = new Status1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus1CodeDropdownRow GetMetadata(this Status1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

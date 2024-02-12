@@ -254,22 +254,3 @@ public enum CorporateActionOption3Code
     SplitInstruction = CorporateActionOptionCode.SplitInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOption3CodeMetadataExtensions
-{
-    private static readonly CorporateActionOption3CodeDropdownSource _dropdownSource = new CorporateActionOption3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOption3CodeDropdownRow GetMetadata(this CorporateActionOption3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

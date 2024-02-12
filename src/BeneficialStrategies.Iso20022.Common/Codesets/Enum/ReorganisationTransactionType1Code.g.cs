@@ -74,22 +74,3 @@ public enum ReorganisationTransactionType1Code
     VoluntaryOfferInstructionTransaction = ReorganisationTransactionTypeCode.VoluntaryOfferInstructionTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReorganisationTransactionType1CodeMetadataExtensions
-{
-    private static readonly ReorganisationTransactionType1CodeDropdownSource _dropdownSource = new ReorganisationTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReorganisationTransactionType1CodeDropdownRow GetMetadata(this ReorganisationTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

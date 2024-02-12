@@ -38,22 +38,3 @@ public enum TaxWrapperAmountTypeCode
     Withdrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxWrapperAmountTypeCodeMetadataExtensions
-{
-    private static readonly TaxWrapperAmountTypeCodeDropdownSource _dropdownSource = new TaxWrapperAmountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxWrapperAmountTypeCodeDropdownRow GetMetadata(this TaxWrapperAmountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

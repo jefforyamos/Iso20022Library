@@ -219,22 +219,3 @@ public enum ExternalSystemEventTypeCode
     SystemCutOff,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSystemEventTypeCodeMetadataExtensions
-{
-    private static readonly ExternalSystemEventTypeCodeDropdownSource _dropdownSource = new ExternalSystemEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSystemEventTypeCodeDropdownRow GetMetadata(this ExternalSystemEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

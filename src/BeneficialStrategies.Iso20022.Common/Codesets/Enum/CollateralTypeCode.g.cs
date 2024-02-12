@@ -398,22 +398,3 @@ public enum CollateralTypeCode
     TotalCollateralValueAfterRelativeCreditLimit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralTypeCodeMetadataExtensions
-{
-    private static readonly CollateralTypeCodeDropdownSource _dropdownSource = new CollateralTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralTypeCodeDropdownRow GetMetadata(this CollateralTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

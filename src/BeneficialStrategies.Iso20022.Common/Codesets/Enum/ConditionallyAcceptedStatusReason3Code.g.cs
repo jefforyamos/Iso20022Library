@@ -191,22 +191,3 @@ public enum ConditionallyAcceptedStatusReason3Code
     SubscriptionTopUpAmount = ConditionallyAcceptedStatusReasonCode.SubscriptionTopUpAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConditionallyAcceptedStatusReason3CodeMetadataExtensions
-{
-    private static readonly ConditionallyAcceptedStatusReason3CodeDropdownSource _dropdownSource = new ConditionallyAcceptedStatusReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConditionallyAcceptedStatusReason3CodeDropdownRow GetMetadata(this ConditionallyAcceptedStatusReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

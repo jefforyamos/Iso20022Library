@@ -38,22 +38,3 @@ public enum DateCalculationMethodCode
     Lifo,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateCalculationMethodCodeMetadataExtensions
-{
-    private static readonly DateCalculationMethodCodeDropdownSource _dropdownSource = new DateCalculationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateCalculationMethodCodeDropdownRow GetMetadata(this DateCalculationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

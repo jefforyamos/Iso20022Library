@@ -47,22 +47,3 @@ public enum DetailAmount2Code
     Surcharge = DetailAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DetailAmount2CodeMetadataExtensions
-{
-    private static readonly DetailAmount2CodeDropdownSource _dropdownSource = new DetailAmount2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDetailAmount2CodeDropdownRow GetMetadata(this DetailAmount2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

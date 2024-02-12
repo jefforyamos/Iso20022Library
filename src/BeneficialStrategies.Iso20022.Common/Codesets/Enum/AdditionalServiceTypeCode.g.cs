@@ -119,22 +119,3 @@ public enum AdditionalServiceTypeCode
     AccountBalance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalServiceTypeCodeMetadataExtensions
-{
-    private static readonly AdditionalServiceTypeCodeDropdownSource _dropdownSource = new AdditionalServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalServiceTypeCodeDropdownRow GetMetadata(this AdditionalServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

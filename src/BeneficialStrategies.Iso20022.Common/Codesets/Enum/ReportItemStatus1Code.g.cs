@@ -38,22 +38,3 @@ public enum ReportItemStatus1Code
     Rejected = ReportItemStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportItemStatus1CodeMetadataExtensions
-{
-    private static readonly ReportItemStatus1CodeDropdownSource _dropdownSource = new ReportItemStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportItemStatus1CodeDropdownRow GetMetadata(this ReportItemStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

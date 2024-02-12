@@ -65,22 +65,3 @@ public enum RemittanceLocationMethod1Code
     Post = RemittanceLocationMethodCode.Post, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RemittanceLocationMethod1CodeMetadataExtensions
-{
-    private static readonly RemittanceLocationMethod1CodeDropdownSource _dropdownSource = new RemittanceLocationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRemittanceLocationMethod1CodeDropdownRow GetMetadata(this RemittanceLocationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

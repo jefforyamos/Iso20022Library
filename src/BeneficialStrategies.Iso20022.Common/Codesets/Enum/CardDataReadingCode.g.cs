@@ -263,22 +263,3 @@ public enum CardDataReadingCode
     Token,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReadingCodeMetadataExtensions
-{
-    private static readonly CardDataReadingCodeDropdownSource _dropdownSource = new CardDataReadingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReadingCodeDropdownRow GetMetadata(this CardDataReadingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

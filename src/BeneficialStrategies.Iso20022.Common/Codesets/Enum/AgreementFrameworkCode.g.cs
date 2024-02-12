@@ -65,22 +65,3 @@ public enum AgreementFrameworkCode
     NoReference,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgreementFrameworkCodeMetadataExtensions
-{
-    private static readonly AgreementFrameworkCodeDropdownSource _dropdownSource = new AgreementFrameworkCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgreementFrameworkCodeDropdownRow GetMetadata(this AgreementFrameworkCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

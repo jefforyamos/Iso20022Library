@@ -110,22 +110,3 @@ public enum DataSetCategory8Code
     ReconciliationError = DataSetCategoryCode.ReconciliationError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory8CodeMetadataExtensions
-{
-    private static readonly DataSetCategory8CodeDropdownSource _dropdownSource = new DataSetCategory8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory8CodeDropdownRow GetMetadata(this DataSetCategory8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

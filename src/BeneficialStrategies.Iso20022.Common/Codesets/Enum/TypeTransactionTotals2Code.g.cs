@@ -74,22 +74,3 @@ public enum TypeTransactionTotals2Code
     Failed = TypeTransactionTotalsCode.Failed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeTransactionTotals2CodeMetadataExtensions
-{
-    private static readonly TypeTransactionTotals2CodeDropdownSource _dropdownSource = new TypeTransactionTotals2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeTransactionTotals2CodeDropdownRow GetMetadata(this TypeTransactionTotals2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

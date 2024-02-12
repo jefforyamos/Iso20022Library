@@ -389,22 +389,3 @@ public enum SecuritiesTransactionType17Code
     BuyIn = SecuritiesTransactionTypeV2Code.BuyIn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType17CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType17CodeDropdownSource _dropdownSource = new SecuritiesTransactionType17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType17CodeDropdownRow GetMetadata(this SecuritiesTransactionType17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

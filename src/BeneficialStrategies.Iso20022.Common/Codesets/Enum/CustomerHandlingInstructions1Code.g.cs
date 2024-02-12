@@ -110,22 +110,3 @@ public enum CustomerHandlingInstructions1Code
     NotHeld = CustomerHandlingInstructionsCode.NotHeld, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerHandlingInstructions1CodeMetadataExtensions
-{
-    private static readonly CustomerHandlingInstructions1CodeDropdownSource _dropdownSource = new CustomerHandlingInstructions1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerHandlingInstructions1CodeDropdownRow GetMetadata(this CustomerHandlingInstructions1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

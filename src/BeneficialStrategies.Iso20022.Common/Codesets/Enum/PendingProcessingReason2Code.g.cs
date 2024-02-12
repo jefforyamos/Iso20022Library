@@ -245,22 +245,3 @@ public enum PendingProcessingReason2Code
     IncompleteNumberCount = PendingFailingReasonCode.IncompleteNumberCount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingProcessingReason2CodeMetadataExtensions
-{
-    private static readonly PendingProcessingReason2CodeDropdownSource _dropdownSource = new PendingProcessingReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingProcessingReason2CodeDropdownRow GetMetadata(this PendingProcessingReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

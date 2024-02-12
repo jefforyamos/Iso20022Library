@@ -38,22 +38,3 @@ public enum ExPostCostCalculationBasis1Code
     RollingBasis = ExPostCostCalculationBasisCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExPostCostCalculationBasis1CodeMetadataExtensions
-{
-    private static readonly ExPostCostCalculationBasis1CodeDropdownSource _dropdownSource = new ExPostCostCalculationBasis1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExPostCostCalculationBasis1CodeDropdownRow GetMetadata(this ExPostCostCalculationBasis1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

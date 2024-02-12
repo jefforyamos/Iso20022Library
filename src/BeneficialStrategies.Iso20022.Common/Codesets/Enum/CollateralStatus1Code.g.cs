@@ -47,22 +47,3 @@ public enum CollateralStatus1Code
     NoExcessCollateral = CollateralStatusCode.NoExcessCollateral, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralStatus1CodeMetadataExtensions
-{
-    private static readonly CollateralStatus1CodeDropdownSource _dropdownSource = new CollateralStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralStatus1CodeDropdownRow GetMetadata(this CollateralStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

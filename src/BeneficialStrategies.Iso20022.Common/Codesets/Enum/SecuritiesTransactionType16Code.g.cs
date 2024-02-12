@@ -380,22 +380,3 @@ public enum SecuritiesTransactionType16Code
     BorrowingReallocation = SecuritiesTransactionTypeV2Code.BorrowingReallocation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType16CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType16CodeDropdownSource _dropdownSource = new SecuritiesTransactionType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType16CodeDropdownRow GetMetadata(this SecuritiesTransactionType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -317,22 +317,3 @@ public enum CalculationType1Code
     ToWorstConvention = CalculationTypeCode.ToWorstConvention, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CalculationType1CodeMetadataExtensions
-{
-    private static readonly CalculationType1CodeDropdownSource _dropdownSource = new CalculationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICalculationType1CodeDropdownRow GetMetadata(this CalculationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

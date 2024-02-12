@@ -47,22 +47,3 @@ public enum PriceProtectionScope1Code
     Global = PriceProtectionScopeCode.Global, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceProtectionScope1CodeMetadataExtensions
-{
-    private static readonly PriceProtectionScope1CodeDropdownSource _dropdownSource = new PriceProtectionScope1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceProtectionScope1CodeDropdownRow GetMetadata(this PriceProtectionScope1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -1235,22 +1235,3 @@ public enum InstructionRejectionReason2Code
     TransactionTypeInvalid = InstructionRejectionReasonCode.TransactionTypeInvalid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionRejectionReason2CodeMetadataExtensions
-{
-    private static readonly InstructionRejectionReason2CodeDropdownSource _dropdownSource = new InstructionRejectionReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionRejectionReason2CodeDropdownRow GetMetadata(this InstructionRejectionReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

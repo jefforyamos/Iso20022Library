@@ -47,22 +47,3 @@ public enum WithdrawalReason1Code
     Withdrawn = WithdrawalReasonCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WithdrawalReason1CodeMetadataExtensions
-{
-    private static readonly WithdrawalReason1CodeDropdownSource _dropdownSource = new WithdrawalReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWithdrawalReason1CodeDropdownRow GetMetadata(this WithdrawalReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

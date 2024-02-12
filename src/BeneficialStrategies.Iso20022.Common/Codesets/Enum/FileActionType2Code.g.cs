@@ -110,22 +110,3 @@ public enum FileActionType2Code
     Update = FileActionTypeCode.Update, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FileActionType2CodeMetadataExtensions
-{
-    private static readonly FileActionType2CodeDropdownSource _dropdownSource = new FileActionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFileActionType2CodeDropdownRow GetMetadata(this FileActionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

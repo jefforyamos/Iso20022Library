@@ -47,22 +47,3 @@ public enum OnLineCapability1Code
     SemiOffLine = OnLineCapabilityCode.SemiOffLine, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OnLineCapability1CodeMetadataExtensions
-{
-    private static readonly OnLineCapability1CodeDropdownSource _dropdownSource = new OnLineCapability1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOnLineCapability1CodeDropdownRow GetMetadata(this OnLineCapability1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

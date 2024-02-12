@@ -74,22 +74,3 @@ public enum AssetClassDetailedSubProductType1Code
     Rice = AssetClassDetailedSubProductTypeCode.Rice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType1CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType1CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType1CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

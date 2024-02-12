@@ -56,22 +56,3 @@ public enum CSCManagement1Code
     NoCSC = CSCManagementCode.NoCSC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CSCManagement1CodeMetadataExtensions
-{
-    private static readonly CSCManagement1CodeDropdownSource _dropdownSource = new CSCManagement1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICSCManagement1CodeDropdownRow GetMetadata(this CSCManagement1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -137,22 +137,3 @@ public enum TypeOfPrice5Code
     Indicative = TypeOfPriceCode.Indicative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice5CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice5CodeDropdownSource _dropdownSource = new TypeOfPrice5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice5CodeDropdownRow GetMetadata(this TypeOfPrice5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

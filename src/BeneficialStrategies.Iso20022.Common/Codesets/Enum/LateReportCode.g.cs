@@ -38,22 +38,3 @@ public enum LateReportCode
     LateBecausePartial,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LateReportCodeMetadataExtensions
-{
-    private static readonly LateReportCodeDropdownSource _dropdownSource = new LateReportCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILateReportCodeDropdownRow GetMetadata(this LateReportCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

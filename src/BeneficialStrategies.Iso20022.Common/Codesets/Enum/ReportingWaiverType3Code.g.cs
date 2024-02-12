@@ -137,22 +137,3 @@ public enum ReportingWaiverType3Code
     ExchangeForPhysical = ReportingWaiverTypeCode.ExchangeForPhysical, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingWaiverType3CodeMetadataExtensions
-{
-    private static readonly ReportingWaiverType3CodeDropdownSource _dropdownSource = new ReportingWaiverType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingWaiverType3CodeDropdownRow GetMetadata(this ReportingWaiverType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

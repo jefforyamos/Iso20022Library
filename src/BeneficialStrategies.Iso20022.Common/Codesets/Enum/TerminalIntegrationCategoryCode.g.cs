@@ -47,22 +47,3 @@ public enum TerminalIntegrationCategoryCode
     SingleSaleTerminal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalIntegrationCategoryCodeMetadataExtensions
-{
-    private static readonly TerminalIntegrationCategoryCodeDropdownSource _dropdownSource = new TerminalIntegrationCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalIntegrationCategoryCodeDropdownRow GetMetadata(this TerminalIntegrationCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

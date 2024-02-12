@@ -1064,22 +1064,3 @@ public enum MessageReasonCode
     UndeliveredCard,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageReasonCodeMetadataExtensions
-{
-    private static readonly MessageReasonCodeDropdownSource _dropdownSource = new MessageReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageReasonCodeDropdownRow GetMetadata(this MessageReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum BusinessArea2Code
     TransitOpenPayment = BusinessAreaCode.TransitOpenPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessArea2CodeMetadataExtensions
-{
-    private static readonly BusinessArea2CodeDropdownSource _dropdownSource = new BusinessArea2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessArea2CodeDropdownRow GetMetadata(this BusinessArea2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

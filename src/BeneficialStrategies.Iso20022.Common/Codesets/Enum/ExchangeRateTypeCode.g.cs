@@ -92,22 +92,3 @@ public enum ExchangeRateTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangeRateTypeCodeMetadataExtensions
-{
-    private static readonly ExchangeRateTypeCodeDropdownSource _dropdownSource = new ExchangeRateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangeRateTypeCodeDropdownRow GetMetadata(this ExchangeRateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

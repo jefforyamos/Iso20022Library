@@ -101,22 +101,3 @@ public enum TransactionGroupStatus3Code
     AcceptedWithChange = PaymentStatusCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionGroupStatus3CodeMetadataExtensions
-{
-    private static readonly TransactionGroupStatus3CodeDropdownSource _dropdownSource = new TransactionGroupStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionGroupStatus3CodeDropdownRow GetMetadata(this TransactionGroupStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

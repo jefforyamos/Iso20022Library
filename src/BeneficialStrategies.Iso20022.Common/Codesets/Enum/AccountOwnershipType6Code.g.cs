@@ -209,22 +209,3 @@ public enum AccountOwnershipType6Code
     Usufructuary = AccountOwnershipTypeCode.Usufructuary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountOwnershipType6CodeMetadataExtensions
-{
-    private static readonly AccountOwnershipType6CodeDropdownSource _dropdownSource = new AccountOwnershipType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountOwnershipType6CodeDropdownRow GetMetadata(this AccountOwnershipType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

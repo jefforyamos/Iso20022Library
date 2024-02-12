@@ -2451,22 +2451,3 @@ public enum ExternalStatusReason1Code
     SettlementNotReceived = ExternalStatusReasonCode.SettlementNotReceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalStatusReason1CodeMetadataExtensions
-{
-    private static readonly ExternalStatusReason1CodeDropdownSource _dropdownSource = new ExternalStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalStatusReason1CodeDropdownRow GetMetadata(this ExternalStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

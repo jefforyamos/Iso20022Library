@@ -56,22 +56,3 @@ public enum QuoteTypeCode
     Counter,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuoteTypeCodeMetadataExtensions
-{
-    private static readonly QuoteTypeCodeDropdownSource _dropdownSource = new QuoteTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuoteTypeCodeDropdownRow GetMetadata(this QuoteTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum CSCManagementCode
     NoCSC,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CSCManagementCodeMetadataExtensions
-{
-    private static readonly CSCManagementCodeDropdownSource _dropdownSource = new CSCManagementCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICSCManagementCodeDropdownRow GetMetadata(this CSCManagementCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

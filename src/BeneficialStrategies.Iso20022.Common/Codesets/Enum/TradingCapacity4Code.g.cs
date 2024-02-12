@@ -155,22 +155,3 @@ public enum TradingCapacity4Code
     TransferAgent = TradingCapacityCode.TransferAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingCapacity4CodeMetadataExtensions
-{
-    private static readonly TradingCapacity4CodeDropdownSource _dropdownSource = new TradingCapacity4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingCapacity4CodeDropdownRow GetMetadata(this TradingCapacity4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

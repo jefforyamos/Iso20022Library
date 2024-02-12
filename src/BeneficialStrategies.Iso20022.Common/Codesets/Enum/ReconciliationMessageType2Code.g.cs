@@ -398,22 +398,3 @@ public enum ReconciliationMessageType2Code
     RetrievalInitiation = ReconciliationMessageTypeCode.RetrievalInitiation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationMessageType2CodeMetadataExtensions
-{
-    private static readonly ReconciliationMessageType2CodeDropdownSource _dropdownSource = new ReconciliationMessageType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationMessageType2CodeDropdownRow GetMetadata(this ReconciliationMessageType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

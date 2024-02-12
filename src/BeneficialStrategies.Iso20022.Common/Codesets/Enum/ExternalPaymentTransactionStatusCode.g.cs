@@ -183,22 +183,3 @@ public enum ExternalPaymentTransactionStatusCode
     AcceptedClearingProcessed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentTransactionStatusCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentTransactionStatusCodeDropdownSource _dropdownSource = new ExternalPaymentTransactionStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentTransactionStatusCodeDropdownRow GetMetadata(this ExternalPaymentTransactionStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

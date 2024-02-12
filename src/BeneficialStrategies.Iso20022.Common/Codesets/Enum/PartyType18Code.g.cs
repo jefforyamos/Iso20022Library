@@ -56,22 +56,3 @@ public enum PartyType18Code
     Agent = PartyTypeCode.Agent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType18CodeMetadataExtensions
-{
-    private static readonly PartyType18CodeDropdownSource _dropdownSource = new PartyType18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType18CodeDropdownRow GetMetadata(this PartyType18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

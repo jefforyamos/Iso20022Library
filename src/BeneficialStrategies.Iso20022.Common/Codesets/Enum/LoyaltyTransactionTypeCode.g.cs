@@ -74,22 +74,3 @@ public enum LoyaltyTransactionTypeCode
     RebateRefund,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyTransactionTypeCodeMetadataExtensions
-{
-    private static readonly LoyaltyTransactionTypeCodeDropdownSource _dropdownSource = new LoyaltyTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyTransactionTypeCodeDropdownRow GetMetadata(this LoyaltyTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum Action2Code
     CheckInvoiceReference = ActionCode.CheckInvoiceReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Action2CodeMetadataExtensions
-{
-    private static readonly Action2CodeDropdownSource _dropdownSource = new Action2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAction2CodeDropdownRow GetMetadata(this Action2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum CorporateTaxType1Code
     Corporate = CorporateTaxTypeCode.Corporate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateTaxType1CodeMetadataExtensions
-{
-    private static readonly CorporateTaxType1CodeDropdownSource _dropdownSource = new CorporateTaxType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateTaxType1CodeDropdownRow GetMetadata(this CorporateTaxType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

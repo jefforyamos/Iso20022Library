@@ -83,22 +83,3 @@ public enum AdditionalBusinessProcess1Code
     Consent = AdditionalBusinessProcessCode.Consent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess1CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess1CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess1CodeDropdownRow GetMetadata(this AdditionalBusinessProcess1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

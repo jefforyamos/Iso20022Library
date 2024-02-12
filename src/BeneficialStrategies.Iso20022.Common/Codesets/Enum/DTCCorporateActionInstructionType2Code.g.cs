@@ -38,22 +38,3 @@ public enum DTCCorporateActionInstructionType2Code
     ProtectWithdrawal = DTCCorporateActionInstructionTypeCode.ProtectWithdrawal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCorporateActionInstructionType2CodeMetadataExtensions
-{
-    private static readonly DTCCorporateActionInstructionType2CodeDropdownSource _dropdownSource = new DTCCorporateActionInstructionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCorporateActionInstructionType2CodeDropdownRow GetMetadata(this DTCCorporateActionInstructionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

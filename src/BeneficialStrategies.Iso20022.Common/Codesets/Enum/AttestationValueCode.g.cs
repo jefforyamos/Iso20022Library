@@ -56,22 +56,3 @@ public enum AttestationValueCode
     NotHonored,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttestationValueCodeMetadataExtensions
-{
-    private static readonly AttestationValueCodeDropdownSource _dropdownSource = new AttestationValueCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttestationValueCodeDropdownRow GetMetadata(this AttestationValueCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

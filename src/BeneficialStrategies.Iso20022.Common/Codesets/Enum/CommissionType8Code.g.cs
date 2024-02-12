@@ -83,22 +83,3 @@ public enum CommissionType8Code
     PlanSponsor = CommissionTypeV2Code.PlanSponsor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionType8CodeMetadataExtensions
-{
-    private static readonly CommissionType8CodeDropdownSource _dropdownSource = new CommissionType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionType8CodeDropdownRow GetMetadata(this CommissionType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

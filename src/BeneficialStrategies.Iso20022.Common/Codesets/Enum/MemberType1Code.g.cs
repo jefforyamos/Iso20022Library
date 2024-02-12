@@ -65,22 +65,3 @@ public enum MemberType1Code
     STEP1 = MemberTypeCode.STEP1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MemberType1CodeMetadataExtensions
-{
-    private static readonly MemberType1CodeDropdownSource _dropdownSource = new MemberType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMemberType1CodeDropdownRow GetMetadata(this MemberType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

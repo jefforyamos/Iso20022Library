@@ -29,22 +29,3 @@ public enum AssetClassSubProductType23Code
     Seafood = AssetClassSubProductTypeCode.Seafood, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType23CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType23CodeDropdownSource _dropdownSource = new AssetClassSubProductType23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType23CodeDropdownRow GetMetadata(this AssetClassSubProductType23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

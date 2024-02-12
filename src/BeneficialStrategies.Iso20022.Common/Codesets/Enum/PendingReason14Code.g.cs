@@ -119,22 +119,3 @@ public enum PendingReason14Code
     DisagreementOnCashAmount = PendingFailingReasonV2Code.DisagreementOnCashAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason14CodeMetadataExtensions
-{
-    private static readonly PendingReason14CodeDropdownSource _dropdownSource = new PendingReason14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason14CodeDropdownRow GetMetadata(this PendingReason14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

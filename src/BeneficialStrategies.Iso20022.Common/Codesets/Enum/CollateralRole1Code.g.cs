@@ -38,22 +38,3 @@ public enum CollateralRole1Code
     CollateralTaker = CollateralRoleCode.CollateralTaker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralRole1CodeMetadataExtensions
-{
-    private static readonly CollateralRole1CodeDropdownSource _dropdownSource = new CollateralRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralRole1CodeDropdownRow GetMetadata(this CollateralRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

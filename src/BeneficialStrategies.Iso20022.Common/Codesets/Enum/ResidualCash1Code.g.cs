@@ -38,22 +38,3 @@ public enum ResidualCash1Code
     ResidualCashTransfer = ResidualCashCode.ResidualCashTransfer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResidualCash1CodeMetadataExtensions
-{
-    private static readonly ResidualCash1CodeDropdownSource _dropdownSource = new ResidualCash1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResidualCash1CodeDropdownRow GetMetadata(this ResidualCash1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum RejectionReason24Code
     InvalidRequest = RejectionReasonV2Code.InvalidRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason24CodeMetadataExtensions
-{
-    private static readonly RejectionReason24CodeDropdownSource _dropdownSource = new RejectionReason24CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason24CodeDropdownRow GetMetadata(this RejectionReason24Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

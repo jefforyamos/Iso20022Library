@@ -83,22 +83,3 @@ public enum CaseForwardingNotificationCode
     MineInvestigationCase,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CaseForwardingNotificationCodeMetadataExtensions
-{
-    private static readonly CaseForwardingNotificationCodeDropdownSource _dropdownSource = new CaseForwardingNotificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICaseForwardingNotificationCodeDropdownRow GetMetadata(this CaseForwardingNotificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

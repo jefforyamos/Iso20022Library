@@ -65,22 +65,3 @@ public enum DistributionInstructionType1Code
     IndividualReturnOrder = DistributionInstructionTypeCode.IndividualReturnOrder, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionInstructionType1CodeMetadataExtensions
-{
-    private static readonly DistributionInstructionType1CodeDropdownSource _dropdownSource = new DistributionInstructionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionInstructionType1CodeDropdownRow GetMetadata(this DistributionInstructionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

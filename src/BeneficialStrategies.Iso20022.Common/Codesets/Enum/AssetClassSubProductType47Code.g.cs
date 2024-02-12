@@ -29,22 +29,3 @@ public enum AssetClassSubProductType47Code
     Deliverable = AssetClassSubProductTypeCode.Deliverable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType47CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType47CodeDropdownSource _dropdownSource = new AssetClassSubProductType47CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType47CodeDropdownRow GetMetadata(this AssetClassSubProductType47Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

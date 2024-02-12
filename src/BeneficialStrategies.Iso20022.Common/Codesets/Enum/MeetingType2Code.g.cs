@@ -56,22 +56,3 @@ public enum MeetingType2Code
     Special = MeetingTypeCode.Special, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingType2CodeMetadataExtensions
-{
-    private static readonly MeetingType2CodeDropdownSource _dropdownSource = new MeetingType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingType2CodeDropdownRow GetMetadata(this MeetingType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

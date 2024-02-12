@@ -38,22 +38,3 @@ public enum AllegementStatus1Code
     Removed = AllegementStatusCode.Removed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllegementStatus1CodeMetadataExtensions
-{
-    private static readonly AllegementStatus1CodeDropdownSource _dropdownSource = new AllegementStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllegementStatus1CodeDropdownRow GetMetadata(this AllegementStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

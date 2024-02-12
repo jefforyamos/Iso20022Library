@@ -146,22 +146,3 @@ public enum LodgingActivity1Code
     TouristShelter = LodgingActivityCode.TouristShelter, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LodgingActivity1CodeMetadataExtensions
-{
-    private static readonly LodgingActivity1CodeDropdownSource _dropdownSource = new LodgingActivity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILodgingActivity1CodeDropdownRow GetMetadata(this LodgingActivity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

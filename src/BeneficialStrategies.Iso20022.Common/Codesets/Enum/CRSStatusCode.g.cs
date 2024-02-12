@@ -146,22 +146,3 @@ public enum CRSStatusCode
     CRS114,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CRSStatusCodeMetadataExtensions
-{
-    private static readonly CRSStatusCodeDropdownSource _dropdownSource = new CRSStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICRSStatusCodeDropdownRow GetMetadata(this CRSStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

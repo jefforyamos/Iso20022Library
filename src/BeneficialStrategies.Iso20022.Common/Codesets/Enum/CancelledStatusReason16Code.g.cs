@@ -119,22 +119,3 @@ public enum CancelledStatusReason16Code
     CancelledDueToCorporateAction = CancelledStatusReasonV2Code.CancelledDueToCorporateAction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason16CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason16CodeDropdownSource _dropdownSource = new CancelledStatusReason16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason16CodeDropdownRow GetMetadata(this CancelledStatusReason16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

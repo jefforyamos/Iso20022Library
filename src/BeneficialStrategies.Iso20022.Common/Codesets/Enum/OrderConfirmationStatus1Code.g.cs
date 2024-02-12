@@ -56,22 +56,3 @@ public enum OrderConfirmationStatus1Code
     ConfirmationReceived = OrderConfirmationStatusCode.ConfirmationReceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderConfirmationStatus1CodeMetadataExtensions
-{
-    private static readonly OrderConfirmationStatus1CodeDropdownSource _dropdownSource = new OrderConfirmationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderConfirmationStatus1CodeDropdownRow GetMetadata(this OrderConfirmationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

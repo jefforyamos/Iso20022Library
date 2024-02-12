@@ -65,22 +65,3 @@ public enum SecuritiesSettlementStatusCode
     Settled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesSettlementStatusCodeMetadataExtensions
-{
-    private static readonly SecuritiesSettlementStatusCodeDropdownSource _dropdownSource = new SecuritiesSettlementStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesSettlementStatusCodeDropdownRow GetMetadata(this SecuritiesSettlementStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

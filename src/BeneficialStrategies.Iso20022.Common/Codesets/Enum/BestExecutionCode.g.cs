@@ -29,22 +29,3 @@ public enum BestExecutionCode
     Best,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BestExecutionCodeMetadataExtensions
-{
-    private static readonly BestExecutionCodeDropdownSource _dropdownSource = new BestExecutionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBestExecutionCodeDropdownRow GetMetadata(this BestExecutionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

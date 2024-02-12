@@ -2198,22 +2198,3 @@ public enum RejectionReasonV3Code
     ParticipationMethodNotSupported,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReasonV3CodeMetadataExtensions
-{
-    private static readonly RejectionReasonV3CodeDropdownSource _dropdownSource = new RejectionReasonV3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReasonV3CodeDropdownRow GetMetadata(this RejectionReasonV3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

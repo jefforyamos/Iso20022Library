@@ -56,22 +56,3 @@ public enum GroupCancellationStatus1Code
     PendingCancellationRequest = PaymentStatusCode.PendingCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GroupCancellationStatus1CodeMetadataExtensions
-{
-    private static readonly GroupCancellationStatus1CodeDropdownSource _dropdownSource = new GroupCancellationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGroupCancellationStatus1CodeDropdownRow GetMetadata(this GroupCancellationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

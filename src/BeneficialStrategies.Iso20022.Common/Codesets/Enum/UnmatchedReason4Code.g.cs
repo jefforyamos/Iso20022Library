@@ -596,22 +596,3 @@ public enum UnmatchedReason4Code
     ClearingSegment = UnmatchedReasonCode.ClearingSegment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason4CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason4CodeDropdownSource _dropdownSource = new UnmatchedReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason4CodeDropdownRow GetMetadata(this UnmatchedReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -137,22 +137,3 @@ public enum ExternalCreditorAgentInstruction1Code
     TokenValidation = ExternalCreditorAgentInstructionCode.TokenValidation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCreditorAgentInstruction1CodeMetadataExtensions
-{
-    private static readonly ExternalCreditorAgentInstruction1CodeDropdownSource _dropdownSource = new ExternalCreditorAgentInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCreditorAgentInstruction1CodeDropdownRow GetMetadata(this ExternalCreditorAgentInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

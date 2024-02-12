@@ -210,22 +210,3 @@ public enum ExternalProxyAccountTypeCode
     CustomerIdentificationNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalProxyAccountTypeCodeMetadataExtensions
-{
-    private static readonly ExternalProxyAccountTypeCodeDropdownSource _dropdownSource = new ExternalProxyAccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalProxyAccountTypeCodeDropdownRow GetMetadata(this ExternalProxyAccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum VoteInstruction1Code
     NoAction = VoteInstructionCode.NoAction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstruction1CodeMetadataExtensions
-{
-    private static readonly VoteInstruction1CodeDropdownSource _dropdownSource = new VoteInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstruction1CodeDropdownRow GetMetadata(this VoteInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

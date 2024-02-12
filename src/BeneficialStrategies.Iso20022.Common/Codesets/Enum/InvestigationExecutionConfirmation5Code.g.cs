@@ -47,22 +47,3 @@ public enum InvestigationExecutionConfirmation5Code
     RejectedCancellationRequest = InvestigationExecutionConfirmationCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationExecutionConfirmation5CodeMetadataExtensions
-{
-    private static readonly InvestigationExecutionConfirmation5CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationExecutionConfirmation5CodeDropdownRow GetMetadata(this InvestigationExecutionConfirmation5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

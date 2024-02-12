@@ -56,22 +56,3 @@ public enum RateBasis1Code
     Years = RateBasisCode.Years, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateBasis1CodeMetadataExtensions
-{
-    private static readonly RateBasis1CodeDropdownSource _dropdownSource = new RateBasis1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateBasis1CodeDropdownRow GetMetadata(this RateBasis1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

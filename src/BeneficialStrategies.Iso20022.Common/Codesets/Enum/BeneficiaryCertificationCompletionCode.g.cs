@@ -47,22 +47,3 @@ public enum BeneficiaryCertificationCompletionCode
     PhysicalCertification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryCertificationCompletionCodeMetadataExtensions
-{
-    private static readonly BeneficiaryCertificationCompletionCodeDropdownSource _dropdownSource = new BeneficiaryCertificationCompletionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryCertificationCompletionCodeDropdownRow GetMetadata(this BeneficiaryCertificationCompletionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

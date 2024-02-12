@@ -38,22 +38,3 @@ public enum EventConfirmationStatus1Code
     Unconfirmed = EventConfirmationStatusCode.Unconfirmed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventConfirmationStatus1CodeMetadataExtensions
-{
-    private static readonly EventConfirmationStatus1CodeDropdownSource _dropdownSource = new EventConfirmationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventConfirmationStatus1CodeDropdownRow GetMetadata(this EventConfirmationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

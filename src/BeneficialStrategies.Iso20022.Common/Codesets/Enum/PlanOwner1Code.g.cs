@@ -65,22 +65,3 @@ public enum PlanOwner1Code
     OtherPrivate = PlanOwnerCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PlanOwner1CodeMetadataExtensions
-{
-    private static readonly PlanOwner1CodeDropdownSource _dropdownSource = new PlanOwner1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPlanOwner1CodeDropdownRow GetMetadata(this PlanOwner1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

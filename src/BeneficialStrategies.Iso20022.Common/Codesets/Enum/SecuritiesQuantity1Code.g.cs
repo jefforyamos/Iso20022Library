@@ -47,22 +47,3 @@ public enum SecuritiesQuantity1Code
     Yes = SecuritiesQuantityTypeCode.Yes, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesQuantity1CodeMetadataExtensions
-{
-    private static readonly SecuritiesQuantity1CodeDropdownSource _dropdownSource = new SecuritiesQuantity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesQuantity1CodeDropdownRow GetMetadata(this SecuritiesQuantity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -209,22 +209,3 @@ public enum MessageFunction1Code
     Rejection = MessageFunctionCode.Rejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction1CodeMetadataExtensions
-{
-    private static readonly MessageFunction1CodeDropdownSource _dropdownSource = new MessageFunction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction1CodeDropdownRow GetMetadata(this MessageFunction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

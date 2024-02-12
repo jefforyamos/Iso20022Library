@@ -47,22 +47,3 @@ public enum KnowYourCustomerCheckTypeCode
     Enhanced,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class KnowYourCustomerCheckTypeCodeMetadataExtensions
-{
-    private static readonly KnowYourCustomerCheckTypeCodeDropdownSource _dropdownSource = new KnowYourCustomerCheckTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IKnowYourCustomerCheckTypeCodeDropdownRow GetMetadata(this KnowYourCustomerCheckTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum CommunicationMethod3Code
     Online = CommunicationMethodCode.Online, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommunicationMethod3CodeMetadataExtensions
-{
-    private static readonly CommunicationMethod3CodeDropdownSource _dropdownSource = new CommunicationMethod3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommunicationMethod3CodeDropdownRow GetMetadata(this CommunicationMethod3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum PartyType33Code
     TerminalManager = PartyTypeCode.TerminalManager, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType33CodeMetadataExtensions
-{
-    private static readonly PartyType33CodeDropdownSource _dropdownSource = new PartyType33CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType33CodeDropdownRow GetMetadata(this PartyType33Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

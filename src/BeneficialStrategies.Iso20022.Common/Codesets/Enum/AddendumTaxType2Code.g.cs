@@ -1073,22 +1073,3 @@ public enum AddendumTaxType2Code
     TotalNonRoomTax = AddendumTaxTypeCode.TotalNonRoomTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AddendumTaxType2CodeMetadataExtensions
-{
-    private static readonly AddendumTaxType2CodeDropdownSource _dropdownSource = new AddendumTaxType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAddendumTaxType2CodeDropdownRow GetMetadata(this AddendumTaxType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

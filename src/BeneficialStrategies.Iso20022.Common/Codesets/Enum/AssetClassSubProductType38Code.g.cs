@@ -29,22 +29,3 @@ public enum AssetClassSubProductType38Code
     RecoveredPaper = AssetClassSubProductTypeCode.RecoveredPaper, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType38CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType38CodeDropdownSource _dropdownSource = new AssetClassSubProductType38CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType38CodeDropdownRow GetMetadata(this AssetClassSubProductType38Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

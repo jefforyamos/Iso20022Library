@@ -83,22 +83,3 @@ public enum FATCAFormTypeCode
     CertificateForeignPersonsClaim,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FATCAFormTypeCodeMetadataExtensions
-{
-    private static readonly FATCAFormTypeCodeDropdownSource _dropdownSource = new FATCAFormTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFATCAFormTypeCodeDropdownRow GetMetadata(this FATCAFormTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

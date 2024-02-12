@@ -47,22 +47,3 @@ public enum PaymentStatusReason1Code
     PaymentTransferredAndSLANoLongerMaintained = ExternalPaymentStatusReasonCode.PaymentTransferredAndSLANoLongerMaintained, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentStatusReason1CodeMetadataExtensions
-{
-    private static readonly PaymentStatusReason1CodeDropdownSource _dropdownSource = new PaymentStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentStatusReason1CodeDropdownRow GetMetadata(this PaymentStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -48,22 +48,3 @@ public enum ExternalSystemErrorHandlingCode
     DataNotAvailable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSystemErrorHandlingCodeMetadataExtensions
-{
-    private static readonly ExternalSystemErrorHandlingCodeDropdownSource _dropdownSource = new ExternalSystemErrorHandlingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSystemErrorHandlingCodeDropdownRow GetMetadata(this ExternalSystemErrorHandlingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

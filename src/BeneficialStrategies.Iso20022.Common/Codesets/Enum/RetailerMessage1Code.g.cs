@@ -173,22 +173,3 @@ public enum RetailerMessage1Code
     SessionManagementResponse = RetailerMessageCode.SessionManagementResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerMessage1CodeMetadataExtensions
-{
-    private static readonly RetailerMessage1CodeDropdownSource _dropdownSource = new RetailerMessage1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerMessage1CodeDropdownRow GetMetadata(this RetailerMessage1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

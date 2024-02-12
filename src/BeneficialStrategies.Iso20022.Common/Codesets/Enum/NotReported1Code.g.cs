@@ -29,22 +29,3 @@ public enum NotReported1Code
     NotReported = SpecialPurposeCode.NotReported, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotReported1CodeMetadataExtensions
-{
-    private static readonly NotReported1CodeDropdownSource _dropdownSource = new NotReported1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotReported1CodeDropdownRow GetMetadata(this NotReported1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

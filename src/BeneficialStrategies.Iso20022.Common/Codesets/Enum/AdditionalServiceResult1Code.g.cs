@@ -65,22 +65,3 @@ public enum AdditionalServiceResult1Code
     Performed = AdditionalServiceResultCode.Performed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalServiceResult1CodeMetadataExtensions
-{
-    private static readonly AdditionalServiceResult1CodeDropdownSource _dropdownSource = new AdditionalServiceResult1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalServiceResult1CodeDropdownRow GetMetadata(this AdditionalServiceResult1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

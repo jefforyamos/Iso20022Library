@@ -47,22 +47,3 @@ public enum EntryStatus2Code
     Information = EntryStatusCode.Information, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryStatus2CodeMetadataExtensions
-{
-    private static readonly EntryStatus2CodeDropdownSource _dropdownSource = new EntryStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryStatus2CodeDropdownRow GetMetadata(this EntryStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

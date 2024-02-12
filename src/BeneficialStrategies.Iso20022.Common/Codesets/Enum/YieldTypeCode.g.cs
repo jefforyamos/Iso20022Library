@@ -352,22 +352,3 @@ public enum YieldTypeCode
     ToWorstConvention,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class YieldTypeCodeMetadataExtensions
-{
-    private static readonly YieldTypeCodeDropdownSource _dropdownSource = new YieldTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IYieldTypeCodeDropdownRow GetMetadata(this YieldTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

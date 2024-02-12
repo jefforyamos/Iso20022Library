@@ -39,22 +39,3 @@ public enum SaleCapabilities2Code
     CustomerInput = SaleCapabilitiesCode.CustomerInput, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SaleCapabilities2CodeMetadataExtensions
-{
-    private static readonly SaleCapabilities2CodeDropdownSource _dropdownSource = new SaleCapabilities2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISaleCapabilities2CodeDropdownRow GetMetadata(this SaleCapabilities2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

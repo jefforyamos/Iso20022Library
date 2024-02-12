@@ -56,22 +56,3 @@ public enum SignatureOriginTypeCode
     Bank,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SignatureOriginTypeCodeMetadataExtensions
-{
-    private static readonly SignatureOriginTypeCodeDropdownSource _dropdownSource = new SignatureOriginTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISignatureOriginTypeCodeDropdownRow GetMetadata(this SignatureOriginTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

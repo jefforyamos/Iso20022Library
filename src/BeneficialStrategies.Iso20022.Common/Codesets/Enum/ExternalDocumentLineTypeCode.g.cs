@@ -191,22 +191,3 @@ public enum ExternalDocumentLineTypeCode
     UniversalProductNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDocumentLineTypeCodeMetadataExtensions
-{
-    private static readonly ExternalDocumentLineTypeCodeDropdownSource _dropdownSource = new ExternalDocumentLineTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDocumentLineTypeCodeDropdownRow GetMetadata(this ExternalDocumentLineTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

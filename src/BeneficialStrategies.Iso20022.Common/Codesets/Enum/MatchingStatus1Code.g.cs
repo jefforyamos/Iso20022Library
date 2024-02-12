@@ -38,22 +38,3 @@ public enum MatchingStatus1Code
     Unmatched = MatchingStatusCode.Unmatched, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MatchingStatus1CodeMetadataExtensions
-{
-    private static readonly MatchingStatus1CodeDropdownSource _dropdownSource = new MatchingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMatchingStatus1CodeDropdownRow GetMetadata(this MatchingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

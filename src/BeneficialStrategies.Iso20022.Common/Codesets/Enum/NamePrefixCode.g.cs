@@ -65,22 +65,3 @@ public enum NamePrefixCode
     GenderNeutral,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NamePrefixCodeMetadataExtensions
-{
-    private static readonly NamePrefixCodeDropdownSource _dropdownSource = new NamePrefixCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INamePrefixCodeDropdownRow GetMetadata(this NamePrefixCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

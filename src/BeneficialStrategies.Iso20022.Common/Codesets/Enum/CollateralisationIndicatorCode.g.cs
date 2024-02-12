@@ -56,22 +56,3 @@ public enum CollateralisationIndicatorCode
     Uncollateralised,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralisationIndicatorCodeMetadataExtensions
-{
-    private static readonly CollateralisationIndicatorCodeDropdownSource _dropdownSource = new CollateralisationIndicatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralisationIndicatorCodeDropdownRow GetMetadata(this CollateralisationIndicatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

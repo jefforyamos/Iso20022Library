@@ -56,22 +56,3 @@ public enum RepoTerminationOption2Code
     NotApplicable = RepoTerminationOptionCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoTerminationOption2CodeMetadataExtensions
-{
-    private static readonly RepoTerminationOption2CodeDropdownSource _dropdownSource = new RepoTerminationOption2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoTerminationOption2CodeDropdownRow GetMetadata(this RepoTerminationOption2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

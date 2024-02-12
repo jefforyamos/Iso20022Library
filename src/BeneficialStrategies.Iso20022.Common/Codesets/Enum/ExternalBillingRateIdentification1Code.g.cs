@@ -192,22 +192,3 @@ public enum ExternalBillingRateIdentification1Code
     UncollectedFundsUsageRate = ExternalBillingRateIdentificationCode.UncollectedFundsUsageRate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBillingRateIdentification1CodeMetadataExtensions
-{
-    private static readonly ExternalBillingRateIdentification1CodeDropdownSource _dropdownSource = new ExternalBillingRateIdentification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBillingRateIdentification1CodeDropdownRow GetMetadata(this ExternalBillingRateIdentification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

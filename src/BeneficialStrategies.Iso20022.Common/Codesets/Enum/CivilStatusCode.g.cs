@@ -83,22 +83,3 @@ public enum CivilStatusCode
     Separated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CivilStatusCodeMetadataExtensions
-{
-    private static readonly CivilStatusCodeDropdownSource _dropdownSource = new CivilStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICivilStatusCodeDropdownRow GetMetadata(this CivilStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

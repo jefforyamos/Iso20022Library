@@ -164,22 +164,3 @@ public enum PendingReason20Code
     BeforeInstructionPeriod = PendingFailingReasonV2Code.BeforeInstructionPeriod, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason20CodeMetadataExtensions
-{
-    private static readonly PendingReason20CodeDropdownSource _dropdownSource = new PendingReason20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason20CodeDropdownRow GetMetadata(this PendingReason20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

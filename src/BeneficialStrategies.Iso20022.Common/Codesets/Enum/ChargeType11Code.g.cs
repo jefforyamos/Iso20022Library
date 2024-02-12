@@ -164,22 +164,3 @@ public enum ChargeType11Code
     UCITSCommission = ChargeTypeCode.UCITSCommission, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType11CodeMetadataExtensions
-{
-    private static readonly ChargeType11CodeDropdownSource _dropdownSource = new ChargeType11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType11CodeDropdownRow GetMetadata(this ChargeType11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

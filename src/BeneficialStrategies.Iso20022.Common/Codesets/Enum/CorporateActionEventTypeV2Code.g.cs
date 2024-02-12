@@ -659,22 +659,3 @@ public enum CorporateActionEventTypeV2Code
     Capitalisation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventTypeV2CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventTypeV2CodeDropdownSource _dropdownSource = new CorporateActionEventTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventTypeV2CodeDropdownRow GetMetadata(this CorporateActionEventTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

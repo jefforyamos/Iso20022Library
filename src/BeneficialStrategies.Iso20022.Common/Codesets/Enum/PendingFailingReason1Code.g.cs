@@ -29,22 +29,3 @@ public enum PendingFailingReason1Code
     Other = PendingFailingReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingFailingReason1CodeMetadataExtensions
-{
-    private static readonly PendingFailingReason1CodeDropdownSource _dropdownSource = new PendingFailingReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingFailingReason1CodeDropdownRow GetMetadata(this PendingFailingReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

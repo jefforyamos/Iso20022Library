@@ -57,22 +57,3 @@ public enum FundTypeCode
     RealEstateInvestmentTrust,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundTypeCodeMetadataExtensions
-{
-    private static readonly FundTypeCodeDropdownSource _dropdownSource = new FundTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundTypeCodeDropdownRow GetMetadata(this FundTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

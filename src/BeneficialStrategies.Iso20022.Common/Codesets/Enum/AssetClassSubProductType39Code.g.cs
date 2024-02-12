@@ -29,22 +29,3 @@ public enum AssetClassSubProductType39Code
     Ammonia = AssetClassSubProductTypeCode.Ammonia, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType39CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType39CodeDropdownSource _dropdownSource = new AssetClassSubProductType39CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType39CodeDropdownRow GetMetadata(this AssetClassSubProductType39Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

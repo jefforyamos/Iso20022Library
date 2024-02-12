@@ -65,22 +65,3 @@ public enum TotalDetails1Code
     PerSaleIdentification = TotalDetailsCode.PerSaleIdentification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TotalDetails1CodeMetadataExtensions
-{
-    private static readonly TotalDetails1CodeDropdownSource _dropdownSource = new TotalDetails1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITotalDetails1CodeDropdownRow GetMetadata(this TotalDetails1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

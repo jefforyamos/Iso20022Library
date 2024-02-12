@@ -92,22 +92,3 @@ public enum PartyType16Code
     ATMManager = PartyTypeCode.ATMManager, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType16CodeMetadataExtensions
-{
-    private static readonly PartyType16CodeDropdownSource _dropdownSource = new PartyType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType16CodeDropdownRow GetMetadata(this PartyType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

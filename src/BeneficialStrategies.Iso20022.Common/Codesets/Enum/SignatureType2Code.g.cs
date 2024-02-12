@@ -56,22 +56,3 @@ public enum SignatureType2Code
     Original = SignatureTypeV2Code.Original, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SignatureType2CodeMetadataExtensions
-{
-    private static readonly SignatureType2CodeDropdownSource _dropdownSource = new SignatureType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISignatureType2CodeDropdownRow GetMetadata(this SignatureType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

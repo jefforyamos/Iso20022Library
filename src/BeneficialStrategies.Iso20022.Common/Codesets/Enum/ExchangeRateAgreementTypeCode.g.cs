@@ -65,22 +65,3 @@ public enum ExchangeRateAgreementTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangeRateAgreementTypeCodeMetadataExtensions
-{
-    private static readonly ExchangeRateAgreementTypeCodeDropdownSource _dropdownSource = new ExchangeRateAgreementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangeRateAgreementTypeCodeDropdownRow GetMetadata(this ExchangeRateAgreementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

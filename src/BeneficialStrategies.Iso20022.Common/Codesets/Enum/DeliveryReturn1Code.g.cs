@@ -83,22 +83,3 @@ public enum DeliveryReturn1Code
     PartialReturn = DeliveryReturnCode.PartialReturn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryReturn1CodeMetadataExtensions
-{
-    private static readonly DeliveryReturn1CodeDropdownSource _dropdownSource = new DeliveryReturn1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryReturn1CodeDropdownRow GetMetadata(this DeliveryReturn1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

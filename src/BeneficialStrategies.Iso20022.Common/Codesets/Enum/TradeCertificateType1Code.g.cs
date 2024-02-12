@@ -83,22 +83,3 @@ public enum TradeCertificateType1Code
     Phytosanitary = TradeCertificateTypeCode.Phytosanitary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeCertificateType1CodeMetadataExtensions
-{
-    private static readonly TradeCertificateType1CodeDropdownSource _dropdownSource = new TradeCertificateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeCertificateType1CodeDropdownRow GetMetadata(this TradeCertificateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

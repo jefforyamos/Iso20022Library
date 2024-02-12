@@ -47,22 +47,3 @@ public enum NonEligibleProceedsIndicator1Code
     OtherNonEligibility = NonEligibleProceedsIndicatorCode.OtherNonEligibility, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonEligibleProceedsIndicator1CodeMetadataExtensions
-{
-    private static readonly NonEligibleProceedsIndicator1CodeDropdownSource _dropdownSource = new NonEligibleProceedsIndicator1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonEligibleProceedsIndicator1CodeDropdownRow GetMetadata(this NonEligibleProceedsIndicator1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

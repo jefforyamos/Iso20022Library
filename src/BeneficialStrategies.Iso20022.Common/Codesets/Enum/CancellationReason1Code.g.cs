@@ -65,22 +65,3 @@ public enum CancellationReason1Code
     UnduePayment = CancellationReasonCode.UnduePayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationReason1CodeMetadataExtensions
-{
-    private static readonly CancellationReason1CodeDropdownSource _dropdownSource = new CancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationReason1CodeDropdownRow GetMetadata(this CancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

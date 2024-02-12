@@ -56,22 +56,3 @@ public enum OutputFormat2Code
     XHTML = OutputFormatCode.XHTML, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OutputFormat2CodeMetadataExtensions
-{
-    private static readonly OutputFormat2CodeDropdownSource _dropdownSource = new OutputFormat2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOutputFormat2CodeDropdownRow GetMetadata(this OutputFormat2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

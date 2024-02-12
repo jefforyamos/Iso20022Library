@@ -74,22 +74,3 @@ public enum CardSecurityCapabilityCode
     OffLinePIN,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardSecurityCapabilityCodeMetadataExtensions
-{
-    private static readonly CardSecurityCapabilityCodeDropdownSource _dropdownSource = new CardSecurityCapabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardSecurityCapabilityCodeDropdownRow GetMetadata(this CardSecurityCapabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

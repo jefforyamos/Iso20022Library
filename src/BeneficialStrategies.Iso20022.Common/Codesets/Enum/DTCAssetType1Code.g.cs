@@ -866,22 +866,3 @@ public enum DTCAssetType1Code
     Corporate144aDesignatedInvestors = DTCAssetTypeCode.Corporate144aDesignatedInvestors, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAssetType1CodeMetadataExtensions
-{
-    private static readonly DTCAssetType1CodeDropdownSource _dropdownSource = new DTCAssetType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAssetType1CodeDropdownRow GetMetadata(this DTCAssetType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

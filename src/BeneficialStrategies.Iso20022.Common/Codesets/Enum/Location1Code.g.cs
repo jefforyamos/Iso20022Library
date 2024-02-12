@@ -38,22 +38,3 @@ public enum Location1Code
     AtMyInstitution = LocationCode.AtMyInstitution, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Location1CodeMetadataExtensions
-{
-    private static readonly Location1CodeDropdownSource _dropdownSource = new Location1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocation1CodeDropdownRow GetMetadata(this Location1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

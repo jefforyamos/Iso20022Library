@@ -47,22 +47,3 @@ public enum ClearingMethod1Code
     NetNegotiation = ClearingMethodCode.NetNegotiation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingMethod1CodeMetadataExtensions
-{
-    private static readonly ClearingMethod1CodeDropdownSource _dropdownSource = new ClearingMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingMethod1CodeDropdownRow GetMetadata(this ClearingMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

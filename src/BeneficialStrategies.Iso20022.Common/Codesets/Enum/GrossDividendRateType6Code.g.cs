@@ -137,22 +137,3 @@ public enum GrossDividendRateType6Code
     ForeignIncome = DividendRateTypeV2Code.ForeignIncome, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GrossDividendRateType6CodeMetadataExtensions
-{
-    private static readonly GrossDividendRateType6CodeDropdownSource _dropdownSource = new GrossDividendRateType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGrossDividendRateType6CodeDropdownRow GetMetadata(this GrossDividendRateType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum AcknowledgementReason5Code
     MarketDeadlineMissed = AcknowledgementReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReason5CodeMetadataExtensions
-{
-    private static readonly AcknowledgementReason5CodeDropdownSource _dropdownSource = new AcknowledgementReason5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReason5CodeDropdownRow GetMetadata(this AcknowledgementReason5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

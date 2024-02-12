@@ -47,22 +47,3 @@ public enum LiquidityIndicatorType1Code
     NormalMarketSize = LiquidityIndicatorTypeCode.NormalMarketSize, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LiquidityIndicatorType1CodeMetadataExtensions
-{
-    private static readonly LiquidityIndicatorType1CodeDropdownSource _dropdownSource = new LiquidityIndicatorType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILiquidityIndicatorType1CodeDropdownRow GetMetadata(this LiquidityIndicatorType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

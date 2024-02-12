@@ -92,22 +92,3 @@ public enum RepurchaseType7Code
     PrincipalExposureAdjustment = RepurchaseTypeCode.PrincipalExposureAdjustment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepurchaseType7CodeMetadataExtensions
-{
-    private static readonly RepurchaseType7CodeDropdownSource _dropdownSource = new RepurchaseType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepurchaseType7CodeDropdownRow GetMetadata(this RepurchaseType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

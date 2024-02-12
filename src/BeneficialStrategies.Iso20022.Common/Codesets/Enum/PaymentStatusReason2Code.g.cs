@@ -65,22 +65,3 @@ public enum PaymentStatusReason2Code
     CreditPendingDocuments = ExternalPaymentStatusReasonCode.CreditPendingDocuments, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentStatusReason2CodeMetadataExtensions
-{
-    private static readonly PaymentStatusReason2CodeDropdownSource _dropdownSource = new PaymentStatusReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentStatusReason2CodeDropdownRow GetMetadata(this PaymentStatusReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

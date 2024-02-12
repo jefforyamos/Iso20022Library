@@ -56,22 +56,3 @@ public enum PriceValueType8Code
     NilPayment = PriceValueTypeCode.NilPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType8CodeMetadataExtensions
-{
-    private static readonly PriceValueType8CodeDropdownSource _dropdownSource = new PriceValueType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType8CodeDropdownRow GetMetadata(this PriceValueType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

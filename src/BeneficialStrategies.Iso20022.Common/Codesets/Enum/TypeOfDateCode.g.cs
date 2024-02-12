@@ -38,22 +38,3 @@ public enum TypeOfDateCode
     Actual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfDateCodeMetadataExtensions
-{
-    private static readonly TypeOfDateCodeDropdownSource _dropdownSource = new TypeOfDateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfDateCodeDropdownRow GetMetadata(this TypeOfDateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

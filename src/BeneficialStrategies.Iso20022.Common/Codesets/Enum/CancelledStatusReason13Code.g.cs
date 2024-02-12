@@ -110,22 +110,3 @@ public enum CancelledStatusReason13Code
     CancelledByThirdParty = CancelledStatusReasonV2Code.CancelledByThirdParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason13CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason13CodeDropdownSource _dropdownSource = new CancelledStatusReason13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason13CodeDropdownRow GetMetadata(this CancelledStatusReason13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

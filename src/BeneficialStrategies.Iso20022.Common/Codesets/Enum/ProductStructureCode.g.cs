@@ -92,22 +92,3 @@ public enum ProductStructureCode
     Bond,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductStructureCodeMetadataExtensions
-{
-    private static readonly ProductStructureCodeDropdownSource _dropdownSource = new ProductStructureCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductStructureCodeDropdownRow GetMetadata(this ProductStructureCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

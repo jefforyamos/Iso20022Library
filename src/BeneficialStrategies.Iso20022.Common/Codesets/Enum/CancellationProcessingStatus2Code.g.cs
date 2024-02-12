@@ -65,22 +65,3 @@ public enum CancellationProcessingStatus2Code
     Rejected = CancellationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationProcessingStatus2CodeMetadataExtensions
-{
-    private static readonly CancellationProcessingStatus2CodeDropdownSource _dropdownSource = new CancellationProcessingStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationProcessingStatus2CodeDropdownRow GetMetadata(this CancellationProcessingStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum ListStatusTypeCode
     Timed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ListStatusTypeCodeMetadataExtensions
-{
-    private static readonly ListStatusTypeCodeDropdownSource _dropdownSource = new ListStatusTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IListStatusTypeCodeDropdownRow GetMetadata(this ListStatusTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

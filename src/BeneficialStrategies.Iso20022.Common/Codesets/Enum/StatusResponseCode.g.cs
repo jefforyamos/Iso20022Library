@@ -47,22 +47,3 @@ public enum StatusResponseCode
     CompleteResponse,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusResponseCodeMetadataExtensions
-{
-    private static readonly StatusResponseCodeDropdownSource _dropdownSource = new StatusResponseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusResponseCodeDropdownRow GetMetadata(this StatusResponseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

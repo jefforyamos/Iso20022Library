@@ -38,22 +38,3 @@ public enum PensionOrderType1Code
     Sharing = PensionOrderTypeCode.Sharing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionOrderType1CodeMetadataExtensions
-{
-    private static readonly PensionOrderType1CodeDropdownSource _dropdownSource = new PensionOrderType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionOrderType1CodeDropdownRow GetMetadata(this PensionOrderType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

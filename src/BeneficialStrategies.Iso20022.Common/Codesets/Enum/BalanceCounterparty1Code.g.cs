@@ -38,22 +38,3 @@ public enum BalanceCounterparty1Code
     Multilateral = BalanceCounterpartyCode.Multilateral, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceCounterparty1CodeMetadataExtensions
-{
-    private static readonly BalanceCounterparty1CodeDropdownSource _dropdownSource = new BalanceCounterparty1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceCounterparty1CodeDropdownRow GetMetadata(this BalanceCounterparty1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

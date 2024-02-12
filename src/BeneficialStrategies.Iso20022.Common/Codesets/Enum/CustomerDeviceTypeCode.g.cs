@@ -164,22 +164,3 @@ public enum CustomerDeviceTypeCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerDeviceTypeCodeMetadataExtensions
-{
-    private static readonly CustomerDeviceTypeCodeDropdownSource _dropdownSource = new CustomerDeviceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerDeviceTypeCodeDropdownRow GetMetadata(this CustomerDeviceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

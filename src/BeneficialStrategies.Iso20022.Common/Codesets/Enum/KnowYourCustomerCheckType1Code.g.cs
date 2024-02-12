@@ -47,22 +47,3 @@ public enum KnowYourCustomerCheckType1Code
     Simple = KnowYourCustomerCheckTypeCode.Simple, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class KnowYourCustomerCheckType1CodeMetadataExtensions
-{
-    private static readonly KnowYourCustomerCheckType1CodeDropdownSource _dropdownSource = new KnowYourCustomerCheckType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IKnowYourCustomerCheckType1CodeDropdownRow GetMetadata(this KnowYourCustomerCheckType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum NotificationTypeCode
     CannotSubmitDataSet,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotificationTypeCodeMetadataExtensions
-{
-    private static readonly NotificationTypeCodeDropdownSource _dropdownSource = new NotificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotificationTypeCodeDropdownRow GetMetadata(this NotificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

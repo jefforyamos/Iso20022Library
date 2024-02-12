@@ -56,22 +56,3 @@ public enum ISATypeCode
     Any,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ISATypeCodeMetadataExtensions
-{
-    private static readonly ISATypeCodeDropdownSource _dropdownSource = new ISATypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IISATypeCodeDropdownRow GetMetadata(this ISATypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

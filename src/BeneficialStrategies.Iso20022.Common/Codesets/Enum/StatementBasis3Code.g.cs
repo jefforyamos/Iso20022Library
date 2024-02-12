@@ -38,22 +38,3 @@ public enum StatementBasis3Code
     FutureMarkToMarket = StatementBasisCode.FutureMarkToMarket, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementBasis3CodeMetadataExtensions
-{
-    private static readonly StatementBasis3CodeDropdownSource _dropdownSource = new StatementBasis3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementBasis3CodeDropdownRow GetMetadata(this StatementBasis3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CancelledStatusReason15Code
     CancelledByAgent = CancelledStatusReasonV2Code.CancelledByAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason15CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason15CodeDropdownSource _dropdownSource = new CancelledStatusReason15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason15CodeDropdownRow GetMetadata(this CancelledStatusReason15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum SignatureType1Code
     None = SignatureTypeCode.None, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SignatureType1CodeMetadataExtensions
-{
-    private static readonly SignatureType1CodeDropdownSource _dropdownSource = new SignatureType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISignatureType1CodeDropdownRow GetMetadata(this SignatureType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum MandateClassificationCode
     UsageBased,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MandateClassificationCodeMetadataExtensions
-{
-    private static readonly MandateClassificationCodeDropdownSource _dropdownSource = new MandateClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMandateClassificationCodeDropdownRow GetMetadata(this MandateClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

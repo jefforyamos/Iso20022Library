@@ -39,22 +39,3 @@ public enum ExternalContractBalanceType1Code
     TotalUtilisation = ExternalContractBalanceTypeCode.TotalUtilisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalContractBalanceType1CodeMetadataExtensions
-{
-    private static readonly ExternalContractBalanceType1CodeDropdownSource _dropdownSource = new ExternalContractBalanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalContractBalanceType1CodeDropdownRow GetMetadata(this ExternalContractBalanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -596,22 +596,3 @@ public enum CardPaymentServiceTypeCode
     GuaranteeOfPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceTypeCodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceTypeCodeDropdownSource _dropdownSource = new CardPaymentServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceTypeCodeDropdownRow GetMetadata(this CardPaymentServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

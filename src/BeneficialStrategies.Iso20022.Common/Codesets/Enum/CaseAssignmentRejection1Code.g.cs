@@ -65,22 +65,3 @@ public enum CaseAssignmentRejection1Code
     PaymentCancelled = CaseAssignmentRejectionCode.PaymentCancelled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CaseAssignmentRejection1CodeMetadataExtensions
-{
-    private static readonly CaseAssignmentRejection1CodeDropdownSource _dropdownSource = new CaseAssignmentRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICaseAssignmentRejection1CodeDropdownRow GetMetadata(this CaseAssignmentRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

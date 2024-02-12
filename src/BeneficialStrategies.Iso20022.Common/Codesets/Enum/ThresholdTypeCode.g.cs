@@ -38,22 +38,3 @@ public enum ThresholdTypeCode
     Unsecured,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ThresholdTypeCodeMetadataExtensions
-{
-    private static readonly ThresholdTypeCodeDropdownSource _dropdownSource = new ThresholdTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IThresholdTypeCodeDropdownRow GetMetadata(this ThresholdTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

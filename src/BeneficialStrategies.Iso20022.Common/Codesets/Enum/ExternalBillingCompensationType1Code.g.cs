@@ -219,22 +219,3 @@ public enum ExternalBillingCompensationType1Code
     WaivedServices = ExternalBillingCompensationTypeCode.WaivedServices, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBillingCompensationType1CodeMetadataExtensions
-{
-    private static readonly ExternalBillingCompensationType1CodeDropdownSource _dropdownSource = new ExternalBillingCompensationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBillingCompensationType1CodeDropdownRow GetMetadata(this ExternalBillingCompensationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

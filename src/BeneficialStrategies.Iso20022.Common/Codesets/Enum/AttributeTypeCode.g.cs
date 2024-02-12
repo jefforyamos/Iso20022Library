@@ -83,22 +83,3 @@ public enum AttributeTypeCode
     ChallengePassword,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttributeTypeCodeMetadataExtensions
-{
-    private static readonly AttributeTypeCodeDropdownSource _dropdownSource = new AttributeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttributeTypeCodeDropdownRow GetMetadata(this AttributeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

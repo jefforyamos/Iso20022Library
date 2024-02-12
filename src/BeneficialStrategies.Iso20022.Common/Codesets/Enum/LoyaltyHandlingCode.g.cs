@@ -65,22 +65,3 @@ public enum LoyaltyHandlingCode
     Required,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyHandlingCodeMetadataExtensions
-{
-    private static readonly LoyaltyHandlingCodeDropdownSource _dropdownSource = new LoyaltyHandlingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyHandlingCodeDropdownRow GetMetadata(this LoyaltyHandlingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

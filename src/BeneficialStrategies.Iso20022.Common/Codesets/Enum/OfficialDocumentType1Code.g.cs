@@ -155,22 +155,3 @@ public enum OfficialDocumentType1Code
     Refugee = OfficialDocumentTypeCode.Refugee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OfficialDocumentType1CodeMetadataExtensions
-{
-    private static readonly OfficialDocumentType1CodeDropdownSource _dropdownSource = new OfficialDocumentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOfficialDocumentType1CodeDropdownRow GetMetadata(this OfficialDocumentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

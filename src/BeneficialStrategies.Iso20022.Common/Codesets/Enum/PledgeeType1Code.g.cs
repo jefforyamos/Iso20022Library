@@ -38,22 +38,3 @@ public enum PledgeeType1Code
     RegulatoryBody = PledgeeTypeCode.RegulatoryBody, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PledgeeType1CodeMetadataExtensions
-{
-    private static readonly PledgeeType1CodeDropdownSource _dropdownSource = new PledgeeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPledgeeType1CodeDropdownRow GetMetadata(this PledgeeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

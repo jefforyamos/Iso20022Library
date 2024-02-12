@@ -182,22 +182,3 @@ public enum QualifierCode
     PreOpen,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QualifierCodeMetadataExtensions
-{
-    private static readonly QualifierCodeDropdownSource _dropdownSource = new QualifierCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQualifierCodeDropdownRow GetMetadata(this QualifierCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

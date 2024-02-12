@@ -38,22 +38,3 @@ public enum TypeOfRequest1Code
     Status = TypeOfRequestCode.Status, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfRequest1CodeMetadataExtensions
-{
-    private static readonly TypeOfRequest1CodeDropdownSource _dropdownSource = new TypeOfRequest1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfRequest1CodeDropdownRow GetMetadata(this TypeOfRequest1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum TypeOfAmount6Code
     IssuerFees = TypeOfAmountCode.IssuerFees, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount6CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount6CodeDropdownSource _dropdownSource = new TypeOfAmount6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount6CodeDropdownRow GetMetadata(this TypeOfAmount6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

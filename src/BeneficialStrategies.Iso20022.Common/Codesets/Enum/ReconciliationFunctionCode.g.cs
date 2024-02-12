@@ -47,22 +47,3 @@ public enum ReconciliationFunctionCode
     InitiateCutover,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationFunctionCodeMetadataExtensions
-{
-    private static readonly ReconciliationFunctionCodeDropdownSource _dropdownSource = new ReconciliationFunctionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationFunctionCodeDropdownRow GetMetadata(this ReconciliationFunctionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

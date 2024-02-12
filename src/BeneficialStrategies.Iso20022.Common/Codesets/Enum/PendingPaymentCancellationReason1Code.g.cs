@@ -47,22 +47,3 @@ public enum PendingPaymentCancellationReason1Code
     RequestedDebitAuthority = PendingPaymentCancellationReasonCode.RequestedDebitAuthority, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingPaymentCancellationReason1CodeMetadataExtensions
-{
-    private static readonly PendingPaymentCancellationReason1CodeDropdownSource _dropdownSource = new PendingPaymentCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingPaymentCancellationReason1CodeDropdownRow GetMetadata(this PendingPaymentCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

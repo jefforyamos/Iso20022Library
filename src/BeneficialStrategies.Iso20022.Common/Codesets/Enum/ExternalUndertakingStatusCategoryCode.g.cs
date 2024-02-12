@@ -102,22 +102,3 @@ public enum ExternalUndertakingStatusCategoryCode
     Termination,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingStatusCategoryCodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingStatusCategoryCodeDropdownSource _dropdownSource = new ExternalUndertakingStatusCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingStatusCategoryCodeDropdownRow GetMetadata(this ExternalUndertakingStatusCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

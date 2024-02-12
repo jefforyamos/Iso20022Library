@@ -904,22 +904,3 @@ public enum ExternalMarketInfrastructure1Code
     Zambia = ExternalMarketInfrastructureCode.Zambia, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalMarketInfrastructure1CodeMetadataExtensions
-{
-    private static readonly ExternalMarketInfrastructure1CodeDropdownSource _dropdownSource = new ExternalMarketInfrastructure1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalMarketInfrastructure1CodeDropdownRow GetMetadata(this ExternalMarketInfrastructure1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum SettlementConditionModificationStatus1Code
     Completed = SettlementConditionModificationStatusStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementConditionModificationStatus1CodeMetadataExtensions
-{
-    private static readonly SettlementConditionModificationStatus1CodeDropdownSource _dropdownSource = new SettlementConditionModificationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementConditionModificationStatus1CodeDropdownRow GetMetadata(this SettlementConditionModificationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

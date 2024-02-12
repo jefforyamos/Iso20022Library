@@ -38,22 +38,3 @@ public enum DisclosureRequestType1Code
     Replacement = DisclosureRequestTypeCode.Replacement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisclosureRequestType1CodeMetadataExtensions
-{
-    private static readonly DisclosureRequestType1CodeDropdownSource _dropdownSource = new DisclosureRequestType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisclosureRequestType1CodeDropdownRow GetMetadata(this DisclosureRequestType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

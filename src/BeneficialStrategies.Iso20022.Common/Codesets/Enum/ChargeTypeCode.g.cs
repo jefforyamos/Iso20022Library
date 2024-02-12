@@ -434,22 +434,3 @@ public enum ChargeTypeCode
     IssuanceFee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeTypeCodeMetadataExtensions
-{
-    private static readonly ChargeTypeCodeDropdownSource _dropdownSource = new ChargeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeTypeCodeDropdownRow GetMetadata(this ChargeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

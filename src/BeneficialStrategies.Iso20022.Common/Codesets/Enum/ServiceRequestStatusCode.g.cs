@@ -56,22 +56,3 @@ public enum ServiceRequestStatusCode
     Accepted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceRequestStatusCodeMetadataExtensions
-{
-    private static readonly ServiceRequestStatusCodeDropdownSource _dropdownSource = new ServiceRequestStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceRequestStatusCodeDropdownRow GetMetadata(this ServiceRequestStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

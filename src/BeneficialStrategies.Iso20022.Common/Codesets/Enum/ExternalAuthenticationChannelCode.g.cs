@@ -57,22 +57,3 @@ public enum ExternalAuthenticationChannelCode
     Mobile,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAuthenticationChannelCodeMetadataExtensions
-{
-    private static readonly ExternalAuthenticationChannelCodeDropdownSource _dropdownSource = new ExternalAuthenticationChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAuthenticationChannelCodeDropdownRow GetMetadata(this ExternalAuthenticationChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

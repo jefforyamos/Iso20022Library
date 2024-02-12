@@ -47,22 +47,3 @@ public enum OrderStatus7Code
     Received = OrderStatusCode.Received, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderStatus7CodeMetadataExtensions
-{
-    private static readonly OrderStatus7CodeDropdownSource _dropdownSource = new OrderStatus7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderStatus7CodeDropdownRow GetMetadata(this OrderStatus7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

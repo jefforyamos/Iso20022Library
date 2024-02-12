@@ -29,22 +29,3 @@ public enum AwaitingAffirmationReason1Code
     AwaitingAffirmation = AwaitingAffirmationReasonCode.AwaitingAffirmation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AwaitingAffirmationReason1CodeMetadataExtensions
-{
-    private static readonly AwaitingAffirmationReason1CodeDropdownSource _dropdownSource = new AwaitingAffirmationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAwaitingAffirmationReason1CodeDropdownRow GetMetadata(this AwaitingAffirmationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

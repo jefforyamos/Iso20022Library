@@ -47,22 +47,3 @@ public enum CancellationIndividualStatus2Code
     RejectedCancellationRequest = PaymentStatusCode.RejectedCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationIndividualStatus2CodeMetadataExtensions
-{
-    private static readonly CancellationIndividualStatus2CodeDropdownSource _dropdownSource = new CancellationIndividualStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationIndividualStatus2CodeDropdownRow GetMetadata(this CancellationIndividualStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum TradeConfirmationStatus1Code
     Unconfirmed = TradeConfirmationStatusCode.Unconfirmed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeConfirmationStatus1CodeMetadataExtensions
-{
-    private static readonly TradeConfirmationStatus1CodeDropdownSource _dropdownSource = new TradeConfirmationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeConfirmationStatus1CodeDropdownRow GetMetadata(this TradeConfirmationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

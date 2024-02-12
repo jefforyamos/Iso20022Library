@@ -146,22 +146,3 @@ public enum TransactionRejectReason4Code
     CutOffTime = TransactionReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionRejectReason4CodeMetadataExtensions
-{
-    private static readonly TransactionRejectReason4CodeDropdownSource _dropdownSource = new TransactionRejectReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionRejectReason4CodeDropdownRow GetMetadata(this TransactionRejectReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

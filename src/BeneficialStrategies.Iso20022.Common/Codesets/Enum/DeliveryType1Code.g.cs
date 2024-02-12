@@ -56,22 +56,3 @@ public enum DeliveryType1Code
     HoldInCustody = DeliveryTypeCode.HoldInCustody, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryType1CodeMetadataExtensions
-{
-    private static readonly DeliveryType1CodeDropdownSource _dropdownSource = new DeliveryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryType1CodeDropdownRow GetMetadata(this DeliveryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

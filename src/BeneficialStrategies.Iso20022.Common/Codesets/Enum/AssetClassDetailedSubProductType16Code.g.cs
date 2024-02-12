@@ -659,22 +659,3 @@ public enum AssetClassDetailedSubProductType16Code
     Zinc = AssetClassDetailedSubProductTypeCode.Zinc, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType16CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType16CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType16CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

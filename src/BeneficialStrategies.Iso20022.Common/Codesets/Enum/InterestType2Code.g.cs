@@ -38,22 +38,3 @@ public enum InterestType2Code
     ExInterest = InterestTypeCode.ExInterest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestType2CodeMetadataExtensions
-{
-    private static readonly InterestType2CodeDropdownSource _dropdownSource = new InterestType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestType2CodeDropdownRow GetMetadata(this InterestType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

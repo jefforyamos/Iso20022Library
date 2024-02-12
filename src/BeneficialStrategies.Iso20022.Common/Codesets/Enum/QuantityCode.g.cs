@@ -56,22 +56,3 @@ public enum QuantityCode
     AnyAndAll,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuantityCodeMetadataExtensions
-{
-    private static readonly QuantityCodeDropdownSource _dropdownSource = new QuantityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuantityCodeDropdownRow GetMetadata(this QuantityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

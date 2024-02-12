@@ -38,22 +38,3 @@ public enum ErrorSeverity1Code
     Transient = ErrorSeverityCode.Transient, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ErrorSeverity1CodeMetadataExtensions
-{
-    private static readonly ErrorSeverity1CodeDropdownSource _dropdownSource = new ErrorSeverity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IErrorSeverity1CodeDropdownRow GetMetadata(this ErrorSeverity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

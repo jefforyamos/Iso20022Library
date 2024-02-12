@@ -65,22 +65,3 @@ public enum PartiallySettledStatusReasonCode
     HoldBackLiquidation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartiallySettledStatusReasonCodeMetadataExtensions
-{
-    private static readonly PartiallySettledStatusReasonCodeDropdownSource _dropdownSource = new PartiallySettledStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartiallySettledStatusReasonCodeDropdownRow GetMetadata(this PartiallySettledStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

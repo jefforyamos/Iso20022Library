@@ -173,22 +173,3 @@ public enum PendingReason23Code
     InvalidPaperwork = PendingFailingReasonV2Code.InvalidPaperwork, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason23CodeMetadataExtensions
-{
-    private static readonly PendingReason23CodeDropdownSource _dropdownSource = new PendingReason23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason23CodeDropdownRow GetMetadata(this PendingReason23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

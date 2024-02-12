@@ -48,22 +48,3 @@ public enum ValidationRuleIssuanceType1Code
     UndertakingViaAdvisingParty = ValidationRuleCode.UndertakingViaAdvisingParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleIssuanceType1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleIssuanceType1CodeDropdownSource _dropdownSource = new ValidationRuleIssuanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleIssuanceType1CodeDropdownRow GetMetadata(this ValidationRuleIssuanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

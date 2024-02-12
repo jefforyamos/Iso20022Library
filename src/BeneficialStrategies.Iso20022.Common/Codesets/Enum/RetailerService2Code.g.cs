@@ -101,22 +101,3 @@ public enum RetailerService2Code
     FinancialReconciliationRequest = RetailerServiceCode.FinancialReconciliationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService2CodeMetadataExtensions
-{
-    private static readonly RetailerService2CodeDropdownSource _dropdownSource = new RetailerService2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService2CodeDropdownRow GetMetadata(this RetailerService2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

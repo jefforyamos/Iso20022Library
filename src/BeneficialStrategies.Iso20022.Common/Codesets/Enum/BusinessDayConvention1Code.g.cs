@@ -38,22 +38,3 @@ public enum BusinessDayConvention1Code
     Preceding = BusinessDayConventionCode.Preceding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessDayConvention1CodeMetadataExtensions
-{
-    private static readonly BusinessDayConvention1CodeDropdownSource _dropdownSource = new BusinessDayConvention1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessDayConvention1CodeDropdownRow GetMetadata(this BusinessDayConvention1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

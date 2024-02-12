@@ -83,22 +83,3 @@ public enum TaxRecordCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxRecordCodeMetadataExtensions
-{
-    private static readonly TaxRecordCodeDropdownSource _dropdownSource = new TaxRecordCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxRecordCodeDropdownRow GetMetadata(this TaxRecordCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

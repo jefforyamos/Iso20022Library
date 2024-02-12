@@ -56,22 +56,3 @@ public enum LegSwapType1Code
     Proceeds = LegSwapTypeCode.Proceeds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegSwapType1CodeMetadataExtensions
-{
-    private static readonly LegSwapType1CodeDropdownSource _dropdownSource = new LegSwapType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegSwapType1CodeDropdownRow GetMetadata(this LegSwapType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CollateralProposalResponseCode
     CounterProposal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralProposalResponseCodeMetadataExtensions
-{
-    private static readonly CollateralProposalResponseCodeDropdownSource _dropdownSource = new CollateralProposalResponseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralProposalResponseCodeDropdownRow GetMetadata(this CollateralProposalResponseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

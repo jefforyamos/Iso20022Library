@@ -38,22 +38,3 @@ public enum DTCLateCode
     LateAnnouncementPending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCLateCodeMetadataExtensions
-{
-    private static readonly DTCLateCodeDropdownSource _dropdownSource = new DTCLateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCLateCodeDropdownRow GetMetadata(this DTCLateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum InvestmentFundTransactionInType1Code
     ReinvestmentOfDividend = InvestmentFundTransactionTypeCode.ReinvestmentOfDividend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundTransactionInType1CodeMetadataExtensions
-{
-    private static readonly InvestmentFundTransactionInType1CodeDropdownSource _dropdownSource = new InvestmentFundTransactionInType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundTransactionInType1CodeDropdownRow GetMetadata(this InvestmentFundTransactionInType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum DTCCPayoutType1Code
     Unfranked = DTCCPayoutTypeCode.Unfranked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCPayoutType1CodeMetadataExtensions
-{
-    private static readonly DTCCPayoutType1CodeDropdownSource _dropdownSource = new DTCCPayoutType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCPayoutType1CodeDropdownRow GetMetadata(this DTCCPayoutType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

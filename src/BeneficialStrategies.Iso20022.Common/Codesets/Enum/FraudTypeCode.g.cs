@@ -146,22 +146,3 @@ public enum FraudTypeCode
     Collusion,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FraudTypeCodeMetadataExtensions
-{
-    private static readonly FraudTypeCodeDropdownSource _dropdownSource = new FraudTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFraudTypeCodeDropdownRow GetMetadata(this FraudTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

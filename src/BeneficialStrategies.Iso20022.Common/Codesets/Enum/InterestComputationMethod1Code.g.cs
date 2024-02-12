@@ -146,22 +146,3 @@ public enum InterestComputationMethod1Code
     Actual365NL = InterestComputationMethodCode.Actual365NL, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestComputationMethod1CodeMetadataExtensions
-{
-    private static readonly InterestComputationMethod1CodeDropdownSource _dropdownSource = new InterestComputationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestComputationMethod1CodeDropdownRow GetMetadata(this InterestComputationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum PhysicalTransferType1Code
     Physical = PhysicalTransferTypeCode.Physical, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PhysicalTransferType1CodeMetadataExtensions
-{
-    private static readonly PhysicalTransferType1CodeDropdownSource _dropdownSource = new PhysicalTransferType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPhysicalTransferType1CodeDropdownRow GetMetadata(this PhysicalTransferType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

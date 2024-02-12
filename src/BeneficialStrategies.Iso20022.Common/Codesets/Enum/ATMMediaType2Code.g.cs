@@ -92,22 +92,3 @@ public enum ATMMediaType2Code
     Check = ATMMediaTypeCode.Check, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMMediaType2CodeMetadataExtensions
-{
-    private static readonly ATMMediaType2CodeDropdownSource _dropdownSource = new ATMMediaType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMMediaType2CodeDropdownRow GetMetadata(this ATMMediaType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum DebtInstrumentSeniorityType2Code
     Other = DebtInstrumentSeniorityTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DebtInstrumentSeniorityType2CodeMetadataExtensions
-{
-    private static readonly DebtInstrumentSeniorityType2CodeDropdownSource _dropdownSource = new DebtInstrumentSeniorityType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDebtInstrumentSeniorityType2CodeDropdownRow GetMetadata(this DebtInstrumentSeniorityType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

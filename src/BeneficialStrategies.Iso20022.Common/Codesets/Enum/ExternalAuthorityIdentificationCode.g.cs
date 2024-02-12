@@ -445,22 +445,3 @@ public enum ExternalAuthorityIdentificationCode
     NationalBankOfSlovakiaNBS,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAuthorityIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalAuthorityIdentificationCodeDropdownSource _dropdownSource = new ExternalAuthorityIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAuthorityIdentificationCodeDropdownRow GetMetadata(this ExternalAuthorityIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

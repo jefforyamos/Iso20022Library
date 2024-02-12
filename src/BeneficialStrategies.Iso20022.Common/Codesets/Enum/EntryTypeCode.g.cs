@@ -38,22 +38,3 @@ public enum EntryTypeCode
     Delivered,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryTypeCodeMetadataExtensions
-{
-    private static readonly EntryTypeCodeDropdownSource _dropdownSource = new EntryTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryTypeCodeDropdownRow GetMetadata(this EntryTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

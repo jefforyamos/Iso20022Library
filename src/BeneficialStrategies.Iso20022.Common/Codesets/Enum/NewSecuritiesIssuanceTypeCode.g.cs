@@ -83,22 +83,3 @@ public enum NewSecuritiesIssuanceTypeCode
     NonRefundedSecurityIndicator,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NewSecuritiesIssuanceTypeCodeMetadataExtensions
-{
-    private static readonly NewSecuritiesIssuanceTypeCodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INewSecuritiesIssuanceTypeCodeDropdownRow GetMetadata(this NewSecuritiesIssuanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

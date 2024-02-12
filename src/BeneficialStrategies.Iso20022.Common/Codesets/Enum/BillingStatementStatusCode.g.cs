@@ -47,22 +47,3 @@ public enum BillingStatementStatusCode
     Test,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingStatementStatusCodeMetadataExtensions
-{
-    private static readonly BillingStatementStatusCodeDropdownSource _dropdownSource = new BillingStatementStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingStatementStatusCodeDropdownRow GetMetadata(this BillingStatementStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

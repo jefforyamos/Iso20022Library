@@ -193,22 +193,3 @@ public enum ExternalMarketAreaCode
     Treasury,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalMarketAreaCodeMetadataExtensions
-{
-    private static readonly ExternalMarketAreaCodeDropdownSource _dropdownSource = new ExternalMarketAreaCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalMarketAreaCodeDropdownRow GetMetadata(this ExternalMarketAreaCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum StatisticalReportingStatus1Code
     CorruptedFile = StatisticalReportingStatusCode.CorruptedFile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatisticalReportingStatus1CodeMetadataExtensions
-{
-    private static readonly StatisticalReportingStatus1CodeDropdownSource _dropdownSource = new StatisticalReportingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatisticalReportingStatus1CodeDropdownRow GetMetadata(this StatisticalReportingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InstructionType1Code
     FullPushThrough = InstructionTypeCode.FullPushThrough, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionType1CodeMetadataExtensions
-{
-    private static readonly InstructionType1CodeDropdownSource _dropdownSource = new InstructionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionType1CodeDropdownRow GetMetadata(this InstructionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

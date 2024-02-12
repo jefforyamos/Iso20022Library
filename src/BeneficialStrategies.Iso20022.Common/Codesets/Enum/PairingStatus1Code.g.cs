@@ -38,22 +38,3 @@ public enum PairingStatus1Code
     Unpaired = PairingStatusCode.Unpaired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PairingStatus1CodeMetadataExtensions
-{
-    private static readonly PairingStatus1CodeDropdownSource _dropdownSource = new PairingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPairingStatus1CodeDropdownRow GetMetadata(this PairingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

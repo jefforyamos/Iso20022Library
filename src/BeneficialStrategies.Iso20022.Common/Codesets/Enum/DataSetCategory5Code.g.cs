@@ -92,22 +92,3 @@ public enum DataSetCategory5Code
     TerminalParameters = DataSetCategoryCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory5CodeMetadataExtensions
-{
-    private static readonly DataSetCategory5CodeDropdownSource _dropdownSource = new DataSetCategory5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory5CodeDropdownRow GetMetadata(this DataSetCategory5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

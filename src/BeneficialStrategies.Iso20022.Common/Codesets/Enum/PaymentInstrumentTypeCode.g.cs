@@ -65,22 +65,3 @@ public enum PaymentInstrumentTypeCode
     LoyaltyAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentInstrumentTypeCodeMetadataExtensions
-{
-    private static readonly PaymentInstrumentTypeCodeDropdownSource _dropdownSource = new PaymentInstrumentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentInstrumentTypeCodeDropdownRow GetMetadata(this PaymentInstrumentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

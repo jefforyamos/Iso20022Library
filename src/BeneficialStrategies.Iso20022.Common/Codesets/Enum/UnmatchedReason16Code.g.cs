@@ -128,22 +128,3 @@ public enum UnmatchedReason16Code
     TransactionDirection = UnmatchedReasonCode.TransactionDirection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason16CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason16CodeDropdownSource _dropdownSource = new UnmatchedReason16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason16CodeDropdownRow GetMetadata(this UnmatchedReason16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

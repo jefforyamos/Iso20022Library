@@ -29,22 +29,3 @@ public enum AssetClassProductType12Code
     Inflation = AssetClassProductTypeCode.Inflation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType12CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType12CodeDropdownSource _dropdownSource = new AssetClassProductType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType12CodeDropdownRow GetMetadata(this AssetClassProductType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

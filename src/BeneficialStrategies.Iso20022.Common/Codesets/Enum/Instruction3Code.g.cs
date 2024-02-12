@@ -56,22 +56,3 @@ public enum Instruction3Code
     Telecom = InstructionCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Instruction3CodeMetadataExtensions
-{
-    private static readonly Instruction3CodeDropdownSource _dropdownSource = new Instruction3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstruction3CodeDropdownRow GetMetadata(this Instruction3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

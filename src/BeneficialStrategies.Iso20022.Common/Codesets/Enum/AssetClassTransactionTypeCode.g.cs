@@ -110,22 +110,3 @@ public enum AssetClassTransactionTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassTransactionTypeCodeMetadataExtensions
-{
-    private static readonly AssetClassTransactionTypeCodeDropdownSource _dropdownSource = new AssetClassTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassTransactionTypeCodeDropdownRow GetMetadata(this AssetClassTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum InvestorProfileStatusCode
     Disabled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorProfileStatusCodeMetadataExtensions
-{
-    private static readonly InvestorProfileStatusCodeDropdownSource _dropdownSource = new InvestorProfileStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorProfileStatusCodeDropdownRow GetMetadata(this InvestorProfileStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

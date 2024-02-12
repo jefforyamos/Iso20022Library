@@ -47,22 +47,3 @@ public enum AssetClassSubProductMetal1Code
     Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductMetal1CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductMetal1CodeDropdownSource _dropdownSource = new AssetClassSubProductMetal1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductMetal1CodeDropdownRow GetMetadata(this AssetClassSubProductMetal1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum LocationCode
     AtAnotherInstitution,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationCodeMetadataExtensions
-{
-    private static readonly LocationCodeDropdownSource _dropdownSource = new LocationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationCodeDropdownRow GetMetadata(this LocationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

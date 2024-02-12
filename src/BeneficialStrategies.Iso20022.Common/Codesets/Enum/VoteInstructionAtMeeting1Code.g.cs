@@ -92,22 +92,3 @@ public enum VoteInstructionAtMeeting1Code
     NoAction = VoteInstructionCode.NoAction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstructionAtMeeting1CodeMetadataExtensions
-{
-    private static readonly VoteInstructionAtMeeting1CodeDropdownSource _dropdownSource = new VoteInstructionAtMeeting1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstructionAtMeeting1CodeDropdownRow GetMetadata(this VoteInstructionAtMeeting1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -218,22 +218,3 @@ public enum ConfirmationCancellationReason1Code
     InvalidReference = ConfirmationCancellationReasonCode.InvalidReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationCancellationReason1CodeMetadataExtensions
-{
-    private static readonly ConfirmationCancellationReason1CodeDropdownSource _dropdownSource = new ConfirmationCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationCancellationReason1CodeDropdownRow GetMetadata(this ConfirmationCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

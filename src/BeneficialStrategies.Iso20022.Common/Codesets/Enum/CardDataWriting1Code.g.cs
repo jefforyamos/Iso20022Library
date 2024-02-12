@@ -84,22 +84,3 @@ public enum CardDataWriting1Code
     OtherPrivate = CardDataReadingCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataWriting1CodeMetadataExtensions
-{
-    private static readonly CardDataWriting1CodeDropdownSource _dropdownSource = new CardDataWriting1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataWriting1CodeDropdownRow GetMetadata(this CardDataWriting1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

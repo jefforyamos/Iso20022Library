@@ -65,22 +65,3 @@ public enum RedemptionTypeCode
     Putable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RedemptionTypeCodeMetadataExtensions
-{
-    private static readonly RedemptionTypeCodeDropdownSource _dropdownSource = new RedemptionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRedemptionTypeCodeDropdownRow GetMetadata(this RedemptionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

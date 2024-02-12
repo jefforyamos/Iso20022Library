@@ -47,22 +47,3 @@ public enum SWIFTServiceLevelCode
     Standard,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SWIFTServiceLevelCodeMetadataExtensions
-{
-    private static readonly SWIFTServiceLevelCodeDropdownSource _dropdownSource = new SWIFTServiceLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISWIFTServiceLevelCodeDropdownRow GetMetadata(this SWIFTServiceLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

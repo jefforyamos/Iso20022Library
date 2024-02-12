@@ -200,22 +200,3 @@ public enum InvestigationExecutionConfirmationCode
     InstructionIsDuplicate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationExecutionConfirmationCodeMetadataExtensions
-{
-    private static readonly InvestigationExecutionConfirmationCodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationExecutionConfirmationCodeDropdownRow GetMetadata(this InvestigationExecutionConfirmationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

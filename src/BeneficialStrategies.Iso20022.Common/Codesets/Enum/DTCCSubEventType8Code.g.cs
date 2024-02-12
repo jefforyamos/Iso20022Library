@@ -407,22 +407,3 @@ public enum DTCCSubEventType8Code
     NameAndCUSIPChangeAndPresentationRequired = DTCCSubEventTypeCode.NameAndCUSIPChangeAndPresentationRequired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType8CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType8CodeDropdownSource _dropdownSource = new DTCCSubEventType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType8CodeDropdownRow GetMetadata(this DTCCSubEventType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

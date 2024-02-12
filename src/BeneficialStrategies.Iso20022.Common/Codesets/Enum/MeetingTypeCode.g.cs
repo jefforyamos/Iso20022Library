@@ -101,22 +101,3 @@ public enum MeetingTypeCode
     BondHolderMeeting,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingTypeCodeMetadataExtensions
-{
-    private static readonly MeetingTypeCodeDropdownSource _dropdownSource = new MeetingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingTypeCodeDropdownRow GetMetadata(this MeetingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

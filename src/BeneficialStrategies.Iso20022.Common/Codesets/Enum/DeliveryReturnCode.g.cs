@@ -83,22 +83,3 @@ public enum DeliveryReturnCode
     PartialReturn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryReturnCodeMetadataExtensions
-{
-    private static readonly DeliveryReturnCodeDropdownSource _dropdownSource = new DeliveryReturnCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryReturnCodeDropdownRow GetMetadata(this DeliveryReturnCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

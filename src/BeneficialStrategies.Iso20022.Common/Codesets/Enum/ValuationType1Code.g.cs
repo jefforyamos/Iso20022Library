@@ -47,22 +47,3 @@ public enum ValuationType1Code
     MarkToModel = ValuationTypeCode.MarkToModel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValuationType1CodeMetadataExtensions
-{
-    private static readonly ValuationType1CodeDropdownSource _dropdownSource = new ValuationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValuationType1CodeDropdownRow GetMetadata(this ValuationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

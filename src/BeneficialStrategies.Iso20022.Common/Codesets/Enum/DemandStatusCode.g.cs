@@ -47,22 +47,3 @@ public enum DemandStatusCode
     PAY,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DemandStatusCodeMetadataExtensions
-{
-    private static readonly DemandStatusCodeDropdownSource _dropdownSource = new DemandStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDemandStatusCodeDropdownRow GetMetadata(this DemandStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

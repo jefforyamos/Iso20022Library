@@ -164,22 +164,3 @@ public enum SideCode
     OptionExercise,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SideCodeMetadataExtensions
-{
-    private static readonly SideCodeDropdownSource _dropdownSource = new SideCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISideCodeDropdownRow GetMetadata(this SideCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

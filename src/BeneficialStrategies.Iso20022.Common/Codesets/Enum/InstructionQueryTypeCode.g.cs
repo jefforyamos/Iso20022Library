@@ -47,22 +47,3 @@ public enum InstructionQueryTypeCode
     SettlementAndIntraPosition,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionQueryTypeCodeMetadataExtensions
-{
-    private static readonly InstructionQueryTypeCodeDropdownSource _dropdownSource = new InstructionQueryTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionQueryTypeCodeDropdownRow GetMetadata(this InstructionQueryTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum CutOffCode
     Late,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CutOffCodeMetadataExtensions
-{
-    private static readonly CutOffCodeDropdownSource _dropdownSource = new CutOffCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICutOffCodeDropdownRow GetMetadata(this CutOffCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

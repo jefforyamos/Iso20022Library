@@ -29,22 +29,3 @@ public enum ValidationRulePayCreditorByCheque1Code
     PayCreditorByCheque = ValidationRuleCode.PayCreditorByCheque, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRulePayCreditorByCheque1CodeMetadataExtensions
-{
-    private static readonly ValidationRulePayCreditorByCheque1CodeDropdownSource _dropdownSource = new ValidationRulePayCreditorByCheque1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRulePayCreditorByCheque1CodeDropdownRow GetMetadata(this ValidationRulePayCreditorByCheque1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

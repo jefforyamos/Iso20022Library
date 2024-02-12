@@ -73,22 +73,3 @@ public enum NoticePeriodTypeCode
     Year,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NoticePeriodTypeCodeMetadataExtensions
-{
-    private static readonly NoticePeriodTypeCodeDropdownSource _dropdownSource = new NoticePeriodTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INoticePeriodTypeCodeDropdownRow GetMetadata(this NoticePeriodTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

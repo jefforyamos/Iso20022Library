@@ -38,22 +38,3 @@ public enum TransactionInitiator1Code
     Customer = TransactionInitiatorCode.Customer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionInitiator1CodeMetadataExtensions
-{
-    private static readonly TransactionInitiator1CodeDropdownSource _dropdownSource = new TransactionInitiator1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionInitiator1CodeDropdownRow GetMetadata(this TransactionInitiator1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

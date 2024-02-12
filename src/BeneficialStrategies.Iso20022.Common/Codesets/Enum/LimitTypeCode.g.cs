@@ -155,22 +155,3 @@ public enum LimitTypeCode
     ExternalGuarantee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LimitTypeCodeMetadataExtensions
-{
-    private static readonly LimitTypeCodeDropdownSource _dropdownSource = new LimitTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILimitTypeCodeDropdownRow GetMetadata(this LimitTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

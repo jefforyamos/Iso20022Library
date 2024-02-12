@@ -110,22 +110,3 @@ public enum SwitchStatus1Code
     Termination = SwitchStatusCode.Termination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SwitchStatus1CodeMetadataExtensions
-{
-    private static readonly SwitchStatus1CodeDropdownSource _dropdownSource = new SwitchStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISwitchStatus1CodeDropdownRow GetMetadata(this SwitchStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum Provided1Code
     Provided = ProvidedCode.Provided, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Provided1CodeMetadataExtensions
-{
-    private static readonly Provided1CodeDropdownSource _dropdownSource = new Provided1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProvided1CodeDropdownRow GetMetadata(this Provided1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

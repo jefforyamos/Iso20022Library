@@ -47,22 +47,3 @@ public enum LinkageType1Code
     Soft = LinkageTypeCode.Soft, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LinkageType1CodeMetadataExtensions
-{
-    private static readonly LinkageType1CodeDropdownSource _dropdownSource = new LinkageType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILinkageType1CodeDropdownRow GetMetadata(this LinkageType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum InvestorRestrictionTypeCode
     Individual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorRestrictionTypeCodeMetadataExtensions
-{
-    private static readonly InvestorRestrictionTypeCodeDropdownSource _dropdownSource = new InvestorRestrictionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorRestrictionTypeCodeDropdownRow GetMetadata(this InvestorRestrictionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

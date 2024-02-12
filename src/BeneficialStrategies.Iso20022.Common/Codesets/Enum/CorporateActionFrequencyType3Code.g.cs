@@ -65,22 +65,3 @@ public enum CorporateActionFrequencyType3Code
     Special = CorporateActionFrequencyTypeV2Code.Special, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionFrequencyType3CodeMetadataExtensions
-{
-    private static readonly CorporateActionFrequencyType3CodeDropdownSource _dropdownSource = new CorporateActionFrequencyType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionFrequencyType3CodeDropdownRow GetMetadata(this CorporateActionFrequencyType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

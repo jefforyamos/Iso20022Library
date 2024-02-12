@@ -74,22 +74,3 @@ public enum CSCResult1Code
     CSCNotUsed = CSCResultCode.CSCNotUsed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CSCResult1CodeMetadataExtensions
-{
-    private static readonly CSCResult1CodeDropdownSource _dropdownSource = new CSCResult1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICSCResult1CodeDropdownRow GetMetadata(this CSCResult1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

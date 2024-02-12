@@ -137,22 +137,3 @@ public enum SettlementDate5Code
     WhenIssued = SettlementDateCode.WhenIssued, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDate5CodeMetadataExtensions
-{
-    private static readonly SettlementDate5CodeDropdownSource _dropdownSource = new SettlementDate5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDate5CodeDropdownRow GetMetadata(this SettlementDate5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum DataSetType1Code
     CommercialDataSet = DataSetTypeCode.CommercialDataSet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetType1CodeMetadataExtensions
-{
-    private static readonly DataSetType1CodeDropdownSource _dropdownSource = new DataSetType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetType1CodeDropdownRow GetMetadata(this DataSetType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

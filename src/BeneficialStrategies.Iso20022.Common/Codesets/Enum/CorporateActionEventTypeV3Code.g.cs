@@ -695,22 +695,3 @@ public enum CorporateActionEventTypeV3Code
     CashDistributionFromNonEligibleSecuritiesSales,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventTypeV3CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventTypeV3CodeDropdownSource _dropdownSource = new CorporateActionEventTypeV3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventTypeV3CodeDropdownRow GetMetadata(this CorporateActionEventTypeV3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

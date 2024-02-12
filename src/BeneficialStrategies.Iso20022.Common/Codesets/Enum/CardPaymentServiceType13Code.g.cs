@@ -128,22 +128,3 @@ public enum CardPaymentServiceType13Code
     VoiceAuthorisation = CardPaymentServiceTypeCode.VoiceAuthorisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType13CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType13CodeDropdownSource _dropdownSource = new CardPaymentServiceType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType13CodeDropdownRow GetMetadata(this CardPaymentServiceType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

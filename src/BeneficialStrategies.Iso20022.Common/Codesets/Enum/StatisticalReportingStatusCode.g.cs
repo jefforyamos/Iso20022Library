@@ -128,22 +128,3 @@ public enum StatisticalReportingStatusCode
     RejectedAfterPending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatisticalReportingStatusCodeMetadataExtensions
-{
-    private static readonly StatisticalReportingStatusCodeDropdownSource _dropdownSource = new StatisticalReportingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatisticalReportingStatusCodeDropdownRow GetMetadata(this StatisticalReportingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

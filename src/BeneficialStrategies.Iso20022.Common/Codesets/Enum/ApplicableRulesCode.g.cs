@@ -38,22 +38,3 @@ public enum ApplicableRulesCode
     NotPreADay,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ApplicableRulesCodeMetadataExtensions
-{
-    private static readonly ApplicableRulesCodeDropdownSource _dropdownSource = new ApplicableRulesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IApplicableRulesCodeDropdownRow GetMetadata(this ApplicableRulesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -254,22 +254,3 @@ public enum SettlementTransactionCondition12Code
     PartialSuccessfulBuyIn = SettlementTransactionConditionCode.PartialSuccessfulBuyIn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition12CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition12CodeDropdownSource _dropdownSource = new SettlementTransactionCondition12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition12CodeDropdownRow GetMetadata(this SettlementTransactionCondition12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

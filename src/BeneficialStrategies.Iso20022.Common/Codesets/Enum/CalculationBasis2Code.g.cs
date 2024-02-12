@@ -56,22 +56,3 @@ public enum CalculationBasis2Code
     Annual = CalculationBasisCode.Annual, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CalculationBasis2CodeMetadataExtensions
-{
-    private static readonly CalculationBasis2CodeDropdownSource _dropdownSource = new CalculationBasis2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICalculationBasis2CodeDropdownRow GetMetadata(this CalculationBasis2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

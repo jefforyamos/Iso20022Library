@@ -56,22 +56,3 @@ public enum ModalityOfCountingCode
     PhysicalAtMeeting,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModalityOfCountingCodeMetadataExtensions
-{
-    private static readonly ModalityOfCountingCodeDropdownSource _dropdownSource = new ModalityOfCountingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModalityOfCountingCodeDropdownRow GetMetadata(this ModalityOfCountingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -416,22 +416,3 @@ public enum SecuritiesTransactionType28Code
     TradedInterestChanged = SecuritiesTransactionTypeV4Code.TradedInterestChanged, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType28CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType28CodeDropdownSource _dropdownSource = new SecuritiesTransactionType28CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType28CodeDropdownRow GetMetadata(this SecuritiesTransactionType28Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

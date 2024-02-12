@@ -218,22 +218,3 @@ public enum TrackerPaymentRejectReturnReasonCode
     PaymentTransferredAndSLANoLongerMaintained,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerPaymentRejectReturnReasonCodeMetadataExtensions
-{
-    private static readonly TrackerPaymentRejectReturnReasonCodeDropdownSource _dropdownSource = new TrackerPaymentRejectReturnReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerPaymentRejectReturnReasonCodeDropdownRow GetMetadata(this TrackerPaymentRejectReturnReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

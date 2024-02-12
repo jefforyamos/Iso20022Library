@@ -38,22 +38,3 @@ public enum SettlementSystemMethodCode
     Alternative,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementSystemMethodCodeMetadataExtensions
-{
-    private static readonly SettlementSystemMethodCodeDropdownSource _dropdownSource = new SettlementSystemMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementSystemMethodCodeDropdownRow GetMetadata(this SettlementSystemMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

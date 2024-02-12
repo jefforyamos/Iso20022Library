@@ -407,22 +407,3 @@ public enum ReconciliationMessageTypeCode
     RetrievalInitiation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationMessageTypeCodeMetadataExtensions
-{
-    private static readonly ReconciliationMessageTypeCodeDropdownSource _dropdownSource = new ReconciliationMessageTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationMessageTypeCodeDropdownRow GetMetadata(this ReconciliationMessageTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

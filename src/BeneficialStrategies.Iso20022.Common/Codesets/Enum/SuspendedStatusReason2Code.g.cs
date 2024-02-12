@@ -47,22 +47,3 @@ public enum SuspendedStatusReason2Code
     Other = SuspendedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SuspendedStatusReason2CodeMetadataExtensions
-{
-    private static readonly SuspendedStatusReason2CodeDropdownSource _dropdownSource = new SuspendedStatusReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISuspendedStatusReason2CodeDropdownRow GetMetadata(this SuspendedStatusReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

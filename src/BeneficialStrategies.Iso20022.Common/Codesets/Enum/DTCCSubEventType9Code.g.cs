@@ -452,22 +452,3 @@ public enum DTCCSubEventType9Code
     SpecialPurposeAcquisitionCompany = DTCCSubEventTypeCode.SpecialPurposeAcquisitionCompany, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType9CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType9CodeDropdownSource _dropdownSource = new DTCCSubEventType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType9CodeDropdownRow GetMetadata(this DTCCSubEventType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

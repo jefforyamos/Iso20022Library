@@ -128,22 +128,3 @@ public enum CardholderAddressVerificationResultCode
     PostalNotUsed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderAddressVerificationResultCodeMetadataExtensions
-{
-    private static readonly CardholderAddressVerificationResultCodeDropdownSource _dropdownSource = new CardholderAddressVerificationResultCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderAddressVerificationResultCodeDropdownRow GetMetadata(this CardholderAddressVerificationResultCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum TaxType15Code
     ValueAddedTaxOfZeroRate = TaxTypeCode.ValueAddedTaxOfZeroRate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType15CodeMetadataExtensions
-{
-    private static readonly TaxType15CodeDropdownSource _dropdownSource = new TaxType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType15CodeDropdownRow GetMetadata(this TaxType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

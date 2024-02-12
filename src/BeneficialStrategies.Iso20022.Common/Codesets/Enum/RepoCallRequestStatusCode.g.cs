@@ -38,22 +38,3 @@ public enum RepoCallRequestStatusCode
     Denied,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoCallRequestStatusCodeMetadataExtensions
-{
-    private static readonly RepoCallRequestStatusCodeDropdownSource _dropdownSource = new RepoCallRequestStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoCallRequestStatusCodeDropdownRow GetMetadata(this RepoCallRequestStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

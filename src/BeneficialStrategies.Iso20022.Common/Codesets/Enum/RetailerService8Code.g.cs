@@ -110,22 +110,3 @@ public enum RetailerService8Code
     DeviceInputNotification = RetailerServiceCode.DeviceInputNotification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService8CodeMetadataExtensions
-{
-    private static readonly RetailerService8CodeDropdownSource _dropdownSource = new RetailerService8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService8CodeDropdownRow GetMetadata(this RetailerService8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

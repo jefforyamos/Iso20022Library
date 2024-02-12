@@ -128,22 +128,3 @@ public enum TransactionRejectReason5Code
     NotSpecifiedReasonAgentGenerated = TransactionReasonCode.NotSpecifiedReasonAgentGenerated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionRejectReason5CodeMetadataExtensions
-{
-    private static readonly TransactionRejectReason5CodeDropdownSource _dropdownSource = new TransactionRejectReason5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionRejectReason5CodeDropdownRow GetMetadata(this TransactionRejectReason5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

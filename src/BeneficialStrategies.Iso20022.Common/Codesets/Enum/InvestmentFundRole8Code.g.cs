@@ -146,22 +146,3 @@ public enum InvestmentFundRole8Code
     DataProvider = PartyRoleCode.DataProvider, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundRole8CodeMetadataExtensions
-{
-    private static readonly InvestmentFundRole8CodeDropdownSource _dropdownSource = new InvestmentFundRole8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundRole8CodeDropdownRow GetMetadata(this InvestmentFundRole8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

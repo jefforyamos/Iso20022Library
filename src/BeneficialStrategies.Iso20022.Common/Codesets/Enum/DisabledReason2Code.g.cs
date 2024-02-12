@@ -119,22 +119,3 @@ public enum DisabledReason2Code
     Rejected = BlockedReasonCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisabledReason2CodeMetadataExtensions
-{
-    private static readonly DisabledReason2CodeDropdownSource _dropdownSource = new DisabledReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisabledReason2CodeDropdownRow GetMetadata(this DisabledReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

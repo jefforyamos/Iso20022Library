@@ -47,22 +47,3 @@ public enum CashPaymentStatusCode
     Cancelled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashPaymentStatusCodeMetadataExtensions
-{
-    private static readonly CashPaymentStatusCodeDropdownSource _dropdownSource = new CashPaymentStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashPaymentStatusCodeDropdownRow GetMetadata(this CashPaymentStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

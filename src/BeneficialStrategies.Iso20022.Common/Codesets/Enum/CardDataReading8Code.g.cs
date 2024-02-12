@@ -137,22 +137,3 @@ public enum CardDataReading8Code
     OpticalCode = CardDataReadingCode.OpticalCode, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading8CodeMetadataExtensions
-{
-    private static readonly CardDataReading8CodeDropdownSource _dropdownSource = new CardDataReading8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading8CodeDropdownRow GetMetadata(this CardDataReading8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

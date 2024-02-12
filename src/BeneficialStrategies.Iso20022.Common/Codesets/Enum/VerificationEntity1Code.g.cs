@@ -74,22 +74,3 @@ public enum VerificationEntity1Code
     OtherPrivate = VerificationEntityCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VerificationEntity1CodeMetadataExtensions
-{
-    private static readonly VerificationEntity1CodeDropdownSource _dropdownSource = new VerificationEntity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerificationEntity1CodeDropdownRow GetMetadata(this VerificationEntity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum CollateralTransactionTypeCode
     Termination,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralTransactionTypeCodeMetadataExtensions
-{
-    private static readonly CollateralTransactionTypeCodeDropdownSource _dropdownSource = new CollateralTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralTransactionTypeCodeDropdownRow GetMetadata(this CollateralTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

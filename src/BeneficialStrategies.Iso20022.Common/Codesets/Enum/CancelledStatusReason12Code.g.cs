@@ -119,22 +119,3 @@ public enum CancelledStatusReason12Code
     CancelledByIssuerRegistrar = CancelledStatusReasonV2Code.CancelledByIssuerRegistrar, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason12CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason12CodeDropdownSource _dropdownSource = new CancelledStatusReason12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason12CodeDropdownRow GetMetadata(this CancelledStatusReason12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

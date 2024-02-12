@@ -299,22 +299,3 @@ public enum SettlementTransactionConditionCode
     PartialSuccessfulBuyIn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionConditionCodeMetadataExtensions
-{
-    private static readonly SettlementTransactionConditionCodeDropdownSource _dropdownSource = new SettlementTransactionConditionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionConditionCodeDropdownRow GetMetadata(this SettlementTransactionConditionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

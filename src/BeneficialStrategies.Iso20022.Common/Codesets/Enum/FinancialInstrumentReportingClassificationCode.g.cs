@@ -137,22 +137,3 @@ public enum FinancialInstrumentReportingClassificationCode
     ExchangeTradedCommodities,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentReportingClassificationCodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentReportingClassificationCodeDropdownSource _dropdownSource = new FinancialInstrumentReportingClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentReportingClassificationCodeDropdownRow GetMetadata(this FinancialInstrumentReportingClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

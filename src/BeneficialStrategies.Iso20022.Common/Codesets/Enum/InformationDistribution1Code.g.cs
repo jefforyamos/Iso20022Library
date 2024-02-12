@@ -38,22 +38,3 @@ public enum InformationDistribution1Code
     Paper = InformationDistributionCode.Paper, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InformationDistribution1CodeMetadataExtensions
-{
-    private static readonly InformationDistribution1CodeDropdownSource _dropdownSource = new InformationDistribution1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInformationDistribution1CodeDropdownRow GetMetadata(this InformationDistribution1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

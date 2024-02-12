@@ -47,22 +47,3 @@ public enum InvestorType2Code
     ProfessionalOrPerSe = InvestorTypeCode.ProfessionalOrPerSe, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorType2CodeMetadataExtensions
-{
-    private static readonly InvestorType2CodeDropdownSource _dropdownSource = new InvestorType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorType2CodeDropdownRow GetMetadata(this InvestorType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

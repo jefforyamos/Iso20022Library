@@ -65,22 +65,3 @@ public enum QueryOrderStatusCode
     QueryOrdersForTheParty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QueryOrderStatusCodeMetadataExtensions
-{
-    private static readonly QueryOrderStatusCodeDropdownSource _dropdownSource = new QueryOrderStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQueryOrderStatusCodeDropdownRow GetMetadata(this QueryOrderStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

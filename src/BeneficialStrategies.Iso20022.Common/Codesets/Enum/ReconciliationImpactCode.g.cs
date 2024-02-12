@@ -38,22 +38,3 @@ public enum ReconciliationImpactCode
     Debit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationImpactCodeMetadataExtensions
-{
-    private static readonly ReconciliationImpactCodeDropdownSource _dropdownSource = new ReconciliationImpactCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationImpactCodeDropdownRow GetMetadata(this ReconciliationImpactCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

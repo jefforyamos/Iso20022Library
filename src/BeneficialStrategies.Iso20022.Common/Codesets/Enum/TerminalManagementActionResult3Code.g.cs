@@ -173,22 +173,3 @@ public enum TerminalManagementActionResult3Code
     DelegationParametersReceivedUnauthorized = TerminalManagementActionResultCode.DelegationParametersReceivedUnauthorized, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementActionResult3CodeMetadataExtensions
-{
-    private static readonly TerminalManagementActionResult3CodeDropdownSource _dropdownSource = new TerminalManagementActionResult3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementActionResult3CodeDropdownRow GetMetadata(this TerminalManagementActionResult3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

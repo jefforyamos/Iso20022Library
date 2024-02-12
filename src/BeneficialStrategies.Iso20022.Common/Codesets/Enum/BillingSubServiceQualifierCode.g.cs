@@ -65,22 +65,3 @@ public enum BillingSubServiceQualifierCode
     MemberAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingSubServiceQualifierCodeMetadataExtensions
-{
-    private static readonly BillingSubServiceQualifierCodeDropdownSource _dropdownSource = new BillingSubServiceQualifierCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingSubServiceQualifierCodeDropdownRow GetMetadata(this BillingSubServiceQualifierCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

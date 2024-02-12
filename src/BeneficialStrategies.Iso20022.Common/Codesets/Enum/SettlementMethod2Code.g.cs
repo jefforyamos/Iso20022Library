@@ -47,22 +47,3 @@ public enum SettlementMethod2Code
     ClearingSystem = SettlementMethodCode.ClearingSystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementMethod2CodeMetadataExtensions
-{
-    private static readonly SettlementMethod2CodeDropdownSource _dropdownSource = new SettlementMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementMethod2CodeDropdownRow GetMetadata(this SettlementMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

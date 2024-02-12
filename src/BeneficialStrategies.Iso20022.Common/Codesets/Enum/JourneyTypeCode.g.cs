@@ -92,22 +92,3 @@ public enum JourneyTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class JourneyTypeCodeMetadataExtensions
-{
-    private static readonly JourneyTypeCodeDropdownSource _dropdownSource = new JourneyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IJourneyTypeCodeDropdownRow GetMetadata(this JourneyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

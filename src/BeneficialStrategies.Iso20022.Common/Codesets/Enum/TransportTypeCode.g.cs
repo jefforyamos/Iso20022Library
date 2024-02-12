@@ -74,22 +74,3 @@ public enum TransportTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransportTypeCodeMetadataExtensions
-{
-    private static readonly TransportTypeCodeDropdownSource _dropdownSource = new TransportTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransportTypeCodeDropdownRow GetMetadata(this TransportTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum AuthorityExchangeReason1Code
     CompetentAuthorityForTradingVenue = AuthorityExchangeReasonCode.CompetentAuthorityForTradingVenue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthorityExchangeReason1CodeMetadataExtensions
-{
-    private static readonly AuthorityExchangeReason1CodeDropdownSource _dropdownSource = new AuthorityExchangeReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthorityExchangeReason1CodeDropdownRow GetMetadata(this AuthorityExchangeReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

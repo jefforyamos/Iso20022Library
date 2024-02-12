@@ -56,22 +56,3 @@ public enum TMSContactLevelCode
     EndCustomerSession,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TMSContactLevelCodeMetadataExtensions
-{
-    private static readonly TMSContactLevelCodeDropdownSource _dropdownSource = new TMSContactLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITMSContactLevelCodeDropdownRow GetMetadata(this TMSContactLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

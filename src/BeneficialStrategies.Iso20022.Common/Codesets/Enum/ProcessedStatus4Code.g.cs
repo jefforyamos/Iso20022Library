@@ -47,22 +47,3 @@ public enum ProcessedStatus4Code
     Pending = CorporateActionProcessedStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessedStatus4CodeMetadataExtensions
-{
-    private static readonly ProcessedStatus4CodeDropdownSource _dropdownSource = new ProcessedStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessedStatus4CodeDropdownRow GetMetadata(this ProcessedStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum ClearingObligationType1Code
     Yes = ClearingObligationTypeCode.Yes, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingObligationType1CodeMetadataExtensions
-{
-    private static readonly ClearingObligationType1CodeDropdownSource _dropdownSource = new ClearingObligationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingObligationType1CodeDropdownRow GetMetadata(this ClearingObligationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

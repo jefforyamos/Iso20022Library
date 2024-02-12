@@ -101,22 +101,3 @@ public enum CardDataReading5Code
     CardOnFile = CardDataReadingCode.CardOnFile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading5CodeMetadataExtensions
-{
-    private static readonly CardDataReading5CodeDropdownSource _dropdownSource = new CardDataReading5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading5CodeDropdownRow GetMetadata(this CardDataReading5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

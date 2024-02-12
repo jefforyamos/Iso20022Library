@@ -74,22 +74,3 @@ public enum TimeFrame1Code
     Hold = TimeFrameCode.Hold, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TimeFrame1CodeMetadataExtensions
-{
-    private static readonly TimeFrame1CodeDropdownSource _dropdownSource = new TimeFrame1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITimeFrame1CodeDropdownRow GetMetadata(this TimeFrame1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

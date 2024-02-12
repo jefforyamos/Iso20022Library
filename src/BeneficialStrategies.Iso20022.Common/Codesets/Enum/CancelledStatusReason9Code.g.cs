@@ -101,22 +101,3 @@ public enum CancelledStatusReason9Code
     Other = CancelledStatusReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason9CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason9CodeDropdownSource _dropdownSource = new CancelledStatusReason9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason9CodeDropdownRow GetMetadata(this CancelledStatusReason9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

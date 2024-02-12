@@ -146,22 +146,3 @@ public enum IntermediateSecurityDistributionType4Code
     Exchange = IntermediateSecurityDistributionTypeCode.Exchange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IntermediateSecurityDistributionType4CodeMetadataExtensions
-{
-    private static readonly IntermediateSecurityDistributionType4CodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIntermediateSecurityDistributionType4CodeDropdownRow GetMetadata(this IntermediateSecurityDistributionType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

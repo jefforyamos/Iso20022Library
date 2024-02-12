@@ -182,22 +182,3 @@ public enum TransactionAttributeCode
     UnscheduledCardOnFile,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionAttributeCodeMetadataExtensions
-{
-    private static readonly TransactionAttributeCodeDropdownSource _dropdownSource = new TransactionAttributeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionAttributeCodeDropdownRow GetMetadata(this TransactionAttributeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

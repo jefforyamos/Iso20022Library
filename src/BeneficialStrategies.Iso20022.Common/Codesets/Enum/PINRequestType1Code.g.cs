@@ -47,22 +47,3 @@ public enum PINRequestType1Code
     PINVerifyOnly = PINRequestTypeCode.PINVerifyOnly, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINRequestType1CodeMetadataExtensions
-{
-    private static readonly PINRequestType1CodeDropdownSource _dropdownSource = new PINRequestType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINRequestType1CodeDropdownRow GetMetadata(this PINRequestType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

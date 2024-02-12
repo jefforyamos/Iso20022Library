@@ -29,22 +29,3 @@ public enum TransactionReversalReason2Code
     Duplication = TransactionReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionReversalReason2CodeMetadataExtensions
-{
-    private static readonly TransactionReversalReason2CodeDropdownSource _dropdownSource = new TransactionReversalReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionReversalReason2CodeDropdownRow GetMetadata(this TransactionReversalReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

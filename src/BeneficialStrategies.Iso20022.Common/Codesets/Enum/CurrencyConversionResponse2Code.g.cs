@@ -83,22 +83,3 @@ public enum CurrencyConversionResponse2Code
     InvalidATM = CurrencyConversionResponseCode.InvalidATM, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CurrencyConversionResponse2CodeMetadataExtensions
-{
-    private static readonly CurrencyConversionResponse2CodeDropdownSource _dropdownSource = new CurrencyConversionResponse2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICurrencyConversionResponse2CodeDropdownRow GetMetadata(this CurrencyConversionResponse2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

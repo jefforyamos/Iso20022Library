@@ -416,22 +416,3 @@ public enum PaymentPurpose1Code
     Hedging = PaymentPurposeCode.Hedging, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentPurpose1CodeMetadataExtensions
-{
-    private static readonly PaymentPurpose1CodeDropdownSource _dropdownSource = new PaymentPurpose1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentPurpose1CodeDropdownRow GetMetadata(this PaymentPurpose1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

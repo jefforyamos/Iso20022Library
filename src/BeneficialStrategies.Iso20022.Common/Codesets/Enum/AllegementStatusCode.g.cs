@@ -65,22 +65,3 @@ public enum AllegementStatusCode
     Rejected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllegementStatusCodeMetadataExtensions
-{
-    private static readonly AllegementStatusCodeDropdownSource _dropdownSource = new AllegementStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllegementStatusCodeDropdownRow GetMetadata(this AllegementStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

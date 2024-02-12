@@ -48,22 +48,3 @@ public enum ExternalShipmentCondition1Code
     TradeLoan = ExternalShipmentConditionCode.TradeLoan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalShipmentCondition1CodeMetadataExtensions
-{
-    private static readonly ExternalShipmentCondition1CodeDropdownSource _dropdownSource = new ExternalShipmentCondition1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalShipmentCondition1CodeDropdownRow GetMetadata(this ExternalShipmentCondition1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

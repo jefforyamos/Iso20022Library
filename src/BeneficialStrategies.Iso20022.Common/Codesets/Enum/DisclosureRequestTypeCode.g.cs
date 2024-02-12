@@ -38,22 +38,3 @@ public enum DisclosureRequestTypeCode
     Replacement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisclosureRequestTypeCodeMetadataExtensions
-{
-    private static readonly DisclosureRequestTypeCodeDropdownSource _dropdownSource = new DisclosureRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisclosureRequestTypeCodeDropdownRow GetMetadata(this DisclosureRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

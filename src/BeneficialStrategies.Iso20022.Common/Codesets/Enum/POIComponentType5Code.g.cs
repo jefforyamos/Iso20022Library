@@ -191,22 +191,3 @@ public enum POIComponentType5Code
     SaleToPOIProtocolParameters = POIComponentTypeCode.SaleToPOIProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentType5CodeMetadataExtensions
-{
-    private static readonly POIComponentType5CodeDropdownSource _dropdownSource = new POIComponentType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentType5CodeDropdownRow GetMetadata(this POIComponentType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

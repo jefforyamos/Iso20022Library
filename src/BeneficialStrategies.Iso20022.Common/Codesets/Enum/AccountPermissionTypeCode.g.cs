@@ -47,22 +47,3 @@ public enum AccountPermissionTypeCode
     RightToUseWithOther,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountPermissionTypeCodeMetadataExtensions
-{
-    private static readonly AccountPermissionTypeCodeDropdownSource _dropdownSource = new AccountPermissionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountPermissionTypeCodeDropdownRow GetMetadata(this AccountPermissionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

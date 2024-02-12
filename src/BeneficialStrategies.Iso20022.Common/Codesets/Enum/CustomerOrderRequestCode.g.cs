@@ -47,22 +47,3 @@ public enum CustomerOrderRequestCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerOrderRequestCodeMetadataExtensions
-{
-    private static readonly CustomerOrderRequestCodeDropdownSource _dropdownSource = new CustomerOrderRequestCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerOrderRequestCodeDropdownRow GetMetadata(this CustomerOrderRequestCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

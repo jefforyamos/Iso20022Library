@@ -37,22 +37,3 @@ public enum DebitCreditCode
     Debit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DebitCreditCodeMetadataExtensions
-{
-    private static readonly DebitCreditCodeDropdownSource _dropdownSource = new DebitCreditCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDebitCreditCodeDropdownRow GetMetadata(this DebitCreditCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

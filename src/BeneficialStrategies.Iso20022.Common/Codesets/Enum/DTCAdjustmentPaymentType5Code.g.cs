@@ -92,22 +92,3 @@ public enum DTCAdjustmentPaymentType5Code
     StockLoanSettlement = DTCAdjustmentPaymentTypeV3Code.StockLoanSettlement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentType5CodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentType5CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentType5CodeDropdownRow GetMetadata(this DTCAdjustmentPaymentType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

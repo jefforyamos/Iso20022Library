@@ -560,22 +560,3 @@ public enum AuthenticationMethod11Code
     OfflinePIN = AuthenticationMethodCode.OfflinePIN, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethod11CodeMetadataExtensions
-{
-    private static readonly AuthenticationMethod11CodeDropdownSource _dropdownSource = new AuthenticationMethod11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethod11CodeDropdownRow GetMetadata(this AuthenticationMethod11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -254,22 +254,3 @@ public enum UnmatchedReason15Code
     SettlementProcess = UnmatchedReasonCode.SettlementProcess, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason15CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason15CodeDropdownSource _dropdownSource = new UnmatchedReason15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason15CodeDropdownRow GetMetadata(this UnmatchedReason15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

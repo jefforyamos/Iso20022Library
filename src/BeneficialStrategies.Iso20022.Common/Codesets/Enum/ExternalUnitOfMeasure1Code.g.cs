@@ -868,22 +868,3 @@ public enum ExternalUnitOfMeasure1Code
     CriticalPrecipitationDay = ExternalUnitOfMeasureCode.CriticalPrecipitationDay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUnitOfMeasure1CodeMetadataExtensions
-{
-    private static readonly ExternalUnitOfMeasure1CodeDropdownSource _dropdownSource = new ExternalUnitOfMeasure1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUnitOfMeasure1CodeDropdownRow GetMetadata(this ExternalUnitOfMeasure1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

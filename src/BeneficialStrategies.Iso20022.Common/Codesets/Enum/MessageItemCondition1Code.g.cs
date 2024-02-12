@@ -83,22 +83,3 @@ public enum MessageItemCondition1Code
     NotSupported = MessageItemConditionCode.NotSupported, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageItemCondition1CodeMetadataExtensions
-{
-    private static readonly MessageItemCondition1CodeDropdownSource _dropdownSource = new MessageItemCondition1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageItemCondition1CodeDropdownRow GetMetadata(this MessageItemCondition1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum ATMCustomerProfileCode
     OtherRequest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCustomerProfileCodeMetadataExtensions
-{
-    private static readonly ATMCustomerProfileCodeDropdownSource _dropdownSource = new ATMCustomerProfileCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCustomerProfileCodeDropdownRow GetMetadata(this ATMCustomerProfileCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -524,22 +524,3 @@ public enum RejectedConfirmationStatusReasonCode
     AmendmentTooLate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedConfirmationStatusReasonCodeMetadataExtensions
-{
-    private static readonly RejectedConfirmationStatusReasonCodeDropdownSource _dropdownSource = new RejectedConfirmationStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedConfirmationStatusReasonCodeDropdownRow GetMetadata(this RejectedConfirmationStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -407,22 +407,3 @@ public enum SecuritiesBalanceTypeV3Code
     PurchasedInvestmentFundTaxGroupUnit2,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceTypeV3CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceTypeV3CodeDropdownSource _dropdownSource = new SecuritiesBalanceTypeV3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceTypeV3CodeDropdownRow GetMetadata(this SecuritiesBalanceTypeV3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

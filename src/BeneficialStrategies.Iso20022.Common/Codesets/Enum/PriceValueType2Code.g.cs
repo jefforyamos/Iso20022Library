@@ -38,22 +38,3 @@ public enum PriceValueType2Code
     Premium = PriceValueTypeCode.Premium, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType2CodeMetadataExtensions
-{
-    private static readonly PriceValueType2CodeDropdownSource _dropdownSource = new PriceValueType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType2CodeDropdownRow GetMetadata(this PriceValueType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -263,22 +263,3 @@ public enum PaymentModificationRejectionV2Code
     UnableToModifyInstructedAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentModificationRejectionV2CodeMetadataExtensions
-{
-    private static readonly PaymentModificationRejectionV2CodeDropdownSource _dropdownSource = new PaymentModificationRejectionV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentModificationRejectionV2CodeDropdownRow GetMetadata(this PaymentModificationRejectionV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

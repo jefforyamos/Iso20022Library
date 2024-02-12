@@ -56,22 +56,3 @@ public enum ISAType2Code
     Any = ISATypeCode.Any, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ISAType2CodeMetadataExtensions
-{
-    private static readonly ISAType2CodeDropdownSource _dropdownSource = new ISAType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IISAType2CodeDropdownRow GetMetadata(this ISAType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

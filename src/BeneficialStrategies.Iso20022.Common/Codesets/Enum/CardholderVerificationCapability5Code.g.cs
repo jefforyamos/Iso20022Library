@@ -173,22 +173,3 @@ public enum CardholderVerificationCapability5Code
     NoOnLinePINEntry = CardholderVerificationCapabilityCode.NoOnLinePINEntry, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderVerificationCapability5CodeMetadataExtensions
-{
-    private static readonly CardholderVerificationCapability5CodeDropdownSource _dropdownSource = new CardholderVerificationCapability5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderVerificationCapability5CodeDropdownRow GetMetadata(this CardholderVerificationCapability5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

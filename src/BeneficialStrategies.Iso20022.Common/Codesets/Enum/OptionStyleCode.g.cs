@@ -74,22 +74,3 @@ public enum OptionStyleCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionStyleCodeMetadataExtensions
-{
-    private static readonly OptionStyleCodeDropdownSource _dropdownSource = new OptionStyleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionStyleCodeDropdownRow GetMetadata(this OptionStyleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

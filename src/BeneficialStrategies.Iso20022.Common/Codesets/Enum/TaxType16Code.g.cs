@@ -164,22 +164,3 @@ public enum TaxType16Code
     CapitalGainTax = TaxTypeCode.CapitalGainTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType16CodeMetadataExtensions
-{
-    private static readonly TaxType16CodeDropdownSource _dropdownSource = new TaxType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType16CodeDropdownRow GetMetadata(this TaxType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

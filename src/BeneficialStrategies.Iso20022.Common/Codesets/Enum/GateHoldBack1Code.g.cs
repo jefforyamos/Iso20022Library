@@ -38,22 +38,3 @@ public enum GateHoldBack1Code
     HoldBack = GateHoldBackCode.HoldBack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GateHoldBack1CodeMetadataExtensions
-{
-    private static readonly GateHoldBack1CodeDropdownSource _dropdownSource = new GateHoldBack1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGateHoldBack1CodeDropdownRow GetMetadata(this GateHoldBack1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum MandateAmendmentReason1Code
     IncorrectAccount = MandateReasonCode.IncorrectAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MandateAmendmentReason1CodeMetadataExtensions
-{
-    private static readonly MandateAmendmentReason1CodeDropdownSource _dropdownSource = new MandateAmendmentReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMandateAmendmentReason1CodeDropdownRow GetMetadata(this MandateAmendmentReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

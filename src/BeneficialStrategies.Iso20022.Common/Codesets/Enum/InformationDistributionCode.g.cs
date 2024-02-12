@@ -47,22 +47,3 @@ public enum InformationDistributionCode
     NoDistribution,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InformationDistributionCodeMetadataExtensions
-{
-    private static readonly InformationDistributionCodeDropdownSource _dropdownSource = new InformationDistributionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInformationDistributionCodeDropdownRow GetMetadata(this InformationDistributionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum ATMServiceType2Code
     SupervisedWithdrawal = ATMServiceTypeCode.SupervisedWithdrawal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMServiceType2CodeMetadataExtensions
-{
-    private static readonly ATMServiceType2CodeDropdownSource _dropdownSource = new ATMServiceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMServiceType2CodeDropdownRow GetMetadata(this ATMServiceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

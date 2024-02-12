@@ -56,22 +56,3 @@ public enum SettlingCapacityCode
     SettlingRisklessPrincipal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlingCapacityCodeMetadataExtensions
-{
-    private static readonly SettlingCapacityCodeDropdownSource _dropdownSource = new SettlingCapacityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlingCapacityCodeDropdownRow GetMetadata(this SettlingCapacityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

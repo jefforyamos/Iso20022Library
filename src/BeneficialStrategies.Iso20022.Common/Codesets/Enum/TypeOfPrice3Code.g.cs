@@ -83,22 +83,3 @@ public enum TypeOfPrice3Code
     RoundedAverage = TypeOfPriceCode.RoundedAverage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice3CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice3CodeDropdownSource _dropdownSource = new TypeOfPrice3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice3CodeDropdownRow GetMetadata(this TypeOfPrice3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

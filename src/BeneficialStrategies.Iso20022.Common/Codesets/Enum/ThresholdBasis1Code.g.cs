@@ -47,22 +47,3 @@ public enum ThresholdBasis1Code
     AllVoteCast = ThresholdBasisCode.AllVoteCast, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ThresholdBasis1CodeMetadataExtensions
-{
-    private static readonly ThresholdBasis1CodeDropdownSource _dropdownSource = new ThresholdBasis1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IThresholdBasis1CodeDropdownRow GetMetadata(this ThresholdBasis1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

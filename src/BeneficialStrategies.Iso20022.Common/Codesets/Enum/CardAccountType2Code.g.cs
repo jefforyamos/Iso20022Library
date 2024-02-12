@@ -200,22 +200,3 @@ public enum CardAccountType2Code
     Universal = CardAccountTypeCode.Universal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardAccountType2CodeMetadataExtensions
-{
-    private static readonly CardAccountType2CodeDropdownSource _dropdownSource = new CardAccountType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardAccountType2CodeDropdownRow GetMetadata(this CardAccountType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

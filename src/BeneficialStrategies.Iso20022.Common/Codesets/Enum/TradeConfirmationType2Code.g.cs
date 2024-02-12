@@ -29,22 +29,3 @@ public enum TradeConfirmationType2Code
     NonConfirmed = TradeConfirmationTypeCode.NonConfirmed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeConfirmationType2CodeMetadataExtensions
-{
-    private static readonly TradeConfirmationType2CodeDropdownSource _dropdownSource = new TradeConfirmationType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeConfirmationType2CodeDropdownRow GetMetadata(this TradeConfirmationType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

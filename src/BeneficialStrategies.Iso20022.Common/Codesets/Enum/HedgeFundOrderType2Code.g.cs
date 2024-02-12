@@ -83,22 +83,3 @@ public enum HedgeFundOrderType2Code
     HoldBack = FundOrderTypeCode.HoldBack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HedgeFundOrderType2CodeMetadataExtensions
-{
-    private static readonly HedgeFundOrderType2CodeDropdownSource _dropdownSource = new HedgeFundOrderType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHedgeFundOrderType2CodeDropdownRow GetMetadata(this HedgeFundOrderType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

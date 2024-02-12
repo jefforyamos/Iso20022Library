@@ -74,22 +74,3 @@ public enum LoyaltyTypeTransactionTotals1Code
     ReverseRedemption = LoyaltyTypeTransactionTotalsCode.ReverseRedemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyTypeTransactionTotals1CodeMetadataExtensions
-{
-    private static readonly LoyaltyTypeTransactionTotals1CodeDropdownSource _dropdownSource = new LoyaltyTypeTransactionTotals1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyTypeTransactionTotals1CodeDropdownRow GetMetadata(this LoyaltyTypeTransactionTotals1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

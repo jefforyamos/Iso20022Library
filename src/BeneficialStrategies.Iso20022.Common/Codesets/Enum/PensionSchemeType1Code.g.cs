@@ -191,22 +191,3 @@ public enum PensionSchemeType1Code
     MandatoryOccupationalPension = PensionSchemeTypeCode.MandatoryOccupationalPension, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionSchemeType1CodeMetadataExtensions
-{
-    private static readonly PensionSchemeType1CodeDropdownSource _dropdownSource = new PensionSchemeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionSchemeType1CodeDropdownRow GetMetadata(this PensionSchemeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

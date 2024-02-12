@@ -38,22 +38,3 @@ public enum Instruction4Code
     TelecomNextAgent = InstructionCode.TelecomNextAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Instruction4CodeMetadataExtensions
-{
-    private static readonly Instruction4CodeDropdownSource _dropdownSource = new Instruction4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstruction4CodeDropdownRow GetMetadata(this Instruction4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

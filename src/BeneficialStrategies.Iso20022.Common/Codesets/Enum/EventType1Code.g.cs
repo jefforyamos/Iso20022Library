@@ -74,22 +74,3 @@ public enum EventType1Code
     SinkingFundCall = EventTypeCode.SinkingFundCall, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventType1CodeMetadataExtensions
-{
-    private static readonly EventType1CodeDropdownSource _dropdownSource = new EventType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventType1CodeDropdownRow GetMetadata(this EventType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

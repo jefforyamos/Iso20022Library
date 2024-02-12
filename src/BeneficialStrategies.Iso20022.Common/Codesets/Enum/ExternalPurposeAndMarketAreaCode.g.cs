@@ -218,22 +218,3 @@ public enum ExternalPurposeAndMarketAreaCode
     Settlements,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPurposeAndMarketAreaCodeMetadataExtensions
-{
-    private static readonly ExternalPurposeAndMarketAreaCodeDropdownSource _dropdownSource = new ExternalPurposeAndMarketAreaCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPurposeAndMarketAreaCodeDropdownRow GetMetadata(this ExternalPurposeAndMarketAreaCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

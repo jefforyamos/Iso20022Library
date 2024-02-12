@@ -74,22 +74,3 @@ public enum LegalFrameworkCode
     EuropeanLong_termInvestmentFunds,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalFrameworkCodeMetadataExtensions
-{
-    private static readonly LegalFrameworkCodeDropdownSource _dropdownSource = new LegalFrameworkCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalFrameworkCodeDropdownRow GetMetadata(this LegalFrameworkCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

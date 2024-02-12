@@ -182,22 +182,3 @@ public enum PaymentCategoryPurpose1Code
     WithHolding = PaymentCategoryPurposeCode.WithHolding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCategoryPurpose1CodeMetadataExtensions
-{
-    private static readonly PaymentCategoryPurpose1CodeDropdownSource _dropdownSource = new PaymentCategoryPurpose1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCategoryPurpose1CodeDropdownRow GetMetadata(this PaymentCategoryPurpose1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

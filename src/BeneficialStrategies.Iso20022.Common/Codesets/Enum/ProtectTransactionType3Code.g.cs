@@ -29,22 +29,3 @@ public enum ProtectTransactionType3Code
     ProtectTransaction = ReorganisationTransactionTypeCode.ProtectTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProtectTransactionType3CodeMetadataExtensions
-{
-    private static readonly ProtectTransactionType3CodeDropdownSource _dropdownSource = new ProtectTransactionType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProtectTransactionType3CodeDropdownRow GetMetadata(this ProtectTransactionType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

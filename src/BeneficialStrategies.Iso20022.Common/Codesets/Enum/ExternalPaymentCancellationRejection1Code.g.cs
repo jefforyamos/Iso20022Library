@@ -246,22 +246,3 @@ public enum ExternalPaymentCancellationRejection1Code
     UnknownRTP = ExternalPaymentCancellationRejectionCode.UnknownRTP, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentCancellationRejection1CodeMetadataExtensions
-{
-    private static readonly ExternalPaymentCancellationRejection1CodeDropdownSource _dropdownSource = new ExternalPaymentCancellationRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentCancellationRejection1CodeDropdownRow GetMetadata(this ExternalPaymentCancellationRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

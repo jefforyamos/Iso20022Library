@@ -461,22 +461,3 @@ public enum UnmatchedReason6Code
     AccruedInterestAmount1 = UnmatchedReasonCode.AccruedInterestAmount1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason6CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason6CodeDropdownSource _dropdownSource = new UnmatchedReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason6CodeDropdownRow GetMetadata(this UnmatchedReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

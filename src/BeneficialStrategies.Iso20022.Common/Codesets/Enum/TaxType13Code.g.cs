@@ -146,22 +146,3 @@ public enum TaxType13Code
     WithholdingTax = TaxTypeCode.WithholdingTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType13CodeMetadataExtensions
-{
-    private static readonly TaxType13CodeDropdownSource _dropdownSource = new TaxType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType13CodeDropdownRow GetMetadata(this TaxType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

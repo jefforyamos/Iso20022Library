@@ -389,22 +389,3 @@ public enum DTCCSubEventType6Code
     Conversion = DTCCSubEventTypeCode.Conversion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType6CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType6CodeDropdownSource _dropdownSource = new DTCCSubEventType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType6CodeDropdownRow GetMetadata(this DTCCSubEventType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

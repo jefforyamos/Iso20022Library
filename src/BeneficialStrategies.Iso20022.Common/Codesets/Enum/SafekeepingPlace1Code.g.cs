@@ -56,22 +56,3 @@ public enum SafekeepingPlace1Code
     SharesHeldElsewhere = SafekeepingPlaceCode.SharesHeldElsewhere, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SafekeepingPlace1CodeMetadataExtensions
-{
-    private static readonly SafekeepingPlace1CodeDropdownSource _dropdownSource = new SafekeepingPlace1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISafekeepingPlace1CodeDropdownRow GetMetadata(this SafekeepingPlace1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

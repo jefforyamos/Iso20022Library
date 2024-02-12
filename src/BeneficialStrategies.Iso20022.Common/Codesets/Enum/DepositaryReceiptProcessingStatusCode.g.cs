@@ -38,22 +38,3 @@ public enum DepositaryReceiptProcessingStatusCode
     Pending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DepositaryReceiptProcessingStatusCodeMetadataExtensions
-{
-    private static readonly DepositaryReceiptProcessingStatusCodeDropdownSource _dropdownSource = new DepositaryReceiptProcessingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDepositaryReceiptProcessingStatusCodeDropdownRow GetMetadata(this DepositaryReceiptProcessingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -326,22 +326,3 @@ public enum ExternalAgreementType1Code
     OtherTypeOfMasterAgreement = ExternalAgreementTypeCode.OtherTypeOfMasterAgreement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAgreementType1CodeMetadataExtensions
-{
-    private static readonly ExternalAgreementType1CodeDropdownSource _dropdownSource = new ExternalAgreementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAgreementType1CodeDropdownRow GetMetadata(this ExternalAgreementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

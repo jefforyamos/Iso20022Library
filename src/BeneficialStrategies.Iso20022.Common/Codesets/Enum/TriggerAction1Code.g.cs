@@ -47,22 +47,3 @@ public enum TriggerAction1Code
     Cancel = TriggerActionCode.Cancel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TriggerAction1CodeMetadataExtensions
-{
-    private static readonly TriggerAction1CodeDropdownSource _dropdownSource = new TriggerAction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITriggerAction1CodeDropdownRow GetMetadata(this TriggerAction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

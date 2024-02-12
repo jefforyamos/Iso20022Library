@@ -83,22 +83,3 @@ public enum TerminalManagementAction1Code
     Upload = TerminalManagementActionCode.Upload, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAction1CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAction1CodeDropdownSource _dropdownSource = new TerminalManagementAction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAction1CodeDropdownRow GetMetadata(this TerminalManagementAction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

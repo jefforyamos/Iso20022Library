@@ -83,22 +83,3 @@ public enum CancellationStatusCode
     Received,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationStatusCodeMetadataExtensions
-{
-    private static readonly CancellationStatusCodeDropdownSource _dropdownSource = new CancellationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationStatusCodeDropdownRow GetMetadata(this CancellationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum ReceiveDeliveryCode
     Receive,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReceiveDeliveryCodeMetadataExtensions
-{
-    private static readonly ReceiveDeliveryCodeDropdownSource _dropdownSource = new ReceiveDeliveryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReceiveDeliveryCodeDropdownRow GetMetadata(this ReceiveDeliveryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

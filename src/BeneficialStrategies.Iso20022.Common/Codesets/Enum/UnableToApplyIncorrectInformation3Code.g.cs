@@ -353,22 +353,3 @@ public enum UnableToApplyIncorrectInformation3Code
     IncorrectCreditorAddress = UnableToApplyIncorrectInformationV2Code.IncorrectCreditorAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyIncorrectInformation3CodeMetadataExtensions
-{
-    private static readonly UnableToApplyIncorrectInformation3CodeDropdownSource _dropdownSource = new UnableToApplyIncorrectInformation3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyIncorrectInformation3CodeDropdownRow GetMetadata(this UnableToApplyIncorrectInformation3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

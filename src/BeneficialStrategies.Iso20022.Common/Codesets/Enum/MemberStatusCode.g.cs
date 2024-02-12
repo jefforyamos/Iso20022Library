@@ -56,22 +56,3 @@ public enum MemberStatusCode
     Joining,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MemberStatusCodeMetadataExtensions
-{
-    private static readonly MemberStatusCodeDropdownSource _dropdownSource = new MemberStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMemberStatusCodeDropdownRow GetMetadata(this MemberStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

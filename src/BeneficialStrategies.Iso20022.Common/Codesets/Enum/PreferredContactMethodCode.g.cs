@@ -65,22 +65,3 @@ public enum PreferredContactMethodCode
     MobileOrCellPhone,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PreferredContactMethodCodeMetadataExtensions
-{
-    private static readonly PreferredContactMethodCodeDropdownSource _dropdownSource = new PreferredContactMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPreferredContactMethodCodeDropdownRow GetMetadata(this PreferredContactMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

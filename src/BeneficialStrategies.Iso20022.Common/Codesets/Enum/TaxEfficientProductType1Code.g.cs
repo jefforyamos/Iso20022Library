@@ -128,22 +128,3 @@ public enum TaxEfficientProductType1Code
     GeneralShareSavingsAccount = TaxEfficientProductTypeCode.GeneralShareSavingsAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxEfficientProductType1CodeMetadataExtensions
-{
-    private static readonly TaxEfficientProductType1CodeDropdownSource _dropdownSource = new TaxEfficientProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxEfficientProductType1CodeDropdownRow GetMetadata(this TaxEfficientProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

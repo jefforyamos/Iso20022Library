@@ -1244,22 +1244,3 @@ public enum InstructionReason3Code
     CorporateActionEventTypeInvalid = InstructionRejectionReasonV2Code.CorporateActionEventTypeInvalid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionReason3CodeMetadataExtensions
-{
-    private static readonly InstructionReason3CodeDropdownSource _dropdownSource = new InstructionReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionReason3CodeDropdownRow GetMetadata(this InstructionReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

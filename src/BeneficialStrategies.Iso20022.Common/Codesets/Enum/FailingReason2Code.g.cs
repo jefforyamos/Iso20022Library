@@ -578,22 +578,3 @@ public enum FailingReason2Code
     IncompleteNumberCount = PendingFailingReasonCode.IncompleteNumberCount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailingReason2CodeMetadataExtensions
-{
-    private static readonly FailingReason2CodeDropdownSource _dropdownSource = new FailingReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailingReason2CodeDropdownRow GetMetadata(this FailingReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

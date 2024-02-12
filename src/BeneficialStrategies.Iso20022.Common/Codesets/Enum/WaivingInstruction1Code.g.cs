@@ -38,22 +38,3 @@ public enum WaivingInstruction1Code
     WaiveInUnits = WaivingInstructionCode.WaiveInUnits, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WaivingInstruction1CodeMetadataExtensions
-{
-    private static readonly WaivingInstruction1CodeDropdownSource _dropdownSource = new WaivingInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWaivingInstruction1CodeDropdownRow GetMetadata(this WaivingInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

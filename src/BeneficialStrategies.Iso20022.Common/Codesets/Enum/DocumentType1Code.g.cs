@@ -137,22 +137,3 @@ public enum DocumentType1Code
     StatementOfAccount = DocumentTypeCode.StatementOfAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DocumentType1CodeMetadataExtensions
-{
-    private static readonly DocumentType1CodeDropdownSource _dropdownSource = new DocumentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDocumentType1CodeDropdownRow GetMetadata(this DocumentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

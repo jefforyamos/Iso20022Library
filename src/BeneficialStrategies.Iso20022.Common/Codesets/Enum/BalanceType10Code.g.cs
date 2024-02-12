@@ -623,22 +623,3 @@ public enum BalanceType10Code
     AvailableDMVForIntradayRepo = BalanceTypeCode.AvailableDMVForIntradayRepo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType10CodeMetadataExtensions
-{
-    private static readonly BalanceType10CodeDropdownSource _dropdownSource = new BalanceType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType10CodeDropdownRow GetMetadata(this BalanceType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

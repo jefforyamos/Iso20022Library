@@ -65,22 +65,3 @@ public enum AttributeType1Code
     CountryName = AttributeTypeCode.CountryName, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttributeType1CodeMetadataExtensions
-{
-    private static readonly AttributeType1CodeDropdownSource _dropdownSource = new AttributeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttributeType1CodeDropdownRow GetMetadata(this AttributeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

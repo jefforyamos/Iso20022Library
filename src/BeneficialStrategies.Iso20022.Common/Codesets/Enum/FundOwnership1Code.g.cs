@@ -38,22 +38,3 @@ public enum FundOwnership1Code
     NotAllOwned = FundOwnershipCode.NotAllOwned, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOwnership1CodeMetadataExtensions
-{
-    private static readonly FundOwnership1CodeDropdownSource _dropdownSource = new FundOwnership1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOwnership1CodeDropdownRow GetMetadata(this FundOwnership1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

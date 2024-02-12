@@ -56,22 +56,3 @@ public enum EquityReturnParameterCode
     ParameterReturnDividend,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EquityReturnParameterCodeMetadataExtensions
-{
-    private static readonly EquityReturnParameterCodeDropdownSource _dropdownSource = new EquityReturnParameterCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEquityReturnParameterCodeDropdownRow GetMetadata(this EquityReturnParameterCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum PositionEffect1Code
     Fifo = PositionEffectCode.Fifo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PositionEffect1CodeMetadataExtensions
-{
-    private static readonly PositionEffect1CodeDropdownSource _dropdownSource = new PositionEffect1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPositionEffect1CodeDropdownRow GetMetadata(this PositionEffect1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

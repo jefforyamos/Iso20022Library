@@ -38,22 +38,3 @@ public enum DataType1Code
     TradingData = DataTypeCode.TradingData, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataType1CodeMetadataExtensions
-{
-    private static readonly DataType1CodeDropdownSource _dropdownSource = new DataType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataType1CodeDropdownRow GetMetadata(this DataType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

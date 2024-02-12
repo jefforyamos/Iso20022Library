@@ -101,22 +101,3 @@ public enum AttendanceAdmissionConditionsCode
     DelegateAllowedIfRegisteredInStockLedger,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttendanceAdmissionConditionsCodeMetadataExtensions
-{
-    private static readonly AttendanceAdmissionConditionsCodeDropdownSource _dropdownSource = new AttendanceAdmissionConditionsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttendanceAdmissionConditionsCodeDropdownRow GetMetadata(this AttendanceAdmissionConditionsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

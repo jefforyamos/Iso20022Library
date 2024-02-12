@@ -38,22 +38,3 @@ public enum ServiceAdjustmentType1Code
     NonCompensable = ServiceAdjustmentTypeCode.NonCompensable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceAdjustmentType1CodeMetadataExtensions
-{
-    private static readonly ServiceAdjustmentType1CodeDropdownSource _dropdownSource = new ServiceAdjustmentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceAdjustmentType1CodeDropdownRow GetMetadata(this ServiceAdjustmentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -137,22 +137,3 @@ public enum OnLineReason1Code
     UnavailableCurrency = OnLineReasonCode.UnavailableCurrency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OnLineReason1CodeMetadataExtensions
-{
-    private static readonly OnLineReason1CodeDropdownSource _dropdownSource = new OnLineReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOnLineReason1CodeDropdownRow GetMetadata(this OnLineReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

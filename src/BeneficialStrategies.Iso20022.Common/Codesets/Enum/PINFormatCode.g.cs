@@ -173,22 +173,3 @@ public enum PINFormatCode
     VISA3,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINFormatCodeMetadataExtensions
-{
-    private static readonly PINFormatCodeDropdownSource _dropdownSource = new PINFormatCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINFormatCodeDropdownRow GetMetadata(this PINFormatCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

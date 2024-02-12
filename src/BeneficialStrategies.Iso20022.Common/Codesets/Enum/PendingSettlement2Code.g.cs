@@ -371,22 +371,3 @@ public enum PendingSettlement2Code
     PendingCAP = PendingSettlementStatusReasonCode.PendingCAP, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingSettlement2CodeMetadataExtensions
-{
-    private static readonly PendingSettlement2CodeDropdownSource _dropdownSource = new PendingSettlement2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingSettlement2CodeDropdownRow GetMetadata(this PendingSettlement2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

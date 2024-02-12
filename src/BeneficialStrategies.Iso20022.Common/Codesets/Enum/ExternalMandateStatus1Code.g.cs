@@ -58,22 +58,3 @@ public enum ExternalMandateStatus1Code
     Suspended = ExternalMandateStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalMandateStatus1CodeMetadataExtensions
-{
-    private static readonly ExternalMandateStatus1CodeDropdownSource _dropdownSource = new ExternalMandateStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalMandateStatus1CodeDropdownRow GetMetadata(this ExternalMandateStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

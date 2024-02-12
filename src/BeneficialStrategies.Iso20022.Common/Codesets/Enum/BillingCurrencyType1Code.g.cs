@@ -47,22 +47,3 @@ public enum BillingCurrencyType1Code
     Pricing = BillingCurrencyTypeCode.Pricing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingCurrencyType1CodeMetadataExtensions
-{
-    private static readonly BillingCurrencyType1CodeDropdownSource _dropdownSource = new BillingCurrencyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingCurrencyType1CodeDropdownRow GetMetadata(this BillingCurrencyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

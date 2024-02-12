@@ -164,22 +164,3 @@ public enum Side3Code
     OptionExercise = SideCode.OptionExercise, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Side3CodeMetadataExtensions
-{
-    private static readonly Side3CodeDropdownSource _dropdownSource = new Side3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISide3CodeDropdownRow GetMetadata(this Side3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

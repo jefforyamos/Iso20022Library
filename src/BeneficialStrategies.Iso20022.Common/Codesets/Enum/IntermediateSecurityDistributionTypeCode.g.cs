@@ -155,22 +155,3 @@ public enum IntermediateSecurityDistributionTypeCode
     Merger,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IntermediateSecurityDistributionTypeCodeMetadataExtensions
-{
-    private static readonly IntermediateSecurityDistributionTypeCodeDropdownSource _dropdownSource = new IntermediateSecurityDistributionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIntermediateSecurityDistributionTypeCodeDropdownRow GetMetadata(this IntermediateSecurityDistributionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum BalanceType15Code
     Points = BalanceTypeCode.Points, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType15CodeMetadataExtensions
-{
-    private static readonly BalanceType15CodeDropdownSource _dropdownSource = new BalanceType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType15CodeDropdownRow GetMetadata(this BalanceType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

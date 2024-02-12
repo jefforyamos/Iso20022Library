@@ -191,22 +191,3 @@ public enum PensionSchemeType2Code
     SmallSelfAdministeredScheme = PensionSchemeTypeV2Code.SmallSelfAdministeredScheme, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionSchemeType2CodeMetadataExtensions
-{
-    private static readonly PensionSchemeType2CodeDropdownSource _dropdownSource = new PensionSchemeType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionSchemeType2CodeDropdownRow GetMetadata(this PensionSchemeType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

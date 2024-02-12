@@ -83,22 +83,3 @@ public enum PartyType11Code
     CardApplication = PartyTypeCode.CardApplication, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType11CodeMetadataExtensions
-{
-    private static readonly PartyType11CodeDropdownSource _dropdownSource = new PartyType11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType11CodeDropdownRow GetMetadata(this PartyType11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

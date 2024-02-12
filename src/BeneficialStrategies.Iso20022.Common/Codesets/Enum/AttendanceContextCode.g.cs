@@ -92,22 +92,3 @@ public enum AttendanceContextCode
     SelfServe,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttendanceContextCodeMetadataExtensions
-{
-    private static readonly AttendanceContextCodeDropdownSource _dropdownSource = new AttendanceContextCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttendanceContextCodeDropdownRow GetMetadata(this AttendanceContextCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

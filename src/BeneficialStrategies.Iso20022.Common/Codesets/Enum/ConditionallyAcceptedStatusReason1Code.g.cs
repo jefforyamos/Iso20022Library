@@ -56,22 +56,3 @@ public enum ConditionallyAcceptedStatusReason1Code
     Other = ConditionallyAcceptedStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConditionallyAcceptedStatusReason1CodeMetadataExtensions
-{
-    private static readonly ConditionallyAcceptedStatusReason1CodeDropdownSource _dropdownSource = new ConditionallyAcceptedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConditionallyAcceptedStatusReason1CodeDropdownRow GetMetadata(this ConditionallyAcceptedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

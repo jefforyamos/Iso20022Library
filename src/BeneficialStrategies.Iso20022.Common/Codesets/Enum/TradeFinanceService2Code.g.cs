@@ -47,22 +47,3 @@ public enum TradeFinanceService2Code
     Level3Services = TradeFinanceServiceCode.Level3Services, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeFinanceService2CodeMetadataExtensions
-{
-    private static readonly TradeFinanceService2CodeDropdownSource _dropdownSource = new TradeFinanceService2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeFinanceService2CodeDropdownRow GetMetadata(this TradeFinanceService2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

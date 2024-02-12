@@ -87,22 +87,3 @@ public enum TrackerTransactionStatusReasonCode
     DeliveredWithoutServiceLevel,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerTransactionStatusReasonCodeMetadataExtensions
-{
-    private static readonly TrackerTransactionStatusReasonCodeDropdownSource _dropdownSource = new TrackerTransactionStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerTransactionStatusReasonCodeDropdownRow GetMetadata(this TrackerTransactionStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

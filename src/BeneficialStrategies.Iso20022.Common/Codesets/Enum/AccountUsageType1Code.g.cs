@@ -38,22 +38,3 @@ public enum AccountUsageType1Code
     SettlementParticipant = AccountUsageTypeCode.SettlementParticipant, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountUsageType1CodeMetadataExtensions
-{
-    private static readonly AccountUsageType1CodeDropdownSource _dropdownSource = new AccountUsageType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountUsageType1CodeDropdownRow GetMetadata(this AccountUsageType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

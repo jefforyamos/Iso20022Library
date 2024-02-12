@@ -65,22 +65,3 @@ public enum Algorithm9Code
     UKPTwithAES128 = AlgorithmCode.UKPTwithAES128, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm9CodeMetadataExtensions
-{
-    private static readonly Algorithm9CodeDropdownSource _dropdownSource = new Algorithm9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm9CodeDropdownRow GetMetadata(this Algorithm9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

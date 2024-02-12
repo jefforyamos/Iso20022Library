@@ -110,22 +110,3 @@ public enum ExtendedOptionFeature1Code
     ForeignCurrencyPaymentExempt = ExtendedOptionFeatureCode.ForeignCurrencyPaymentExempt, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExtendedOptionFeature1CodeMetadataExtensions
-{
-    private static readonly ExtendedOptionFeature1CodeDropdownSource _dropdownSource = new ExtendedOptionFeature1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExtendedOptionFeature1CodeDropdownRow GetMetadata(this ExtendedOptionFeature1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

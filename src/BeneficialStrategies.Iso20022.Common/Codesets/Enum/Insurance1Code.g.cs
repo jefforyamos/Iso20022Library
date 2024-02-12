@@ -38,22 +38,3 @@ public enum Insurance1Code
     PermanentDisabilityInsurance = InsuranceCode.PermanentDisabilityInsurance, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Insurance1CodeMetadataExtensions
-{
-    private static readonly Insurance1CodeDropdownSource _dropdownSource = new Insurance1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInsurance1CodeDropdownRow GetMetadata(this Insurance1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

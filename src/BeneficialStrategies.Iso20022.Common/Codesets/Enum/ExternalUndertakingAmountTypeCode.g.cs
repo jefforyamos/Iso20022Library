@@ -39,22 +39,3 @@ public enum ExternalUndertakingAmountTypeCode
     Reduction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingAmountTypeCodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingAmountTypeCodeDropdownSource _dropdownSource = new ExternalUndertakingAmountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingAmountTypeCodeDropdownRow GetMetadata(this ExternalUndertakingAmountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

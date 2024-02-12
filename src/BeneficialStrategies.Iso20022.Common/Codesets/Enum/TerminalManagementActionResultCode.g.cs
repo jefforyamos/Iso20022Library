@@ -227,22 +227,3 @@ public enum TerminalManagementActionResultCode
     SuccessWithWarning,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementActionResultCodeMetadataExtensions
-{
-    private static readonly TerminalManagementActionResultCodeDropdownSource _dropdownSource = new TerminalManagementActionResultCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementActionResultCodeDropdownRow GetMetadata(this TerminalManagementActionResultCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

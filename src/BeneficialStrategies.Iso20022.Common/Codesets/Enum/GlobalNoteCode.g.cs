@@ -38,22 +38,3 @@ public enum GlobalNoteCode
     ClassicalGlobalNote,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GlobalNoteCodeMetadataExtensions
-{
-    private static readonly GlobalNoteCodeDropdownSource _dropdownSource = new GlobalNoteCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGlobalNoteCodeDropdownRow GetMetadata(this GlobalNoteCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

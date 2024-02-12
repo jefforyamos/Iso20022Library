@@ -56,22 +56,3 @@ public enum TaxWithholdingMethod1Code
     WithholdTaxAndReport = TaxWithholdingMethodCode.WithholdTaxAndReport, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxWithholdingMethod1CodeMetadataExtensions
-{
-    private static readonly TaxWithholdingMethod1CodeDropdownSource _dropdownSource = new TaxWithholdingMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxWithholdingMethod1CodeDropdownRow GetMetadata(this TaxWithholdingMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

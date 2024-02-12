@@ -38,22 +38,3 @@ public enum FundIntention1Code
     NotQualified = FundIntentionCode.NotQualified, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundIntention1CodeMetadataExtensions
-{
-    private static readonly FundIntention1CodeDropdownSource _dropdownSource = new FundIntention1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundIntention1CodeDropdownRow GetMetadata(this FundIntention1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum CertificateType2Code
     PublicKeyInfrastructureCertificate = CertificateTypeCode.PublicKeyInfrastructureCertificate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CertificateType2CodeMetadataExtensions
-{
-    private static readonly CertificateType2CodeDropdownSource _dropdownSource = new CertificateType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICertificateType2CodeDropdownRow GetMetadata(this CertificateType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

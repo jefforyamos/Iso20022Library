@@ -56,22 +56,3 @@ public enum KeyTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class KeyTypeCodeMetadataExtensions
-{
-    private static readonly KeyTypeCodeDropdownSource _dropdownSource = new KeyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IKeyTypeCodeDropdownRow GetMetadata(this KeyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

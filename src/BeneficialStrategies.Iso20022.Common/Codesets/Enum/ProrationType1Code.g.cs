@@ -38,22 +38,3 @@ public enum ProrationType1Code
     NotUsed = ProrationTypeCode.NotUsed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProrationType1CodeMetadataExtensions
-{
-    private static readonly ProrationType1CodeDropdownSource _dropdownSource = new ProrationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProrationType1CodeDropdownRow GetMetadata(this ProrationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

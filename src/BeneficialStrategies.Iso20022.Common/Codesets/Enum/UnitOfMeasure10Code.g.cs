@@ -38,22 +38,3 @@ public enum UnitOfMeasure10Code
     Mile = UnitOfMeasureCode.Mile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure10CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure10CodeDropdownSource _dropdownSource = new UnitOfMeasure10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure10CodeDropdownRow GetMetadata(this UnitOfMeasure10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum ProxyTypeCode
     NeutralProxy,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProxyTypeCodeMetadataExtensions
-{
-    private static readonly ProxyTypeCodeDropdownSource _dropdownSource = new ProxyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProxyTypeCodeDropdownRow GetMetadata(this ProxyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

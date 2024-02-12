@@ -47,22 +47,3 @@ public enum NewSecuritiesIssuanceType1Code
     Unknown = NewSecuritiesIssuanceTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NewSecuritiesIssuanceType1CodeMetadataExtensions
-{
-    private static readonly NewSecuritiesIssuanceType1CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INewSecuritiesIssuanceType1CodeDropdownRow GetMetadata(this NewSecuritiesIssuanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

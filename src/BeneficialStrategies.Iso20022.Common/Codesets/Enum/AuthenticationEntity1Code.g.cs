@@ -47,22 +47,3 @@ public enum AuthenticationEntity1Code
     Merchant = AuthenticationEntityCode.Merchant, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationEntity1CodeMetadataExtensions
-{
-    private static readonly AuthenticationEntity1CodeDropdownSource _dropdownSource = new AuthenticationEntity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationEntity1CodeDropdownRow GetMetadata(this AuthenticationEntity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

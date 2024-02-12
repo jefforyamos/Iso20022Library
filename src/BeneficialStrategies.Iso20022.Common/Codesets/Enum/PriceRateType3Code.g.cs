@@ -56,22 +56,3 @@ public enum PriceRateType3Code
     Yield = PriceValueTypeCode.Yield, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceRateType3CodeMetadataExtensions
-{
-    private static readonly PriceRateType3CodeDropdownSource _dropdownSource = new PriceRateType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceRateType3CodeDropdownRow GetMetadata(this PriceRateType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

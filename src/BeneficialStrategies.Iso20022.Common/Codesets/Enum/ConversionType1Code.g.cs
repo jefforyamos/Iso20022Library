@@ -38,22 +38,3 @@ public enum ConversionType1Code
     Interim = ConversionTypeCode.Interim, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConversionType1CodeMetadataExtensions
-{
-    private static readonly ConversionType1CodeDropdownSource _dropdownSource = new ConversionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConversionType1CodeDropdownRow GetMetadata(this ConversionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

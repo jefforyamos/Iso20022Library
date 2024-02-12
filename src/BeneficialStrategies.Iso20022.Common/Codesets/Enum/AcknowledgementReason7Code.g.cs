@@ -38,22 +38,3 @@ public enum AcknowledgementReason7Code
     Other = AcknowledgementReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReason7CodeMetadataExtensions
-{
-    private static readonly AcknowledgementReason7CodeDropdownSource _dropdownSource = new AcknowledgementReason7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReason7CodeDropdownRow GetMetadata(this AcknowledgementReason7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

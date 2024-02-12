@@ -56,22 +56,3 @@ public enum ProductType6Code
     Equity = ProductTypeV2Code.Equity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductType6CodeMetadataExtensions
-{
-    private static readonly ProductType6CodeDropdownSource _dropdownSource = new ProductType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductType6CodeDropdownRow GetMetadata(this ProductType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -461,22 +461,3 @@ public enum RepairReasonV2Code
     ReceivingDeliveringParty1,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReasonV2CodeMetadataExtensions
-{
-    private static readonly RepairReasonV2CodeDropdownSource _dropdownSource = new RepairReasonV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReasonV2CodeDropdownRow GetMetadata(this RepairReasonV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

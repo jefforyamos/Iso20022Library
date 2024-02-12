@@ -164,22 +164,3 @@ public enum TransactionReturnReason1Code
     CutOffTime = TransactionReasonCode.CutOffTime, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionReturnReason1CodeMetadataExtensions
-{
-    private static readonly TransactionReturnReason1CodeDropdownSource _dropdownSource = new TransactionReturnReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionReturnReason1CodeDropdownRow GetMetadata(this TransactionReturnReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

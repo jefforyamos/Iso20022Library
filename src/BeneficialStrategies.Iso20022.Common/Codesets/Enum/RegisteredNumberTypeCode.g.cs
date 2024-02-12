@@ -65,22 +65,3 @@ public enum RegisteredNumberTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegisteredNumberTypeCodeMetadataExtensions
-{
-    private static readonly RegisteredNumberTypeCodeDropdownSource _dropdownSource = new RegisteredNumberTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegisteredNumberTypeCodeDropdownRow GetMetadata(this RegisteredNumberTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

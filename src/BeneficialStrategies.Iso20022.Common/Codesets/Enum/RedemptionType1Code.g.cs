@@ -65,22 +65,3 @@ public enum RedemptionType1Code
     Putable = RedemptionTypeCode.Putable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RedemptionType1CodeMetadataExtensions
-{
-    private static readonly RedemptionType1CodeDropdownSource _dropdownSource = new RedemptionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRedemptionType1CodeDropdownRow GetMetadata(this RedemptionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

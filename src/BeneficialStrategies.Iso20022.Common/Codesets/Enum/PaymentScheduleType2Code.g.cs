@@ -47,22 +47,3 @@ public enum PaymentScheduleType2Code
     Both = PaymentScheduleTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentScheduleType2CodeMetadataExtensions
-{
-    private static readonly PaymentScheduleType2CodeDropdownSource _dropdownSource = new PaymentScheduleType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentScheduleType2CodeDropdownRow GetMetadata(this PaymentScheduleType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum TransactionOperationType7Code
     Termination = TransactionOperationTypeCode.Termination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType7CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType7CodeDropdownSource _dropdownSource = new TransactionOperationType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType7CodeDropdownRow GetMetadata(this TransactionOperationType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

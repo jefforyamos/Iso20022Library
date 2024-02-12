@@ -56,22 +56,3 @@ public enum CollateralisationType1Code
     Uncollateralised = CollateralisationTypeCode.Uncollateralised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralisationType1CodeMetadataExtensions
-{
-    private static readonly CollateralisationType1CodeDropdownSource _dropdownSource = new CollateralisationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralisationType1CodeDropdownRow GetMetadata(this CollateralisationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

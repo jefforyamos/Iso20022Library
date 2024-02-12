@@ -299,22 +299,3 @@ public enum TradeTypeCode
     FutureBuyBackTrade,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTypeCodeMetadataExtensions
-{
-    private static readonly TradeTypeCodeDropdownSource _dropdownSource = new TradeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTypeCodeDropdownRow GetMetadata(this TradeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

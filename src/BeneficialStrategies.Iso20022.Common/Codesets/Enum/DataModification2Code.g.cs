@@ -38,22 +38,3 @@ public enum DataModification2Code
     DeleteDataSet = DataModificationCode.DeleteDataSet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataModification2CodeMetadataExtensions
-{
-    private static readonly DataModification2CodeDropdownSource _dropdownSource = new DataModification2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataModification2CodeDropdownRow GetMetadata(this DataModification2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

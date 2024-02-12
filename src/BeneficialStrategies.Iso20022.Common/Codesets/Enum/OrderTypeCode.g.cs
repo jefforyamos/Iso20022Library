@@ -308,22 +308,3 @@ public enum OrderTypeCode
     CounterOrderSelection,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderTypeCodeMetadataExtensions
-{
-    private static readonly OrderTypeCodeDropdownSource _dropdownSource = new OrderTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderTypeCodeDropdownRow GetMetadata(this OrderTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

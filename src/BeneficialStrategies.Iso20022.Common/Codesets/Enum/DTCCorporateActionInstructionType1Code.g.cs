@@ -56,22 +56,3 @@ public enum DTCCorporateActionInstructionType1Code
     CoverProtectAgent = DTCCorporateActionInstructionTypeCode.CoverProtectAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCorporateActionInstructionType1CodeMetadataExtensions
-{
-    private static readonly DTCCorporateActionInstructionType1CodeDropdownSource _dropdownSource = new DTCCorporateActionInstructionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCorporateActionInstructionType1CodeDropdownRow GetMetadata(this DTCCorporateActionInstructionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

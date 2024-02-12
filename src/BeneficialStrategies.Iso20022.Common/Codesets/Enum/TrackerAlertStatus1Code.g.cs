@@ -56,22 +56,3 @@ public enum TrackerAlertStatus1Code
     Warning = TrackerAlertStatusCode.Warning, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerAlertStatus1CodeMetadataExtensions
-{
-    private static readonly TrackerAlertStatus1CodeDropdownSource _dropdownSource = new TrackerAlertStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerAlertStatus1CodeDropdownRow GetMetadata(this TrackerAlertStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

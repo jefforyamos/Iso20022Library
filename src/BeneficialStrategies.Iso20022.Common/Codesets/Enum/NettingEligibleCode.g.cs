@@ -47,22 +47,3 @@ public enum NettingEligibleCode
     AggregationForSettlement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NettingEligibleCodeMetadataExtensions
-{
-    private static readonly NettingEligibleCodeDropdownSource _dropdownSource = new NettingEligibleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INettingEligibleCodeDropdownRow GetMetadata(this NettingEligibleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

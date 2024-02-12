@@ -56,22 +56,3 @@ public enum PriceSourceCode
     StockExchange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceSourceCodeMetadataExtensions
-{
-    private static readonly PriceSourceCodeDropdownSource _dropdownSource = new PriceSourceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceSourceCodeDropdownRow GetMetadata(this PriceSourceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

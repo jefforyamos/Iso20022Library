@@ -47,22 +47,3 @@ public enum BaselineStatus2Code
     Active = BaselineStatusCode.Active, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BaselineStatus2CodeMetadataExtensions
-{
-    private static readonly BaselineStatus2CodeDropdownSource _dropdownSource = new BaselineStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBaselineStatus2CodeDropdownRow GetMetadata(this BaselineStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum PINEntrySecurityCharacteristic1Code
     SecureHardware = PINEntrySecurityCharacteristicCode.SecureHardware, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINEntrySecurityCharacteristic1CodeMetadataExtensions
-{
-    private static readonly PINEntrySecurityCharacteristic1CodeDropdownSource _dropdownSource = new PINEntrySecurityCharacteristic1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINEntrySecurityCharacteristic1CodeDropdownRow GetMetadata(this PINEntrySecurityCharacteristic1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

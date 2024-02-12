@@ -173,22 +173,3 @@ public enum ChargeType13Code
     SpeciallyAgreedFrontEndLoad = ChargeTypeCode.SpeciallyAgreedFrontEndLoad, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType13CodeMetadataExtensions
-{
-    private static readonly ChargeType13CodeDropdownSource _dropdownSource = new ChargeType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType13CodeDropdownRow GetMetadata(this ChargeType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

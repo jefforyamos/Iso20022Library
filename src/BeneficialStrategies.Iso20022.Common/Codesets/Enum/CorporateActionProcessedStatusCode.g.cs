@@ -83,22 +83,3 @@ public enum CorporateActionProcessedStatusCode
     AcceptedWithWarning,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionProcessedStatusCodeMetadataExtensions
-{
-    private static readonly CorporateActionProcessedStatusCodeDropdownSource _dropdownSource = new CorporateActionProcessedStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionProcessedStatusCodeDropdownRow GetMetadata(this CorporateActionProcessedStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

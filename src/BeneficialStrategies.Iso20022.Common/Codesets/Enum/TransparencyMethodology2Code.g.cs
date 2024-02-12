@@ -56,22 +56,3 @@ public enum TransparencyMethodology2Code
     Estimated = TransparencyMethodologyCode.Estimated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransparencyMethodology2CodeMetadataExtensions
-{
-    private static readonly TransparencyMethodology2CodeDropdownSource _dropdownSource = new TransparencyMethodology2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransparencyMethodology2CodeDropdownRow GetMetadata(this TransparencyMethodology2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

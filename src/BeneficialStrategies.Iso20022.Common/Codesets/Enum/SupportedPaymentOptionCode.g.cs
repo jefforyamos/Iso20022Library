@@ -56,22 +56,3 @@ public enum SupportedPaymentOptionCode
     PINRequest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SupportedPaymentOptionCodeMetadataExtensions
-{
-    private static readonly SupportedPaymentOptionCodeDropdownSource _dropdownSource = new SupportedPaymentOptionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISupportedPaymentOptionCodeDropdownRow GetMetadata(this SupportedPaymentOptionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

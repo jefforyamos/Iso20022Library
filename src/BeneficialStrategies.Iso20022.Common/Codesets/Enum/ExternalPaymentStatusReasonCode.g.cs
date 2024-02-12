@@ -218,22 +218,3 @@ public enum ExternalPaymentStatusReasonCode
     NotSpecifiedReasonAgentGenerated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentStatusReasonCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentStatusReasonCodeDropdownSource _dropdownSource = new ExternalPaymentStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentStatusReasonCodeDropdownRow GetMetadata(this ExternalPaymentStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

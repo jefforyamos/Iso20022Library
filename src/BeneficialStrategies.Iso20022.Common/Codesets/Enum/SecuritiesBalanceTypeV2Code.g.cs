@@ -371,22 +371,3 @@ public enum SecuritiesBalanceTypeV2Code
     QuasiIssued,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceTypeV2CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceTypeV2CodeDropdownSource _dropdownSource = new SecuritiesBalanceTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceTypeV2CodeDropdownRow GetMetadata(this SecuritiesBalanceTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum RiskReductionServiceCode
     OtherCompression,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RiskReductionServiceCodeMetadataExtensions
-{
-    private static readonly RiskReductionServiceCodeDropdownSource _dropdownSource = new RiskReductionServiceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRiskReductionServiceCodeDropdownRow GetMetadata(this RiskReductionServiceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

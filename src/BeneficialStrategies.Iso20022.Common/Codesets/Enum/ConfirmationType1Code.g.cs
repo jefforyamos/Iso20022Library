@@ -38,22 +38,3 @@ public enum ConfirmationType1Code
     Intent = ConfirmationTypeCode.Intent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationType1CodeMetadataExtensions
-{
-    private static readonly ConfirmationType1CodeDropdownSource _dropdownSource = new ConfirmationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationType1CodeDropdownRow GetMetadata(this ConfirmationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

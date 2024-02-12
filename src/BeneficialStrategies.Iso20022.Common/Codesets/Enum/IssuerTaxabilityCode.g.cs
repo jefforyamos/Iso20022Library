@@ -29,22 +29,3 @@ public enum IssuerTaxabilityCode
     Taxable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IssuerTaxabilityCodeMetadataExtensions
-{
-    private static readonly IssuerTaxabilityCodeDropdownSource _dropdownSource = new IssuerTaxabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIssuerTaxabilityCodeDropdownRow GetMetadata(this IssuerTaxabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

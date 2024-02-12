@@ -101,22 +101,3 @@ public enum StoredValueTransactionType2Code
     OpenAccount = StoredValueTransactionTypeCode.OpenAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StoredValueTransactionType2CodeMetadataExtensions
-{
-    private static readonly StoredValueTransactionType2CodeDropdownSource _dropdownSource = new StoredValueTransactionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStoredValueTransactionType2CodeDropdownRow GetMetadata(this StoredValueTransactionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

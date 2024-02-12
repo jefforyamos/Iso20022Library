@@ -38,22 +38,3 @@ public enum PreAllocationMethod1Code
     SpeakFirst = PreAllocationMethodCode.SpeakFirst, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PreAllocationMethod1CodeMetadataExtensions
-{
-    private static readonly PreAllocationMethod1CodeDropdownSource _dropdownSource = new PreAllocationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPreAllocationMethod1CodeDropdownRow GetMetadata(this PreAllocationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum DateType10Code
     BlockingTillPremiumPaymentDate = DateTypeCode.BlockingTillPremiumPaymentDate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateType10CodeMetadataExtensions
-{
-    private static readonly DateType10CodeDropdownSource _dropdownSource = new DateType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateType10CodeDropdownRow GetMetadata(this DateType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

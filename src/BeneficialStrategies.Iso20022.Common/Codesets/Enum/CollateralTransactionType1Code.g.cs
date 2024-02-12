@@ -110,22 +110,3 @@ public enum CollateralTransactionType1Code
     Termination = CollateralTransactionTypeCode.Termination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralTransactionType1CodeMetadataExtensions
-{
-    private static readonly CollateralTransactionType1CodeDropdownSource _dropdownSource = new CollateralTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralTransactionType1CodeDropdownRow GetMetadata(this CollateralTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

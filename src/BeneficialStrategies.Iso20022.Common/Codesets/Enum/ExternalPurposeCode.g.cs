@@ -2965,22 +2965,3 @@ public enum ExternalPurposeCode
     RetailPayment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPurposeCodeMetadataExtensions
-{
-    private static readonly ExternalPurposeCodeDropdownSource _dropdownSource = new ExternalPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPurposeCodeDropdownRow GetMetadata(this ExternalPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

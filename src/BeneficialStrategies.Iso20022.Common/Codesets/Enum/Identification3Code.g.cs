@@ -128,22 +128,3 @@ public enum Identification3Code
     Proxy = IdentificationCode.Proxy, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Identification3CodeMetadataExtensions
-{
-    private static readonly Identification3CodeDropdownSource _dropdownSource = new Identification3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIdentification3CodeDropdownRow GetMetadata(this Identification3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum SecuritiesLendingType1Code
     CallBack = SecuritiesLendingTypeCode.CallBack, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesLendingType1CodeMetadataExtensions
-{
-    private static readonly SecuritiesLendingType1CodeDropdownSource _dropdownSource = new SecuritiesLendingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesLendingType1CodeDropdownRow GetMetadata(this SecuritiesLendingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

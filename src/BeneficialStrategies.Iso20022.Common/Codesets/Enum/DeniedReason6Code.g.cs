@@ -110,22 +110,3 @@ public enum DeniedReason6Code
     ConditionalRegistrar = SettlementDeniedReasonCode.ConditionalRegistrar, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeniedReason6CodeMetadataExtensions
-{
-    private static readonly DeniedReason6CodeDropdownSource _dropdownSource = new DeniedReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeniedReason6CodeDropdownRow GetMetadata(this DeniedReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

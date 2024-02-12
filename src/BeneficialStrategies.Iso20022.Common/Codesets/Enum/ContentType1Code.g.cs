@@ -74,22 +74,3 @@ public enum ContentType1Code
     AuthenticatedData = ContentTypeCode.AuthenticatedData, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ContentType1CodeMetadataExtensions
-{
-    private static readonly ContentType1CodeDropdownSource _dropdownSource = new ContentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IContentType1CodeDropdownRow GetMetadata(this ContentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

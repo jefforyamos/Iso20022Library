@@ -38,22 +38,3 @@ public enum BrokeredDealCode
     BilateralTransaction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BrokeredDealCodeMetadataExtensions
-{
-    private static readonly BrokeredDealCodeDropdownSource _dropdownSource = new BrokeredDealCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBrokeredDealCodeDropdownRow GetMetadata(this BrokeredDealCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

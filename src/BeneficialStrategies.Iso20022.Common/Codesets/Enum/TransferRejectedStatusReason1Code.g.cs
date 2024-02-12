@@ -164,22 +164,3 @@ public enum TransferRejectedStatusReason1Code
     FinancialInstrumentQuantity = RejectedStatusReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferRejectedStatusReason1CodeMetadataExtensions
-{
-    private static readonly TransferRejectedStatusReason1CodeDropdownSource _dropdownSource = new TransferRejectedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferRejectedStatusReason1CodeDropdownRow GetMetadata(this TransferRejectedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

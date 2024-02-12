@@ -596,22 +596,3 @@ public enum FailingReason4Code
     PartialDiffer = PendingFailingReasonV2Code.PartialDiffer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailingReason4CodeMetadataExtensions
-{
-    private static readonly FailingReason4CodeDropdownSource _dropdownSource = new FailingReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailingReason4CodeDropdownRow GetMetadata(this FailingReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

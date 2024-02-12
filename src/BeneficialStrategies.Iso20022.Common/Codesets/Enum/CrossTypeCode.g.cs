@@ -56,22 +56,3 @@ public enum CrossTypeCode
     SamePrice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CrossTypeCodeMetadataExtensions
-{
-    private static readonly CrossTypeCodeDropdownSource _dropdownSource = new CrossTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICrossTypeCodeDropdownRow GetMetadata(this CrossTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

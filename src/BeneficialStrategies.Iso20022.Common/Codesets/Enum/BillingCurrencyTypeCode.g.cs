@@ -56,22 +56,3 @@ public enum BillingCurrencyTypeCode
     Host,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingCurrencyTypeCodeMetadataExtensions
-{
-    private static readonly BillingCurrencyTypeCodeDropdownSource _dropdownSource = new BillingCurrencyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingCurrencyTypeCodeDropdownRow GetMetadata(this BillingCurrencyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum EntryStatus1Code
     Future = EntryStatusCode.Future, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryStatus1CodeMetadataExtensions
-{
-    private static readonly EntryStatus1CodeDropdownSource _dropdownSource = new EntryStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryStatus1CodeDropdownRow GetMetadata(this EntryStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

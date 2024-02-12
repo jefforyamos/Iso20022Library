@@ -92,22 +92,3 @@ public enum SettlementAdviceTypeCode
     CorrespondentBankCharges,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementAdviceTypeCodeMetadataExtensions
-{
-    private static readonly SettlementAdviceTypeCodeDropdownSource _dropdownSource = new SettlementAdviceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementAdviceTypeCodeDropdownRow GetMetadata(this SettlementAdviceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum MeetingTypeClassificationCode
     Court,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingTypeClassificationCodeMetadataExtensions
-{
-    private static readonly MeetingTypeClassificationCodeDropdownSource _dropdownSource = new MeetingTypeClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingTypeClassificationCodeDropdownRow GetMetadata(this MeetingTypeClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

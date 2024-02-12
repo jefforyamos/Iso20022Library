@@ -38,22 +38,3 @@ public enum AssetClassDetailedSubProductType34Code
     Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType34CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType34CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType34CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType34CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType34Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

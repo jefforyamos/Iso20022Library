@@ -38,22 +38,3 @@ public enum NotionalOrUnitBased1Code
     Notional = NotionalOrUnitBasedCode.Notional, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotionalOrUnitBased1CodeMetadataExtensions
-{
-    private static readonly NotionalOrUnitBased1CodeDropdownSource _dropdownSource = new NotionalOrUnitBased1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotionalOrUnitBased1CodeDropdownRow GetMetadata(this NotionalOrUnitBased1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

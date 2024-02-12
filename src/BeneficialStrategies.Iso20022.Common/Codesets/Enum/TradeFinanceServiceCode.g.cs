@@ -56,22 +56,3 @@ public enum TradeFinanceServiceCode
     Level3Services,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeFinanceServiceCodeMetadataExtensions
-{
-    private static readonly TradeFinanceServiceCodeDropdownSource _dropdownSource = new TradeFinanceServiceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeFinanceServiceCodeDropdownRow GetMetadata(this TradeFinanceServiceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum AssetClassSubProductType27Code
     LightEnds = AssetClassSubProductTypeCode.LightEnds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType27CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType27CodeDropdownSource _dropdownSource = new AssetClassSubProductType27CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType27CodeDropdownRow GetMetadata(this AssetClassSubProductType27Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

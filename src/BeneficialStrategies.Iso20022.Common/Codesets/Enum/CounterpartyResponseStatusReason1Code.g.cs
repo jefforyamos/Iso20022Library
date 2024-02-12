@@ -47,22 +47,3 @@ public enum CounterpartyResponseStatusReason1Code
     CounterpartyModification = CounterpartyResponseStatusReasonCode.CounterpartyModification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CounterpartyResponseStatusReason1CodeMetadataExtensions
-{
-    private static readonly CounterpartyResponseStatusReason1CodeDropdownSource _dropdownSource = new CounterpartyResponseStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICounterpartyResponseStatusReason1CodeDropdownRow GetMetadata(this CounterpartyResponseStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

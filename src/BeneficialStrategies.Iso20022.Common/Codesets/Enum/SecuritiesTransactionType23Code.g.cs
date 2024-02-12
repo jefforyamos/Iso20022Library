@@ -407,22 +407,3 @@ public enum SecuritiesTransactionType23Code
     Withdrawal = SecuritiesTransactionTypeV4Code.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType23CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType23CodeDropdownSource _dropdownSource = new SecuritiesTransactionType23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType23CodeDropdownRow GetMetadata(this SecuritiesTransactionType23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

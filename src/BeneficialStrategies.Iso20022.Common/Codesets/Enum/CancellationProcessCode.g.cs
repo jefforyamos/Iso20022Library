@@ -56,22 +56,3 @@ public enum CancellationProcessCode
     ApplicationLevel,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationProcessCodeMetadataExtensions
-{
-    private static readonly CancellationProcessCodeDropdownSource _dropdownSource = new CancellationProcessCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationProcessCodeDropdownRow GetMetadata(this CancellationProcessCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

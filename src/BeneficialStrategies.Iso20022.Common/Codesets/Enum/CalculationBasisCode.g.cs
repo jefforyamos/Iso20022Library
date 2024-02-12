@@ -65,22 +65,3 @@ public enum CalculationBasisCode
     Annual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CalculationBasisCodeMetadataExtensions
-{
-    private static readonly CalculationBasisCodeDropdownSource _dropdownSource = new CalculationBasisCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICalculationBasisCodeDropdownRow GetMetadata(this CalculationBasisCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

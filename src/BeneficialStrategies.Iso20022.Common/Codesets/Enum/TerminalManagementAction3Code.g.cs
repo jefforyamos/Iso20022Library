@@ -47,22 +47,3 @@ public enum TerminalManagementAction3Code
     Update = TerminalManagementActionCode.Update, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAction3CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAction3CodeDropdownSource _dropdownSource = new TerminalManagementAction3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAction3CodeDropdownRow GetMetadata(this TerminalManagementAction3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CollateralPurposeCode
     SegregatedIndependentAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralPurposeCodeMetadataExtensions
-{
-    private static readonly CollateralPurposeCodeDropdownSource _dropdownSource = new CollateralPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralPurposeCodeDropdownRow GetMetadata(this CollateralPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

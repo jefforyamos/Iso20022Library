@@ -101,22 +101,3 @@ public enum TypeOfIdentification4Code
     TaxIdentificationNumber = TypeOfIdentificationCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfIdentification4CodeMetadataExtensions
-{
-    private static readonly TypeOfIdentification4CodeDropdownSource _dropdownSource = new TypeOfIdentification4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfIdentification4CodeDropdownRow GetMetadata(this TypeOfIdentification4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

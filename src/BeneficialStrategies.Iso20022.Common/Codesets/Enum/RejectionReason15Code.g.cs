@@ -29,22 +29,3 @@ public enum RejectionReason15Code
     FailedValidation = RejectionReasonCode.FailedValidation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason15CodeMetadataExtensions
-{
-    private static readonly RejectionReason15CodeDropdownSource _dropdownSource = new RejectionReason15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason15CodeDropdownRow GetMetadata(this RejectionReason15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

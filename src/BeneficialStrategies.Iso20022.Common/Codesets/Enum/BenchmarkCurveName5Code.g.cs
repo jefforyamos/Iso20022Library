@@ -327,22 +327,3 @@ public enum BenchmarkCurveName5Code
     CORRA = BenchmarkCurveNameCode.CORRA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BenchmarkCurveName5CodeMetadataExtensions
-{
-    private static readonly BenchmarkCurveName5CodeDropdownSource _dropdownSource = new BenchmarkCurveName5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBenchmarkCurveName5CodeDropdownRow GetMetadata(this BenchmarkCurveName5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

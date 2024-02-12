@@ -38,22 +38,3 @@ public enum AgentTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgentTypeCodeMetadataExtensions
-{
-    private static readonly AgentTypeCodeDropdownSource _dropdownSource = new AgentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgentTypeCodeDropdownRow GetMetadata(this AgentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

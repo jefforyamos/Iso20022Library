@@ -38,22 +38,3 @@ public enum CollateralAppliedExcessCode
     Excess,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralAppliedExcessCodeMetadataExtensions
-{
-    private static readonly CollateralAppliedExcessCodeDropdownSource _dropdownSource = new CollateralAppliedExcessCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralAppliedExcessCodeDropdownRow GetMetadata(this CollateralAppliedExcessCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

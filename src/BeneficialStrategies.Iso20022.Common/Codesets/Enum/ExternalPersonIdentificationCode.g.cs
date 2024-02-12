@@ -112,22 +112,3 @@ public enum ExternalPersonIdentificationCode
     PersonCommercialIdentification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPersonIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalPersonIdentificationCodeDropdownSource _dropdownSource = new ExternalPersonIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPersonIdentificationCodeDropdownRow GetMetadata(this ExternalPersonIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

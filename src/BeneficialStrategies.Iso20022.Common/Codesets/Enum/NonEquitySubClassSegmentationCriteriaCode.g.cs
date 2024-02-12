@@ -344,22 +344,3 @@ public enum NonEquitySubClassSegmentationCriteriaCode
     UnderlyingType,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonEquitySubClassSegmentationCriteriaCodeMetadataExtensions
-{
-    private static readonly NonEquitySubClassSegmentationCriteriaCodeDropdownSource _dropdownSource = new NonEquitySubClassSegmentationCriteriaCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonEquitySubClassSegmentationCriteriaCodeDropdownRow GetMetadata(this NonEquitySubClassSegmentationCriteriaCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

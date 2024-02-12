@@ -47,22 +47,3 @@ public enum AllocationIndicator1Code
     Unallocated = AllocationIndicatorCode.Unallocated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllocationIndicator1CodeMetadataExtensions
-{
-    private static readonly AllocationIndicator1CodeDropdownSource _dropdownSource = new AllocationIndicator1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllocationIndicator1CodeDropdownRow GetMetadata(this AllocationIndicator1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

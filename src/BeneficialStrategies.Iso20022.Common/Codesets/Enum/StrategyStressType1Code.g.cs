@@ -47,22 +47,3 @@ public enum StrategyStressType1Code
     Spread = StrategyStressTypeCode.Spread, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StrategyStressType1CodeMetadataExtensions
-{
-    private static readonly StrategyStressType1CodeDropdownSource _dropdownSource = new StrategyStressType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStrategyStressType1CodeDropdownRow GetMetadata(this StrategyStressType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -164,22 +164,3 @@ public enum ATMCommand6Code
     KeyReplace = ATMCommandCode.KeyReplace, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCommand6CodeMetadataExtensions
-{
-    private static readonly ATMCommand6CodeDropdownSource _dropdownSource = new ATMCommand6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCommand6CodeDropdownRow GetMetadata(this ATMCommand6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

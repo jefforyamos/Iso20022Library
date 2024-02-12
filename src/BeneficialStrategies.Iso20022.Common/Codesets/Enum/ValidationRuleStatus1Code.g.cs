@@ -75,22 +75,3 @@ public enum ValidationRuleStatus1Code
     AcceptedWithChange = ValidationRuleCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleStatus1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleStatus1CodeDropdownSource _dropdownSource = new ValidationRuleStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleStatus1CodeDropdownRow GetMetadata(this ValidationRuleStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

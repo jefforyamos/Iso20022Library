@@ -47,22 +47,3 @@ public enum PaymentCancellationRejection1Code
     CustomerDecision = PaymentCancellationRejectionCode.CustomerDecision, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCancellationRejection1CodeMetadataExtensions
-{
-    private static readonly PaymentCancellationRejection1CodeDropdownSource _dropdownSource = new PaymentCancellationRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCancellationRejection1CodeDropdownRow GetMetadata(this PaymentCancellationRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

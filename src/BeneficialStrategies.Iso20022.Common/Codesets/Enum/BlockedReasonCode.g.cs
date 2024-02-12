@@ -119,22 +119,3 @@ public enum BlockedReasonCode
     Rejected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BlockedReasonCodeMetadataExtensions
-{
-    private static readonly BlockedReasonCodeDropdownSource _dropdownSource = new BlockedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBlockedReasonCodeDropdownRow GetMetadata(this BlockedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum PendingOpeningStatusReasonCode
     Restrictions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingOpeningStatusReasonCodeMetadataExtensions
-{
-    private static readonly PendingOpeningStatusReasonCodeDropdownSource _dropdownSource = new PendingOpeningStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingOpeningStatusReasonCodeDropdownRow GetMetadata(this PendingOpeningStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

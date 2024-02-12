@@ -47,22 +47,3 @@ public enum TradingFloorOrderHandling1Code
     Manual = TradingFloorOrderHandlingCode.Manual, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingFloorOrderHandling1CodeMetadataExtensions
-{
-    private static readonly TradingFloorOrderHandling1CodeDropdownSource _dropdownSource = new TradingFloorOrderHandling1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingFloorOrderHandling1CodeDropdownRow GetMetadata(this TradingFloorOrderHandling1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

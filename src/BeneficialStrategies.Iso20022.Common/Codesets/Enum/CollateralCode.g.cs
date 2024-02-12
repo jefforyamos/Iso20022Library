@@ -38,22 +38,3 @@ public enum CollateralCode
     NotCollateral,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralCodeMetadataExtensions
-{
-    private static readonly CollateralCodeDropdownSource _dropdownSource = new CollateralCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralCodeDropdownRow GetMetadata(this CollateralCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

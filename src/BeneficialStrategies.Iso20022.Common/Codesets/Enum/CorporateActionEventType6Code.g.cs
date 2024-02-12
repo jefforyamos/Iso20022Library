@@ -587,22 +587,3 @@ public enum CorporateActionEventType6Code
     CreditEvent = CorporateActionEventTypeV3Code.CreditEvent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType6CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType6CodeDropdownSource _dropdownSource = new CorporateActionEventType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType6CodeDropdownRow GetMetadata(this CorporateActionEventType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

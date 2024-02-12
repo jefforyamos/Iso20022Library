@@ -290,22 +290,3 @@ public enum SecuritiesBalanceType14Code
     PurchasedInvestmentFundTaxGroupUnit2 = SecuritiesBalanceTypeV3Code.PurchasedInvestmentFundTaxGroupUnit2, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType14CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType14CodeDropdownSource _dropdownSource = new SecuritiesBalanceType14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType14CodeDropdownRow GetMetadata(this SecuritiesBalanceType14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

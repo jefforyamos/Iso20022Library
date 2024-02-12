@@ -101,22 +101,3 @@ public enum CollateralisationType2Code
     Uncollateralised = CollateralisationTypeCode.Uncollateralised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralisationType2CodeMetadataExtensions
-{
-    private static readonly CollateralisationType2CodeDropdownSource _dropdownSource = new CollateralisationType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralisationType2CodeDropdownRow GetMetadata(this CollateralisationType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

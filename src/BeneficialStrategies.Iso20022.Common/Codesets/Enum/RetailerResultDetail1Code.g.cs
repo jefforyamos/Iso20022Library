@@ -164,22 +164,3 @@ public enum RetailerResultDetail1Code
     InProgress = RetailerResultDetailCode.InProgress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerResultDetail1CodeMetadataExtensions
-{
-    private static readonly RetailerResultDetail1CodeDropdownSource _dropdownSource = new RetailerResultDetail1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerResultDetail1CodeDropdownRow GetMetadata(this RetailerResultDetail1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

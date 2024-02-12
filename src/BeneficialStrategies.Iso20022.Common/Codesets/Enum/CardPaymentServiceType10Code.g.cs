@@ -65,22 +65,3 @@ public enum CardPaymentServiceType10Code
     AddWhiteList = CardPaymentServiceTypeCode.AddWhiteList, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType10CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType10CodeDropdownSource _dropdownSource = new CardPaymentServiceType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType10CodeDropdownRow GetMetadata(this CardPaymentServiceType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum ValidationRuleSettlementInProcess1Code
     AcceptedSettlementInProcess = ValidationRuleCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleSettlementInProcess1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleSettlementInProcess1CodeDropdownSource _dropdownSource = new ValidationRuleSettlementInProcess1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleSettlementInProcess1CodeDropdownRow GetMetadata(this ValidationRuleSettlementInProcess1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -904,22 +904,3 @@ public enum ExternalMarketInfrastructureCode
     Zambia,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalMarketInfrastructureCodeMetadataExtensions
-{
-    private static readonly ExternalMarketInfrastructureCodeDropdownSource _dropdownSource = new ExternalMarketInfrastructureCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalMarketInfrastructureCodeDropdownRow GetMetadata(this ExternalMarketInfrastructureCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

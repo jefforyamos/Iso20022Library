@@ -56,22 +56,3 @@ public enum CollateralQualityType1Code
     NonApplicable = CollateralQualityTypeCode.NonApplicable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralQualityType1CodeMetadataExtensions
-{
-    private static readonly CollateralQualityType1CodeDropdownSource _dropdownSource = new CollateralQualityType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralQualityType1CodeDropdownRow GetMetadata(this CollateralQualityType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

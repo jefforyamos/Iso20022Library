@@ -47,22 +47,3 @@ public enum SoundFormat1Code
     Text = SoundFormatCode.Text, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SoundFormat1CodeMetadataExtensions
-{
-    private static readonly SoundFormat1CodeDropdownSource _dropdownSource = new SoundFormat1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISoundFormat1CodeDropdownRow GetMetadata(this SoundFormat1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

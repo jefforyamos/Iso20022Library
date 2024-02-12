@@ -218,22 +218,3 @@ public enum SystemEventType2Code
     EndOfStandingFacilities = SystemEventTypeCode.EndOfStandingFacilities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemEventType2CodeMetadataExtensions
-{
-    private static readonly SystemEventType2CodeDropdownSource _dropdownSource = new SystemEventType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemEventType2CodeDropdownRow GetMetadata(this SystemEventType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum FormOfSecurity1Code
     Registered = FormOfSecurityCode.Registered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FormOfSecurity1CodeMetadataExtensions
-{
-    private static readonly FormOfSecurity1CodeDropdownSource _dropdownSource = new FormOfSecurity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFormOfSecurity1CodeDropdownRow GetMetadata(this FormOfSecurity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

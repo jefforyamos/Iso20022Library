@@ -56,22 +56,3 @@ public enum RejectedStatusReason8Code
     LegallyImpossible = RejectedStatusReasonCode.LegallyImpossible, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason8CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason8CodeDropdownSource _dropdownSource = new RejectedStatusReason8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason8CodeDropdownRow GetMetadata(this RejectedStatusReason8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

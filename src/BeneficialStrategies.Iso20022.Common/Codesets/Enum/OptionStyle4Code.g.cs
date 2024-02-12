@@ -47,22 +47,3 @@ public enum OptionStyle4Code
     Bermudan = OptionStyleCode.Bermudan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionStyle4CodeMetadataExtensions
-{
-    private static readonly OptionStyle4CodeDropdownSource _dropdownSource = new OptionStyle4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionStyle4CodeDropdownRow GetMetadata(this OptionStyle4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

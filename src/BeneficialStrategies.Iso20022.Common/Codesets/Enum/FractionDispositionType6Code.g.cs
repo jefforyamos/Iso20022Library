@@ -56,22 +56,3 @@ public enum FractionDispositionType6Code
     Expire = FractionDispositionTypeCode.Expire, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType6CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType6CodeDropdownSource _dropdownSource = new FractionDispositionType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType6CodeDropdownRow GetMetadata(this FractionDispositionType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

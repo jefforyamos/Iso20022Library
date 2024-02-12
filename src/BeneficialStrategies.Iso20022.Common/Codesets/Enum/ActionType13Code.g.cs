@@ -200,22 +200,3 @@ public enum ActionType13Code
     DoNotTryAgain = ActionTypeCode.DoNotTryAgain, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType13CodeMetadataExtensions
-{
-    private static readonly ActionType13CodeDropdownSource _dropdownSource = new ActionType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType13CodeDropdownRow GetMetadata(this ActionType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

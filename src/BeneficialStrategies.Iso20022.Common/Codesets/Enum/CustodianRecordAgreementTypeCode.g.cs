@@ -47,22 +47,3 @@ public enum CustodianRecordAgreementTypeCode
     NoComposite,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustodianRecordAgreementTypeCodeMetadataExtensions
-{
-    private static readonly CustodianRecordAgreementTypeCodeDropdownSource _dropdownSource = new CustodianRecordAgreementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustodianRecordAgreementTypeCodeDropdownRow GetMetadata(this CustodianRecordAgreementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

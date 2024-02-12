@@ -83,22 +83,3 @@ public enum NonEquityInstrumentReportingClassification1Code
     ExchangeTradedNote = FinancialInstrumentReportingClassificationCode.ExchangeTradedNote, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonEquityInstrumentReportingClassification1CodeMetadataExtensions
-{
-    private static readonly NonEquityInstrumentReportingClassification1CodeDropdownSource _dropdownSource = new NonEquityInstrumentReportingClassification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonEquityInstrumentReportingClassification1CodeDropdownRow GetMetadata(this NonEquityInstrumentReportingClassification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

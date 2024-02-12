@@ -137,22 +137,3 @@ public enum MarketTypeCode
     Counter,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketTypeCodeMetadataExtensions
-{
-    private static readonly MarketTypeCodeDropdownSource _dropdownSource = new MarketTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketTypeCodeDropdownRow GetMetadata(this MarketTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum DeniedReason1Code
     MarketDeadlineMissed = DeniedReasonCode.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeniedReason1CodeMetadataExtensions
-{
-    private static readonly DeniedReason1CodeDropdownSource _dropdownSource = new DeniedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeniedReason1CodeDropdownRow GetMetadata(this DeniedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

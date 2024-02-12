@@ -39,22 +39,3 @@ public enum TypeOfAmount9Code
     InstructedAmount = TypeOfAmountCode.InstructedAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount9CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount9CodeDropdownSource _dropdownSource = new TypeOfAmount9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount9CodeDropdownRow GetMetadata(this TypeOfAmount9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

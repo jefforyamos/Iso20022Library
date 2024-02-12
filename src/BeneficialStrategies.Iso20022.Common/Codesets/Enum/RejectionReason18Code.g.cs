@@ -47,22 +47,3 @@ public enum RejectionReason18Code
     Late = RejectionReasonCode.Late, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason18CodeMetadataExtensions
-{
-    private static readonly RejectionReason18CodeDropdownSource _dropdownSource = new RejectionReason18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason18CodeDropdownRow GetMetadata(this RejectionReason18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

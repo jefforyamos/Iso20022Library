@@ -128,22 +128,3 @@ public enum AdditionalBusinessProcess7Code
     FullPrefunding = AdditionalBusinessProcessCode.FullPrefunding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess7CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess7CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess7CodeDropdownRow GetMetadata(this AdditionalBusinessProcess7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

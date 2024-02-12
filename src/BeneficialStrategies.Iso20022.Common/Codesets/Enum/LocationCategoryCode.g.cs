@@ -137,22 +137,3 @@ public enum LocationCategoryCode
     VirtualShop,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationCategoryCodeMetadataExtensions
-{
-    private static readonly LocationCategoryCodeDropdownSource _dropdownSource = new LocationCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationCategoryCodeDropdownRow GetMetadata(this LocationCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

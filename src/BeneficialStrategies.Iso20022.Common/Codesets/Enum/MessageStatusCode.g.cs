@@ -110,22 +110,3 @@ public enum MessageStatusCode
     NotAuthorised,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageStatusCodeMetadataExtensions
-{
-    private static readonly MessageStatusCodeDropdownSource _dropdownSource = new MessageStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageStatusCodeDropdownRow GetMetadata(this MessageStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

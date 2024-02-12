@@ -100,22 +100,3 @@ public enum TradeExecutionSessionCode
     TokyoClosingPriceTrade,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeExecutionSessionCodeMetadataExtensions
-{
-    private static readonly TradeExecutionSessionCodeDropdownSource _dropdownSource = new TradeExecutionSessionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeExecutionSessionCodeDropdownRow GetMetadata(this TradeExecutionSessionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

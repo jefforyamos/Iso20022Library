@@ -445,22 +445,3 @@ public enum ExternalTradeTransactionConditionCode
     ExWarrant,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTradeTransactionConditionCodeMetadataExtensions
-{
-    private static readonly ExternalTradeTransactionConditionCodeDropdownSource _dropdownSource = new ExternalTradeTransactionConditionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTradeTransactionConditionCodeDropdownRow GetMetadata(this ExternalTradeTransactionConditionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

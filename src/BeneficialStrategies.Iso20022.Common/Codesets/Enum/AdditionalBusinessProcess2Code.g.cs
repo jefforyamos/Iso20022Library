@@ -47,22 +47,3 @@ public enum AdditionalBusinessProcess2Code
     TaxRefund = AdditionalBusinessProcessCode.TaxRefund, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess2CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess2CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess2CodeDropdownRow GetMetadata(this AdditionalBusinessProcess2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

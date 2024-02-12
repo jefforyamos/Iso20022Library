@@ -101,22 +101,3 @@ public enum FinancialInstrumentContractType2Code
     Other = FinancialInstrumentContractTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentContractType2CodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentContractType2CodeDropdownSource _dropdownSource = new FinancialInstrumentContractType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentContractType2CodeDropdownRow GetMetadata(this FinancialInstrumentContractType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

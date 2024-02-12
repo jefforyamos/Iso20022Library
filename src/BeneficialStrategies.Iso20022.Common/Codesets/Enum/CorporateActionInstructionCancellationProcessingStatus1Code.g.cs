@@ -56,22 +56,3 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
     Rejected = CorporateActionInstructionCancellationProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionInstructionCancellationProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly CorporateActionInstructionCancellationProcessingStatus1CodeDropdownSource _dropdownSource = new CorporateActionInstructionCancellationProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionInstructionCancellationProcessingStatus1CodeDropdownRow GetMetadata(this CorporateActionInstructionCancellationProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

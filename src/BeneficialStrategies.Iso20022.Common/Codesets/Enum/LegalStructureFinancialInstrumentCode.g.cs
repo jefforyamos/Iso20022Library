@@ -83,22 +83,3 @@ public enum LegalStructureFinancialInstrumentCode
     NonUCITSMoneyMarketFund,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalStructureFinancialInstrumentCodeMetadataExtensions
-{
-    private static readonly LegalStructureFinancialInstrumentCodeDropdownSource _dropdownSource = new LegalStructureFinancialInstrumentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalStructureFinancialInstrumentCodeDropdownRow GetMetadata(this LegalStructureFinancialInstrumentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

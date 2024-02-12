@@ -137,22 +137,3 @@ public enum FinancialInstrumentContractTypeCode
     ForwardFreightAgreement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentContractTypeCodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentContractTypeCodeDropdownSource _dropdownSource = new FinancialInstrumentContractTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentContractTypeCodeDropdownRow GetMetadata(this FinancialInstrumentContractTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

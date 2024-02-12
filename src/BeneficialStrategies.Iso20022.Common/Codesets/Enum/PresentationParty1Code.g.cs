@@ -47,22 +47,3 @@ public enum PresentationParty1Code
     ExclusiveIssuer = PresentationPartyCode.ExclusiveIssuer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PresentationParty1CodeMetadataExtensions
-{
-    private static readonly PresentationParty1CodeDropdownSource _dropdownSource = new PresentationParty1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPresentationParty1CodeDropdownRow GetMetadata(this PresentationParty1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

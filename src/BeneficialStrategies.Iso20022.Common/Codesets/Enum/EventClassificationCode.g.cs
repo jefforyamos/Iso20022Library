@@ -46,22 +46,3 @@ public enum EventClassificationCode
     Voluntary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventClassificationCodeMetadataExtensions
-{
-    private static readonly EventClassificationCodeDropdownSource _dropdownSource = new EventClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventClassificationCodeDropdownRow GetMetadata(this EventClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

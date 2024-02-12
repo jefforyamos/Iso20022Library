@@ -191,22 +191,3 @@ public enum PurchaseIdentifierType1Code
     TransactionIdentification = PurchaseIdentifierTypeCode.TransactionIdentification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PurchaseIdentifierType1CodeMetadataExtensions
-{
-    private static readonly PurchaseIdentifierType1CodeDropdownSource _dropdownSource = new PurchaseIdentifierType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPurchaseIdentifierType1CodeDropdownRow GetMetadata(this PurchaseIdentifierType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

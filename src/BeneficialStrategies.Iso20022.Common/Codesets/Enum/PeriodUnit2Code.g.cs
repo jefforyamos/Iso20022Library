@@ -92,22 +92,3 @@ public enum PeriodUnit2Code
     Other = PeriodUnitCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PeriodUnit2CodeMetadataExtensions
-{
-    private static readonly PeriodUnit2CodeDropdownSource _dropdownSource = new PeriodUnit2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPeriodUnit2CodeDropdownRow GetMetadata(this PeriodUnit2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

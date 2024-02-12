@@ -119,22 +119,3 @@ public enum SettlementStatusCode
     Unmatched,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementStatusCodeMetadataExtensions
-{
-    private static readonly SettlementStatusCodeDropdownSource _dropdownSource = new SettlementStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementStatusCodeDropdownRow GetMetadata(this SettlementStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

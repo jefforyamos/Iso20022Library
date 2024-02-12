@@ -291,22 +291,3 @@ public enum ExternalClearingSystemIdentificationCode
     SouthKoreaCentralBankIdentificationCode,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalClearingSystemIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalClearingSystemIdentificationCodeDropdownSource _dropdownSource = new ExternalClearingSystemIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalClearingSystemIdentificationCodeDropdownRow GetMetadata(this ExternalClearingSystemIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum LendingTransactionMethodCode
     ExclusiveTrade,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LendingTransactionMethodCodeMetadataExtensions
-{
-    private static readonly LendingTransactionMethodCodeDropdownSource _dropdownSource = new LendingTransactionMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILendingTransactionMethodCodeDropdownRow GetMetadata(this LendingTransactionMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

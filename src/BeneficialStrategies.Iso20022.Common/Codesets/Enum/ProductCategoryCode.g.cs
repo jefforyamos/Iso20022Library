@@ -65,22 +65,3 @@ public enum ProductCategoryCode
     Gender,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductCategoryCodeMetadataExtensions
-{
-    private static readonly ProductCategoryCodeDropdownSource _dropdownSource = new ProductCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductCategoryCodeDropdownRow GetMetadata(this ProductCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

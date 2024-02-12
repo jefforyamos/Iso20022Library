@@ -38,22 +38,3 @@ public enum CollateralType2Code
     Securities = CollateralTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralType2CodeMetadataExtensions
-{
-    private static readonly CollateralType2CodeDropdownSource _dropdownSource = new CollateralType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralType2CodeDropdownRow GetMetadata(this CollateralType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

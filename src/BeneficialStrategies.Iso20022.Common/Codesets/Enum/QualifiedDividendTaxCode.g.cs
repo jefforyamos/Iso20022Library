@@ -56,22 +56,3 @@ public enum QualifiedDividendTaxCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QualifiedDividendTaxCodeMetadataExtensions
-{
-    private static readonly QualifiedDividendTaxCodeDropdownSource _dropdownSource = new QualifiedDividendTaxCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQualifiedDividendTaxCodeDropdownRow GetMetadata(this QualifiedDividendTaxCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum DeniedReason3Code
     Other = DeniedReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeniedReason3CodeMetadataExtensions
-{
-    private static readonly DeniedReason3CodeDropdownSource _dropdownSource = new DeniedReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeniedReason3CodeDropdownRow GetMetadata(this DeniedReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

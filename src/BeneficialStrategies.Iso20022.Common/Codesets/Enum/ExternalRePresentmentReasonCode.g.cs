@@ -65,22 +65,3 @@ public enum ExternalRePresentmentReasonCode
     VerificationLiabilityShiftDenied,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalRePresentmentReasonCodeMetadataExtensions
-{
-    private static readonly ExternalRePresentmentReasonCodeDropdownSource _dropdownSource = new ExternalRePresentmentReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalRePresentmentReasonCodeDropdownRow GetMetadata(this ExternalRePresentmentReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

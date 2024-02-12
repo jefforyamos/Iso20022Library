@@ -38,22 +38,3 @@ public enum StandingInstructionGrossNet1Code
     Net = StandingInstructionGrossNetCode.Net, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandingInstructionGrossNet1CodeMetadataExtensions
-{
-    private static readonly StandingInstructionGrossNet1CodeDropdownSource _dropdownSource = new StandingInstructionGrossNet1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandingInstructionGrossNet1CodeDropdownRow GetMetadata(this StandingInstructionGrossNet1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

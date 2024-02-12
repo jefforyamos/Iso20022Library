@@ -29,22 +29,3 @@ public enum ValidationRuleNarrative1Code
     Narrative = ValidationRuleCode.Narrative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleNarrative1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleNarrative1CodeDropdownSource _dropdownSource = new ValidationRuleNarrative1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleNarrative1CodeDropdownRow GetMetadata(this ValidationRuleNarrative1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

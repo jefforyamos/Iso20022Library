@@ -83,22 +83,3 @@ public enum TransactionIndividualStatus3Code
     AcceptedWithChange = PaymentStatusCode.AcceptedWithChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionIndividualStatus3CodeMetadataExtensions
-{
-    private static readonly TransactionIndividualStatus3CodeDropdownSource _dropdownSource = new TransactionIndividualStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionIndividualStatus3CodeDropdownRow GetMetadata(this TransactionIndividualStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

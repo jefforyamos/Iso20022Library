@@ -101,22 +101,3 @@ public enum ExchangePolicyCode
     Blocking,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangePolicyCodeMetadataExtensions
-{
-    private static readonly ExchangePolicyCodeDropdownSource _dropdownSource = new ExchangePolicyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangePolicyCodeDropdownRow GetMetadata(this ExchangePolicyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

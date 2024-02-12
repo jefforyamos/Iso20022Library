@@ -47,22 +47,3 @@ public enum MandateClassification1Code
     Variable = MandateClassificationCode.Variable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MandateClassification1CodeMetadataExtensions
-{
-    private static readonly MandateClassification1CodeDropdownSource _dropdownSource = new MandateClassification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMandateClassification1CodeDropdownRow GetMetadata(this MandateClassification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

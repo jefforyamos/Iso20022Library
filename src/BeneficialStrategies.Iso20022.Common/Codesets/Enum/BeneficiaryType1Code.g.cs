@@ -47,22 +47,3 @@ public enum BeneficiaryType1Code
     Successor = BeneficiaryTypeCode.Successor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryType1CodeMetadataExtensions
-{
-    private static readonly BeneficiaryType1CodeDropdownSource _dropdownSource = new BeneficiaryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryType1CodeDropdownRow GetMetadata(this BeneficiaryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

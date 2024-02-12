@@ -47,22 +47,3 @@ public enum BalanceAdjustmentType1Code
     Collected = BalanceAdjustmentTypeCode.Collected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceAdjustmentType1CodeMetadataExtensions
-{
-    private static readonly BalanceAdjustmentType1CodeDropdownSource _dropdownSource = new BalanceAdjustmentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceAdjustmentType1CodeDropdownRow GetMetadata(this BalanceAdjustmentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

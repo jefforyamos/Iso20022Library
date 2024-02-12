@@ -83,22 +83,3 @@ public enum PegType1Code
     VolumeWeightAveragePrice = PegTypeCode.VolumeWeightAveragePrice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PegType1CodeMetadataExtensions
-{
-    private static readonly PegType1CodeDropdownSource _dropdownSource = new PegType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPegType1CodeDropdownRow GetMetadata(this PegType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

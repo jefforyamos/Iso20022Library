@@ -38,22 +38,3 @@ public enum AllocationStatus1Code
     PartiallyAllocated = AllocationStatusCode.PartiallyAllocated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllocationStatus1CodeMetadataExtensions
-{
-    private static readonly AllocationStatus1CodeDropdownSource _dropdownSource = new AllocationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllocationStatus1CodeDropdownRow GetMetadata(this AllocationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

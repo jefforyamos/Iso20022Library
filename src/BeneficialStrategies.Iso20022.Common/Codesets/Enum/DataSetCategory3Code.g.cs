@@ -128,22 +128,3 @@ public enum DataSetCategory3Code
     VendorParameters = DataSetCategoryCode.VendorParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory3CodeMetadataExtensions
-{
-    private static readonly DataSetCategory3CodeDropdownSource _dropdownSource = new DataSetCategory3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory3CodeDropdownRow GetMetadata(this DataSetCategory3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

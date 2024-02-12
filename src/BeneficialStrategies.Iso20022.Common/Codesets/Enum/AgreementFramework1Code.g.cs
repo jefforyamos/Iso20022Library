@@ -65,22 +65,3 @@ public enum AgreementFramework1Code
     NoReference = AgreementFrameworkCode.NoReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgreementFramework1CodeMetadataExtensions
-{
-    private static readonly AgreementFramework1CodeDropdownSource _dropdownSource = new AgreementFramework1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgreementFramework1CodeDropdownRow GetMetadata(this AgreementFramework1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

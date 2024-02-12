@@ -47,22 +47,3 @@ public enum CorporateTaxTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateTaxTypeCodeMetadataExtensions
-{
-    private static readonly CorporateTaxTypeCodeDropdownSource _dropdownSource = new CorporateTaxTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateTaxTypeCodeDropdownRow GetMetadata(this CorporateTaxTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum ChargeType7Code
     Equalisation = ChargeTypeCode.Equalisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType7CodeMetadataExtensions
-{
-    private static readonly ChargeType7CodeDropdownSource _dropdownSource = new ChargeType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType7CodeDropdownRow GetMetadata(this ChargeType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

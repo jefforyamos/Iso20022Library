@@ -110,22 +110,3 @@ public enum OptionFeatures7Code
     AccountServicerOption = OptionFeaturesCode.AccountServicerOption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeatures7CodeMetadataExtensions
-{
-    private static readonly OptionFeatures7CodeDropdownSource _dropdownSource = new OptionFeatures7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeatures7CodeDropdownRow GetMetadata(this OptionFeatures7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

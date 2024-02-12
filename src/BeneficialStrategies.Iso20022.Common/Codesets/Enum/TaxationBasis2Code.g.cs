@@ -38,22 +38,3 @@ public enum TaxationBasis2Code
     PerUnit = TaxationBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxationBasis2CodeMetadataExtensions
-{
-    private static readonly TaxationBasis2CodeDropdownSource _dropdownSource = new TaxationBasis2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxationBasis2CodeDropdownRow GetMetadata(this TaxationBasis2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

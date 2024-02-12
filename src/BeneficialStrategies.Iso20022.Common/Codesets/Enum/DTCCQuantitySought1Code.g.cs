@@ -47,22 +47,3 @@ public enum DTCCQuantitySought1Code
     Percentage = DTCCQuantitySoughtCode.Percentage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCQuantitySought1CodeMetadataExtensions
-{
-    private static readonly DTCCQuantitySought1CodeDropdownSource _dropdownSource = new DTCCQuantitySought1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCQuantitySought1CodeDropdownRow GetMetadata(this DTCCQuantitySought1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

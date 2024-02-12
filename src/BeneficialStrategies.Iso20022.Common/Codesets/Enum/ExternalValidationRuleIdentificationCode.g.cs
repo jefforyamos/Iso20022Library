@@ -58,22 +58,3 @@ public enum ExternalValidationRuleIdentificationCode
     SterlingMoneyMarketDaily,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalValidationRuleIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalValidationRuleIdentificationCodeDropdownSource _dropdownSource = new ExternalValidationRuleIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalValidationRuleIdentificationCodeDropdownRow GetMetadata(this ExternalValidationRuleIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

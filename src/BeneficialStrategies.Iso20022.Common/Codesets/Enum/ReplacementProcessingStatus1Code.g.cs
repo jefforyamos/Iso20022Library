@@ -101,22 +101,3 @@ public enum ReplacementProcessingStatus1Code
     InRepair = ReplacementProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReplacementProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly ReplacementProcessingStatus1CodeDropdownSource _dropdownSource = new ReplacementProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReplacementProcessingStatus1CodeDropdownRow GetMetadata(this ReplacementProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum RegistrationCode
     CSDValidation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RegistrationCodeMetadataExtensions
-{
-    private static readonly RegistrationCodeDropdownSource _dropdownSource = new RegistrationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRegistrationCodeDropdownRow GetMetadata(this RegistrationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

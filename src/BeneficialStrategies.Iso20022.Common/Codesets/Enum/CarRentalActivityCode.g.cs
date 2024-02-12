@@ -83,22 +83,3 @@ public enum CarRentalActivityCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CarRentalActivityCodeMetadataExtensions
-{
-    private static readonly CarRentalActivityCodeDropdownSource _dropdownSource = new CarRentalActivityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICarRentalActivityCodeDropdownRow GetMetadata(this CarRentalActivityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

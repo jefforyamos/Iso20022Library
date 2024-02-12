@@ -47,22 +47,3 @@ public enum DrawdownType2Code
     FlexibleAccessDrawdown = DrawdownTypeCode.FlexibleAccessDrawdown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DrawdownType2CodeMetadataExtensions
-{
-    private static readonly DrawdownType2CodeDropdownSource _dropdownSource = new DrawdownType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDrawdownType2CodeDropdownRow GetMetadata(this DrawdownType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

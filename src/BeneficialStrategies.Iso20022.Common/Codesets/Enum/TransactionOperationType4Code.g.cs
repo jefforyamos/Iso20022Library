@@ -47,22 +47,3 @@ public enum TransactionOperationType4Code
     Cancellation = TransactionOperationTypeCode.Cancellation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType4CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType4CodeDropdownSource _dropdownSource = new TransactionOperationType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType4CodeDropdownRow GetMetadata(this TransactionOperationType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum ClosurePendingStatusReason1Code
     PendingConditions = ClosurePendingStatusReasonCode.PendingConditions, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClosurePendingStatusReason1CodeMetadataExtensions
-{
-    private static readonly ClosurePendingStatusReason1CodeDropdownSource _dropdownSource = new ClosurePendingStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClosurePendingStatusReason1CodeDropdownRow GetMetadata(this ClosurePendingStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum AuthenticationResultCode
     WithoutCryptogram,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationResultCodeMetadataExtensions
-{
-    private static readonly AuthenticationResultCodeDropdownSource _dropdownSource = new AuthenticationResultCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationResultCodeDropdownRow GetMetadata(this AuthenticationResultCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum Frequency19Code
     OnDemand = FrequencyCode.OnDemand, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency19CodeMetadataExtensions
-{
-    private static readonly Frequency19CodeDropdownSource _dropdownSource = new Frequency19CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency19CodeDropdownRow GetMetadata(this Frequency19Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

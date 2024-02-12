@@ -74,22 +74,3 @@ public enum DataSetType2Code
     OtherCertificateDataSet = DataSetTypeCode.OtherCertificateDataSet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetType2CodeMetadataExtensions
-{
-    private static readonly DataSetType2CodeDropdownSource _dropdownSource = new DataSetType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetType2CodeDropdownRow GetMetadata(this DataSetType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum LimitType1Code
     Global = LimitTypeCode.Global, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LimitType1CodeMetadataExtensions
-{
-    private static readonly LimitType1CodeDropdownSource _dropdownSource = new LimitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILimitType1CodeDropdownRow GetMetadata(this LimitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

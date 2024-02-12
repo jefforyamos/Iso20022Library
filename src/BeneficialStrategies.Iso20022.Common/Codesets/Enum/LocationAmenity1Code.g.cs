@@ -182,22 +182,3 @@ public enum LocationAmenity1Code
     VehicleMaintenanceRepairBaysAvailable = LocationAmenityCode.VehicleMaintenanceRepairBaysAvailable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationAmenity1CodeMetadataExtensions
-{
-    private static readonly LocationAmenity1CodeDropdownSource _dropdownSource = new LocationAmenity1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationAmenity1CodeDropdownRow GetMetadata(this LocationAmenity1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

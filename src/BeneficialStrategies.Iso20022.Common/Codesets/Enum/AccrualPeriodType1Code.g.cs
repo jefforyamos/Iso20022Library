@@ -83,22 +83,3 @@ public enum AccrualPeriodType1Code
     PaymentOmitted = AccrualPeriodTypeCode.PaymentOmitted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccrualPeriodType1CodeMetadataExtensions
-{
-    private static readonly AccrualPeriodType1CodeDropdownSource _dropdownSource = new AccrualPeriodType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccrualPeriodType1CodeDropdownRow GetMetadata(this AccrualPeriodType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

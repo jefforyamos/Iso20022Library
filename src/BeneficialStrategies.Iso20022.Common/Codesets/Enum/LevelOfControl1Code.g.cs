@@ -38,22 +38,3 @@ public enum LevelOfControl1Code
     View = LevelOfControlCode.View, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LevelOfControl1CodeMetadataExtensions
-{
-    private static readonly LevelOfControl1CodeDropdownSource _dropdownSource = new LevelOfControl1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILevelOfControl1CodeDropdownRow GetMetadata(this LevelOfControl1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

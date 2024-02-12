@@ -74,22 +74,3 @@ public enum MessageFunction8Code
     SecurityKeyStatus = MessageFunctionCode.SecurityKeyStatus, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction8CodeMetadataExtensions
-{
-    private static readonly MessageFunction8CodeDropdownSource _dropdownSource = new MessageFunction8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction8CodeDropdownRow GetMetadata(this MessageFunction8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

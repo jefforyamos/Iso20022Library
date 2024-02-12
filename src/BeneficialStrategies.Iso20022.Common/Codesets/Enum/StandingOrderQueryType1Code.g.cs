@@ -65,22 +65,3 @@ public enum StandingOrderQueryType1Code
     StandingOrderDetailsWithinLinkSet = StandingOrderQueryTypeCode.StandingOrderDetailsWithinLinkSet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandingOrderQueryType1CodeMetadataExtensions
-{
-    private static readonly StandingOrderQueryType1CodeDropdownSource _dropdownSource = new StandingOrderQueryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandingOrderQueryType1CodeDropdownRow GetMetadata(this StandingOrderQueryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

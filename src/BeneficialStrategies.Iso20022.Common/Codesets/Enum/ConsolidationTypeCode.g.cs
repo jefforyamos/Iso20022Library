@@ -38,22 +38,3 @@ public enum ConsolidationTypeCode
     Participation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConsolidationTypeCodeMetadataExtensions
-{
-    private static readonly ConsolidationTypeCodeDropdownSource _dropdownSource = new ConsolidationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConsolidationTypeCodeDropdownRow GetMetadata(this ConsolidationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum MarginCallResponseCode
     ReceivedAfterNotificationTime,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarginCallResponseCodeMetadataExtensions
-{
-    private static readonly MarginCallResponseCodeDropdownSource _dropdownSource = new MarginCallResponseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarginCallResponseCodeDropdownRow GetMetadata(this MarginCallResponseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

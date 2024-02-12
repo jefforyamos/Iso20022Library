@@ -38,22 +38,3 @@ public enum ReportType2Code
     Current = ReportTypeCode.Current, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportType2CodeMetadataExtensions
-{
-    private static readonly ReportType2CodeDropdownSource _dropdownSource = new ReportType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportType2CodeDropdownRow GetMetadata(this ReportType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

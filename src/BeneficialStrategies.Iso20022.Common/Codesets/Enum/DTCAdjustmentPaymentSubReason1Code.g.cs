@@ -1451,22 +1451,3 @@ public enum DTCAdjustmentPaymentSubReason1Code
     WrongRatePrincipal = DTCAdjustmentPaymentSubReasonCode.WrongRatePrincipal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentSubReason1CodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentSubReason1CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentSubReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentSubReason1CodeDropdownRow GetMetadata(this DTCAdjustmentPaymentSubReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

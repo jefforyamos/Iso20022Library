@@ -101,22 +101,3 @@ public enum PaymentCancellationRejectionCode
     CancellationIndemnityRequired,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCancellationRejectionCodeMetadataExtensions
-{
-    private static readonly PaymentCancellationRejectionCodeDropdownSource _dropdownSource = new PaymentCancellationRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCancellationRejectionCodeDropdownRow GetMetadata(this PaymentCancellationRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum TransferStatusType1Code
     CSDorICSDSettlementInformation = TransferStatusTypeCode.CSDorICSDSettlementInformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatusType1CodeMetadataExtensions
-{
-    private static readonly TransferStatusType1CodeDropdownSource _dropdownSource = new TransferStatusType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatusType1CodeDropdownRow GetMetadata(this TransferStatusType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

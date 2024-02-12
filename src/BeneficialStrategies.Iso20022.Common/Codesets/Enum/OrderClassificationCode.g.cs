@@ -110,22 +110,3 @@ public enum OrderClassificationCode
     RisklessArbitrage,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderClassificationCodeMetadataExtensions
-{
-    private static readonly OrderClassificationCodeDropdownSource _dropdownSource = new OrderClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderClassificationCodeDropdownRow GetMetadata(this OrderClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

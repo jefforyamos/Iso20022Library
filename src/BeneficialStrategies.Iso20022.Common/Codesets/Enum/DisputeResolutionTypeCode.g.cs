@@ -92,22 +92,3 @@ public enum DisputeResolutionTypeCode
     ReconcileSegregatedIndependentAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisputeResolutionTypeCodeMetadataExtensions
-{
-    private static readonly DisputeResolutionTypeCodeDropdownSource _dropdownSource = new DisputeResolutionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisputeResolutionTypeCodeDropdownRow GetMetadata(this DisputeResolutionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

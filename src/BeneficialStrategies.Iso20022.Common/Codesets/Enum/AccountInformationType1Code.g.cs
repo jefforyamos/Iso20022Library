@@ -407,22 +407,3 @@ public enum AccountInformationType1Code
     StatusOfSecuritiesCustodianAccount = AccountInformationTypeCode.StatusOfSecuritiesCustodianAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountInformationType1CodeMetadataExtensions
-{
-    private static readonly AccountInformationType1CodeDropdownSource _dropdownSource = new AccountInformationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountInformationType1CodeDropdownRow GetMetadata(this AccountInformationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

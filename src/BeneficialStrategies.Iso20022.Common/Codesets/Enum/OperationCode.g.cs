@@ -47,22 +47,3 @@ public enum OperationCode
     And,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OperationCodeMetadataExtensions
-{
-    private static readonly OperationCodeDropdownSource _dropdownSource = new OperationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperationCodeDropdownRow GetMetadata(this OperationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

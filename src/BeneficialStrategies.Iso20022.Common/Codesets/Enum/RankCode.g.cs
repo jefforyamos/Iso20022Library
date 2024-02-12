@@ -38,22 +38,3 @@ public enum RankCode
     Secondary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RankCodeMetadataExtensions
-{
-    private static readonly RankCodeDropdownSource _dropdownSource = new RankCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRankCodeDropdownRow GetMetadata(this RankCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

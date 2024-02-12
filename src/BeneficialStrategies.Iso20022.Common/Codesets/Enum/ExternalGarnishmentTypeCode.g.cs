@@ -47,22 +47,3 @@ public enum ExternalGarnishmentTypeCode
     GarnishmentToTaxingAgency,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalGarnishmentTypeCodeMetadataExtensions
-{
-    private static readonly ExternalGarnishmentTypeCodeDropdownSource _dropdownSource = new ExternalGarnishmentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalGarnishmentTypeCodeDropdownRow GetMetadata(this ExternalGarnishmentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum OptionParty1Code
     Buyer = OptionPartyCode.Buyer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionParty1CodeMetadataExtensions
-{
-    private static readonly OptionParty1CodeDropdownSource _dropdownSource = new OptionParty1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionParty1CodeDropdownRow GetMetadata(this OptionParty1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

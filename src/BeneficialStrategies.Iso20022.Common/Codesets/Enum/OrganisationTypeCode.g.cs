@@ -56,22 +56,3 @@ public enum OrganisationTypeCode
     PublicFund,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrganisationTypeCodeMetadataExtensions
-{
-    private static readonly OrganisationTypeCodeDropdownSource _dropdownSource = new OrganisationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrganisationTypeCodeDropdownRow GetMetadata(this OrganisationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum RateType13Code
     NilPayment = RateTypeCode.NilPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateType13CodeMetadataExtensions
-{
-    private static readonly RateType13CodeDropdownSource _dropdownSource = new RateType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateType13CodeDropdownRow GetMetadata(this RateType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

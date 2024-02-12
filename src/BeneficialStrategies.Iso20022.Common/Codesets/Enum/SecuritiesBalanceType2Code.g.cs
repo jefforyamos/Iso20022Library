@@ -74,22 +74,3 @@ public enum SecuritiesBalanceType2Code
     Unregistered = SecuritiesBalanceTypeCode.Unregistered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType2CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType2CodeDropdownSource _dropdownSource = new SecuritiesBalanceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType2CodeDropdownRow GetMetadata(this SecuritiesBalanceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

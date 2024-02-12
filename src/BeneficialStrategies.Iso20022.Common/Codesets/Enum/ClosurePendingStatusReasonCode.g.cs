@@ -38,22 +38,3 @@ public enum ClosurePendingStatusReasonCode
     AccountClosingInProcess,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClosurePendingStatusReasonCodeMetadataExtensions
-{
-    private static readonly ClosurePendingStatusReasonCodeDropdownSource _dropdownSource = new ClosurePendingStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClosurePendingStatusReasonCodeDropdownRow GetMetadata(this ClosurePendingStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

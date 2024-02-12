@@ -29,22 +29,3 @@ public enum StatusSubType2Code
     OnlySameDayFlagTrue = StatusSubTypeCode.OnlySameDayFlagTrue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatusSubType2CodeMetadataExtensions
-{
-    private static readonly StatusSubType2CodeDropdownSource _dropdownSource = new StatusSubType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatusSubType2CodeDropdownRow GetMetadata(this StatusSubType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -803,22 +803,3 @@ public enum CalculationTypeCode
     ToWorstConvention,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CalculationTypeCodeMetadataExtensions
-{
-    private static readonly CalculationTypeCodeDropdownSource _dropdownSource = new CalculationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICalculationTypeCodeDropdownRow GetMetadata(this CalculationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

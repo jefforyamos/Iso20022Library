@@ -38,22 +38,3 @@ public enum EncryptionFormat1Code
     TR34 = EncryptionFormatCode.TR34, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EncryptionFormat1CodeMetadataExtensions
-{
-    private static readonly EncryptionFormat1CodeDropdownSource _dropdownSource = new EncryptionFormat1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEncryptionFormat1CodeDropdownRow GetMetadata(this EncryptionFormat1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

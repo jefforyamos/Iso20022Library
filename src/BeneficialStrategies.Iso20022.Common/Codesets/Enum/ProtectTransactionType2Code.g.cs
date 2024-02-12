@@ -47,22 +47,3 @@ public enum ProtectTransactionType2Code
     CoverProtectTransaction = ReorganisationTransactionTypeCode.CoverProtectTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProtectTransactionType2CodeMetadataExtensions
-{
-    private static readonly ProtectTransactionType2CodeDropdownSource _dropdownSource = new ProtectTransactionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProtectTransactionType2CodeDropdownRow GetMetadata(this ProtectTransactionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

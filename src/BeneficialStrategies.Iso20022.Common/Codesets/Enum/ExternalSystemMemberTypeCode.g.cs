@@ -66,22 +66,3 @@ public enum ExternalSystemMemberTypeCode
     STEP1,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSystemMemberTypeCodeMetadataExtensions
-{
-    private static readonly ExternalSystemMemberTypeCodeDropdownSource _dropdownSource = new ExternalSystemMemberTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSystemMemberTypeCodeDropdownRow GetMetadata(this ExternalSystemMemberTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

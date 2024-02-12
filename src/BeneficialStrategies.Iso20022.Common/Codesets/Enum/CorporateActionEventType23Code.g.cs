@@ -614,22 +614,3 @@ public enum CorporateActionEventType23Code
     Accumulation = CorporateActionEventTypeV6Code.Accumulation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType23CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType23CodeDropdownSource _dropdownSource = new CorporateActionEventType23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType23CodeDropdownRow GetMetadata(this CorporateActionEventType23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

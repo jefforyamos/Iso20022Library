@@ -200,22 +200,3 @@ public enum CardTransactionRiskReason1Code
     UnattendedActivity = CardTransactionRiskReasonCode.UnattendedActivity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardTransactionRiskReason1CodeMetadataExtensions
-{
-    private static readonly CardTransactionRiskReason1CodeDropdownSource _dropdownSource = new CardTransactionRiskReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardTransactionRiskReason1CodeDropdownRow GetMetadata(this CardTransactionRiskReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

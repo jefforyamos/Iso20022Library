@@ -56,22 +56,3 @@ public enum ReportingCode
     BuyIn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingCodeMetadataExtensions
-{
-    private static readonly ReportingCodeDropdownSource _dropdownSource = new ReportingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingCodeDropdownRow GetMetadata(this ReportingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

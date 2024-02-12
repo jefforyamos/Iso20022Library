@@ -47,22 +47,3 @@ public enum InstalmentPlan1Code
     DeferredInstalment = InstalmentPlanCode.DeferredInstalment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstalmentPlan1CodeMetadataExtensions
-{
-    private static readonly InstalmentPlan1CodeDropdownSource _dropdownSource = new InstalmentPlan1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstalmentPlan1CodeDropdownRow GetMetadata(this InstalmentPlan1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

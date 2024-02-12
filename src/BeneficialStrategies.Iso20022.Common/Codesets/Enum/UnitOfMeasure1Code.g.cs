@@ -335,22 +335,3 @@ public enum UnitOfMeasure1Code
     Acre = UnitOfMeasureCode.Acre, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure1CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure1CodeDropdownSource _dropdownSource = new UnitOfMeasure1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure1CodeDropdownRow GetMetadata(this UnitOfMeasure1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

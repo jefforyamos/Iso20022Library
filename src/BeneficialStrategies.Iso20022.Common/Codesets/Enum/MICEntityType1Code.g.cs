@@ -74,22 +74,3 @@ public enum MICEntityType1Code
     SystematicInternaliser = TradingVenueCode.SystematicInternaliser, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MICEntityType1CodeMetadataExtensions
-{
-    private static readonly MICEntityType1CodeDropdownSource _dropdownSource = new MICEntityType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMICEntityType1CodeDropdownRow GetMetadata(this MICEntityType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

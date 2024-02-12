@@ -74,22 +74,3 @@ public enum ModificationProcessingStatus1Code
     InRepair = ModificationProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModificationProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly ModificationProcessingStatus1CodeDropdownSource _dropdownSource = new ModificationProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModificationProcessingStatus1CodeDropdownRow GetMetadata(this ModificationProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum ClearingAccountType4Code
     House = ClearingAccountTypeCode.House, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingAccountType4CodeMetadataExtensions
-{
-    private static readonly ClearingAccountType4CodeDropdownSource _dropdownSource = new ClearingAccountType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingAccountType4CodeDropdownRow GetMetadata(this ClearingAccountType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -37,22 +37,3 @@ public enum FundStructureCode
     SingleClassFund,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundStructureCodeMetadataExtensions
-{
-    private static readonly FundStructureCodeDropdownSource _dropdownSource = new FundStructureCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundStructureCodeDropdownRow GetMetadata(this FundStructureCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

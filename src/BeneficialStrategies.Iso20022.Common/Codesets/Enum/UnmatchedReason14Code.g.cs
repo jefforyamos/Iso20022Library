@@ -497,22 +497,3 @@ public enum UnmatchedReason14Code
     AutomaticGeneration = UnmatchedReasonCode.AutomaticGeneration, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason14CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason14CodeDropdownSource _dropdownSource = new UnmatchedReason14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason14CodeDropdownRow GetMetadata(this UnmatchedReason14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

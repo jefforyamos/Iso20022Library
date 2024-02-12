@@ -92,22 +92,3 @@ public enum TerminalManagementAction2Code
     Update = TerminalManagementActionCode.Update, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAction2CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAction2CodeDropdownSource _dropdownSource = new TerminalManagementAction2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAction2CodeDropdownRow GetMetadata(this TerminalManagementAction2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

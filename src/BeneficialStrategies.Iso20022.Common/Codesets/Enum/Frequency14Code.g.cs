@@ -56,22 +56,3 @@ public enum Frequency14Code
     Adhoc = FrequencyCode.Adhoc, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency14CodeMetadataExtensions
-{
-    private static readonly Frequency14CodeDropdownSource _dropdownSource = new Frequency14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency14CodeDropdownRow GetMetadata(this Frequency14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

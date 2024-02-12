@@ -47,22 +47,3 @@ public enum PresentationPartyCode
     IssuerOrOtherNominatatedParty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PresentationPartyCodeMetadataExtensions
-{
-    private static readonly PresentationPartyCodeDropdownSource _dropdownSource = new PresentationPartyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPresentationPartyCodeDropdownRow GetMetadata(this PresentationPartyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

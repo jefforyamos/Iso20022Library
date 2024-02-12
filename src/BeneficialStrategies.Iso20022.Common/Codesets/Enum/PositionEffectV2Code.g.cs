@@ -65,22 +65,3 @@ public enum PositionEffectV2Code
     CloseAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PositionEffectV2CodeMetadataExtensions
-{
-    private static readonly PositionEffectV2CodeDropdownSource _dropdownSource = new PositionEffectV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPositionEffectV2CodeDropdownRow GetMetadata(this PositionEffectV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

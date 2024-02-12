@@ -137,22 +137,3 @@ public enum AuthorityExchangeReasonCode
     CompetentAuthorityForIndex,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthorityExchangeReasonCodeMetadataExtensions
-{
-    private static readonly AuthorityExchangeReasonCodeDropdownSource _dropdownSource = new AuthorityExchangeReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthorityExchangeReasonCodeDropdownRow GetMetadata(this AuthorityExchangeReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

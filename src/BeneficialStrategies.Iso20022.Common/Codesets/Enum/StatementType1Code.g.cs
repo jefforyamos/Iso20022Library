@@ -47,22 +47,3 @@ public enum StatementType1Code
     InvestmentFundTransactions = MessageTypeCode.InvestmentFundTransactions, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementType1CodeMetadataExtensions
-{
-    private static readonly StatementType1CodeDropdownSource _dropdownSource = new StatementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementType1CodeDropdownRow GetMetadata(this StatementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

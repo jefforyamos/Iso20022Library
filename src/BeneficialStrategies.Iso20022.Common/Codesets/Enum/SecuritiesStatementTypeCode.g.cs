@@ -38,22 +38,3 @@ public enum SecuritiesStatementTypeCode
     Accounting,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesStatementTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesStatementTypeCodeDropdownSource _dropdownSource = new SecuritiesStatementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesStatementTypeCodeDropdownRow GetMetadata(this SecuritiesStatementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

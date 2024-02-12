@@ -416,22 +416,3 @@ public enum AssetClassSubProductTypeCode
     ContainerShip,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductTypeCodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductTypeCodeDropdownSource _dropdownSource = new AssetClassSubProductTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductTypeCodeDropdownRow GetMetadata(this AssetClassSubProductTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

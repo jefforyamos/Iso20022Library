@@ -74,22 +74,3 @@ public enum GeneratedReason2Code
     Other = GeneratedReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeneratedReason2CodeMetadataExtensions
-{
-    private static readonly GeneratedReason2CodeDropdownSource _dropdownSource = new GeneratedReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeneratedReason2CodeDropdownRow GetMetadata(this GeneratedReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

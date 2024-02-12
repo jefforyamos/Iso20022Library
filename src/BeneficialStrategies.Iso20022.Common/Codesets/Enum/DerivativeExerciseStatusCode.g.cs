@@ -47,22 +47,3 @@ public enum DerivativeExerciseStatusCode
     Valid,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DerivativeExerciseStatusCodeMetadataExtensions
-{
-    private static readonly DerivativeExerciseStatusCodeDropdownSource _dropdownSource = new DerivativeExerciseStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDerivativeExerciseStatusCodeDropdownRow GetMetadata(this DerivativeExerciseStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

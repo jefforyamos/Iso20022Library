@@ -38,22 +38,3 @@ public enum ATMStatus1Code
     OutOfService = ATMStatusCode.OutOfService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMStatus1CodeMetadataExtensions
-{
-    private static readonly ATMStatus1CodeDropdownSource _dropdownSource = new ATMStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMStatus1CodeDropdownRow GetMetadata(this ATMStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

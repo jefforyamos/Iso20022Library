@@ -83,22 +83,3 @@ public enum ExtendedEventType2Code
     Termination = ExtendedEventTypeV2Code.Termination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExtendedEventType2CodeMetadataExtensions
-{
-    private static readonly ExtendedEventType2CodeDropdownSource _dropdownSource = new ExtendedEventType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExtendedEventType2CodeDropdownRow GetMetadata(this ExtendedEventType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum ExecutionTimeLimit1Code
     ImmediateOrCancel = ExecutionTimeLimitCode.ImmediateOrCancel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExecutionTimeLimit1CodeMetadataExtensions
-{
-    private static readonly ExecutionTimeLimit1CodeDropdownSource _dropdownSource = new ExecutionTimeLimit1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExecutionTimeLimit1CodeDropdownRow GetMetadata(this ExecutionTimeLimit1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

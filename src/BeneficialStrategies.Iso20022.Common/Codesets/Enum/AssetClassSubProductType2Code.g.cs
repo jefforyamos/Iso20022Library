@@ -29,22 +29,3 @@ public enum AssetClassSubProductType2Code
     Softs = AssetClassSubProductTypeCode.Softs, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType2CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType2CodeDropdownSource _dropdownSource = new AssetClassSubProductType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType2CodeDropdownRow GetMetadata(this AssetClassSubProductType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

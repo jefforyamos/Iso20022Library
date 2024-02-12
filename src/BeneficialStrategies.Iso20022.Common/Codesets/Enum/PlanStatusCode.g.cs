@@ -47,22 +47,3 @@ public enum PlanStatusCode
     Closed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PlanStatusCodeMetadataExtensions
-{
-    private static readonly PlanStatusCodeDropdownSource _dropdownSource = new PlanStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPlanStatusCodeDropdownRow GetMetadata(this PlanStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

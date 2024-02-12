@@ -281,22 +281,3 @@ public enum RejectionReason5Code
     InvalidReference = RejectionReasonCode.InvalidReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason5CodeMetadataExtensions
-{
-    private static readonly RejectionReason5CodeDropdownSource _dropdownSource = new RejectionReason5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason5CodeDropdownRow GetMetadata(this RejectionReason5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

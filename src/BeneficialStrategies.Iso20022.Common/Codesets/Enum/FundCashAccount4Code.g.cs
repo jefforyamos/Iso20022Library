@@ -119,22 +119,3 @@ public enum FundCashAccount4Code
     WorkplacePensionSchema = FundCashAccountCode.WorkplacePensionSchema, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundCashAccount4CodeMetadataExtensions
-{
-    private static readonly FundCashAccount4CodeDropdownSource _dropdownSource = new FundCashAccount4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundCashAccount4CodeDropdownRow GetMetadata(this FundCashAccount4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

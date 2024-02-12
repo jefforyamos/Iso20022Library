@@ -56,22 +56,3 @@ public enum SettlementTransactionCondition5Code
     PartialSettlementQuantityThresholdAllowed = SettlementTransactionConditionCode.PartialSettlementQuantityThresholdAllowed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition5CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition5CodeDropdownSource _dropdownSource = new SettlementTransactionCondition5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition5CodeDropdownRow GetMetadata(this SettlementTransactionCondition5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

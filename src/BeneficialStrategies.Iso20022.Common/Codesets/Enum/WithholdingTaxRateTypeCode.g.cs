@@ -47,22 +47,3 @@ public enum WithholdingTaxRateTypeCode
     BackUpWithholding,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WithholdingTaxRateTypeCodeMetadataExtensions
-{
-    private static readonly WithholdingTaxRateTypeCodeDropdownSource _dropdownSource = new WithholdingTaxRateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWithholdingTaxRateTypeCodeDropdownRow GetMetadata(this WithholdingTaxRateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

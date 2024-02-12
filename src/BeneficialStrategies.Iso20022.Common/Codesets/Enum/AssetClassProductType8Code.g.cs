@@ -29,22 +29,3 @@ public enum AssetClassProductType8Code
     Paper = AssetClassProductTypeCode.Paper, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType8CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType8CodeDropdownSource _dropdownSource = new AssetClassProductType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType8CodeDropdownRow GetMetadata(this AssetClassProductType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -146,22 +146,3 @@ public enum SettlementInstructionReasonCode
     CorporateAction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementInstructionReasonCodeMetadataExtensions
-{
-    private static readonly SettlementInstructionReasonCodeDropdownSource _dropdownSource = new SettlementInstructionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementInstructionReasonCodeDropdownRow GetMetadata(this SettlementInstructionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

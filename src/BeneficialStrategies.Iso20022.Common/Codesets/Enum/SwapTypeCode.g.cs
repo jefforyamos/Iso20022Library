@@ -119,22 +119,3 @@ public enum SwapTypeCode
     FixedToFaceValue,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SwapTypeCodeMetadataExtensions
-{
-    private static readonly SwapTypeCodeDropdownSource _dropdownSource = new SwapTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISwapTypeCodeDropdownRow GetMetadata(this SwapTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum TransferTypeCode
     Excluded,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferTypeCodeMetadataExtensions
-{
-    private static readonly TransferTypeCodeDropdownSource _dropdownSource = new TransferTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferTypeCodeDropdownRow GetMetadata(this TransferTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

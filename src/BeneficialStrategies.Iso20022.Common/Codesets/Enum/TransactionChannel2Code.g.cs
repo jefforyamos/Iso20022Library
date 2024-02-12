@@ -47,22 +47,3 @@ public enum TransactionChannel2Code
     OfficeOrBranch = TransactionChannelCode.OfficeOrBranch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionChannel2CodeMetadataExtensions
-{
-    private static readonly TransactionChannel2CodeDropdownSource _dropdownSource = new TransactionChannel2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionChannel2CodeDropdownRow GetMetadata(this TransactionChannel2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

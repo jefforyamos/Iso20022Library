@@ -92,22 +92,3 @@ public enum TradeStatus7Code
     FixUnmatched = TradeStatusCode.FixUnmatched, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeStatus7CodeMetadataExtensions
-{
-    private static readonly TradeStatus7CodeDropdownSource _dropdownSource = new TradeStatus7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeStatus7CodeDropdownRow GetMetadata(this TradeStatus7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

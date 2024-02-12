@@ -353,22 +353,3 @@ public enum DTCAdjustmentPaymentTypeV2Code
     WarrantRateChange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentTypeV2CodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentTypeV2CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentTypeV2CodeDropdownRow GetMetadata(this DTCAdjustmentPaymentTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

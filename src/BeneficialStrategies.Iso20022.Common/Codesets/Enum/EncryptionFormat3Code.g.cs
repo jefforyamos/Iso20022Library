@@ -56,22 +56,3 @@ public enum EncryptionFormat3Code
     CBC = EncryptionFormatCode.CBC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EncryptionFormat3CodeMetadataExtensions
-{
-    private static readonly EncryptionFormat3CodeDropdownSource _dropdownSource = new EncryptionFormat3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEncryptionFormat3CodeDropdownRow GetMetadata(this EncryptionFormat3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

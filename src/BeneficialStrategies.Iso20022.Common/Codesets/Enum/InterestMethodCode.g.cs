@@ -38,22 +38,3 @@ public enum InterestMethodCode
     RollIn,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestMethodCodeMetadataExtensions
-{
-    private static readonly InterestMethodCodeDropdownSource _dropdownSource = new InterestMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestMethodCodeDropdownRow GetMetadata(this InterestMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

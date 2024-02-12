@@ -29,22 +29,3 @@ public enum TypeOfPrice14Code
     Average = TypeOfPriceCode.Average, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice14CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice14CodeDropdownSource _dropdownSource = new TypeOfPrice14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice14CodeDropdownRow GetMetadata(this TypeOfPrice14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

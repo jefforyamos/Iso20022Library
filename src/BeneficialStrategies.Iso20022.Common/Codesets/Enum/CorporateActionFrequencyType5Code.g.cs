@@ -74,22 +74,3 @@ public enum CorporateActionFrequencyType5Code
     SpecialDividendWithReinvestment = CorporateActionFrequencyTypeV2Code.SpecialDividendWithReinvestment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionFrequencyType5CodeMetadataExtensions
-{
-    private static readonly CorporateActionFrequencyType5CodeDropdownSource _dropdownSource = new CorporateActionFrequencyType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionFrequencyType5CodeDropdownRow GetMetadata(this CorporateActionFrequencyType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

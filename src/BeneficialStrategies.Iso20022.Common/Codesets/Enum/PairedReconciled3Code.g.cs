@@ -65,22 +65,3 @@ public enum PairedReconciled3Code
     Unpaired = PairedReconciledV2Code.Unpaired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PairedReconciled3CodeMetadataExtensions
-{
-    private static readonly PairedReconciled3CodeDropdownSource _dropdownSource = new PairedReconciled3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPairedReconciled3CodeDropdownRow GetMetadata(this PairedReconciled3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

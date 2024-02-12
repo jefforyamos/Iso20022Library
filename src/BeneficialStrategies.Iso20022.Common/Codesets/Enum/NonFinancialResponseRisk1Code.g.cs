@@ -47,22 +47,3 @@ public enum NonFinancialResponseRisk1Code
     RequestOnline = NonFinancialResponseRiskCode.RequestOnline, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonFinancialResponseRisk1CodeMetadataExtensions
-{
-    private static readonly NonFinancialResponseRisk1CodeDropdownSource _dropdownSource = new NonFinancialResponseRisk1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonFinancialResponseRisk1CodeDropdownRow GetMetadata(this NonFinancialResponseRisk1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum DTCAutoOfferProgramCode
     Online,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAutoOfferProgramCodeMetadataExtensions
-{
-    private static readonly DTCAutoOfferProgramCodeDropdownSource _dropdownSource = new DTCAutoOfferProgramCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAutoOfferProgramCodeDropdownRow GetMetadata(this DTCAutoOfferProgramCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

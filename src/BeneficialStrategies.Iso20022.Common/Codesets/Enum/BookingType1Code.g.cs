@@ -47,22 +47,3 @@ public enum BookingType1Code
     TotalReturnSwap = BookingTypeCode.TotalReturnSwap, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BookingType1CodeMetadataExtensions
-{
-    private static readonly BookingType1CodeDropdownSource _dropdownSource = new BookingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBookingType1CodeDropdownRow GetMetadata(this BookingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

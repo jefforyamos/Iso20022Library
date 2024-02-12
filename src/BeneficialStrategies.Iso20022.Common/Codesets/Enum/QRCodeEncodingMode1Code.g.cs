@@ -56,22 +56,3 @@ public enum QRCodeEncodingMode1Code
     Numeric = QRCodeEncodingModeCode.Numeric, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodeEncodingMode1CodeMetadataExtensions
-{
-    private static readonly QRCodeEncodingMode1CodeDropdownSource _dropdownSource = new QRCodeEncodingMode1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodeEncodingMode1CodeDropdownRow GetMetadata(this QRCodeEncodingMode1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -75,22 +75,3 @@ public enum ExternalTradeMarketCode
     FactoringReexportedExport,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTradeMarketCodeMetadataExtensions
-{
-    private static readonly ExternalTradeMarketCodeDropdownSource _dropdownSource = new ExternalTradeMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTradeMarketCodeDropdownRow GetMetadata(this ExternalTradeMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

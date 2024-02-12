@@ -65,22 +65,3 @@ public enum ActionTaken1Code
     Warning = ActionTakenCode.Warning, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionTaken1CodeMetadataExtensions
-{
-    private static readonly ActionTaken1CodeDropdownSource _dropdownSource = new ActionTaken1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionTaken1CodeDropdownRow GetMetadata(this ActionTaken1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

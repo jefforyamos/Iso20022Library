@@ -38,22 +38,3 @@ public enum ReconciliationStatus1Code
     Reconciled = ReconciliationStatusCode.Reconciled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationStatus1CodeMetadataExtensions
-{
-    private static readonly ReconciliationStatus1CodeDropdownSource _dropdownSource = new ReconciliationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationStatus1CodeDropdownRow GetMetadata(this ReconciliationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

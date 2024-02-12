@@ -65,22 +65,3 @@ public enum ChequeType2Code
     ElectronicDraft = ChequeTypeCode.ElectronicDraft, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChequeType2CodeMetadataExtensions
-{
-    private static readonly ChequeType2CodeDropdownSource _dropdownSource = new ChequeType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChequeType2CodeDropdownRow GetMetadata(this ChequeType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

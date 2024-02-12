@@ -137,22 +137,3 @@ public enum PriceValueType7Code
     ActualAmount = PriceValueTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType7CodeMetadataExtensions
-{
-    private static readonly PriceValueType7CodeDropdownSource _dropdownSource = new PriceValueType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType7CodeDropdownRow GetMetadata(this PriceValueType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

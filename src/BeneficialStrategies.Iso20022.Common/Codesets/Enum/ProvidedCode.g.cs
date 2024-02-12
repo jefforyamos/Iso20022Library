@@ -38,22 +38,3 @@ public enum ProvidedCode
     NotProvided,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProvidedCodeMetadataExtensions
-{
-    private static readonly ProvidedCodeDropdownSource _dropdownSource = new ProvidedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProvidedCodeDropdownRow GetMetadata(this ProvidedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

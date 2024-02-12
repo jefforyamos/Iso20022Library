@@ -47,22 +47,3 @@ public enum WaivingInstructionCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WaivingInstructionCodeMetadataExtensions
-{
-    private static readonly WaivingInstructionCodeDropdownSource _dropdownSource = new WaivingInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWaivingInstructionCodeDropdownRow GetMetadata(this WaivingInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

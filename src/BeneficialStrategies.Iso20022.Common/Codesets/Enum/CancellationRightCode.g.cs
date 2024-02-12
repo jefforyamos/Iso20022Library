@@ -65,22 +65,3 @@ public enum CancellationRightCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationRightCodeMetadataExtensions
-{
-    private static readonly CancellationRightCodeDropdownSource _dropdownSource = new CancellationRightCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationRightCodeDropdownRow GetMetadata(this CancellationRightCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

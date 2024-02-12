@@ -111,22 +111,3 @@ public enum ExternalPaymentGroupStatusCode
     Rejected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentGroupStatusCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentGroupStatusCodeDropdownSource _dropdownSource = new ExternalPaymentGroupStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentGroupStatusCodeDropdownRow GetMetadata(this ExternalPaymentGroupStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

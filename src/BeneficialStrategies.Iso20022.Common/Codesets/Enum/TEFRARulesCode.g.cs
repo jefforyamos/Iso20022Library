@@ -38,22 +38,3 @@ public enum TEFRARulesCode
     D,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TEFRARulesCodeMetadataExtensions
-{
-    private static readonly TEFRARulesCodeDropdownSource _dropdownSource = new TEFRARulesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITEFRARulesCodeDropdownRow GetMetadata(this TEFRARulesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

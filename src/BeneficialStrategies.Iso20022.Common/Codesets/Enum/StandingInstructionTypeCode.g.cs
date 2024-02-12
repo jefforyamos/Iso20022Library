@@ -47,22 +47,3 @@ public enum StandingInstructionTypeCode
     SecuritiesDistribution,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandingInstructionTypeCodeMetadataExtensions
-{
-    private static readonly StandingInstructionTypeCodeDropdownSource _dropdownSource = new StandingInstructionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandingInstructionTypeCodeDropdownRow GetMetadata(this StandingInstructionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

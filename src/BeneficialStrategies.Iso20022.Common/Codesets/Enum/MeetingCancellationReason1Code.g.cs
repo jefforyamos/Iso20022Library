@@ -47,22 +47,3 @@ public enum MeetingCancellationReason1Code
     Other = MeetingCancellationReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingCancellationReason1CodeMetadataExtensions
-{
-    private static readonly MeetingCancellationReason1CodeDropdownSource _dropdownSource = new MeetingCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingCancellationReason1CodeDropdownRow GetMetadata(this MeetingCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

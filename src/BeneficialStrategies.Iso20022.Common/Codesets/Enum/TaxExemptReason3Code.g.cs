@@ -407,22 +407,3 @@ public enum TaxExemptReason3Code
     OneNonResident = TaxExemptReasonCode.OneNonResident, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxExemptReason3CodeMetadataExtensions
-{
-    private static readonly TaxExemptReason3CodeDropdownSource _dropdownSource = new TaxExemptReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxExemptReason3CodeDropdownRow GetMetadata(this TaxExemptReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

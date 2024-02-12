@@ -65,22 +65,3 @@ public enum ReinvestmentTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReinvestmentTypeCodeMetadataExtensions
-{
-    private static readonly ReinvestmentTypeCodeDropdownSource _dropdownSource = new ReinvestmentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReinvestmentTypeCodeDropdownRow GetMetadata(this ReinvestmentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum TerminalManagementAction4Code
     Activate = TerminalManagementActionCode.Activate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementAction4CodeMetadataExtensions
-{
-    private static readonly TerminalManagementAction4CodeDropdownSource _dropdownSource = new TerminalManagementAction4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementAction4CodeDropdownRow GetMetadata(this TerminalManagementAction4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

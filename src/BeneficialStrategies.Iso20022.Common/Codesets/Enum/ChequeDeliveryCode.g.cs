@@ -128,22 +128,3 @@ public enum ChequeDeliveryCode
     RegisteredMailToFinalAgent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChequeDeliveryCodeMetadataExtensions
-{
-    private static readonly ChequeDeliveryCodeDropdownSource _dropdownSource = new ChequeDeliveryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChequeDeliveryCodeDropdownRow GetMetadata(this ChequeDeliveryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

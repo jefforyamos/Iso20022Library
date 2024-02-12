@@ -101,22 +101,3 @@ public enum MessageClassCode
     Verification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageClassCodeMetadataExtensions
-{
-    private static readonly MessageClassCodeDropdownSource _dropdownSource = new MessageClassCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageClassCodeDropdownRow GetMetadata(this MessageClassCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

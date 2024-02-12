@@ -38,22 +38,3 @@ public enum ConfirmationTypeCode
     Actual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationTypeCodeMetadataExtensions
-{
-    private static readonly ConfirmationTypeCodeDropdownSource _dropdownSource = new ConfirmationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationTypeCodeDropdownRow GetMetadata(this ConfirmationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

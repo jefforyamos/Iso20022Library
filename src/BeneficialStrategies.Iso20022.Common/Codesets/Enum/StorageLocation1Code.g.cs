@@ -83,22 +83,3 @@ public enum StorageLocation1Code
     ThirdPartyWallet = StorageLocationCode.ThirdPartyWallet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StorageLocation1CodeMetadataExtensions
-{
-    private static readonly StorageLocation1CodeDropdownSource _dropdownSource = new StorageLocation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStorageLocation1CodeDropdownRow GetMetadata(this StorageLocation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

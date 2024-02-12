@@ -38,22 +38,3 @@ public enum ConsolidationType1Code
     Participation = ConsolidationTypeCode.Participation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConsolidationType1CodeMetadataExtensions
-{
-    private static readonly ConsolidationType1CodeDropdownSource _dropdownSource = new ConsolidationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConsolidationType1CodeDropdownRow GetMetadata(this ConsolidationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

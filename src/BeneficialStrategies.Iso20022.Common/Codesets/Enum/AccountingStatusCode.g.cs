@@ -38,22 +38,3 @@ public enum AccountingStatusCode
     NotDomestic,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountingStatusCodeMetadataExtensions
-{
-    private static readonly AccountingStatusCodeDropdownSource _dropdownSource = new AccountingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountingStatusCodeDropdownRow GetMetadata(this AccountingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

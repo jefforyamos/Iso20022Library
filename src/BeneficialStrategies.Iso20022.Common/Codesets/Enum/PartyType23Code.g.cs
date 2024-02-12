@@ -47,22 +47,3 @@ public enum PartyType23Code
     ClearingAgent = PartyTypeCode.ClearingAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType23CodeMetadataExtensions
-{
-    private static readonly PartyType23CodeDropdownSource _dropdownSource = new PartyType23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType23CodeDropdownRow GetMetadata(this PartyType23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

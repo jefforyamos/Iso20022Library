@@ -119,22 +119,3 @@ public enum InputCommandCode
     Signature,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InputCommandCodeMetadataExtensions
-{
-    private static readonly InputCommandCodeDropdownSource _dropdownSource = new InputCommandCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInputCommandCodeDropdownRow GetMetadata(this InputCommandCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

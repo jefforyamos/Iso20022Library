@@ -38,22 +38,3 @@ public enum RepoTerminationOption1Code
     Extendable = RepoTerminationOptionCode.Extendable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoTerminationOption1CodeMetadataExtensions
-{
-    private static readonly RepoTerminationOption1CodeDropdownSource _dropdownSource = new RepoTerminationOption1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoTerminationOption1CodeDropdownRow GetMetadata(this RepoTerminationOption1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -580,22 +580,3 @@ public enum ExternalEncryptedElementIdentificationCode
     AccountToAccountIdentification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalEncryptedElementIdentificationCodeMetadataExtensions
-{
-    private static readonly ExternalEncryptedElementIdentificationCodeDropdownSource _dropdownSource = new ExternalEncryptedElementIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalEncryptedElementIdentificationCodeDropdownRow GetMetadata(this ExternalEncryptedElementIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

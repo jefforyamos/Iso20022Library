@@ -38,22 +38,3 @@ public enum StandingOrderTypeCode
     PredefinedStandingOrder,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandingOrderTypeCodeMetadataExtensions
-{
-    private static readonly StandingOrderTypeCodeDropdownSource _dropdownSource = new StandingOrderTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandingOrderTypeCodeDropdownRow GetMetadata(this StandingOrderTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

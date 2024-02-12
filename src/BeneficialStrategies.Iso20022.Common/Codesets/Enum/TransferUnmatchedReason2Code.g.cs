@@ -101,22 +101,3 @@ public enum TransferUnmatchedReason2Code
     FinancialInstrumentQuantity = TransferUnmatchedReasonCode.FinancialInstrumentQuantity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferUnmatchedReason2CodeMetadataExtensions
-{
-    private static readonly TransferUnmatchedReason2CodeDropdownSource _dropdownSource = new TransferUnmatchedReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferUnmatchedReason2CodeDropdownRow GetMetadata(this TransferUnmatchedReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

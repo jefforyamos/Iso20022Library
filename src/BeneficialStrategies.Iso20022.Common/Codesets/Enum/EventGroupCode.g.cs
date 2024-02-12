@@ -56,22 +56,3 @@ public enum EventGroupCode
     General,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventGroupCodeMetadataExtensions
-{
-    private static readonly EventGroupCodeDropdownSource _dropdownSource = new EventGroupCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventGroupCodeDropdownRow GetMetadata(this EventGroupCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

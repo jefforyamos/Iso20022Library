@@ -58,22 +58,3 @@ public enum ExternalChargeType1Code
     Summation = ExternalChargeTypeCode.Summation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalChargeType1CodeMetadataExtensions
-{
-    private static readonly ExternalChargeType1CodeDropdownSource _dropdownSource = new ExternalChargeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalChargeType1CodeDropdownRow GetMetadata(this ExternalChargeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

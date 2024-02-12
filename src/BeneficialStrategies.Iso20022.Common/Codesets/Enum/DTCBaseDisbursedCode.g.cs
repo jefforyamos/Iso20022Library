@@ -38,22 +38,3 @@ public enum DTCBaseDisbursedCode
     Disbursed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCBaseDisbursedCodeMetadataExtensions
-{
-    private static readonly DTCBaseDisbursedCodeDropdownSource _dropdownSource = new DTCBaseDisbursedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCBaseDisbursedCodeDropdownRow GetMetadata(this DTCBaseDisbursedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

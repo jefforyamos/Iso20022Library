@@ -38,22 +38,3 @@ public enum Direction1Code
     Up = DirectionCode.Up, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Direction1CodeMetadataExtensions
-{
-    private static readonly Direction1CodeDropdownSource _dropdownSource = new Direction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDirection1CodeDropdownRow GetMetadata(this Direction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum CardPaymentServiceType14Code
     GuaranteeOfPayment = CardPaymentServiceTypeCode.GuaranteeOfPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType14CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType14CodeDropdownSource _dropdownSource = new CardPaymentServiceType14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType14CodeDropdownRow GetMetadata(this CardPaymentServiceType14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

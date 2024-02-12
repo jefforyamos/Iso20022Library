@@ -209,22 +209,3 @@ public enum RejectionReason42Code
     UnrecognisedIdentification = RejectionReasonV2Code.UnrecognisedIdentification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason42CodeMetadataExtensions
-{
-    private static readonly RejectionReason42CodeDropdownSource _dropdownSource = new RejectionReason42CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason42CodeDropdownRow GetMetadata(this RejectionReason42Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

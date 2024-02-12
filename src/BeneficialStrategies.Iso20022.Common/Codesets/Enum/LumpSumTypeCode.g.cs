@@ -47,22 +47,3 @@ public enum LumpSumTypeCode
     Uncrystallised,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LumpSumTypeCodeMetadataExtensions
-{
-    private static readonly LumpSumTypeCodeDropdownSource _dropdownSource = new LumpSumTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILumpSumTypeCodeDropdownRow GetMetadata(this LumpSumTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

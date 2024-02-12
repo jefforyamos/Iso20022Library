@@ -236,22 +236,3 @@ public enum SecuritiesTransactionType6Code
     CorporateAction = SecuritiesTransactionTypeV2Code.CorporateAction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType6CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType6CodeDropdownSource _dropdownSource = new SecuritiesTransactionType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType6CodeDropdownRow GetMetadata(this SecuritiesTransactionType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

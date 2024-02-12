@@ -119,22 +119,3 @@ public enum CardDataReading9Code
     ICCContact = CardDataReadingCode.ICCContact, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading9CodeMetadataExtensions
-{
-    private static readonly CardDataReading9CodeDropdownSource _dropdownSource = new CardDataReading9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading9CodeDropdownRow GetMetadata(this CardDataReading9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

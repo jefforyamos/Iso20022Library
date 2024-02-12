@@ -245,22 +245,3 @@ public enum TradeStatusCode
     PartialFix,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeStatusCodeMetadataExtensions
-{
-    private static readonly TradeStatusCodeDropdownSource _dropdownSource = new TradeStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeStatusCodeDropdownRow GetMetadata(this TradeStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

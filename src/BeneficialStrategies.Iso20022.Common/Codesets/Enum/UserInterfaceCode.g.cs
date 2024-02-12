@@ -236,22 +236,3 @@ public enum UserInterfaceCode
     TopUpCredit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UserInterfaceCodeMetadataExtensions
-{
-    private static readonly UserInterfaceCodeDropdownSource _dropdownSource = new UserInterfaceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUserInterfaceCodeDropdownRow GetMetadata(this UserInterfaceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

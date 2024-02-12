@@ -56,22 +56,3 @@ public enum FundOrderType5Code
     ClientWithSavingsPlan = FundOrderTypeCode.ClientWithSavingsPlan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOrderType5CodeMetadataExtensions
-{
-    private static readonly FundOrderType5CodeDropdownSource _dropdownSource = new FundOrderType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOrderType5CodeDropdownRow GetMetadata(this FundOrderType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

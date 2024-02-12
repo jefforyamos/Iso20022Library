@@ -353,22 +353,3 @@ public enum RejectionReason37Code
     PlaceOfListing = RejectionReasonV2Code.PlaceOfListing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason37CodeMetadataExtensions
-{
-    private static readonly RejectionReason37CodeDropdownSource _dropdownSource = new RejectionReason37CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason37CodeDropdownRow GetMetadata(this RejectionReason37Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

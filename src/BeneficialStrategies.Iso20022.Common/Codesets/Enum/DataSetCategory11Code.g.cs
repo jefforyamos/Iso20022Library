@@ -119,22 +119,3 @@ public enum DataSetCategory11Code
     CertificateParameters = DataSetCategoryCode.CertificateParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory11CodeMetadataExtensions
-{
-    private static readonly DataSetCategory11CodeDropdownSource _dropdownSource = new DataSetCategory11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory11CodeDropdownRow GetMetadata(this DataSetCategory11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

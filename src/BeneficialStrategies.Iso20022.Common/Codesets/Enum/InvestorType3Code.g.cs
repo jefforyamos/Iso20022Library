@@ -56,22 +56,3 @@ public enum InvestorType3Code
     BothProfessionalAndRetail = InvestorTypeCode.BothProfessionalAndRetail, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorType3CodeMetadataExtensions
-{
-    private static readonly InvestorType3CodeDropdownSource _dropdownSource = new InvestorType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorType3CodeDropdownRow GetMetadata(this InvestorType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

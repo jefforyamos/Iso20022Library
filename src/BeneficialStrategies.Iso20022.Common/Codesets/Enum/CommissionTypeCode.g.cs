@@ -182,22 +182,3 @@ public enum CommissionTypeCode
     FundBasedRenewal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionTypeCodeMetadataExtensions
-{
-    private static readonly CommissionTypeCodeDropdownSource _dropdownSource = new CommissionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionTypeCodeDropdownRow GetMetadata(this CommissionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

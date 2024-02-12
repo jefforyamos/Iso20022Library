@@ -56,22 +56,3 @@ public enum ModificationCode
     NoChange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModificationCodeMetadataExtensions
-{
-    private static readonly ModificationCodeDropdownSource _dropdownSource = new ModificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModificationCodeDropdownRow GetMetadata(this ModificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

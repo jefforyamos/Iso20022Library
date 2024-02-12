@@ -47,22 +47,3 @@ public enum CancellationProcess1Code
     Request = CancellationProcessCode.Request, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationProcess1CodeMetadataExtensions
-{
-    private static readonly CancellationProcess1CodeDropdownSource _dropdownSource = new CancellationProcess1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationProcess1CodeDropdownRow GetMetadata(this CancellationProcess1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

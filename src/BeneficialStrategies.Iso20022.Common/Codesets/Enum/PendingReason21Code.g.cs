@@ -551,22 +551,3 @@ public enum PendingReason21Code
     IncompleteNumberCount = PendingFailingReasonCode.IncompleteNumberCount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason21CodeMetadataExtensions
-{
-    private static readonly PendingReason21CodeDropdownSource _dropdownSource = new PendingReason21CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason21CodeDropdownRow GetMetadata(this PendingReason21Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

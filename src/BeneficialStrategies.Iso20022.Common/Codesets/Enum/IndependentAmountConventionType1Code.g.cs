@@ -47,22 +47,3 @@ public enum IndependentAmountConventionType1Code
     Segregated = IndependentAmountConventionTypeCode.Segregated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IndependentAmountConventionType1CodeMetadataExtensions
-{
-    private static readonly IndependentAmountConventionType1CodeDropdownSource _dropdownSource = new IndependentAmountConventionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIndependentAmountConventionType1CodeDropdownRow GetMetadata(this IndependentAmountConventionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

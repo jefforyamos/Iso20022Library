@@ -155,22 +155,3 @@ public enum PersonIdentificationType6Code
     IndividualTaxpayerIdentificationNumber = PersonIdentificationTypeCode.IndividualTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PersonIdentificationType6CodeMetadataExtensions
-{
-    private static readonly PersonIdentificationType6CodeDropdownSource _dropdownSource = new PersonIdentificationType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPersonIdentificationType6CodeDropdownRow GetMetadata(this PersonIdentificationType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

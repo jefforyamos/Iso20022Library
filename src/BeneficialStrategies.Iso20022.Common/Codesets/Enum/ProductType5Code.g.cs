@@ -74,22 +74,3 @@ public enum ProductType5Code
     Currency = ProductTypeV2Code.Currency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductType5CodeMetadataExtensions
-{
-    private static readonly ProductType5CodeDropdownSource _dropdownSource = new ProductType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductType5CodeDropdownRow GetMetadata(this ProductType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

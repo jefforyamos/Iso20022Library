@@ -47,22 +47,3 @@ public enum MailTypeCode
     RegisteredMail,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MailTypeCodeMetadataExtensions
-{
-    private static readonly MailTypeCodeDropdownSource _dropdownSource = new MailTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMailTypeCodeDropdownRow GetMetadata(this MailTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

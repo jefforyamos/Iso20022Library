@@ -29,22 +29,3 @@ public enum PendingPaymentCancellationReason2Code
     CancellationIndemnityRequired = PendingPaymentCancellationReasonCode.CancellationIndemnityRequired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingPaymentCancellationReason2CodeMetadataExtensions
-{
-    private static readonly PendingPaymentCancellationReason2CodeDropdownSource _dropdownSource = new PendingPaymentCancellationReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingPaymentCancellationReason2CodeDropdownRow GetMetadata(this PendingPaymentCancellationReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -173,22 +173,3 @@ public enum PINFormat4Code
     VISA3 = PINFormatCode.VISA3, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINFormat4CodeMetadataExtensions
-{
-    private static readonly PINFormat4CodeDropdownSource _dropdownSource = new PINFormat4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINFormat4CodeDropdownRow GetMetadata(this PINFormat4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

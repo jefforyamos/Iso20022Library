@@ -56,22 +56,3 @@ public enum EventGroup4Code
     Reorganization = EventGroupCode.Reorganization, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventGroup4CodeMetadataExtensions
-{
-    private static readonly EventGroup4CodeDropdownSource _dropdownSource = new EventGroup4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventGroup4CodeDropdownRow GetMetadata(this EventGroup4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum DocumentType4Code
     CommercialInvoice = DocumentTypeCode.CommercialInvoice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DocumentType4CodeMetadataExtensions
-{
-    private static readonly DocumentType4CodeDropdownSource _dropdownSource = new DocumentType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDocumentType4CodeDropdownRow GetMetadata(this DocumentType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

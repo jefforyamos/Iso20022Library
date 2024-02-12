@@ -30,22 +30,3 @@ public enum ValidationRuleAnyBank1Code
     AnyBank = ValidationRuleCode.AnyBank, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleAnyBank1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleAnyBank1CodeDropdownSource _dropdownSource = new ValidationRuleAnyBank1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleAnyBank1CodeDropdownRow GetMetadata(this ValidationRuleAnyBank1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

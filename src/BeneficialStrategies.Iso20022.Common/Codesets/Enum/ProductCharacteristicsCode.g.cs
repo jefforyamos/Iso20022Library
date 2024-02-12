@@ -146,22 +146,3 @@ public enum ProductCharacteristicsCode
     VehicleIdentificationNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductCharacteristicsCodeMetadataExtensions
-{
-    private static readonly ProductCharacteristicsCodeDropdownSource _dropdownSource = new ProductCharacteristicsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductCharacteristicsCodeDropdownRow GetMetadata(this ProductCharacteristicsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

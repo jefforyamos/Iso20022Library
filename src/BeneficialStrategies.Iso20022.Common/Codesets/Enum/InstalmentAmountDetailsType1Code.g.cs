@@ -110,22 +110,3 @@ public enum InstalmentAmountDetailsType1Code
     AnnualFinancingCost = InstalmentAmountDetailsTypeCode.AnnualFinancingCost, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstalmentAmountDetailsType1CodeMetadataExtensions
-{
-    private static readonly InstalmentAmountDetailsType1CodeDropdownSource _dropdownSource = new InstalmentAmountDetailsType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstalmentAmountDetailsType1CodeDropdownRow GetMetadata(this InstalmentAmountDetailsType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

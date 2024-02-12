@@ -101,22 +101,3 @@ public enum NetDividendRateType1Code
     Unfranked = DividendRateTypeCode.Unfranked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NetDividendRateType1CodeMetadataExtensions
-{
-    private static readonly NetDividendRateType1CodeDropdownSource _dropdownSource = new NetDividendRateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INetDividendRateType1CodeDropdownRow GetMetadata(this NetDividendRateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

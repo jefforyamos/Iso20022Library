@@ -866,22 +866,3 @@ public enum UnitOfMeasure12Code
     HeatingDegreeDay = UnitOfMeasureCode.HeatingDegreeDay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure12CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure12CodeDropdownSource _dropdownSource = new UnitOfMeasure12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure12CodeDropdownRow GetMetadata(this UnitOfMeasure12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum ExemptionCode
     TransferSamePersonExemption,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExemptionCodeMetadataExtensions
-{
-    private static readonly ExemptionCodeDropdownSource _dropdownSource = new ExemptionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExemptionCodeDropdownRow GetMetadata(this ExemptionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

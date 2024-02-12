@@ -111,22 +111,3 @@ public enum ExternalBalanceTypeCode
     Expected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBalanceTypeCodeMetadataExtensions
-{
-    private static readonly ExternalBalanceTypeCodeDropdownSource _dropdownSource = new ExternalBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBalanceTypeCodeDropdownRow GetMetadata(this ExternalBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

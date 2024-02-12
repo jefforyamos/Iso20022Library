@@ -101,22 +101,3 @@ public enum CancellationProcessingStatus1Code
     InRepair = CancellationProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly CancellationProcessingStatus1CodeDropdownSource _dropdownSource = new CancellationProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationProcessingStatus1CodeDropdownRow GetMetadata(this CancellationProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CollateralSubstitutionConfirmation1Code
     CollateralSubstitutionReturned = CollateralSubstitutionConfirmationCode.CollateralSubstitutionReturned, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralSubstitutionConfirmation1CodeMetadataExtensions
-{
-    private static readonly CollateralSubstitutionConfirmation1CodeDropdownSource _dropdownSource = new CollateralSubstitutionConfirmation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralSubstitutionConfirmation1CodeDropdownRow GetMetadata(this CollateralSubstitutionConfirmation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum PaymentType4Code
     PrincipalExchange = PaymentTypeCode.PrincipalExchange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentType4CodeMetadataExtensions
-{
-    private static readonly PaymentType4CodeDropdownSource _dropdownSource = new PaymentType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentType4CodeDropdownRow GetMetadata(this PaymentType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -228,22 +228,3 @@ public enum ExternalBillingBalanceTypeCode
     UncollectedFundsUsed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBillingBalanceTypeCodeMetadataExtensions
-{
-    private static readonly ExternalBillingBalanceTypeCodeDropdownSource _dropdownSource = new ExternalBillingBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBillingBalanceTypeCodeDropdownRow GetMetadata(this ExternalBillingBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

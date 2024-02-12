@@ -218,22 +218,3 @@ public enum MarginTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarginTypeCodeMetadataExtensions
-{
-    private static readonly MarginTypeCodeDropdownSource _dropdownSource = new MarginTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarginTypeCodeDropdownRow GetMetadata(this MarginTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

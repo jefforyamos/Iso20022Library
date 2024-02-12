@@ -56,22 +56,3 @@ public enum SupportedPaymentOption2Code
     PINRequest = SupportedPaymentOptionCode.PINRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SupportedPaymentOption2CodeMetadataExtensions
-{
-    private static readonly SupportedPaymentOption2CodeDropdownSource _dropdownSource = new SupportedPaymentOption2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISupportedPaymentOption2CodeDropdownRow GetMetadata(this SupportedPaymentOption2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

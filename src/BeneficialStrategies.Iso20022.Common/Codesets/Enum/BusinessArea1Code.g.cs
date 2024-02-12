@@ -56,22 +56,3 @@ public enum BusinessArea1Code
     TransitKnownFare = BusinessAreaCode.TransitKnownFare, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessArea1CodeMetadataExtensions
-{
-    private static readonly BusinessArea1CodeDropdownSource _dropdownSource = new BusinessArea1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessArea1CodeDropdownRow GetMetadata(this BusinessArea1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

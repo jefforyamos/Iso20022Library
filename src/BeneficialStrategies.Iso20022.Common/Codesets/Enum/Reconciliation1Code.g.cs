@@ -83,22 +83,3 @@ public enum Reconciliation1Code
     SingleSidedEEAUnpaired = ReconciliationCode.SingleSidedEEAUnpaired, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Reconciliation1CodeMetadataExtensions
-{
-    private static readonly Reconciliation1CodeDropdownSource _dropdownSource = new Reconciliation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliation1CodeDropdownRow GetMetadata(this Reconciliation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

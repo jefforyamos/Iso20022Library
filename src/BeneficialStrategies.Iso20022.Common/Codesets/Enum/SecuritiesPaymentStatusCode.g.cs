@@ -47,22 +47,3 @@ public enum SecuritiesPaymentStatusCode
     PartiallyPaid,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesPaymentStatusCodeMetadataExtensions
-{
-    private static readonly SecuritiesPaymentStatusCodeDropdownSource _dropdownSource = new SecuritiesPaymentStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesPaymentStatusCodeDropdownRow GetMetadata(this SecuritiesPaymentStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

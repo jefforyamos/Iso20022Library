@@ -111,22 +111,3 @@ public enum CardDataReading2Code
     Unknown = CardDataReadingCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading2CodeMetadataExtensions
-{
-    private static readonly CardDataReading2CodeDropdownSource _dropdownSource = new CardDataReading2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading2CodeDropdownRow GetMetadata(this CardDataReading2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

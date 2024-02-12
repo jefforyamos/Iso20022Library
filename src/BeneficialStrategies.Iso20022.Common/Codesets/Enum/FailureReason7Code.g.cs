@@ -191,22 +191,3 @@ public enum FailureReason7Code
     CustomerTimeOut = FailureReasonCode.CustomerTimeOut, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason7CodeMetadataExtensions
-{
-    private static readonly FailureReason7CodeDropdownSource _dropdownSource = new FailureReason7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason7CodeDropdownRow GetMetadata(this FailureReason7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

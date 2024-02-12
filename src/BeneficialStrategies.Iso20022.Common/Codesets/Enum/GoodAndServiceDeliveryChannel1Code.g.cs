@@ -83,22 +83,3 @@ public enum GoodAndServiceDeliveryChannel1Code
     ShippingToConsumerSpecifiedShippingAddress = GoodAndServiceDeliveryChannelCode.ShippingToConsumerSpecifiedShippingAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodAndServiceDeliveryChannel1CodeMetadataExtensions
-{
-    private static readonly GoodAndServiceDeliveryChannel1CodeDropdownSource _dropdownSource = new GoodAndServiceDeliveryChannel1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodAndServiceDeliveryChannel1CodeDropdownRow GetMetadata(this GoodAndServiceDeliveryChannel1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

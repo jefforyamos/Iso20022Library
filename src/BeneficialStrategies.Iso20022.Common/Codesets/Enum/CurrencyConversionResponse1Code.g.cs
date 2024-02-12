@@ -83,22 +83,3 @@ public enum CurrencyConversionResponse1Code
     NotAvailable = CurrencyConversionResponseCode.NotAvailable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CurrencyConversionResponse1CodeMetadataExtensions
-{
-    private static readonly CurrencyConversionResponse1CodeDropdownSource _dropdownSource = new CurrencyConversionResponse1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICurrencyConversionResponse1CodeDropdownRow GetMetadata(this CurrencyConversionResponse1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

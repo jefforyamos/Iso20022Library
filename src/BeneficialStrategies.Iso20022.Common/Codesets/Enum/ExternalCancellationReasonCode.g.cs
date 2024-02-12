@@ -274,22 +274,3 @@ public enum ExternalCancellationReasonCode
     DuplicationRequestToPay,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCancellationReasonCodeMetadataExtensions
-{
-    private static readonly ExternalCancellationReasonCodeDropdownSource _dropdownSource = new ExternalCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCancellationReasonCodeDropdownRow GetMetadata(this ExternalCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

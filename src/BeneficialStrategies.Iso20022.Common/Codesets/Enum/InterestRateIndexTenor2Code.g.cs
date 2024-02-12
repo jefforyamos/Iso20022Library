@@ -110,22 +110,3 @@ public enum InterestRateIndexTenor2Code
     Week2 = InterestRateIndexTenorCode_TO_MERGE.Week2, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRateIndexTenor2CodeMetadataExtensions
-{
-    private static readonly InterestRateIndexTenor2CodeDropdownSource _dropdownSource = new InterestRateIndexTenor2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRateIndexTenor2CodeDropdownRow GetMetadata(this InterestRateIndexTenor2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -209,22 +209,3 @@ public enum IdentificationCode
     Proxy,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IdentificationCodeMetadataExtensions
-{
-    private static readonly IdentificationCodeDropdownSource _dropdownSource = new IdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIdentificationCodeDropdownRow GetMetadata(this IdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

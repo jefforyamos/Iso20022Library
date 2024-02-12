@@ -119,22 +119,3 @@ public enum ChequeTypeCode
     OnlineCheque,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChequeTypeCodeMetadataExtensions
-{
-    private static readonly ChequeTypeCodeDropdownSource _dropdownSource = new ChequeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChequeTypeCodeDropdownRow GetMetadata(this ChequeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

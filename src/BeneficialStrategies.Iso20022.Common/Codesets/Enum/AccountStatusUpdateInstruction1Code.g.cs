@@ -38,22 +38,3 @@ public enum AccountStatusUpdateInstruction1Code
     Reactive = AccountStatusUpdateInstructionCode.Reactive, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatusUpdateInstruction1CodeMetadataExtensions
-{
-    private static readonly AccountStatusUpdateInstruction1CodeDropdownSource _dropdownSource = new AccountStatusUpdateInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatusUpdateInstruction1CodeDropdownRow GetMetadata(this AccountStatusUpdateInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

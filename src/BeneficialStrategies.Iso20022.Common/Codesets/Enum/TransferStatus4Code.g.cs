@@ -83,22 +83,3 @@ public enum TransferStatus4Code
     Complete = TransferStatusCode.Complete, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatus4CodeMetadataExtensions
-{
-    private static readonly TransferStatus4CodeDropdownSource _dropdownSource = new TransferStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatus4CodeDropdownRow GetMetadata(this TransferStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

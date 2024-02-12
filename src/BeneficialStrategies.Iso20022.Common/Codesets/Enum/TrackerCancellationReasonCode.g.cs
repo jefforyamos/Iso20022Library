@@ -137,22 +137,3 @@ public enum TrackerCancellationReasonCode
     IncorrectAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerCancellationReasonCodeMetadataExtensions
-{
-    private static readonly TrackerCancellationReasonCodeDropdownSource _dropdownSource = new TrackerCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerCancellationReasonCodeDropdownRow GetMetadata(this TrackerCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

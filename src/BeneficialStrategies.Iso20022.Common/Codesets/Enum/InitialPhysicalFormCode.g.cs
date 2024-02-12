@@ -47,22 +47,3 @@ public enum InitialPhysicalFormCode
     Definitive,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InitialPhysicalFormCodeMetadataExtensions
-{
-    private static readonly InitialPhysicalFormCodeDropdownSource _dropdownSource = new InitialPhysicalFormCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInitialPhysicalFormCodeDropdownRow GetMetadata(this InitialPhysicalFormCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

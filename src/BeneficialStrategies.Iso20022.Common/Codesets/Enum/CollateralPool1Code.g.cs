@@ -38,22 +38,3 @@ public enum CollateralPool1Code
     Pool = CollateralPoolCode.Pool, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralPool1CodeMetadataExtensions
-{
-    private static readonly CollateralPool1CodeDropdownSource _dropdownSource = new CollateralPool1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralPool1CodeDropdownRow GetMetadata(this CollateralPool1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

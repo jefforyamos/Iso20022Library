@@ -56,22 +56,3 @@ public enum TaxReclaimMethodCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxReclaimMethodCodeMetadataExtensions
-{
-    private static readonly TaxReclaimMethodCodeDropdownSource _dropdownSource = new TaxReclaimMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxReclaimMethodCodeDropdownRow GetMetadata(this TaxReclaimMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

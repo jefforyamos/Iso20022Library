@@ -47,22 +47,3 @@ public enum RepurchaseType4Code
     Rollover = RepurchaseTypeCode.Rollover, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepurchaseType4CodeMetadataExtensions
-{
-    private static readonly RepurchaseType4CodeDropdownSource _dropdownSource = new RepurchaseType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepurchaseType4CodeDropdownRow GetMetadata(this RepurchaseType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

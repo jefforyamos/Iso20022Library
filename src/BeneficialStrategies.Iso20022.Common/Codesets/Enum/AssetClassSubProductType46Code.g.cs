@@ -29,22 +29,3 @@ public enum AssetClassSubProductType46Code
     ContainerShip = AssetClassSubProductTypeCode.ContainerShip, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType46CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType46CodeDropdownSource _dropdownSource = new AssetClassSubProductType46CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType46CodeDropdownRow GetMetadata(this AssetClassSubProductType46Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

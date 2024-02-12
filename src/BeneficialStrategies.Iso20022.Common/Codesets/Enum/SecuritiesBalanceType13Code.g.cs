@@ -137,22 +137,3 @@ public enum SecuritiesBalanceType13Code
     EligibleForCollateralPurposes = SecuritiesBalanceTypeV2Code.EligibleForCollateralPurposes, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType13CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType13CodeDropdownSource _dropdownSource = new SecuritiesBalanceType13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType13CodeDropdownRow GetMetadata(this SecuritiesBalanceType13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

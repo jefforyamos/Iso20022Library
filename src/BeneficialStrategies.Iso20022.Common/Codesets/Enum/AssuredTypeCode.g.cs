@@ -56,22 +56,3 @@ public enum AssuredTypeCode
     SellerBank,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssuredTypeCodeMetadataExtensions
-{
-    private static readonly AssuredTypeCodeDropdownSource _dropdownSource = new AssuredTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssuredTypeCodeDropdownRow GetMetadata(this AssuredTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

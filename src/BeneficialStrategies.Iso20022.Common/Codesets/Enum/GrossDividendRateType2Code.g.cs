@@ -146,22 +146,3 @@ public enum GrossDividendRateType2Code
     RealEstatePropertyIncomePortion = DividendRateTypeCode.RealEstatePropertyIncomePortion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GrossDividendRateType2CodeMetadataExtensions
-{
-    private static readonly GrossDividendRateType2CodeDropdownSource _dropdownSource = new GrossDividendRateType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGrossDividendRateType2CodeDropdownRow GetMetadata(this GrossDividendRateType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum GoodTillBookingInstructionCode
     AccumulateTillTold,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodTillBookingInstructionCodeMetadataExtensions
-{
-    private static readonly GoodTillBookingInstructionCodeDropdownSource _dropdownSource = new GoodTillBookingInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodTillBookingInstructionCodeDropdownRow GetMetadata(this GoodTillBookingInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

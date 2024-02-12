@@ -74,22 +74,3 @@ public enum FundPaymentTypeCode
     CashAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundPaymentTypeCodeMetadataExtensions
-{
-    private static readonly FundPaymentTypeCodeDropdownSource _dropdownSource = new FundPaymentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundPaymentTypeCodeDropdownRow GetMetadata(this FundPaymentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

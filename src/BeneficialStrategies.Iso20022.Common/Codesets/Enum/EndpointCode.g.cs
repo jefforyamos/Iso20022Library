@@ -56,22 +56,3 @@ public enum EndpointCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EndpointCodeMetadataExtensions
-{
-    private static readonly EndpointCodeDropdownSource _dropdownSource = new EndpointCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEndpointCodeDropdownRow GetMetadata(this EndpointCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

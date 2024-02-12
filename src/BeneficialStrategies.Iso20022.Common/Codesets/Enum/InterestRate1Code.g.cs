@@ -56,22 +56,3 @@ public enum InterestRate1Code
     OtherPrivate = InterestRateCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRate1CodeMetadataExtensions
-{
-    private static readonly InterestRate1CodeDropdownSource _dropdownSource = new InterestRate1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRate1CodeDropdownRow GetMetadata(this InterestRate1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

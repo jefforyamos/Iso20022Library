@@ -220,22 +220,3 @@ public enum CryptographicKeyTypeCode
     ISO20038KeyWrap,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CryptographicKeyTypeCodeMetadataExtensions
-{
-    private static readonly CryptographicKeyTypeCodeDropdownSource _dropdownSource = new CryptographicKeyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICryptographicKeyTypeCodeDropdownRow GetMetadata(this CryptographicKeyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

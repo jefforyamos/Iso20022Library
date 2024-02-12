@@ -524,22 +524,3 @@ public enum RejectedConfirmationStatusReason1Code
     AmendmentTooLate = RejectedConfirmationStatusReasonCode.AmendmentTooLate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedConfirmationStatusReason1CodeMetadataExtensions
-{
-    private static readonly RejectedConfirmationStatusReason1CodeDropdownSource _dropdownSource = new RejectedConfirmationStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedConfirmationStatusReason1CodeDropdownRow GetMetadata(this RejectedConfirmationStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

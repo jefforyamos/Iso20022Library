@@ -353,22 +353,3 @@ public enum MessageFunction11Code
     CountersReport = MessageFunctionCode.CountersReport, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction11CodeMetadataExtensions
-{
-    private static readonly MessageFunction11CodeDropdownSource _dropdownSource = new MessageFunction11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction11CodeDropdownRow GetMetadata(this MessageFunction11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

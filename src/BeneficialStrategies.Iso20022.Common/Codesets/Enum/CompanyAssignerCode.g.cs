@@ -110,22 +110,3 @@ public enum CompanyAssignerCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CompanyAssignerCodeMetadataExtensions
-{
-    private static readonly CompanyAssignerCodeDropdownSource _dropdownSource = new CompanyAssignerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICompanyAssignerCodeDropdownRow GetMetadata(this CompanyAssignerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

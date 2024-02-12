@@ -65,22 +65,3 @@ public enum AccountOwnerTypeCode
     SecondaryOwner,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountOwnerTypeCodeMetadataExtensions
-{
-    private static readonly AccountOwnerTypeCodeDropdownSource _dropdownSource = new AccountOwnerTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountOwnerTypeCodeDropdownRow GetMetadata(this AccountOwnerTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

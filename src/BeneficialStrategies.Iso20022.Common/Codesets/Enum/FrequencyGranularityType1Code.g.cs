@@ -83,22 +83,3 @@ public enum FrequencyGranularityType1Code
     EndOfYear = FrequencyGranularityTypeCode.EndOfYear, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FrequencyGranularityType1CodeMetadataExtensions
-{
-    private static readonly FrequencyGranularityType1CodeDropdownSource _dropdownSource = new FrequencyGranularityType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequencyGranularityType1CodeDropdownRow GetMetadata(this FrequencyGranularityType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

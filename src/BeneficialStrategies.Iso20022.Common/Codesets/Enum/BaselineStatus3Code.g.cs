@@ -128,22 +128,3 @@ public enum BaselineStatus3Code
     DataSetAcceptanceRequested = BaselineStatusCode.DataSetAcceptanceRequested, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BaselineStatus3CodeMetadataExtensions
-{
-    private static readonly BaselineStatus3CodeDropdownSource _dropdownSource = new BaselineStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBaselineStatus3CodeDropdownRow GetMetadata(this BaselineStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InterestRejectionReasonCode
     DisputeAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRejectionReasonCodeMetadataExtensions
-{
-    private static readonly InterestRejectionReasonCodeDropdownSource _dropdownSource = new InterestRejectionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRejectionReasonCodeDropdownRow GetMetadata(this InterestRejectionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

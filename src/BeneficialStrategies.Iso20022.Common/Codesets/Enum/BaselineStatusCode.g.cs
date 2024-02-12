@@ -128,22 +128,3 @@ public enum BaselineStatusCode
     DataSetAcceptanceRequested,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BaselineStatusCodeMetadataExtensions
-{
-    private static readonly BaselineStatusCodeDropdownSource _dropdownSource = new BaselineStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBaselineStatusCodeDropdownRow GetMetadata(this BaselineStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

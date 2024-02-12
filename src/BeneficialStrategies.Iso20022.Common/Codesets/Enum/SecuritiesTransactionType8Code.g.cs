@@ -389,22 +389,3 @@ public enum SecuritiesTransactionType8Code
     ExchangeTradedFunds = SecuritiesTransactionTypeV2Code.ExchangeTradedFunds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType8CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType8CodeDropdownSource _dropdownSource = new SecuritiesTransactionType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType8CodeDropdownRow GetMetadata(this SecuritiesTransactionType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

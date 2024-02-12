@@ -38,22 +38,3 @@ public enum UndertakingIssuanceNameCode
     Standby,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UndertakingIssuanceNameCodeMetadataExtensions
-{
-    private static readonly UndertakingIssuanceNameCodeDropdownSource _dropdownSource = new UndertakingIssuanceNameCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUndertakingIssuanceNameCodeDropdownRow GetMetadata(this UndertakingIssuanceNameCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

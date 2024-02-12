@@ -74,22 +74,3 @@ public enum ModelType1Code
     ScenarioAnalysisModel = ModelTypeCode.ScenarioAnalysisModel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModelType1CodeMetadataExtensions
-{
-    private static readonly ModelType1CodeDropdownSource _dropdownSource = new ModelType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModelType1CodeDropdownRow GetMetadata(this ModelType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

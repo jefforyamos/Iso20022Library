@@ -38,22 +38,3 @@ public enum AffirmationStatusCode
     Unaffirmed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AffirmationStatusCodeMetadataExtensions
-{
-    private static readonly AffirmationStatusCodeDropdownSource _dropdownSource = new AffirmationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAffirmationStatusCodeDropdownRow GetMetadata(this AffirmationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

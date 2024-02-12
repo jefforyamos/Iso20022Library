@@ -38,22 +38,3 @@ public enum OtherAsset1Code
     Property = OtherAssetCode.Property, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OtherAsset1CodeMetadataExtensions
-{
-    private static readonly OtherAsset1CodeDropdownSource _dropdownSource = new OtherAsset1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOtherAsset1CodeDropdownRow GetMetadata(this OtherAsset1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

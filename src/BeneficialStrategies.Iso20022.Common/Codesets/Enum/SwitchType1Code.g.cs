@@ -38,22 +38,3 @@ public enum SwitchType1Code
     PartSwitch = SwitchTypeCode.PartSwitch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SwitchType1CodeMetadataExtensions
-{
-    private static readonly SwitchType1CodeDropdownSource _dropdownSource = new SwitchType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISwitchType1CodeDropdownRow GetMetadata(this SwitchType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

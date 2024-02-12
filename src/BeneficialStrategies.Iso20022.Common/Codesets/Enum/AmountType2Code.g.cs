@@ -47,22 +47,3 @@ public enum AmountType2Code
     MinimumAmount = AmountTypeCode.MinimumAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountType2CodeMetadataExtensions
-{
-    private static readonly AmountType2CodeDropdownSource _dropdownSource = new AmountType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountType2CodeDropdownRow GetMetadata(this AmountType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

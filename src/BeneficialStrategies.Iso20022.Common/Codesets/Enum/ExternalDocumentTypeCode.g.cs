@@ -174,22 +174,3 @@ public enum ExternalDocumentTypeCode
     UsageReport,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDocumentTypeCodeMetadataExtensions
-{
-    private static readonly ExternalDocumentTypeCodeDropdownSource _dropdownSource = new ExternalDocumentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDocumentTypeCodeDropdownRow GetMetadata(this ExternalDocumentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

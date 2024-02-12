@@ -56,22 +56,3 @@ public enum AccountManagementType3Code
     AccountStatus = AccountManagementTypeCode.AccountStatus, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountManagementType3CodeMetadataExtensions
-{
-    private static readonly AccountManagementType3CodeDropdownSource _dropdownSource = new AccountManagementType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountManagementType3CodeDropdownRow GetMetadata(this AccountManagementType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

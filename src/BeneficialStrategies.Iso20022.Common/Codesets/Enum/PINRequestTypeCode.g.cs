@@ -47,22 +47,3 @@ public enum PINRequestTypeCode
     PINAcquisitionEncryption,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINRequestTypeCodeMetadataExtensions
-{
-    private static readonly PINRequestTypeCodeDropdownSource _dropdownSource = new PINRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINRequestTypeCodeDropdownRow GetMetadata(this PINRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

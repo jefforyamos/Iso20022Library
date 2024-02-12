@@ -38,22 +38,3 @@ public enum OtherAmountType1Code
     SettlementInterest = OtherAmountTypeCode.SettlementInterest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OtherAmountType1CodeMetadataExtensions
-{
-    private static readonly OtherAmountType1CodeDropdownSource _dropdownSource = new OtherAmountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOtherAmountType1CodeDropdownRow GetMetadata(this OtherAmountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

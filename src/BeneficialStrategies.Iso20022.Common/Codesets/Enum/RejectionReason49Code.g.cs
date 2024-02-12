@@ -272,22 +272,3 @@ public enum RejectionReason49Code
     ShareholderNumberRejection = RejectionReasonV3Code.ShareholderNumberRejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason49CodeMetadataExtensions
-{
-    private static readonly RejectionReason49CodeDropdownSource _dropdownSource = new RejectionReason49CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason49CodeDropdownRow GetMetadata(this RejectionReason49Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum PowerOfAttorneyLegalisationCode
     Consularized,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PowerOfAttorneyLegalisationCodeMetadataExtensions
-{
-    private static readonly PowerOfAttorneyLegalisationCodeDropdownSource _dropdownSource = new PowerOfAttorneyLegalisationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPowerOfAttorneyLegalisationCodeDropdownRow GetMetadata(this PowerOfAttorneyLegalisationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

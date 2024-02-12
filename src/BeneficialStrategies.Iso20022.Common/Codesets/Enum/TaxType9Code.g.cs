@@ -92,22 +92,3 @@ public enum TaxType9Code
     CustomsTax = TaxTypeCode.CustomsTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType9CodeMetadataExtensions
-{
-    private static readonly TaxType9CodeDropdownSource _dropdownSource = new TaxType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType9CodeDropdownRow GetMetadata(this TaxType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

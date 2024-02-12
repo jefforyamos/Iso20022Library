@@ -146,22 +146,3 @@ public enum DTCInstructionStatus2Code
     Recycle = DTCInstructionStatusCode.Recycle, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCInstructionStatus2CodeMetadataExtensions
-{
-    private static readonly DTCInstructionStatus2CodeDropdownSource _dropdownSource = new DTCInstructionStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCInstructionStatus2CodeDropdownRow GetMetadata(this DTCInstructionStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

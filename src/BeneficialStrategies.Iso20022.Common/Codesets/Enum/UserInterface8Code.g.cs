@@ -65,22 +65,3 @@ public enum UserInterface8Code
     OtherNational = UserInterfaceCode.OtherNational, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UserInterface8CodeMetadataExtensions
-{
-    private static readonly UserInterface8CodeDropdownSource _dropdownSource = new UserInterface8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUserInterface8CodeDropdownRow GetMetadata(this UserInterface8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

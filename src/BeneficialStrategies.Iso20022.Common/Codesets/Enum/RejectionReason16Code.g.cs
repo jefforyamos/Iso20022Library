@@ -713,22 +713,3 @@ public enum RejectionReason16Code
     ReceivingDeliveringParty3 = RejectionReasonV2Code.ReceivingDeliveringParty3, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason16CodeMetadataExtensions
-{
-    private static readonly RejectionReason16CodeDropdownSource _dropdownSource = new RejectionReason16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason16CodeDropdownRow GetMetadata(this RejectionReason16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

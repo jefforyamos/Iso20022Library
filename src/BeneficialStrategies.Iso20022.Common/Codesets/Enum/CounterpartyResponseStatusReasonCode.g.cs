@@ -47,22 +47,3 @@ public enum CounterpartyResponseStatusReasonCode
     CounterpartyModification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CounterpartyResponseStatusReasonCodeMetadataExtensions
-{
-    private static readonly CounterpartyResponseStatusReasonCodeDropdownSource _dropdownSource = new CounterpartyResponseStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICounterpartyResponseStatusReasonCodeDropdownRow GetMetadata(this CounterpartyResponseStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

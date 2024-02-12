@@ -56,22 +56,3 @@ public enum OrderConfirmationStatusCode
     CommunicationProblemNextParty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderConfirmationStatusCodeMetadataExtensions
-{
-    private static readonly OrderConfirmationStatusCodeDropdownSource _dropdownSource = new OrderConfirmationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderConfirmationStatusCodeDropdownRow GetMetadata(this OrderConfirmationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

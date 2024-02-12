@@ -38,22 +38,3 @@ public enum OperationalStatusCode
     SpecialCircumstances,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OperationalStatusCodeMetadataExtensions
-{
-    private static readonly OperationalStatusCodeDropdownSource _dropdownSource = new OperationalStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperationalStatusCodeDropdownRow GetMetadata(this OperationalStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

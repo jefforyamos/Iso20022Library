@@ -425,22 +425,3 @@ public enum SecuritiesTransactionTypeV2Code
     SwitchTo,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionTypeV2CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionTypeV2CodeDropdownSource _dropdownSource = new SecuritiesTransactionTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionTypeV2CodeDropdownRow GetMetadata(this SecuritiesTransactionTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

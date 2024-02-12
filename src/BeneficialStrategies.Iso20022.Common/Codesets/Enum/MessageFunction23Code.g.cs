@@ -39,22 +39,3 @@ public enum MessageFunction23Code
     Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction23CodeMetadataExtensions
-{
-    private static readonly MessageFunction23CodeDropdownSource _dropdownSource = new MessageFunction23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction23CodeDropdownRow GetMetadata(this MessageFunction23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

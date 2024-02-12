@@ -75,22 +75,3 @@ public enum ExternalReservationTypeCode
     UrgentPaymentReservation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReservationTypeCodeMetadataExtensions
-{
-    private static readonly ExternalReservationTypeCodeDropdownSource _dropdownSource = new ExternalReservationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReservationTypeCodeDropdownRow GetMetadata(this ExternalReservationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

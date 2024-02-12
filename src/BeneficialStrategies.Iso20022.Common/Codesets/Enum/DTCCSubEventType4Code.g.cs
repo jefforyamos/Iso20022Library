@@ -362,22 +362,3 @@ public enum DTCCSubEventType4Code
     GDR = DTCCSubEventTypeCode.GDR, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType4CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType4CodeDropdownSource _dropdownSource = new DTCCSubEventType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType4CodeDropdownRow GetMetadata(this DTCCSubEventType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

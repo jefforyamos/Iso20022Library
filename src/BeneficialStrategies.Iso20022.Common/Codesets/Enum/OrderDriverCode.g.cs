@@ -38,22 +38,3 @@ public enum OrderDriverCode
     Sell = SideCode.Sell, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderDriverCodeMetadataExtensions
-{
-    private static readonly OrderDriverCodeDropdownSource _dropdownSource = new OrderDriverCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderDriverCodeDropdownRow GetMetadata(this OrderDriverCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

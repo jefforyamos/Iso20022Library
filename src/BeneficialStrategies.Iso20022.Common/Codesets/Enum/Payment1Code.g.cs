@@ -38,22 +38,3 @@ public enum Payment1Code
     ContractualPayment = PaymentCode.ContractualPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Payment1CodeMetadataExtensions
-{
-    private static readonly Payment1CodeDropdownSource _dropdownSource = new Payment1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPayment1CodeDropdownRow GetMetadata(this Payment1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

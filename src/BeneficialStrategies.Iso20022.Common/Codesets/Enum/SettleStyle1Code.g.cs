@@ -38,22 +38,3 @@ public enum SettleStyle1Code
     SettleOnOpen = SettleStyleCode.SettleOnOpen, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettleStyle1CodeMetadataExtensions
-{
-    private static readonly SettleStyle1CodeDropdownSource _dropdownSource = new SettleStyle1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettleStyle1CodeDropdownRow GetMetadata(this SettleStyle1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

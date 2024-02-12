@@ -74,22 +74,3 @@ public enum MeetingType4Code
     CourtMeeting = MeetingTypeV2Code.CourtMeeting, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingType4CodeMetadataExtensions
-{
-    private static readonly MeetingType4CodeDropdownSource _dropdownSource = new MeetingType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingType4CodeDropdownRow GetMetadata(this MeetingType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

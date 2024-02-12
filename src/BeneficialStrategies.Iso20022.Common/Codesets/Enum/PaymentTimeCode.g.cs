@@ -137,22 +137,3 @@ public enum PaymentTimeCode
     EndOfPeriodAfterInvoiceDate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTimeCodeMetadataExtensions
-{
-    private static readonly PaymentTimeCodeDropdownSource _dropdownSource = new PaymentTimeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTimeCodeDropdownRow GetMetadata(this PaymentTimeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

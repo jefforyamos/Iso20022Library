@@ -101,22 +101,3 @@ public enum Identification2Code
     PhoneNumber = IdentificationCode.PhoneNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Identification2CodeMetadataExtensions
-{
-    private static readonly Identification2CodeDropdownSource _dropdownSource = new Identification2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIdentification2CodeDropdownRow GetMetadata(this Identification2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

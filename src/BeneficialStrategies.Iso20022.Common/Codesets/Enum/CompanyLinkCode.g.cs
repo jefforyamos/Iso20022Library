@@ -74,22 +74,3 @@ public enum CompanyLinkCode
     MemberBroker,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CompanyLinkCodeMetadataExtensions
-{
-    private static readonly CompanyLinkCodeDropdownSource _dropdownSource = new CompanyLinkCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICompanyLinkCodeDropdownRow GetMetadata(this CompanyLinkCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

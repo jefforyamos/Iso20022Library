@@ -362,22 +362,3 @@ public enum TransferUnmatchedReasonCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferUnmatchedReasonCodeMetadataExtensions
-{
-    private static readonly TransferUnmatchedReasonCodeDropdownSource _dropdownSource = new TransferUnmatchedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferUnmatchedReasonCodeDropdownRow GetMetadata(this TransferUnmatchedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

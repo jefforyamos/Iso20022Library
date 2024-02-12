@@ -29,22 +29,3 @@ public enum DateType7Code
     Ongoing = DateTypeCode.Ongoing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateType7CodeMetadataExtensions
-{
-    private static readonly DateType7CodeDropdownSource _dropdownSource = new DateType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateType7CodeDropdownRow GetMetadata(this DateType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

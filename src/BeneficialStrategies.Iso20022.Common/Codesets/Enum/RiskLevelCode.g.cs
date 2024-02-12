@@ -47,22 +47,3 @@ public enum RiskLevelCode
     Low,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RiskLevelCodeMetadataExtensions
-{
-    private static readonly RiskLevelCodeDropdownSource _dropdownSource = new RiskLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRiskLevelCodeDropdownRow GetMetadata(this RiskLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

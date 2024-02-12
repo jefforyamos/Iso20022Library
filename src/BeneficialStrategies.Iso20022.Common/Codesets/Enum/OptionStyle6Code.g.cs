@@ -56,22 +56,3 @@ public enum OptionStyle6Code
     American = OptionStyleCode.American, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionStyle6CodeMetadataExtensions
-{
-    private static readonly OptionStyle6CodeDropdownSource _dropdownSource = new OptionStyle6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionStyle6CodeDropdownRow GetMetadata(this OptionStyle6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

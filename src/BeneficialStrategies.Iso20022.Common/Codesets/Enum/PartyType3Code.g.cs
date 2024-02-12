@@ -83,22 +83,3 @@ public enum PartyType3Code
     DelegateIssuer = PartyTypeCode.DelegateIssuer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType3CodeMetadataExtensions
-{
-    private static readonly PartyType3CodeDropdownSource _dropdownSource = new PartyType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType3CodeDropdownRow GetMetadata(this PartyType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

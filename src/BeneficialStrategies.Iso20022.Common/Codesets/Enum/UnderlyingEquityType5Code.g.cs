@@ -56,22 +56,3 @@ public enum UnderlyingEquityType5Code
     StockDividend = UnderlyingTypeV3Code.StockDividend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingEquityType5CodeMetadataExtensions
-{
-    private static readonly UnderlyingEquityType5CodeDropdownSource _dropdownSource = new UnderlyingEquityType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingEquityType5CodeDropdownRow GetMetadata(this UnderlyingEquityType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

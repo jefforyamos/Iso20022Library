@@ -110,22 +110,3 @@ public enum HoldingAccountLevel1Code
     Level9 = HoldingAccountLevelCode.Level9, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HoldingAccountLevel1CodeMetadataExtensions
-{
-    private static readonly HoldingAccountLevel1CodeDropdownSource _dropdownSource = new HoldingAccountLevel1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHoldingAccountLevel1CodeDropdownRow GetMetadata(this HoldingAccountLevel1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

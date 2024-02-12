@@ -74,22 +74,3 @@ public enum SettlementStatus2Code
     AwaitingRescindConfirmation = SettlementStatusCode.AwaitingRescindConfirmation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementStatus2CodeMetadataExtensions
-{
-    private static readonly SettlementStatus2CodeDropdownSource _dropdownSource = new SettlementStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementStatus2CodeDropdownRow GetMetadata(this SettlementStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

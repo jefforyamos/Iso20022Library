@@ -47,22 +47,3 @@ public enum OwnershipLegalRestrictionsCode
     Restrictions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OwnershipLegalRestrictionsCodeMetadataExtensions
-{
-    private static readonly OwnershipLegalRestrictionsCodeDropdownSource _dropdownSource = new OwnershipLegalRestrictionsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOwnershipLegalRestrictionsCodeDropdownRow GetMetadata(this OwnershipLegalRestrictionsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

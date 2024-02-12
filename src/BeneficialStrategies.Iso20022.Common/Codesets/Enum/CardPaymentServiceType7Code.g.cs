@@ -219,22 +219,3 @@ public enum CardPaymentServiceType7Code
     CreditAdjustement = CardPaymentServiceTypeCode.CreditAdjustement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType7CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType7CodeDropdownSource _dropdownSource = new CardPaymentServiceType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType7CodeDropdownRow GetMetadata(this CardPaymentServiceType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

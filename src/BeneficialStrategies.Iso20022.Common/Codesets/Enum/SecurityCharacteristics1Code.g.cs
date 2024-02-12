@@ -182,22 +182,3 @@ public enum SecurityCharacteristics1Code
     OtherPrivate = SecurityCharacteristicsCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecurityCharacteristics1CodeMetadataExtensions
-{
-    private static readonly SecurityCharacteristics1CodeDropdownSource _dropdownSource = new SecurityCharacteristics1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecurityCharacteristics1CodeDropdownRow GetMetadata(this SecurityCharacteristics1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

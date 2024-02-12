@@ -38,22 +38,3 @@ public enum RoutingType1Code
     Blocked = RoutingTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RoutingType1CodeMetadataExtensions
-{
-    private static readonly RoutingType1CodeDropdownSource _dropdownSource = new RoutingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRoutingType1CodeDropdownRow GetMetadata(this RoutingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

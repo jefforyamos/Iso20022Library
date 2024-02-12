@@ -47,22 +47,3 @@ public enum RepoCallAcknowledgementReason2Code
     AccountServicerDeadlineMissed = RepoCallAcknowledgementReasonCode.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoCallAcknowledgementReason2CodeMetadataExtensions
-{
-    private static readonly RepoCallAcknowledgementReason2CodeDropdownSource _dropdownSource = new RepoCallAcknowledgementReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoCallAcknowledgementReason2CodeDropdownRow GetMetadata(this RepoCallAcknowledgementReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum ClearingMethodCode
     RealTime,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingMethodCodeMetadataExtensions
-{
-    private static readonly ClearingMethodCodeDropdownSource _dropdownSource = new ClearingMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingMethodCodeDropdownRow GetMetadata(this ClearingMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

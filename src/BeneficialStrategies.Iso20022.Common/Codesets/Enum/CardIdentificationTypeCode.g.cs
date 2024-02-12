@@ -83,22 +83,3 @@ public enum CardIdentificationTypeCode
     PrivativeNumbering,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly CardIdentificationTypeCodeDropdownSource _dropdownSource = new CardIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardIdentificationTypeCodeDropdownRow GetMetadata(this CardIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

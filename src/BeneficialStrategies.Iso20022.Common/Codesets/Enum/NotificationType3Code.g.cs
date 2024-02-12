@@ -47,22 +47,3 @@ public enum NotificationType3Code
     Reminder = CorporateActionNotificationTypeCode.Reminder, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotificationType3CodeMetadataExtensions
-{
-    private static readonly NotificationType3CodeDropdownSource _dropdownSource = new NotificationType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotificationType3CodeDropdownRow GetMetadata(this NotificationType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

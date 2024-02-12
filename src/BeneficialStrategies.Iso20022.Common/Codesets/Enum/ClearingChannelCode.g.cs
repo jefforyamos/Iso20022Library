@@ -56,22 +56,3 @@ public enum ClearingChannelCode
     BookTransfer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingChannelCodeMetadataExtensions
-{
-    private static readonly ClearingChannelCodeDropdownSource _dropdownSource = new ClearingChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingChannelCodeDropdownRow GetMetadata(this ClearingChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

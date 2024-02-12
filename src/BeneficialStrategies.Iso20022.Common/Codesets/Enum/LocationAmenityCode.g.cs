@@ -182,22 +182,3 @@ public enum LocationAmenityCode
     TruckStopRestaurantAvailable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationAmenityCodeMetadataExtensions
-{
-    private static readonly LocationAmenityCodeDropdownSource _dropdownSource = new LocationAmenityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationAmenityCodeDropdownRow GetMetadata(this LocationAmenityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

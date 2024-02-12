@@ -65,22 +65,3 @@ public enum ReservationStatus1Code
     Blocked = ReservationStatusCode.Blocked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReservationStatus1CodeMetadataExtensions
-{
-    private static readonly ReservationStatus1CodeDropdownSource _dropdownSource = new ReservationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReservationStatus1CodeDropdownRow GetMetadata(this ReservationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

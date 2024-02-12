@@ -164,22 +164,3 @@ public enum InvestorTypeV2Code
     ElectiveProfessionalNotProfessionalPerSe,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorTypeV2CodeMetadataExtensions
-{
-    private static readonly InvestorTypeV2CodeDropdownSource _dropdownSource = new InvestorTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorTypeV2CodeDropdownRow GetMetadata(this InvestorTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

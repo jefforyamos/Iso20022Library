@@ -101,22 +101,3 @@ public enum TemporaryServicesChargeCode
     Weekend,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TemporaryServicesChargeCodeMetadataExtensions
-{
-    private static readonly TemporaryServicesChargeCodeDropdownSource _dropdownSource = new TemporaryServicesChargeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITemporaryServicesChargeCodeDropdownRow GetMetadata(this TemporaryServicesChargeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

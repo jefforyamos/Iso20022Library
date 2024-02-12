@@ -227,22 +227,3 @@ public enum DTCCSubEventType2Code
     ADR = DTCCSubEventTypeCode.ADR, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType2CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType2CodeDropdownSource _dropdownSource = new DTCCSubEventType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType2CodeDropdownRow GetMetadata(this DTCCSubEventType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum TransferStatus3Code
     Received = TransferStatusCode.Received, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatus3CodeMetadataExtensions
-{
-    private static readonly TransferStatus3CodeDropdownSource _dropdownSource = new TransferStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatus3CodeDropdownRow GetMetadata(this TransferStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

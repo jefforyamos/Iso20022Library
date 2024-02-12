@@ -101,22 +101,3 @@ public enum TypeOfAmount5Code
     Tax = TypeOfAmountCode.Tax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount5CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount5CodeDropdownSource _dropdownSource = new TypeOfAmount5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount5CodeDropdownRow GetMetadata(this TypeOfAmount5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

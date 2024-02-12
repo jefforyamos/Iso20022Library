@@ -273,22 +273,3 @@ public enum ExternalPaymentModificationRejection1Code
     UnableToModifyPriority = ExternalPaymentModificationRejectionCode.UnableToModifyPriority, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentModificationRejection1CodeMetadataExtensions
-{
-    private static readonly ExternalPaymentModificationRejection1CodeDropdownSource _dropdownSource = new ExternalPaymentModificationRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentModificationRejection1CodeDropdownRow GetMetadata(this ExternalPaymentModificationRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

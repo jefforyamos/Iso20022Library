@@ -146,22 +146,3 @@ public enum PendingReason16Code
     PendingReceipt = PendingFailingReasonV2Code.PendingReceipt, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason16CodeMetadataExtensions
-{
-    private static readonly PendingReason16CodeDropdownSource _dropdownSource = new PendingReason16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason16CodeDropdownRow GetMetadata(this PendingReason16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

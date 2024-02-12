@@ -137,22 +137,3 @@ public enum MessageFunction15Code
     CurrencyConversionAdvice = MessageFunctionCode.CurrencyConversionAdvice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction15CodeMetadataExtensions
-{
-    private static readonly MessageFunction15CodeDropdownSource _dropdownSource = new MessageFunction15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction15CodeDropdownRow GetMetadata(this MessageFunction15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

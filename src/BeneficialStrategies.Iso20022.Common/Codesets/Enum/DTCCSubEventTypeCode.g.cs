@@ -515,22 +515,3 @@ public enum DTCCSubEventTypeCode
     UnitCombination,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventTypeCodeMetadataExtensions
-{
-    private static readonly DTCCSubEventTypeCodeDropdownSource _dropdownSource = new DTCCSubEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventTypeCodeDropdownRow GetMetadata(this DTCCSubEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

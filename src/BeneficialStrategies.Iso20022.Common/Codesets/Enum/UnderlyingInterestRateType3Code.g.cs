@@ -56,22 +56,3 @@ public enum UnderlyingInterestRateType3Code
     InterestRateFutureFRA = UnderlyingTypeV3Code.InterestRateFutureFRA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingInterestRateType3CodeMetadataExtensions
-{
-    private static readonly UnderlyingInterestRateType3CodeDropdownSource _dropdownSource = new UnderlyingInterestRateType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingInterestRateType3CodeDropdownRow GetMetadata(this UnderlyingInterestRateType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

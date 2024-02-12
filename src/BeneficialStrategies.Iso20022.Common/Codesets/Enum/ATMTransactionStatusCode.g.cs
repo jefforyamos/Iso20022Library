@@ -74,22 +74,3 @@ public enum ATMTransactionStatusCode
     None,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMTransactionStatusCodeMetadataExtensions
-{
-    private static readonly ATMTransactionStatusCodeDropdownSource _dropdownSource = new ATMTransactionStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMTransactionStatusCodeDropdownRow GetMetadata(this ATMTransactionStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

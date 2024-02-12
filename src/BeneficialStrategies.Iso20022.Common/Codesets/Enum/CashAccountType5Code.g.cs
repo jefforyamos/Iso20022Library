@@ -65,22 +65,3 @@ public enum CashAccountType5Code
     Segregated = CashAccountTypeCode.Segregated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashAccountType5CodeMetadataExtensions
-{
-    private static readonly CashAccountType5CodeDropdownSource _dropdownSource = new CashAccountType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashAccountType5CodeDropdownRow GetMetadata(this CashAccountType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

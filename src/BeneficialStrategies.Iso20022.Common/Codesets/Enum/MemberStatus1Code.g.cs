@@ -56,22 +56,3 @@ public enum MemberStatus1Code
     Joining = MemberStatusCode.Joining, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MemberStatus1CodeMetadataExtensions
-{
-    private static readonly MemberStatus1CodeDropdownSource _dropdownSource = new MemberStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMemberStatus1CodeDropdownRow GetMetadata(this MemberStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

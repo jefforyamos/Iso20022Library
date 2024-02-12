@@ -56,22 +56,3 @@ public enum PINEntrySecurityCharacteristicCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PINEntrySecurityCharacteristicCodeMetadataExtensions
-{
-    private static readonly PINEntrySecurityCharacteristicCodeDropdownSource _dropdownSource = new PINEntrySecurityCharacteristicCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPINEntrySecurityCharacteristicCodeDropdownRow GetMetadata(this PINEntrySecurityCharacteristicCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum TradeMarketCode
     Foreign,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeMarketCodeMetadataExtensions
-{
-    private static readonly TradeMarketCodeDropdownSource _dropdownSource = new TradeMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeMarketCodeDropdownRow GetMetadata(this TradeMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

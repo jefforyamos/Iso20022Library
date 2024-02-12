@@ -38,22 +38,3 @@ public enum QuotationType1Code
     Percentage = QuotationTypeCode.Percentage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QuotationType1CodeMetadataExtensions
-{
-    private static readonly QuotationType1CodeDropdownSource _dropdownSource = new QuotationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuotationType1CodeDropdownRow GetMetadata(this QuotationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

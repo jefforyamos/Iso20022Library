@@ -29,22 +29,3 @@ public enum NoCriteria1Code
     NoCriteria = NoCriteriaCode.NoCriteria, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NoCriteria1CodeMetadataExtensions
-{
-    private static readonly NoCriteria1CodeDropdownSource _dropdownSource = new NoCriteria1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INoCriteria1CodeDropdownRow GetMetadata(this NoCriteria1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

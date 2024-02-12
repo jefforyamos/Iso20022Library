@@ -65,22 +65,3 @@ public enum DTCProtectInstructionStatus1Code
     Open = DTCInstructionStatusCode.Open, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCProtectInstructionStatus1CodeMetadataExtensions
-{
-    private static readonly DTCProtectInstructionStatus1CodeDropdownSource _dropdownSource = new DTCProtectInstructionStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCProtectInstructionStatus1CodeDropdownRow GetMetadata(this DTCProtectInstructionStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

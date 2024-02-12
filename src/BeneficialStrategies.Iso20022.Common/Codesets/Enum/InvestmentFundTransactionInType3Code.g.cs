@@ -65,22 +65,3 @@ public enum InvestmentFundTransactionInType3Code
     Other = InvestmentFundTransactionTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundTransactionInType3CodeMetadataExtensions
-{
-    private static readonly InvestmentFundTransactionInType3CodeDropdownSource _dropdownSource = new InvestmentFundTransactionInType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundTransactionInType3CodeDropdownRow GetMetadata(this InvestmentFundTransactionInType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

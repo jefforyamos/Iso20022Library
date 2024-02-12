@@ -38,22 +38,3 @@ public enum RestrictionStatus1Code
     Inactive = RestrictionStatusCode.Inactive, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RestrictionStatus1CodeMetadataExtensions
-{
-    private static readonly RestrictionStatus1CodeDropdownSource _dropdownSource = new RestrictionStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRestrictionStatus1CodeDropdownRow GetMetadata(this RestrictionStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

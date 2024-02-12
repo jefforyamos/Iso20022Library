@@ -119,22 +119,3 @@ public enum InsuranceClauses1Code
     InstituteRadioactiveContaminationExclusionClause = InsuranceClausesCode.InstituteRadioactiveContaminationExclusionClause, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InsuranceClauses1CodeMetadataExtensions
-{
-    private static readonly InsuranceClauses1CodeDropdownSource _dropdownSource = new InsuranceClauses1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInsuranceClauses1CodeDropdownRow GetMetadata(this InsuranceClauses1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

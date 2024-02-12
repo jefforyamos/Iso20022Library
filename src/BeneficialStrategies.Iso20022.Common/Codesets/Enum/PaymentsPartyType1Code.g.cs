@@ -56,22 +56,3 @@ public enum PaymentsPartyType1Code
     IntermediaryAgent = PaymentsPartyTypeCode.IntermediaryAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentsPartyType1CodeMetadataExtensions
-{
-    private static readonly PaymentsPartyType1CodeDropdownSource _dropdownSource = new PaymentsPartyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentsPartyType1CodeDropdownRow GetMetadata(this PaymentsPartyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

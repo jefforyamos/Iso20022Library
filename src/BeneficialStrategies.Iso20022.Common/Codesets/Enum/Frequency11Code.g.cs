@@ -110,22 +110,3 @@ public enum Frequency11Code
     OnCreditEvent = FrequencyCode.OnCreditEvent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency11CodeMetadataExtensions
-{
-    private static readonly Frequency11CodeDropdownSource _dropdownSource = new Frequency11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency11CodeDropdownRow GetMetadata(this Frequency11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

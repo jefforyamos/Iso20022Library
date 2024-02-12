@@ -489,22 +489,3 @@ public enum FXAmountType1Code
     ResearchFee = FXAmountTypeCode.ResearchFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FXAmountType1CodeMetadataExtensions
-{
-    private static readonly FXAmountType1CodeDropdownSource _dropdownSource = new FXAmountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFXAmountType1CodeDropdownRow GetMetadata(this FXAmountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

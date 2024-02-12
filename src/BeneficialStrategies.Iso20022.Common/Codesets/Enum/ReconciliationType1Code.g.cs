@@ -56,22 +56,3 @@ public enum ReconciliationType1Code
     SaleReconciliation = ReconciliationTypeCode.SaleReconciliation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationType1CodeMetadataExtensions
-{
-    private static readonly ReconciliationType1CodeDropdownSource _dropdownSource = new ReconciliationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationType1CodeDropdownRow GetMetadata(this ReconciliationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

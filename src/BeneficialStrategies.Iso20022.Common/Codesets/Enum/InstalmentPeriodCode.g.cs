@@ -38,22 +38,3 @@ public enum InstalmentPeriodCode
     Annual,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstalmentPeriodCodeMetadataExtensions
-{
-    private static readonly InstalmentPeriodCodeDropdownSource _dropdownSource = new InstalmentPeriodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstalmentPeriodCodeDropdownRow GetMetadata(this InstalmentPeriodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

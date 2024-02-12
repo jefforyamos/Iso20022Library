@@ -686,22 +686,3 @@ public enum HoldingRejectionReason41Code
     NotAvailable = RejectionReasonV2Code.NotAvailable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HoldingRejectionReason41CodeMetadataExtensions
-{
-    private static readonly HoldingRejectionReason41CodeDropdownSource _dropdownSource = new HoldingRejectionReason41CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHoldingRejectionReason41CodeDropdownRow GetMetadata(this HoldingRejectionReason41Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

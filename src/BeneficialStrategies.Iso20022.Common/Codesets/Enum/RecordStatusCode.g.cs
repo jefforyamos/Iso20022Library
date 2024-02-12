@@ -83,22 +83,3 @@ public enum RecordStatusCode
     Warning,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RecordStatusCodeMetadataExtensions
-{
-    private static readonly RecordStatusCodeDropdownSource _dropdownSource = new RecordStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRecordStatusCodeDropdownRow GetMetadata(this RecordStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

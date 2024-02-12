@@ -92,22 +92,3 @@ public enum CRSFormType1Code
     Standardised = CRSFormTypeCode.Standardised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CRSFormType1CodeMetadataExtensions
-{
-    private static readonly CRSFormType1CodeDropdownSource _dropdownSource = new CRSFormType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICRSFormType1CodeDropdownRow GetMetadata(this CRSFormType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

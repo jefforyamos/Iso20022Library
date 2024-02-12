@@ -47,22 +47,3 @@ public enum Status5Code
     Pending = StatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status5CodeMetadataExtensions
-{
-    private static readonly Status5CodeDropdownSource _dropdownSource = new Status5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus5CodeDropdownRow GetMetadata(this Status5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -219,22 +219,3 @@ public enum ExternalBillingCompensationTypeCode
     WaivedServices,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBillingCompensationTypeCodeMetadataExtensions
-{
-    private static readonly ExternalBillingCompensationTypeCodeDropdownSource _dropdownSource = new ExternalBillingCompensationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBillingCompensationTypeCodeDropdownRow GetMetadata(this ExternalBillingCompensationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

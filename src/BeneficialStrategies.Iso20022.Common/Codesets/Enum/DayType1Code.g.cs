@@ -38,22 +38,3 @@ public enum DayType1Code
     ElapsedBusinessDays = DayTypeCode.ElapsedBusinessDays, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DayType1CodeMetadataExtensions
-{
-    private static readonly DayType1CodeDropdownSource _dropdownSource = new DayType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDayType1CodeDropdownRow GetMetadata(this DayType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

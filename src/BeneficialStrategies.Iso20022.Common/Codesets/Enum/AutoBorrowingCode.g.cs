@@ -56,22 +56,3 @@ public enum AutoBorrowingCode
     Return,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AutoBorrowingCodeMetadataExtensions
-{
-    private static readonly AutoBorrowingCodeDropdownSource _dropdownSource = new AutoBorrowingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAutoBorrowingCodeDropdownRow GetMetadata(this AutoBorrowingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

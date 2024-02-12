@@ -353,22 +353,3 @@ public enum PendingSettlementStatusReason2Code
     FinalVerification = PendingSettlementStatusReasonCode.FinalVerification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingSettlementStatusReason2CodeMetadataExtensions
-{
-    private static readonly PendingSettlementStatusReason2CodeDropdownSource _dropdownSource = new PendingSettlementStatusReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingSettlementStatusReason2CodeDropdownRow GetMetadata(this PendingSettlementStatusReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

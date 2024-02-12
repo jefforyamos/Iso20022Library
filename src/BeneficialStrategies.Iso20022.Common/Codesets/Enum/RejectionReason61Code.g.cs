@@ -83,22 +83,3 @@ public enum RejectionReason61Code
     RejectedSinceInProgress = RejectionReasonV3Code.RejectedSinceInProgress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason61CodeMetadataExtensions
-{
-    private static readonly RejectionReason61CodeDropdownSource _dropdownSource = new RejectionReason61CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason61CodeDropdownRow GetMetadata(this RejectionReason61Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

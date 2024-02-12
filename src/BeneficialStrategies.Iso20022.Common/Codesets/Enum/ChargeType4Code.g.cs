@@ -29,22 +29,3 @@ public enum ChargeType4Code
     TransferFee = ChargeTypeCode.TransferFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType4CodeMetadataExtensions
-{
-    private static readonly ChargeType4CodeDropdownSource _dropdownSource = new ChargeType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType4CodeDropdownRow GetMetadata(this ChargeType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

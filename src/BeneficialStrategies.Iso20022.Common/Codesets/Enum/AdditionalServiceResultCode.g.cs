@@ -65,22 +65,3 @@ public enum AdditionalServiceResultCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalServiceResultCodeMetadataExtensions
-{
-    private static readonly AdditionalServiceResultCodeDropdownSource _dropdownSource = new AdditionalServiceResultCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalServiceResultCodeDropdownRow GetMetadata(this AdditionalServiceResultCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

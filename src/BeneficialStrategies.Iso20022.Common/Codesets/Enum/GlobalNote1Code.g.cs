@@ -38,22 +38,3 @@ public enum GlobalNote1Code
     ClassicalGlobalNote = GlobalNoteCode.ClassicalGlobalNote, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GlobalNote1CodeMetadataExtensions
-{
-    private static readonly GlobalNote1CodeDropdownSource _dropdownSource = new GlobalNote1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGlobalNote1CodeDropdownRow GetMetadata(this GlobalNote1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

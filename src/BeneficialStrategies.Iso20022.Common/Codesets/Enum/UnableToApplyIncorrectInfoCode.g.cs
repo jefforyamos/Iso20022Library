@@ -236,22 +236,3 @@ public enum UnableToApplyIncorrectInfoCode
     InsufficientCreditorDetails,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyIncorrectInfoCodeMetadataExtensions
-{
-    private static readonly UnableToApplyIncorrectInfoCodeDropdownSource _dropdownSource = new UnableToApplyIncorrectInfoCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyIncorrectInfoCodeDropdownRow GetMetadata(this UnableToApplyIncorrectInfoCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

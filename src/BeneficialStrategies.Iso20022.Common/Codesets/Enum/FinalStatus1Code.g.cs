@@ -56,22 +56,3 @@ public enum FinalStatus1Code
     Finalised = PaymentInstructionStatusCode.Finalised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinalStatus1CodeMetadataExtensions
-{
-    private static readonly FinalStatus1CodeDropdownSource _dropdownSource = new FinalStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinalStatus1CodeDropdownRow GetMetadata(this FinalStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

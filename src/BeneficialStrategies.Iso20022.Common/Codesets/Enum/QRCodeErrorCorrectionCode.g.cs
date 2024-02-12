@@ -56,22 +56,3 @@ public enum QRCodeErrorCorrectionCode
     ErrorCorrection30Percent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodeErrorCorrectionCodeMetadataExtensions
-{
-    private static readonly QRCodeErrorCorrectionCodeDropdownSource _dropdownSource = new QRCodeErrorCorrectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodeErrorCorrectionCodeDropdownRow GetMetadata(this QRCodeErrorCorrectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

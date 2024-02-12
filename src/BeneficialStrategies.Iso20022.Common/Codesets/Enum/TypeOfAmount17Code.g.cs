@@ -56,22 +56,3 @@ public enum TypeOfAmount17Code
     Anticipated = TypeOfAmountCode.Anticipated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount17CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount17CodeDropdownSource _dropdownSource = new TypeOfAmount17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount17CodeDropdownRow GetMetadata(this TypeOfAmount17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -434,22 +434,3 @@ public enum UnmatchedReason13Code
     CumEx = UnmatchedReasonCode.CumEx, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason13CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason13CodeDropdownSource _dropdownSource = new UnmatchedReason13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason13CodeDropdownRow GetMetadata(this UnmatchedReason13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

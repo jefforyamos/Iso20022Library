@@ -47,22 +47,3 @@ public enum TaxType3Code
     WithholdingOfLocalTax = TaxTypeCode.WithholdingOfLocalTax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxType3CodeMetadataExtensions
-{
-    private static readonly TaxType3CodeDropdownSource _dropdownSource = new TaxType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxType3CodeDropdownRow GetMetadata(this TaxType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

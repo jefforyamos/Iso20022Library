@@ -38,22 +38,3 @@ public enum ElectionTypeCode
     OptionChange,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ElectionTypeCodeMetadataExtensions
-{
-    private static readonly ElectionTypeCodeDropdownSource _dropdownSource = new ElectionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IElectionTypeCodeDropdownRow GetMetadata(this ElectionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

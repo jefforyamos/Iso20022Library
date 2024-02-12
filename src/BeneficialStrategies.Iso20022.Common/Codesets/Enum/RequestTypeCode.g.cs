@@ -110,22 +110,3 @@ public enum RequestTypeCode
     PendingInwardCreditsEnquiry,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestTypeCodeMetadataExtensions
-{
-    private static readonly RequestTypeCodeDropdownSource _dropdownSource = new RequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestTypeCodeDropdownRow GetMetadata(this RequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

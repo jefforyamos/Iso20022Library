@@ -29,22 +29,3 @@ public enum SafekeepingAccountIdentificationCode
     General,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SafekeepingAccountIdentificationCodeMetadataExtensions
-{
-    private static readonly SafekeepingAccountIdentificationCodeDropdownSource _dropdownSource = new SafekeepingAccountIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISafekeepingAccountIdentificationCodeDropdownRow GetMetadata(this SafekeepingAccountIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

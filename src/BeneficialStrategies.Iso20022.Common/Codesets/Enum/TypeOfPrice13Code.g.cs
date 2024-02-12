@@ -155,22 +155,3 @@ public enum TypeOfPrice13Code
     EstimatedGAV = TypeOfPriceCode.EstimatedGAV, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice13CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice13CodeDropdownSource _dropdownSource = new TypeOfPrice13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice13CodeDropdownRow GetMetadata(this TypeOfPrice13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

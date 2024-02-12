@@ -92,22 +92,3 @@ public enum Frequency1Code
     IntraDay = FrequencyCode.IntraDay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency1CodeMetadataExtensions
-{
-    private static readonly Frequency1CodeDropdownSource _dropdownSource = new Frequency1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency1CodeDropdownRow GetMetadata(this Frequency1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum GoodsAndServicesSubType1Code
     Securities = GoodsAndServicesSubTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodsAndServicesSubType1CodeMetadataExtensions
-{
-    private static readonly GoodsAndServicesSubType1CodeDropdownSource _dropdownSource = new GoodsAndServicesSubType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodsAndServicesSubType1CodeDropdownRow GetMetadata(this GoodsAndServicesSubType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum FailedSettlementReason1Code
     InsufficientCash = FailedSettlementReasonCode.InsufficientCash, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailedSettlementReason1CodeMetadataExtensions
-{
-    private static readonly FailedSettlementReason1CodeDropdownSource _dropdownSource = new FailedSettlementReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailedSettlementReason1CodeDropdownRow GetMetadata(this FailedSettlementReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

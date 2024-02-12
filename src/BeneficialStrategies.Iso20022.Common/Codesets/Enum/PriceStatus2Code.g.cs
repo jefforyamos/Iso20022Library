@@ -29,22 +29,3 @@ public enum PriceStatus2Code
     Pending = PriceStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceStatus2CodeMetadataExtensions
-{
-    private static readonly PriceStatus2CodeDropdownSource _dropdownSource = new PriceStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceStatus2CodeDropdownRow GetMetadata(this PriceStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

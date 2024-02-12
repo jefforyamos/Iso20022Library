@@ -29,22 +29,3 @@ public enum DateType5Code
     Open = DateTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateType5CodeMetadataExtensions
-{
-    private static readonly DateType5CodeDropdownSource _dropdownSource = new DateType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateType5CodeDropdownRow GetMetadata(this DateType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

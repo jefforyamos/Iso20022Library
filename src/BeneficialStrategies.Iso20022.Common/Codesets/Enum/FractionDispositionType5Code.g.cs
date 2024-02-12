@@ -65,22 +65,3 @@ public enum FractionDispositionType5Code
     Unknown = FractionDispositionTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType5CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType5CodeDropdownSource _dropdownSource = new FractionDispositionType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType5CodeDropdownRow GetMetadata(this FractionDispositionType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

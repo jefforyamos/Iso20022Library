@@ -29,22 +29,3 @@ public enum AssetClassProductType3Code
     Environmental = AssetClassProductTypeCode.Environmental, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType3CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType3CodeDropdownSource _dropdownSource = new AssetClassProductType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType3CodeDropdownRow GetMetadata(this AssetClassProductType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

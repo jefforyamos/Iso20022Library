@@ -110,22 +110,3 @@ public enum TradingVenueCode
     SMEGrowthMarketMultilateralTradingFacility,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingVenueCodeMetadataExtensions
-{
-    private static readonly TradingVenueCodeDropdownSource _dropdownSource = new TradingVenueCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingVenueCodeDropdownRow GetMetadata(this TradingVenueCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

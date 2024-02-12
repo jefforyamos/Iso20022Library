@@ -83,22 +83,3 @@ public enum TypeOfAmount22Code
     Reserved = TypeOfAmountCode.Reserved, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount22CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount22CodeDropdownSource _dropdownSource = new TypeOfAmount22CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount22CodeDropdownRow GetMetadata(this TypeOfAmount22Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

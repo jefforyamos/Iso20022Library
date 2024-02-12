@@ -38,22 +38,3 @@ public enum TechnicalValidationStatusCode
     ReceptionError,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TechnicalValidationStatusCodeMetadataExtensions
-{
-    private static readonly TechnicalValidationStatusCodeDropdownSource _dropdownSource = new TechnicalValidationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITechnicalValidationStatusCodeDropdownRow GetMetadata(this TechnicalValidationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

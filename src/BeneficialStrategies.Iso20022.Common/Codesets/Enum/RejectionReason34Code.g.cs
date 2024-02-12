@@ -83,22 +83,3 @@ public enum RejectionReason34Code
     ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason34CodeMetadataExtensions
-{
-    private static readonly RejectionReason34CodeDropdownSource _dropdownSource = new RejectionReason34CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason34CodeDropdownRow GetMetadata(this RejectionReason34Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

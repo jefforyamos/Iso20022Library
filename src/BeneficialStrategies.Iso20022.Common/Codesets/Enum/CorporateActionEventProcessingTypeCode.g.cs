@@ -47,22 +47,3 @@ public enum CorporateActionEventProcessingTypeCode
     Reorganisation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventProcessingTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionEventProcessingTypeCodeDropdownSource _dropdownSource = new CorporateActionEventProcessingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventProcessingTypeCodeDropdownRow GetMetadata(this CorporateActionEventProcessingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

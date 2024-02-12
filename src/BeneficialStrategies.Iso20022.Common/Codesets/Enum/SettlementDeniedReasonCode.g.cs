@@ -137,22 +137,3 @@ public enum SettlementDeniedReasonCode
     ConditionalRegistrar,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDeniedReasonCodeMetadataExtensions
-{
-    private static readonly SettlementDeniedReasonCodeDropdownSource _dropdownSource = new SettlementDeniedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDeniedReasonCodeDropdownRow GetMetadata(this SettlementDeniedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

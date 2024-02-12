@@ -74,22 +74,3 @@ public enum ATMCommand1Code
     SendMessage = ATMCommandCode.SendMessage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCommand1CodeMetadataExtensions
-{
-    private static readonly ATMCommand1CodeDropdownSource _dropdownSource = new ATMCommand1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCommand1CodeDropdownRow GetMetadata(this ATMCommand1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum PaymentMethod6Code
     Classical = PaymentMethodCode.Classical, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentMethod6CodeMetadataExtensions
-{
-    private static readonly PaymentMethod6CodeDropdownSource _dropdownSource = new PaymentMethod6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentMethod6CodeDropdownRow GetMetadata(this PaymentMethod6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

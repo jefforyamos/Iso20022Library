@@ -138,22 +138,3 @@ public enum ExternalAuthorityExchangeReasonCode
     CompetentAuthorityForTradingVenue,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAuthorityExchangeReasonCodeMetadataExtensions
-{
-    private static readonly ExternalAuthorityExchangeReasonCodeDropdownSource _dropdownSource = new ExternalAuthorityExchangeReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAuthorityExchangeReasonCodeDropdownRow GetMetadata(this ExternalAuthorityExchangeReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

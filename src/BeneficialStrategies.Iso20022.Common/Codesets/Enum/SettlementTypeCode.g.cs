@@ -38,22 +38,3 @@ public enum SettlementTypeCode
     NettedOff,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTypeCodeMetadataExtensions
-{
-    private static readonly SettlementTypeCodeDropdownSource _dropdownSource = new SettlementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTypeCodeDropdownRow GetMetadata(this SettlementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

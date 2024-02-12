@@ -47,22 +47,3 @@ public enum ExchangeRateType1Code
     Agreed = ExchangeRateTypeCode.Agreed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangeRateType1CodeMetadataExtensions
-{
-    private static readonly ExchangeRateType1CodeDropdownSource _dropdownSource = new ExchangeRateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangeRateType1CodeDropdownRow GetMetadata(this ExchangeRateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum FATCAStatusCode
     FATCA206,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FATCAStatusCodeMetadataExtensions
-{
-    private static readonly FATCAStatusCodeDropdownSource _dropdownSource = new FATCAStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFATCAStatusCodeDropdownRow GetMetadata(this FATCAStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

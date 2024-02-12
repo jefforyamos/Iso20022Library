@@ -56,22 +56,3 @@ public enum CardDataReading4Code
     ProximityReader = CardDataReadingCode.ProximityReader, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardDataReading4CodeMetadataExtensions
-{
-    private static readonly CardDataReading4CodeDropdownSource _dropdownSource = new CardDataReading4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardDataReading4CodeDropdownRow GetMetadata(this CardDataReading4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

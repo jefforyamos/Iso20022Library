@@ -48,22 +48,3 @@ public enum ExternalLetterTypeCode
     SupportingDocument,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalLetterTypeCodeMetadataExtensions
-{
-    private static readonly ExternalLetterTypeCodeDropdownSource _dropdownSource = new ExternalLetterTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalLetterTypeCodeDropdownRow GetMetadata(this ExternalLetterTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

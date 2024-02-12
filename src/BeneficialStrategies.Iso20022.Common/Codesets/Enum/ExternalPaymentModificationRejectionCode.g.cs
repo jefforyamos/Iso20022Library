@@ -273,22 +273,3 @@ public enum ExternalPaymentModificationRejectionCode
     UnableToModifyPriority,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentModificationRejectionCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentModificationRejectionCodeDropdownSource _dropdownSource = new ExternalPaymentModificationRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentModificationRejectionCodeDropdownRow GetMetadata(this ExternalPaymentModificationRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

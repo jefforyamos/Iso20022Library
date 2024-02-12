@@ -110,22 +110,3 @@ public enum DataSetCategory6Code
     TerminalParameters = DataSetCategoryCode.TerminalParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory6CodeMetadataExtensions
-{
-    private static readonly DataSetCategory6CodeDropdownSource _dropdownSource = new DataSetCategory6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory6CodeDropdownRow GetMetadata(this DataSetCategory6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

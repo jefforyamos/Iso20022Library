@@ -596,22 +596,3 @@ public enum CorporateActionEventType8Code
     CashDistributionFromNonEligibleSecuritiesSales = CorporateActionEventTypeV3Code.CashDistributionFromNonEligibleSecuritiesSales, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType8CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType8CodeDropdownSource _dropdownSource = new CorporateActionEventType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType8CodeDropdownRow GetMetadata(this CorporateActionEventType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

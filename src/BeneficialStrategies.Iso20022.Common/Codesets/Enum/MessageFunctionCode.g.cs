@@ -1676,22 +1676,3 @@ public enum MessageFunctionCode
     CurrencyConversionRateResponse,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunctionCodeMetadataExtensions
-{
-    private static readonly MessageFunctionCodeDropdownSource _dropdownSource = new MessageFunctionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunctionCodeDropdownRow GetMetadata(this MessageFunctionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

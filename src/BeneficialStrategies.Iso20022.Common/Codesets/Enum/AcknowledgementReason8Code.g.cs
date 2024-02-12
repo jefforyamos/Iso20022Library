@@ -29,22 +29,3 @@ public enum AcknowledgementReason8Code
     NarrativeReason = AcknowledgementReasonCode.NarrativeReason, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReason8CodeMetadataExtensions
-{
-    private static readonly AcknowledgementReason8CodeDropdownSource _dropdownSource = new AcknowledgementReason8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReason8CodeDropdownRow GetMetadata(this AcknowledgementReason8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

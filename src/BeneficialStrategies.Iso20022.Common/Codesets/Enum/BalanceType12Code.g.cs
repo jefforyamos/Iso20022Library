@@ -110,22 +110,3 @@ public enum BalanceType12Code
     Information = BalanceTypeCode.Information, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType12CodeMetadataExtensions
-{
-    private static readonly BalanceType12CodeDropdownSource _dropdownSource = new BalanceType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType12CodeDropdownRow GetMetadata(this BalanceType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

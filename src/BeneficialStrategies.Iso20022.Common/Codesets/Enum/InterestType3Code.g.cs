@@ -74,22 +74,3 @@ public enum InterestType3Code
     Discounted = InterestTypeCode.Discounted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestType3CodeMetadataExtensions
-{
-    private static readonly InterestType3CodeDropdownSource _dropdownSource = new InterestType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestType3CodeDropdownRow GetMetadata(this InterestType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum PendingOpeningStatusReason1Code
     RightsHolderMissing = PendingOpeningStatusReasonCode.RightsHolderMissing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingOpeningStatusReason1CodeMetadataExtensions
-{
-    private static readonly PendingOpeningStatusReason1CodeDropdownSource _dropdownSource = new PendingOpeningStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingOpeningStatusReason1CodeDropdownRow GetMetadata(this PendingOpeningStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

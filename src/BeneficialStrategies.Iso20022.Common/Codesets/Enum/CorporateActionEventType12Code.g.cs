@@ -623,22 +623,3 @@ public enum CorporateActionEventType12Code
     PutRedemption = CorporateActionEventTypeV4Code.PutRedemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType12CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType12CodeDropdownSource _dropdownSource = new CorporateActionEventType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType12CodeDropdownRow GetMetadata(this CorporateActionEventType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

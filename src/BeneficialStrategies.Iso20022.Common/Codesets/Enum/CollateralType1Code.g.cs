@@ -56,22 +56,3 @@ public enum CollateralType1Code
     Other = CollateralTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralType1CodeMetadataExtensions
-{
-    private static readonly CollateralType1CodeDropdownSource _dropdownSource = new CollateralType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralType1CodeDropdownRow GetMetadata(this CollateralType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

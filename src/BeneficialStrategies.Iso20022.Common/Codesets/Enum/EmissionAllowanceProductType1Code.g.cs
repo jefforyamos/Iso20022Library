@@ -65,22 +65,3 @@ public enum EmissionAllowanceProductType1Code
     Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EmissionAllowanceProductType1CodeMetadataExtensions
-{
-    private static readonly EmissionAllowanceProductType1CodeDropdownSource _dropdownSource = new EmissionAllowanceProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEmissionAllowanceProductType1CodeDropdownRow GetMetadata(this EmissionAllowanceProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

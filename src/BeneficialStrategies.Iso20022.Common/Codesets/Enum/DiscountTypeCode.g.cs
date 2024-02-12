@@ -92,22 +92,3 @@ public enum DiscountTypeCode
     TermsDiscount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DiscountTypeCodeMetadataExtensions
-{
-    private static readonly DiscountTypeCodeDropdownSource _dropdownSource = new DiscountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDiscountTypeCodeDropdownRow GetMetadata(this DiscountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

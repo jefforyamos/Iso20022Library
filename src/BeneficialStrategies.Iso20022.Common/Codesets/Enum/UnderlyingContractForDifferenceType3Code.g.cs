@@ -92,22 +92,3 @@ public enum UnderlyingContractForDifferenceType3Code
     Other = UnderlyingTypeV3Code.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingContractForDifferenceType3CodeMetadataExtensions
-{
-    private static readonly UnderlyingContractForDifferenceType3CodeDropdownSource _dropdownSource = new UnderlyingContractForDifferenceType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingContractForDifferenceType3CodeDropdownRow GetMetadata(this UnderlyingContractForDifferenceType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

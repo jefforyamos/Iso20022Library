@@ -83,22 +83,3 @@ public enum InvestigationRejectionCode
     MissingResolutionOfInvestigation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationRejectionCodeMetadataExtensions
-{
-    private static readonly InvestigationRejectionCodeDropdownSource _dropdownSource = new InvestigationRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationRejectionCodeDropdownRow GetMetadata(this InvestigationRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

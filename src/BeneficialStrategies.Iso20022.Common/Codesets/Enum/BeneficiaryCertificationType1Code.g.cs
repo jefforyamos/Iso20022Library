@@ -74,22 +74,3 @@ public enum BeneficiaryCertificationType1Code
     NonCompany = BeneficiaryCertificationTypeCode.NonCompany, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryCertificationType1CodeMetadataExtensions
-{
-    private static readonly BeneficiaryCertificationType1CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryCertificationType1CodeDropdownRow GetMetadata(this BeneficiaryCertificationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

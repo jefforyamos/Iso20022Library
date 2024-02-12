@@ -606,22 +606,3 @@ public enum SystemBalanceType2Code
     AvailableDMVForIntradayRepo = SystemBalanceTypeCode.AvailableDMVForIntradayRepo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemBalanceType2CodeMetadataExtensions
-{
-    private static readonly SystemBalanceType2CodeDropdownSource _dropdownSource = new SystemBalanceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemBalanceType2CodeDropdownRow GetMetadata(this SystemBalanceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

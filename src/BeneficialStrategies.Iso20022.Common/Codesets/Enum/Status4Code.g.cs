@@ -38,22 +38,3 @@ public enum Status4Code
     Accepted = StatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status4CodeMetadataExtensions
-{
-    private static readonly Status4CodeDropdownSource _dropdownSource = new Status4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus4CodeDropdownRow GetMetadata(this Status4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

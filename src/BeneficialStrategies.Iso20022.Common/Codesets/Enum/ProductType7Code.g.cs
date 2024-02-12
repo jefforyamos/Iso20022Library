@@ -47,22 +47,3 @@ public enum ProductType7Code
     Other = ProductTypeV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProductType7CodeMetadataExtensions
-{
-    private static readonly ProductType7CodeDropdownSource _dropdownSource = new ProductType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProductType7CodeDropdownRow GetMetadata(this ProductType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

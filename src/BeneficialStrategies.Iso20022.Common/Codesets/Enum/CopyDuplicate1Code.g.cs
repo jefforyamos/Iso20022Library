@@ -47,22 +47,3 @@ public enum CopyDuplicate1Code
     Duplicate = CopyDuplicateCode.Duplicate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CopyDuplicate1CodeMetadataExtensions
-{
-    private static readonly CopyDuplicate1CodeDropdownSource _dropdownSource = new CopyDuplicate1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICopyDuplicate1CodeDropdownRow GetMetadata(this CopyDuplicate1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

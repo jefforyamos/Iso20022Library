@@ -362,22 +362,3 @@ public enum TaxTypeCode
     CapitalLossCredit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxTypeCodeMetadataExtensions
-{
-    private static readonly TaxTypeCodeDropdownSource _dropdownSource = new TaxTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxTypeCodeDropdownRow GetMetadata(this TaxTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

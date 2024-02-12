@@ -65,22 +65,3 @@ public enum ActionTakenCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionTakenCodeMetadataExtensions
-{
-    private static readonly ActionTakenCodeDropdownSource _dropdownSource = new ActionTakenCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionTakenCodeDropdownRow GetMetadata(this ActionTakenCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

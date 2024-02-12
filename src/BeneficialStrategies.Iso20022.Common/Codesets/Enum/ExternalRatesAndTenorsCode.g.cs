@@ -94,22 +94,3 @@ public enum ExternalRatesAndTenorsCode
     USDOvernightIndexSwap,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalRatesAndTenorsCodeMetadataExtensions
-{
-    private static readonly ExternalRatesAndTenorsCodeDropdownSource _dropdownSource = new ExternalRatesAndTenorsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalRatesAndTenorsCodeDropdownRow GetMetadata(this ExternalRatesAndTenorsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

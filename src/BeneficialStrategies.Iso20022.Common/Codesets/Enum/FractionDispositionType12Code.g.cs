@@ -38,22 +38,3 @@ public enum FractionDispositionType12Code
     RoundUp = FractionDispositionTypeCode.RoundUp, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType12CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType12CodeDropdownSource _dropdownSource = new FractionDispositionType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType12CodeDropdownRow GetMetadata(this FractionDispositionType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

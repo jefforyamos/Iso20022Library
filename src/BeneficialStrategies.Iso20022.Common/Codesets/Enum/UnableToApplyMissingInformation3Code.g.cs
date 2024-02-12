@@ -182,22 +182,3 @@ public enum UnableToApplyMissingInformation3Code
     Narrative = UnableToApplyMissingInformationV2Code.Narrative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyMissingInformation3CodeMetadataExtensions
-{
-    private static readonly UnableToApplyMissingInformation3CodeDropdownSource _dropdownSource = new UnableToApplyMissingInformation3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyMissingInformation3CodeDropdownRow GetMetadata(this UnableToApplyMissingInformation3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

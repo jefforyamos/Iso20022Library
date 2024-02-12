@@ -848,22 +848,3 @@ public enum ResultDetail2Code
     WrongCard = ResultDetailCode.WrongCard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResultDetail2CodeMetadataExtensions
-{
-    private static readonly ResultDetail2CodeDropdownSource _dropdownSource = new ResultDetail2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResultDetail2CodeDropdownRow GetMetadata(this ResultDetail2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

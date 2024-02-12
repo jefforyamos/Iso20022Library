@@ -137,22 +137,3 @@ public enum TerminalManagementActionCode
     DeviceRequest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementActionCodeMetadataExtensions
-{
-    private static readonly TerminalManagementActionCodeDropdownSource _dropdownSource = new TerminalManagementActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementActionCodeDropdownRow GetMetadata(this TerminalManagementActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

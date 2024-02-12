@@ -56,22 +56,3 @@ public enum SettlementReportType1Code
     InterimPosition = SettlementReportTypeCode.InterimPosition, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementReportType1CodeMetadataExtensions
-{
-    private static readonly SettlementReportType1CodeDropdownSource _dropdownSource = new SettlementReportType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementReportType1CodeDropdownRow GetMetadata(this SettlementReportType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CollateralSubstitutionTypeCode
     AgainstSegregatedIndependentAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralSubstitutionTypeCodeMetadataExtensions
-{
-    private static readonly CollateralSubstitutionTypeCodeDropdownSource _dropdownSource = new CollateralSubstitutionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralSubstitutionTypeCodeDropdownRow GetMetadata(this CollateralSubstitutionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

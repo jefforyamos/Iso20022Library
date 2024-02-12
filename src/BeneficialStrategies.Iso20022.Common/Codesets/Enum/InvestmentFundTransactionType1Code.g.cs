@@ -218,22 +218,3 @@ public enum InvestmentFundTransactionType1Code
     SubscriptionAssetAllocation = InvestmentFundTransactionTypeCode.SubscriptionAssetAllocation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundTransactionType1CodeMetadataExtensions
-{
-    private static readonly InvestmentFundTransactionType1CodeDropdownSource _dropdownSource = new InvestmentFundTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundTransactionType1CodeDropdownRow GetMetadata(this InvestmentFundTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

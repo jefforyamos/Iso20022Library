@@ -92,22 +92,3 @@ public enum SecuritiesAccountPurposeTypeCode
     NonFungible,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesAccountPurposeTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesAccountPurposeTypeCodeDropdownSource _dropdownSource = new SecuritiesAccountPurposeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesAccountPurposeTypeCodeDropdownRow GetMetadata(this SecuritiesAccountPurposeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

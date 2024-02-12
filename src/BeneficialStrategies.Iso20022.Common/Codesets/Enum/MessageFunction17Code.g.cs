@@ -48,22 +48,3 @@ public enum MessageFunction17Code
     Advice = MessageFunctionCode.Advice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction17CodeMetadataExtensions
-{
-    private static readonly MessageFunction17CodeDropdownSource _dropdownSource = new MessageFunction17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction17CodeDropdownRow GetMetadata(this MessageFunction17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

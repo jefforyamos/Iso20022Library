@@ -110,22 +110,3 @@ public enum InvestorProfileStatus1Code
     Suspended = InvestorProfileStatusCode.Suspended, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorProfileStatus1CodeMetadataExtensions
-{
-    private static readonly InvestorProfileStatus1CodeDropdownSource _dropdownSource = new InvestorProfileStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorProfileStatus1CodeDropdownRow GetMetadata(this InvestorProfileStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

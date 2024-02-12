@@ -56,22 +56,3 @@ public enum PriceValueType4Code
     Unknown = PriceValueTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType4CodeMetadataExtensions
-{
-    private static readonly PriceValueType4CodeDropdownSource _dropdownSource = new PriceValueType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType4CodeDropdownRow GetMetadata(this PriceValueType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

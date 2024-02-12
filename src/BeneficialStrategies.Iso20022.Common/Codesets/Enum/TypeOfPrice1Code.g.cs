@@ -137,22 +137,3 @@ public enum TypeOfPrice1Code
     Stop = TypeOfPriceCode.Stop, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice1CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice1CodeDropdownSource _dropdownSource = new TypeOfPrice1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice1CodeDropdownRow GetMetadata(this TypeOfPrice1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

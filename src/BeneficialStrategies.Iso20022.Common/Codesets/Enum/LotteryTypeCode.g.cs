@@ -38,22 +38,3 @@ public enum LotteryTypeCode
     SupplementalLotteryNotification,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LotteryTypeCodeMetadataExtensions
-{
-    private static readonly LotteryTypeCodeDropdownSource _dropdownSource = new LotteryTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILotteryTypeCodeDropdownRow GetMetadata(this LotteryTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

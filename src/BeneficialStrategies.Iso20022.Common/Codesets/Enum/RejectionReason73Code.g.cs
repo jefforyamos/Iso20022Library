@@ -335,22 +335,3 @@ public enum RejectionReason73Code
     InvalidRule = RejectionReasonV3Code.InvalidRule, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason73CodeMetadataExtensions
-{
-    private static readonly RejectionReason73CodeDropdownSource _dropdownSource = new RejectionReason73CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason73CodeDropdownRow GetMetadata(this RejectionReason73Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum EnabledStatusReason1Code
     Modified = EnabledStatusReasonCode.Modified, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnabledStatusReason1CodeMetadataExtensions
-{
-    private static readonly EnabledStatusReason1CodeDropdownSource _dropdownSource = new EnabledStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnabledStatusReason1CodeDropdownRow GetMetadata(this EnabledStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

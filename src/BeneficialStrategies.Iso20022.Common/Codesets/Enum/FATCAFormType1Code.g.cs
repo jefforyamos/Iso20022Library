@@ -83,22 +83,3 @@ public enum FATCAFormType1Code
     TaxpayerIdentificationNumberRequest = FATCAFormTypeCode.TaxpayerIdentificationNumberRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FATCAFormType1CodeMetadataExtensions
-{
-    private static readonly FATCAFormType1CodeDropdownSource _dropdownSource = new FATCAFormType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFATCAFormType1CodeDropdownRow GetMetadata(this FATCAFormType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

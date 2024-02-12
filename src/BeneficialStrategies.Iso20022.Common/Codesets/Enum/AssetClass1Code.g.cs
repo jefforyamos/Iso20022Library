@@ -47,22 +47,3 @@ public enum AssetClass1Code
     MunicipalDebt = AssetClassCode.MunicipalDebt, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClass1CodeMetadataExtensions
-{
-    private static readonly AssetClass1CodeDropdownSource _dropdownSource = new AssetClass1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClass1CodeDropdownRow GetMetadata(this AssetClass1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

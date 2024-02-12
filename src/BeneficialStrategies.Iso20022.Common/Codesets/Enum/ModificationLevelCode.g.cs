@@ -38,22 +38,3 @@ public enum ModificationLevelCode
     Transaction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModificationLevelCodeMetadataExtensions
-{
-    private static readonly ModificationLevelCodeDropdownSource _dropdownSource = new ModificationLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModificationLevelCodeDropdownRow GetMetadata(this ModificationLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum ATMSecurityScheme2Code
     SignatureRemoteKeyLoading = ATMSecuritySchemeCode.SignatureRemoteKeyLoading, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMSecurityScheme2CodeMetadataExtensions
-{
-    private static readonly ATMSecurityScheme2CodeDropdownSource _dropdownSource = new ATMSecurityScheme2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMSecurityScheme2CodeDropdownRow GetMetadata(this ATMSecurityScheme2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

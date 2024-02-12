@@ -38,22 +38,3 @@ public enum SettlementInstructionGeneration1Code
     NotInstructionGenerationByETCProvider = SettlementInstructionGenerationCode.NotInstructionGenerationByETCProvider, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementInstructionGeneration1CodeMetadataExtensions
-{
-    private static readonly SettlementInstructionGeneration1CodeDropdownSource _dropdownSource = new SettlementInstructionGeneration1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementInstructionGeneration1CodeDropdownRow GetMetadata(this SettlementInstructionGeneration1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

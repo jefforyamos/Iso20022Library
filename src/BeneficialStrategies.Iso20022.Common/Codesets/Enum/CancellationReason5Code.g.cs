@@ -92,22 +92,3 @@ public enum CancellationReason5Code
     FraudulentOrigin = CancellationReasonCode.FraudulentOrigin, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationReason5CodeMetadataExtensions
-{
-    private static readonly CancellationReason5CodeDropdownSource _dropdownSource = new CancellationReason5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationReason5CodeDropdownRow GetMetadata(this CancellationReason5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

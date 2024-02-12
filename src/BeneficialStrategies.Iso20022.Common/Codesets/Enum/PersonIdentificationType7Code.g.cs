@@ -47,22 +47,3 @@ public enum PersonIdentificationType7Code
     IndividualTaxpayerIdentificationNumber = PersonIdentificationTypeCode.IndividualTaxpayerIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PersonIdentificationType7CodeMetadataExtensions
-{
-    private static readonly PersonIdentificationType7CodeDropdownSource _dropdownSource = new PersonIdentificationType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPersonIdentificationType7CodeDropdownRow GetMetadata(this PersonIdentificationType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

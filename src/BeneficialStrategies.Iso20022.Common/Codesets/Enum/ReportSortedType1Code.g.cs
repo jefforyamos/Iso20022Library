@@ -47,22 +47,3 @@ public enum ReportSortedType1Code
     Currency = ReportSortedTypeCode.Currency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportSortedType1CodeMetadataExtensions
-{
-    private static readonly ReportSortedType1CodeDropdownSource _dropdownSource = new ReportSortedType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportSortedType1CodeDropdownRow GetMetadata(this ReportSortedType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

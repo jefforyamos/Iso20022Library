@@ -74,22 +74,3 @@ public enum ClearingMethod2Code
     RealTime = ClearingMethodCode.RealTime, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingMethod2CodeMetadataExtensions
-{
-    private static readonly ClearingMethod2CodeDropdownSource _dropdownSource = new ClearingMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingMethod2CodeDropdownRow GetMetadata(this ClearingMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -362,22 +362,3 @@ public enum UnmatchedReason8Code
     PlaceOfListing = UnmatchedReasonCode.PlaceOfListing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason8CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason8CodeDropdownSource _dropdownSource = new UnmatchedReason8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason8CodeDropdownRow GetMetadata(this UnmatchedReason8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

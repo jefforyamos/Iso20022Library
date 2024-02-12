@@ -56,22 +56,3 @@ public enum TaxableIncomePerShareCalculatedCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxableIncomePerShareCalculatedCodeMetadataExtensions
-{
-    private static readonly TaxableIncomePerShareCalculatedCodeDropdownSource _dropdownSource = new TaxableIncomePerShareCalculatedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxableIncomePerShareCalculatedCodeDropdownRow GetMetadata(this TaxableIncomePerShareCalculatedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

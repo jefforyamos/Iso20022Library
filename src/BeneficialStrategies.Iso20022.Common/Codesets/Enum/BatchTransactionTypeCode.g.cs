@@ -56,22 +56,3 @@ public enum BatchTransactionTypeCode
     Declined,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BatchTransactionTypeCodeMetadataExtensions
-{
-    private static readonly BatchTransactionTypeCodeDropdownSource _dropdownSource = new BatchTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBatchTransactionTypeCodeDropdownRow GetMetadata(this BatchTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

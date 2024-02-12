@@ -47,22 +47,3 @@ public enum TransactionStatusCode
     Cancelled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionStatusCodeMetadataExtensions
-{
-    private static readonly TransactionStatusCodeDropdownSource _dropdownSource = new TransactionStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionStatusCodeDropdownRow GetMetadata(this TransactionStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

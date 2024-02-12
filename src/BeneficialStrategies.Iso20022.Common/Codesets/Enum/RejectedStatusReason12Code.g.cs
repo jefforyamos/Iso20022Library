@@ -434,22 +434,3 @@ public enum RejectedStatusReason12Code
     UnacceptedRequestedSettlementCurrency = RejectedStatusReasonCode.UnacceptedRequestedSettlementCurrency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason12CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason12CodeDropdownSource _dropdownSource = new RejectedStatusReason12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason12CodeDropdownRow GetMetadata(this RejectedStatusReason12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

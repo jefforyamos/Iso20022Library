@@ -119,22 +119,3 @@ public enum Algorithm23Code
     SDE056CBC = AlgorithmCode.SDE056CBC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm23CodeMetadataExtensions
-{
-    private static readonly Algorithm23CodeDropdownSource _dropdownSource = new Algorithm23CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm23CodeDropdownRow GetMetadata(this Algorithm23Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

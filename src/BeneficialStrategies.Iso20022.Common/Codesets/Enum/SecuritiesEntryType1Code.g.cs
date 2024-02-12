@@ -110,22 +110,3 @@ public enum SecuritiesEntryType1Code
     Traded = SecuritiesEntryTypeCode.Traded, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesEntryType1CodeMetadataExtensions
-{
-    private static readonly SecuritiesEntryType1CodeDropdownSource _dropdownSource = new SecuritiesEntryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesEntryType1CodeDropdownRow GetMetadata(this SecuritiesEntryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum PlanOwnerCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PlanOwnerCodeMetadataExtensions
-{
-    private static readonly PlanOwnerCodeDropdownSource _dropdownSource = new PlanOwnerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPlanOwnerCodeDropdownRow GetMetadata(this PlanOwnerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

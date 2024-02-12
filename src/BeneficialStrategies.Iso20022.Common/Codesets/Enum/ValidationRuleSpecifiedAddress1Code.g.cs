@@ -30,22 +30,3 @@ public enum ValidationRuleSpecifiedAddress1Code
     SpecifiedAddress = ValidationRuleCode.SpecifiedAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleSpecifiedAddress1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleSpecifiedAddress1CodeDropdownSource _dropdownSource = new ValidationRuleSpecifiedAddress1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleSpecifiedAddress1CodeDropdownRow GetMetadata(this ValidationRuleSpecifiedAddress1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

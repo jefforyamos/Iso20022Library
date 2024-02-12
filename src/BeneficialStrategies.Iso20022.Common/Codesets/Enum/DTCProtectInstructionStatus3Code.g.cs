@@ -38,22 +38,3 @@ public enum DTCProtectInstructionStatus3Code
     Withdrawn = DTCInstructionStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCProtectInstructionStatus3CodeMetadataExtensions
-{
-    private static readonly DTCProtectInstructionStatus3CodeDropdownSource _dropdownSource = new DTCProtectInstructionStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCProtectInstructionStatus3CodeDropdownRow GetMetadata(this DTCProtectInstructionStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

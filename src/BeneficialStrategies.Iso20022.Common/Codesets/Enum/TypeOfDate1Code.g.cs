@@ -38,22 +38,3 @@ public enum TypeOfDate1Code
     Estimated = TypeOfDateCode.Estimated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfDate1CodeMetadataExtensions
-{
-    private static readonly TypeOfDate1CodeDropdownSource _dropdownSource = new TypeOfDate1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfDate1CodeDropdownRow GetMetadata(this TypeOfDate1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

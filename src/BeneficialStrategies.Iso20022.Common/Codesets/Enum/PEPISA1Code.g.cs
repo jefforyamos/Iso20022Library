@@ -38,22 +38,3 @@ public enum PEPISA1Code
     ISA = PEPISACode.ISA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PEPISA1CodeMetadataExtensions
-{
-    private static readonly PEPISA1CodeDropdownSource _dropdownSource = new PEPISA1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPEPISA1CodeDropdownRow GetMetadata(this PEPISA1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

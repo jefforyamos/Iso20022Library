@@ -146,22 +146,3 @@ public enum LodgingActivityCode
     Resort,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LodgingActivityCodeMetadataExtensions
-{
-    private static readonly LodgingActivityCodeDropdownSource _dropdownSource = new LodgingActivityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILodgingActivityCodeDropdownRow GetMetadata(this LodgingActivityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

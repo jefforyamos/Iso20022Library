@@ -695,22 +695,3 @@ public enum CashClearingSystem3Code
     Columbia = CashClearingSystemCode.Columbia, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashClearingSystem3CodeMetadataExtensions
-{
-    private static readonly CashClearingSystem3CodeDropdownSource _dropdownSource = new CashClearingSystem3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashClearingSystem3CodeDropdownRow GetMetadata(this CashClearingSystem3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

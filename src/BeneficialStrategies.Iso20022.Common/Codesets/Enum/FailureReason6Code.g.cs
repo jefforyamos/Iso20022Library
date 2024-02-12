@@ -56,22 +56,3 @@ public enum FailureReason6Code
     KeyLoadError = FailureReasonCode.KeyLoadError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason6CodeMetadataExtensions
-{
-    private static readonly FailureReason6CodeDropdownSource _dropdownSource = new FailureReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason6CodeDropdownRow GetMetadata(this FailureReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

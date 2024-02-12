@@ -47,22 +47,3 @@ public enum BidType1Code
     NoBid = BidTypeCode.NoBid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BidType1CodeMetadataExtensions
-{
-    private static readonly BidType1CodeDropdownSource _dropdownSource = new BidType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBidType1CodeDropdownRow GetMetadata(this BidType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

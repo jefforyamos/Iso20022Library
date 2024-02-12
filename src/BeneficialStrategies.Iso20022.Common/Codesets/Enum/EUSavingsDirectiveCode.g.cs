@@ -56,22 +56,3 @@ public enum EUSavingsDirectiveCode
     EUSavingsVariable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EUSavingsDirectiveCodeMetadataExtensions
-{
-    private static readonly EUSavingsDirectiveCodeDropdownSource _dropdownSource = new EUSavingsDirectiveCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEUSavingsDirectiveCodeDropdownRow GetMetadata(this EUSavingsDirectiveCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

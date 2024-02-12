@@ -173,22 +173,3 @@ public enum KeyUsage1Code
     KeyDerivation = KeyUsageCode.KeyDerivation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class KeyUsage1CodeMetadataExtensions
-{
-    private static readonly KeyUsage1CodeDropdownSource _dropdownSource = new KeyUsage1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IKeyUsage1CodeDropdownRow GetMetadata(this KeyUsage1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

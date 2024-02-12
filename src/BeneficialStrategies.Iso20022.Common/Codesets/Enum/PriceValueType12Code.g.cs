@@ -56,22 +56,3 @@ public enum PriceValueType12Code
     NegativeActualAmount = PriceValueTypeCode.NegativeActualAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceValueType12CodeMetadataExtensions
-{
-    private static readonly PriceValueType12CodeDropdownSource _dropdownSource = new PriceValueType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceValueType12CodeDropdownRow GetMetadata(this PriceValueType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

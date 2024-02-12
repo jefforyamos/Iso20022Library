@@ -29,22 +29,3 @@ public enum ProtectInstructionStatus4Code
     Open = DTCInstructionStatusCode.Open, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProtectInstructionStatus4CodeMetadataExtensions
-{
-    private static readonly ProtectInstructionStatus4CodeDropdownSource _dropdownSource = new ProtectInstructionStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProtectInstructionStatus4CodeDropdownRow GetMetadata(this ProtectInstructionStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

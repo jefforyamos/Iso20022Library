@@ -47,22 +47,3 @@ public enum ReferredCode
     NotKnown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReferredCodeMetadataExtensions
-{
-    private static readonly ReferredCodeDropdownSource _dropdownSource = new ReferredCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReferredCodeDropdownRow GetMetadata(this ReferredCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

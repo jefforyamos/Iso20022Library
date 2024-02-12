@@ -74,22 +74,3 @@ public enum BillingTaxCalculationMethodCode
     Undefined,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingTaxCalculationMethodCodeMetadataExtensions
-{
-    private static readonly BillingTaxCalculationMethodCodeDropdownSource _dropdownSource = new BillingTaxCalculationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingTaxCalculationMethodCodeDropdownRow GetMetadata(this BillingTaxCalculationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum DistributionPolicy1Code
     Accumulation = DistributionPolicyCode.Accumulation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionPolicy1CodeMetadataExtensions
-{
-    private static readonly DistributionPolicy1CodeDropdownSource _dropdownSource = new DistributionPolicy1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionPolicy1CodeDropdownRow GetMetadata(this DistributionPolicy1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

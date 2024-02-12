@@ -173,22 +173,3 @@ public enum InvestmentFundRole3Code
     Concentrator = PartyRoleCode.Concentrator, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundRole3CodeMetadataExtensions
-{
-    private static readonly InvestmentFundRole3CodeDropdownSource _dropdownSource = new InvestmentFundRole3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundRole3CodeDropdownRow GetMetadata(this InvestmentFundRole3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

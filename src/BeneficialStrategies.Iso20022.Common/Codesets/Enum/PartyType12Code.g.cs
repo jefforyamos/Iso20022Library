@@ -83,22 +83,3 @@ public enum PartyType12Code
     OriginatingATM = PartyTypeCode.OriginatingATM, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType12CodeMetadataExtensions
-{
-    private static readonly PartyType12CodeDropdownSource _dropdownSource = new PartyType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType12CodeDropdownRow GetMetadata(this PartyType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -416,22 +416,3 @@ public enum RepairReasonCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReasonCodeMetadataExtensions
-{
-    private static readonly RepairReasonCodeDropdownSource _dropdownSource = new RepairReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReasonCodeDropdownRow GetMetadata(this RepairReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

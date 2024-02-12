@@ -56,22 +56,3 @@ public enum QueryType2Code
     Deleted = QueryTypeCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QueryType2CodeMetadataExtensions
-{
-    private static readonly QueryType2CodeDropdownSource _dropdownSource = new QueryType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQueryType2CodeDropdownRow GetMetadata(this QueryType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

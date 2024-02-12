@@ -47,22 +47,3 @@ public enum TypeOfPrice15Code
     NetAssetValue = TypeOfPriceCode.NetAssetValue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice15CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice15CodeDropdownSource _dropdownSource = new TypeOfPrice15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice15CodeDropdownRow GetMetadata(this TypeOfPrice15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

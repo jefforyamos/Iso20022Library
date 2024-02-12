@@ -38,22 +38,3 @@ public enum ApplicableRules1Code
     PreADay = ApplicableRulesCode.PreADay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ApplicableRules1CodeMetadataExtensions
-{
-    private static readonly ApplicableRules1CodeDropdownSource _dropdownSource = new ApplicableRules1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IApplicableRules1CodeDropdownRow GetMetadata(this ApplicableRules1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

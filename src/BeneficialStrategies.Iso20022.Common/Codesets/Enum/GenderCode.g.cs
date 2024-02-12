@@ -38,22 +38,3 @@ public enum GenderCode
     Female,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GenderCodeMetadataExtensions
-{
-    private static readonly GenderCodeDropdownSource _dropdownSource = new GenderCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGenderCodeDropdownRow GetMetadata(this GenderCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

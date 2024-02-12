@@ -119,22 +119,3 @@ public enum FailureReason2Code
     UnableToSend = FailureReasonCode.UnableToSend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason2CodeMetadataExtensions
-{
-    private static readonly FailureReason2CodeDropdownSource _dropdownSource = new FailureReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason2CodeDropdownRow GetMetadata(this FailureReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

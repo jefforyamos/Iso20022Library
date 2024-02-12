@@ -47,22 +47,3 @@ public enum PaymentReceipt1Code
     None = PaymentReceiptCode.None, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentReceipt1CodeMetadataExtensions
-{
-    private static readonly PaymentReceipt1CodeDropdownSource _dropdownSource = new PaymentReceipt1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentReceipt1CodeDropdownRow GetMetadata(this PaymentReceipt1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

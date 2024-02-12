@@ -245,22 +245,3 @@ public enum SecuritiesTransactionType10Code
     ExchangeTradedFunds = SecuritiesTransactionTypeV2Code.ExchangeTradedFunds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType10CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType10CodeDropdownSource _dropdownSource = new SecuritiesTransactionType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType10CodeDropdownRow GetMetadata(this SecuritiesTransactionType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

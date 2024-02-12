@@ -83,22 +83,3 @@ public enum GeneratedReasonCode
     MarketClaim,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeneratedReasonCodeMetadataExtensions
-{
-    private static readonly GeneratedReasonCodeDropdownSource _dropdownSource = new GeneratedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeneratedReasonCodeDropdownRow GetMetadata(this GeneratedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

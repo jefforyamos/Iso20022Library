@@ -74,22 +74,3 @@ public enum UndertakingStatus3Code
     UndertakingAmountChange = UndertakingStatusCode.UndertakingAmountChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UndertakingStatus3CodeMetadataExtensions
-{
-    private static readonly UndertakingStatus3CodeDropdownSource _dropdownSource = new UndertakingStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUndertakingStatus3CodeDropdownRow GetMetadata(this UndertakingStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

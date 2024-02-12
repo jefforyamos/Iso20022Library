@@ -218,22 +218,3 @@ public enum UnableToApplyIncorrectInfo1Code
     MismatchFinalAgentNameAccount = UnableToApplyIncorrectInfoCode.MismatchFinalAgentNameAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyIncorrectInfo1CodeMetadataExtensions
-{
-    private static readonly UnableToApplyIncorrectInfo1CodeDropdownSource _dropdownSource = new UnableToApplyIncorrectInfo1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyIncorrectInfo1CodeDropdownRow GetMetadata(this UnableToApplyIncorrectInfo1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

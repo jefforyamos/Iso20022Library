@@ -110,22 +110,3 @@ public enum AcknowledgementReasonCode
     NarrativeReason,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReasonCodeMetadataExtensions
-{
-    private static readonly AcknowledgementReasonCodeDropdownSource _dropdownSource = new AcknowledgementReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReasonCodeDropdownRow GetMetadata(this AcknowledgementReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum ValidationRuleReceived1Code
     Received = ValidationRuleCode.Received, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleReceived1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleReceived1CodeDropdownSource _dropdownSource = new ValidationRuleReceived1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleReceived1CodeDropdownRow GetMetadata(this ValidationRuleReceived1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

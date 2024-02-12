@@ -164,22 +164,3 @@ public enum PendingStatus3Code
     HeldForServiceAvailability = PaymentInstructionStatusCode.HeldForServiceAvailability, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingStatus3CodeMetadataExtensions
-{
-    private static readonly PendingStatus3CodeDropdownSource _dropdownSource = new PendingStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingStatus3CodeDropdownRow GetMetadata(this PendingStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

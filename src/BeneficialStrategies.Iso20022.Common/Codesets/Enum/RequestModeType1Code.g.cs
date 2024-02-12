@@ -65,22 +65,3 @@ public enum RequestModeType1Code
     ScheduledFutureInformation = RequestModeTypeCode.ScheduledFutureInformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestModeType1CodeMetadataExtensions
-{
-    private static readonly RequestModeType1CodeDropdownSource _dropdownSource = new RequestModeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestModeType1CodeDropdownRow GetMetadata(this RequestModeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

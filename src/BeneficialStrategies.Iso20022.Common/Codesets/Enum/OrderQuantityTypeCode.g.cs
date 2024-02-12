@@ -137,22 +137,3 @@ public enum OrderQuantityTypeCode
     RequestedToBeReplacedQuantity,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderQuantityTypeCodeMetadataExtensions
-{
-    private static readonly OrderQuantityTypeCodeDropdownSource _dropdownSource = new OrderQuantityTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderQuantityTypeCodeDropdownRow GetMetadata(this OrderQuantityTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

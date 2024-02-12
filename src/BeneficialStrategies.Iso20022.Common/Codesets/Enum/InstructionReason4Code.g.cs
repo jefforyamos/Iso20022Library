@@ -1262,22 +1262,3 @@ public enum InstructionReason4Code
     NotApprovedBySubscriptionAgent = InstructionRejectionReasonV2Code.NotApprovedBySubscriptionAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionReason4CodeMetadataExtensions
-{
-    private static readonly InstructionReason4CodeDropdownSource _dropdownSource = new InstructionReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionReason4CodeDropdownRow GetMetadata(this InstructionReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

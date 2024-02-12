@@ -101,22 +101,3 @@ public enum RejectionReason71Code
     InvalidLink = RejectionReasonV3Code.InvalidLink, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason71CodeMetadataExtensions
-{
-    private static readonly RejectionReason71CodeDropdownSource _dropdownSource = new RejectionReason71CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason71CodeDropdownRow GetMetadata(this RejectionReason71Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

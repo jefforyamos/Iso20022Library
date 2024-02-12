@@ -56,22 +56,3 @@ public enum AdditionalIdentificationTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly AdditionalIdentificationTypeCodeDropdownSource _dropdownSource = new AdditionalIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalIdentificationTypeCodeDropdownRow GetMetadata(this AdditionalIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

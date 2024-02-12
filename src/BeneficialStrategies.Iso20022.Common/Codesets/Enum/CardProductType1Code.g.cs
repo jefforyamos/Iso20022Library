@@ -38,22 +38,3 @@ public enum CardProductType1Code
     ConsumerCard = CardProductTypeCode.ConsumerCard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardProductType1CodeMetadataExtensions
-{
-    private static readonly CardProductType1CodeDropdownSource _dropdownSource = new CardProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardProductType1CodeDropdownRow GetMetadata(this CardProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

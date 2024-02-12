@@ -146,22 +146,3 @@ public enum TradeStatus5Code
     SettlementMature = TradeStatusCode.SettlementMature, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeStatus5CodeMetadataExtensions
-{
-    private static readonly TradeStatus5CodeDropdownSource _dropdownSource = new TradeStatus5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeStatus5CodeDropdownRow GetMetadata(this TradeStatus5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

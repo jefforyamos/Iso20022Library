@@ -164,22 +164,3 @@ public enum RetailerResultDetailCode
     WrongPIN,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerResultDetailCodeMetadataExtensions
-{
-    private static readonly RetailerResultDetailCodeDropdownSource _dropdownSource = new RetailerResultDetailCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerResultDetailCodeDropdownRow GetMetadata(this RetailerResultDetailCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

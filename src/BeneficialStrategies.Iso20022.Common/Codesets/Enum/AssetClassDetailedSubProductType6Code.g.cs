@@ -65,22 +65,3 @@ public enum AssetClassDetailedSubProductType6Code
     NBP = AssetClassDetailedSubProductTypeCode.NBP, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType6CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType6CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType6CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

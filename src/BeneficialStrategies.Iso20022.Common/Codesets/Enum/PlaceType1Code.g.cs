@@ -29,22 +29,3 @@ public enum PlaceType1Code
     Unknown = PlaceTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PlaceType1CodeMetadataExtensions
-{
-    private static readonly PlaceType1CodeDropdownSource _dropdownSource = new PlaceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPlaceType1CodeDropdownRow GetMetadata(this PlaceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

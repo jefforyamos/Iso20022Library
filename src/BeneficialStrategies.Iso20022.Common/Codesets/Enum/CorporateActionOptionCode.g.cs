@@ -290,22 +290,3 @@ public enum CorporateActionOptionCode
     BeneficialOwnerBreakdownRequest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOptionCodeMetadataExtensions
-{
-    private static readonly CorporateActionOptionCodeDropdownSource _dropdownSource = new CorporateActionOptionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOptionCodeDropdownRow GetMetadata(this CorporateActionOptionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -227,22 +227,3 @@ public enum SecuritiesBalanceType3Code
     Holdback = SecuritiesBalanceTypeCode.Holdback, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType3CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType3CodeDropdownSource _dropdownSource = new SecuritiesBalanceType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType3CodeDropdownRow GetMetadata(this SecuritiesBalanceType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

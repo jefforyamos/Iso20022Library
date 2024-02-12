@@ -173,22 +173,3 @@ public enum TransactionOperationTypeV2Code
     ValuationUpdate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationTypeV2CodeMetadataExtensions
-{
-    private static readonly TransactionOperationTypeV2CodeDropdownSource _dropdownSource = new TransactionOperationTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationTypeV2CodeDropdownRow GetMetadata(this TransactionOperationTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

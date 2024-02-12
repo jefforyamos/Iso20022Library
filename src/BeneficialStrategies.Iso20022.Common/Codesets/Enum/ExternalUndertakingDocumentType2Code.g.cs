@@ -48,22 +48,3 @@ public enum ExternalUndertakingDocumentType2Code
     TransferForm = ExternalUndertakingDocumentTypeCode_Obsolete.TransferForm, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingDocumentType2CodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingDocumentType2CodeDropdownSource _dropdownSource = new ExternalUndertakingDocumentType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingDocumentType2CodeDropdownRow GetMetadata(this ExternalUndertakingDocumentType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

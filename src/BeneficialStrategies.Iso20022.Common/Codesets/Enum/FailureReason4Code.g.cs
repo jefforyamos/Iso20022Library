@@ -173,22 +173,3 @@ public enum FailureReason4Code
     OutOfCustomerService = FailureReasonCode.OutOfCustomerService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason4CodeMetadataExtensions
-{
-    private static readonly FailureReason4CodeDropdownSource _dropdownSource = new FailureReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason4CodeDropdownRow GetMetadata(this FailureReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

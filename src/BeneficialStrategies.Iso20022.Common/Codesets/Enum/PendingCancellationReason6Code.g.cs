@@ -56,22 +56,3 @@ public enum PendingCancellationReason6Code
     AccountServicerDeadlineMissed = RejectionReasonV3Code.AccountServicerDeadlineMissed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingCancellationReason6CodeMetadataExtensions
-{
-    private static readonly PendingCancellationReason6CodeDropdownSource _dropdownSource = new PendingCancellationReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingCancellationReason6CodeDropdownRow GetMetadata(this PendingCancellationReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

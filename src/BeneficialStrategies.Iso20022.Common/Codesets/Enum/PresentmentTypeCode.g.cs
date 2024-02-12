@@ -38,22 +38,3 @@ public enum PresentmentTypeCode
     RequiredPaymentData,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PresentmentTypeCodeMetadataExtensions
-{
-    private static readonly PresentmentTypeCodeDropdownSource _dropdownSource = new PresentmentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPresentmentTypeCodeDropdownRow GetMetadata(this PresentmentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

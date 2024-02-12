@@ -49,22 +49,3 @@ public enum ExternalAcceptedReason1Code
     MarketPracticeRuleDiscrepency = ExternalAcceptedReasonCode.MarketPracticeRuleDiscrepency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalAcceptedReason1CodeMetadataExtensions
-{
-    private static readonly ExternalAcceptedReason1CodeDropdownSource _dropdownSource = new ExternalAcceptedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalAcceptedReason1CodeDropdownRow GetMetadata(this ExternalAcceptedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

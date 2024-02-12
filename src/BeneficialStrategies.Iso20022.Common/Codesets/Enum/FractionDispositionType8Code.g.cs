@@ -83,22 +83,3 @@ public enum FractionDispositionType8Code
     Unknown = FractionDispositionTypeV2Code.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionType8CodeMetadataExtensions
-{
-    private static readonly FractionDispositionType8CodeDropdownSource _dropdownSource = new FractionDispositionType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionType8CodeDropdownRow GetMetadata(this FractionDispositionType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

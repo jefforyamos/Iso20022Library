@@ -47,22 +47,3 @@ public enum ATMServiceType9Code
     Payment = ATMServiceTypeCode.Payment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMServiceType9CodeMetadataExtensions
-{
-    private static readonly ATMServiceType9CodeDropdownSource _dropdownSource = new ATMServiceType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMServiceType9CodeDropdownRow GetMetadata(this ATMServiceType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

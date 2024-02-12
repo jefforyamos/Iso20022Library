@@ -65,22 +65,3 @@ public enum FeeCollectionInitiator1Code
     OtherPrivate = FeeCollectionInitiatorCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FeeCollectionInitiator1CodeMetadataExtensions
-{
-    private static readonly FeeCollectionInitiator1CodeDropdownSource _dropdownSource = new FeeCollectionInitiator1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFeeCollectionInitiator1CodeDropdownRow GetMetadata(this FeeCollectionInitiator1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

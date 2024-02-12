@@ -164,22 +164,3 @@ public enum AuthenticationMethod5Code
     PaymentToken = AuthenticationMethodCode.PaymentToken, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethod5CodeMetadataExtensions
-{
-    private static readonly AuthenticationMethod5CodeDropdownSource _dropdownSource = new AuthenticationMethod5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethod5CodeDropdownRow GetMetadata(this AuthenticationMethod5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

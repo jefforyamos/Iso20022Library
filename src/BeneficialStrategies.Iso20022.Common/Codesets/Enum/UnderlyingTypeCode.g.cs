@@ -208,22 +208,3 @@ public enum UnderlyingTypeCode
     BondFuture,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingTypeCodeMetadataExtensions
-{
-    private static readonly UnderlyingTypeCodeDropdownSource _dropdownSource = new UnderlyingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingTypeCodeDropdownRow GetMetadata(this UnderlyingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -300,22 +300,3 @@ public enum ExternalInvestigationExecutionConfirmation1Code
     Pending = ExternalInvestigationExecutionConfirmationCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalInvestigationExecutionConfirmation1CodeMetadataExtensions
-{
-    private static readonly ExternalInvestigationExecutionConfirmation1CodeDropdownSource _dropdownSource = new ExternalInvestigationExecutionConfirmation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalInvestigationExecutionConfirmation1CodeDropdownRow GetMetadata(this ExternalInvestigationExecutionConfirmation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

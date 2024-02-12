@@ -200,22 +200,3 @@ public enum PensionSchemeType3Code
     NonWrapperPension = PensionSchemeTypeV2Code.NonWrapperPension, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionSchemeType3CodeMetadataExtensions
-{
-    private static readonly PensionSchemeType3CodeDropdownSource _dropdownSource = new PensionSchemeType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionSchemeType3CodeDropdownRow GetMetadata(this PensionSchemeType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

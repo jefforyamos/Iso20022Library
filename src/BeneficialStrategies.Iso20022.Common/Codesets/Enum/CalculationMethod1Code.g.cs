@@ -38,22 +38,3 @@ public enum CalculationMethod1Code
     Compounding = CalculationMethodCode.Compounding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CalculationMethod1CodeMetadataExtensions
-{
-    private static readonly CalculationMethod1CodeDropdownSource _dropdownSource = new CalculationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICalculationMethod1CodeDropdownRow GetMetadata(this CalculationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

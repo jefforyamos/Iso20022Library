@@ -38,22 +38,3 @@ public enum ServiceLevel2Code
     SameDayValue = ServiceLevelCode.SameDayValue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ServiceLevel2CodeMetadataExtensions
-{
-    private static readonly ServiceLevel2CodeDropdownSource _dropdownSource = new ServiceLevel2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IServiceLevel2CodeDropdownRow GetMetadata(this ServiceLevel2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

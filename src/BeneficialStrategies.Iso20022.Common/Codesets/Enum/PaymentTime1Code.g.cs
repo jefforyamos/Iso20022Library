@@ -92,22 +92,3 @@ public enum PaymentTime1Code
     EndOfMonthOfReceipt = PaymentTimeCode.EndOfMonthOfReceipt, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTime1CodeMetadataExtensions
-{
-    private static readonly PaymentTime1CodeDropdownSource _dropdownSource = new PaymentTime1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTime1CodeDropdownRow GetMetadata(this PaymentTime1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum Quantity3Code
     UnknownQuantity = QuantityCode.UnknownQuantity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Quantity3CodeMetadataExtensions
-{
-    private static readonly Quantity3CodeDropdownSource _dropdownSource = new Quantity3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuantity3CodeDropdownRow GetMetadata(this Quantity3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

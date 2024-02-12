@@ -38,22 +38,3 @@ public enum OvernightIndexSwapTypeCode
     Received,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OvernightIndexSwapTypeCodeMetadataExtensions
-{
-    private static readonly OvernightIndexSwapTypeCodeDropdownSource _dropdownSource = new OvernightIndexSwapTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOvernightIndexSwapTypeCodeDropdownRow GetMetadata(this OvernightIndexSwapTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

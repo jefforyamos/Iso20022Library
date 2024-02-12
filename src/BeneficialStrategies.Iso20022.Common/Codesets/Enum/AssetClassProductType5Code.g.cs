@@ -29,22 +29,3 @@ public enum AssetClassProductType5Code
     Fertilizer = AssetClassProductTypeCode.Fertilizer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductType5CodeMetadataExtensions
-{
-    private static readonly AssetClassProductType5CodeDropdownSource _dropdownSource = new AssetClassProductType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductType5CodeDropdownRow GetMetadata(this AssetClassProductType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

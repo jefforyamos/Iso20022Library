@@ -38,22 +38,3 @@ public enum CRSSourceStatus1Code
     Declared = CRSSourceStatusCode.Declared, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CRSSourceStatus1CodeMetadataExtensions
-{
-    private static readonly CRSSourceStatus1CodeDropdownSource _dropdownSource = new CRSSourceStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICRSSourceStatus1CodeDropdownRow GetMetadata(this CRSSourceStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

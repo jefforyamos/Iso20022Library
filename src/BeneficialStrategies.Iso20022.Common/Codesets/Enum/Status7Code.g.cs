@@ -83,22 +83,3 @@ public enum Status7Code
     StandingInstruction = StatusCode.StandingInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status7CodeMetadataExtensions
-{
-    private static readonly Status7CodeDropdownSource _dropdownSource = new Status7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus7CodeDropdownRow GetMetadata(this Status7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

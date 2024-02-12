@@ -29,22 +29,3 @@ public enum AssetClassSubProductType25Code
     Distillates = AssetClassSubProductTypeCode.Distillates, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType25CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType25CodeDropdownSource _dropdownSource = new AssetClassSubProductType25CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType25CodeDropdownRow GetMetadata(this AssetClassSubProductType25Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

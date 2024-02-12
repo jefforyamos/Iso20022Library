@@ -47,22 +47,3 @@ public enum SoundAction1Code
     StopSound = SoundActionCode.StopSound, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SoundAction1CodeMetadataExtensions
-{
-    private static readonly SoundAction1CodeDropdownSource _dropdownSource = new SoundAction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISoundAction1CodeDropdownRow GetMetadata(this SoundAction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

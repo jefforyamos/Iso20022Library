@@ -65,22 +65,3 @@ public enum TransactionActivityCode
     SettlementandClearingActivity,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionActivityCodeMetadataExtensions
-{
-    private static readonly TransactionActivityCodeDropdownSource _dropdownSource = new TransactionActivityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionActivityCodeDropdownRow GetMetadata(this TransactionActivityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

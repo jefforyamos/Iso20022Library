@@ -56,22 +56,3 @@ public enum Algorithm11Code
     SHA1 = AlgorithmCode.SHA1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm11CodeMetadataExtensions
-{
-    private static readonly Algorithm11CodeDropdownSource _dropdownSource = new Algorithm11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm11CodeDropdownRow GetMetadata(this Algorithm11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

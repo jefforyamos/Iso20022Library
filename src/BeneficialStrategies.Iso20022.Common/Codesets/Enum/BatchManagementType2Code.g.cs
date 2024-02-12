@@ -92,22 +92,3 @@ public enum BatchManagementType2Code
     Start = BatchManagementTypeCode.Start, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BatchManagementType2CodeMetadataExtensions
-{
-    private static readonly BatchManagementType2CodeDropdownSource _dropdownSource = new BatchManagementType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBatchManagementType2CodeDropdownRow GetMetadata(this BatchManagementType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

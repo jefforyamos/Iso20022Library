@@ -182,22 +182,3 @@ public enum InvestmentFundFee1Code
     Penalty = InvestmentFundFeeCode.Penalty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundFee1CodeMetadataExtensions
-{
-    private static readonly InvestmentFundFee1CodeDropdownSource _dropdownSource = new InvestmentFundFee1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundFee1CodeDropdownRow GetMetadata(this InvestmentFundFee1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

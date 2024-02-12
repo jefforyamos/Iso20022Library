@@ -30,22 +30,3 @@ public enum MessageFunction25Code
     Request = MessageFunctionCode.Request, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction25CodeMetadataExtensions
-{
-    private static readonly MessageFunction25CodeDropdownSource _dropdownSource = new MessageFunction25CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction25CodeDropdownRow GetMetadata(this MessageFunction25Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

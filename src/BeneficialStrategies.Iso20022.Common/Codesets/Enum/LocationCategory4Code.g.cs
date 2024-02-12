@@ -58,22 +58,3 @@ public enum LocationCategory4Code
     VirtualShop = LocationCategoryV2Code.VirtualShop, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LocationCategory4CodeMetadataExtensions
-{
-    private static readonly LocationCategory4CodeDropdownSource _dropdownSource = new LocationCategory4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILocationCategory4CodeDropdownRow GetMetadata(this LocationCategory4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

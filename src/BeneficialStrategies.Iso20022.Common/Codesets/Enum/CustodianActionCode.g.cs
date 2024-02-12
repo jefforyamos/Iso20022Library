@@ -56,22 +56,3 @@ public enum CustodianActionCode
     NoAction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustodianActionCodeMetadataExtensions
-{
-    private static readonly CustodianActionCodeDropdownSource _dropdownSource = new CustodianActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustodianActionCodeDropdownRow GetMetadata(this CustodianActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

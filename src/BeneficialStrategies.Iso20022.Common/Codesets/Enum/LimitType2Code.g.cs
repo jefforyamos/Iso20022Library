@@ -128,22 +128,3 @@ public enum LimitType2Code
     TotalDailyFinancialInstitutionDirectDebit = LimitTypeCode.TotalDailyFinancialInstitutionDirectDebit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LimitType2CodeMetadataExtensions
-{
-    private static readonly LimitType2CodeDropdownSource _dropdownSource = new LimitType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILimitType2CodeDropdownRow GetMetadata(this LimitType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

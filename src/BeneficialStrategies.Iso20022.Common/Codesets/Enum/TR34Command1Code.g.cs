@@ -65,22 +65,3 @@ public enum TR34Command1Code
     Unbind = TR34CommandCode.Unbind, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TR34Command1CodeMetadataExtensions
-{
-    private static readonly TR34Command1CodeDropdownSource _dropdownSource = new TR34Command1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITR34Command1CodeDropdownRow GetMetadata(this TR34Command1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum POIComponentStatus1Code
     Deactivated = POIComponentStatusCode.Deactivated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentStatus1CodeMetadataExtensions
-{
-    private static readonly POIComponentStatus1CodeDropdownSource _dropdownSource = new POIComponentStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentStatus1CodeDropdownRow GetMetadata(this POIComponentStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

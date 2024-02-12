@@ -74,22 +74,3 @@ public enum InstructionTypeCode
     PreMatch,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionTypeCodeMetadataExtensions
-{
-    private static readonly InstructionTypeCodeDropdownSource _dropdownSource = new InstructionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionTypeCodeDropdownRow GetMetadata(this InstructionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

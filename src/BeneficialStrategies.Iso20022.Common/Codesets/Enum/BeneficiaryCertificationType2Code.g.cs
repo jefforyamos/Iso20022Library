@@ -110,22 +110,3 @@ public enum BeneficiaryCertificationType2Code
     NarrativeDescription = BeneficiaryCertificationTypeCode.NarrativeDescription, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryCertificationType2CodeMetadataExtensions
-{
-    private static readonly BeneficiaryCertificationType2CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryCertificationType2CodeDropdownRow GetMetadata(this BeneficiaryCertificationType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

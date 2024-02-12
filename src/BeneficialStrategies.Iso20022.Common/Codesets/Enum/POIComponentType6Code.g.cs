@@ -236,22 +236,3 @@ public enum POIComponentType6Code
     ReportFile = POIComponentTypeCode.ReportFile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentType6CodeMetadataExtensions
-{
-    private static readonly POIComponentType6CodeDropdownSource _dropdownSource = new POIComponentType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentType6CodeDropdownRow GetMetadata(this POIComponentType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

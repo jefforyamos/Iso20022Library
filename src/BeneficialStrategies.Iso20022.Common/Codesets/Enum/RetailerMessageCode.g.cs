@@ -173,22 +173,3 @@ public enum RetailerMessageCode
     DeviceResponse,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerMessageCodeMetadataExtensions
-{
-    private static readonly RetailerMessageCodeDropdownSource _dropdownSource = new RetailerMessageCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerMessageCodeDropdownRow GetMetadata(this RetailerMessageCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

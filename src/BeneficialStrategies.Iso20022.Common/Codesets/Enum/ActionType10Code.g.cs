@@ -74,22 +74,3 @@ public enum ActionType10Code
     SendMessage = ActionTypeCode.SendMessage, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType10CodeMetadataExtensions
-{
-    private static readonly ActionType10CodeDropdownSource _dropdownSource = new ActionType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType10CodeDropdownRow GetMetadata(this ActionType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

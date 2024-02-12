@@ -139,22 +139,3 @@ public enum TradeTransactionCondition2Code
     GuaranteedDelivery = TradeTransactionConditionCode.GuaranteedDelivery, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTransactionCondition2CodeMetadataExtensions
-{
-    private static readonly TradeTransactionCondition2CodeDropdownSource _dropdownSource = new TradeTransactionCondition2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTransactionCondition2CodeDropdownRow GetMetadata(this TradeTransactionCondition2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

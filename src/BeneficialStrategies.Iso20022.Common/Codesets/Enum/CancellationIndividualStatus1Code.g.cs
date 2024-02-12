@@ -47,22 +47,3 @@ public enum CancellationIndividualStatus1Code
     PendingCancellationRequest = PaymentStatusCode.PendingCancellationRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationIndividualStatus1CodeMetadataExtensions
-{
-    private static readonly CancellationIndividualStatus1CodeDropdownSource _dropdownSource = new CancellationIndividualStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationIndividualStatus1CodeDropdownRow GetMetadata(this CancellationIndividualStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum InvestigationExecutionConfirmation2Code
     UnableToApplyWillFollow = InvestigationExecutionConfirmationCode.UnableToApplyWillFollow, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationExecutionConfirmation2CodeMetadataExtensions
-{
-    private static readonly InvestigationExecutionConfirmation2CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationExecutionConfirmation2CodeDropdownRow GetMetadata(this InvestigationExecutionConfirmation2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

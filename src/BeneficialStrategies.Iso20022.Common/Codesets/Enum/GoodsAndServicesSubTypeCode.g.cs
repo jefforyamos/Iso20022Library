@@ -65,22 +65,3 @@ public enum GoodsAndServicesSubTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodsAndServicesSubTypeCodeMetadataExtensions
-{
-    private static readonly GoodsAndServicesSubTypeCodeDropdownSource _dropdownSource = new GoodsAndServicesSubTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodsAndServicesSubTypeCodeDropdownRow GetMetadata(this GoodsAndServicesSubTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

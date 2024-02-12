@@ -56,22 +56,3 @@ public enum RestrictionReference1Code
     RemoveSecuritiesRestrictionReference = RestrictionReferenceCode.RemoveSecuritiesRestrictionReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RestrictionReference1CodeMetadataExtensions
-{
-    private static readonly RestrictionReference1CodeDropdownSource _dropdownSource = new RestrictionReference1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRestrictionReference1CodeDropdownRow GetMetadata(this RestrictionReference1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

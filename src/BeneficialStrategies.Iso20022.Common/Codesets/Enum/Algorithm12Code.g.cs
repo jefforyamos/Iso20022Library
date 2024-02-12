@@ -74,22 +74,3 @@ public enum Algorithm12Code
     SHA512CMACwithAES256 = AlgorithmCode.SHA512CMACwithAES256, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm12CodeMetadataExtensions
-{
-    private static readonly Algorithm12CodeDropdownSource _dropdownSource = new Algorithm12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm12CodeDropdownRow GetMetadata(this Algorithm12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

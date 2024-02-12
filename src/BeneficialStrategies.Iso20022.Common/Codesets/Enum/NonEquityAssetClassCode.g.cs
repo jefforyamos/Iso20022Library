@@ -146,22 +146,3 @@ public enum NonEquityAssetClassCode
     StructuredFinanceProduct,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonEquityAssetClassCodeMetadataExtensions
-{
-    private static readonly NonEquityAssetClassCodeDropdownSource _dropdownSource = new NonEquityAssetClassCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonEquityAssetClassCodeDropdownRow GetMetadata(this NonEquityAssetClassCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

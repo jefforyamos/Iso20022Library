@@ -47,22 +47,3 @@ public enum Algorithm20Code
     SHA512 = AlgorithmCode.SHA512, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm20CodeMetadataExtensions
-{
-    private static readonly Algorithm20CodeDropdownSource _dropdownSource = new Algorithm20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm20CodeDropdownRow GetMetadata(this Algorithm20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

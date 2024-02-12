@@ -452,22 +452,3 @@ public enum CorporateActionReferenceDateCode
     EarlyResponseDeadline,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionReferenceDateCodeMetadataExtensions
-{
-    private static readonly CorporateActionReferenceDateCodeDropdownSource _dropdownSource = new CorporateActionReferenceDateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionReferenceDateCodeDropdownRow GetMetadata(this CorporateActionReferenceDateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

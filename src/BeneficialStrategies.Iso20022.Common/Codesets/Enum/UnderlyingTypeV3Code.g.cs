@@ -227,22 +227,3 @@ public enum UnderlyingTypeV3Code
     EmissionAllowance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingTypeV3CodeMetadataExtensions
-{
-    private static readonly UnderlyingTypeV3CodeDropdownSource _dropdownSource = new UnderlyingTypeV3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingTypeV3CodeDropdownRow GetMetadata(this UnderlyingTypeV3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

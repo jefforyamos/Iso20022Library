@@ -38,22 +38,3 @@ public enum StatementBasis2Code
     Traded = StatementBasisCode.Traded, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementBasis2CodeMetadataExtensions
-{
-    private static readonly StatementBasis2CodeDropdownSource _dropdownSource = new StatementBasis2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementBasis2CodeDropdownRow GetMetadata(this StatementBasis2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

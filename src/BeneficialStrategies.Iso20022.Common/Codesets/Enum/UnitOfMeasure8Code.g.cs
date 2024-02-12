@@ -695,22 +695,3 @@ public enum UnitOfMeasure8Code
     USTon = UnitOfMeasureCode.USTon, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure8CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure8CodeDropdownSource _dropdownSource = new UnitOfMeasure8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure8CodeDropdownRow GetMetadata(this UnitOfMeasure8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

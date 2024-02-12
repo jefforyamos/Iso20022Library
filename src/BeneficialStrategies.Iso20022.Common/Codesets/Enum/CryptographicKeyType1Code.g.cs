@@ -56,22 +56,3 @@ public enum CryptographicKeyType1Code
     ECC = CryptographicKeyTypeCode.ECC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CryptographicKeyType1CodeMetadataExtensions
-{
-    private static readonly CryptographicKeyType1CodeDropdownSource _dropdownSource = new CryptographicKeyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICryptographicKeyType1CodeDropdownRow GetMetadata(this CryptographicKeyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

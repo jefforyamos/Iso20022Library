@@ -137,22 +137,3 @@ public enum POICommunicationTypeCode
     WirelessTechnology5G,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POICommunicationTypeCodeMetadataExtensions
-{
-    private static readonly POICommunicationTypeCodeDropdownSource _dropdownSource = new POICommunicationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOICommunicationTypeCodeDropdownRow GetMetadata(this POICommunicationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum InterestRateType1Code
     Variable = InterestRateTypeCode.Variable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestRateType1CodeMetadataExtensions
-{
-    private static readonly InterestRateType1CodeDropdownSource _dropdownSource = new InterestRateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestRateType1CodeDropdownRow GetMetadata(this InterestRateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

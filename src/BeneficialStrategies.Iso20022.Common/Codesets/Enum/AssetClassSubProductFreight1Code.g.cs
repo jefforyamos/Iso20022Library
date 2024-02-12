@@ -47,22 +47,3 @@ public enum AssetClassSubProductFreight1Code
     Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductFreight1CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductFreight1CodeDropdownSource _dropdownSource = new AssetClassSubProductFreight1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductFreight1CodeDropdownRow GetMetadata(this AssetClassSubProductFreight1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

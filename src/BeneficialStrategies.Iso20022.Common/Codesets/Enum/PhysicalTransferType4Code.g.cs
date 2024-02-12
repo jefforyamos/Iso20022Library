@@ -47,22 +47,3 @@ public enum PhysicalTransferType4Code
     Cash = PhysicalTransferTypeV2Code.Cash, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PhysicalTransferType4CodeMetadataExtensions
-{
-    private static readonly PhysicalTransferType4CodeDropdownSource _dropdownSource = new PhysicalTransferType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPhysicalTransferType4CodeDropdownRow GetMetadata(this PhysicalTransferType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

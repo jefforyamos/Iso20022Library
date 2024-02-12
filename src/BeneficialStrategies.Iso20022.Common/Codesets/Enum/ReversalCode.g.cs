@@ -38,22 +38,3 @@ public enum ReversalCode
     ReversalDebit = AmountDirectionCode.ReversalDebit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReversalCodeMetadataExtensions
-{
-    private static readonly ReversalCodeDropdownSource _dropdownSource = new ReversalCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReversalCodeDropdownRow GetMetadata(this ReversalCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

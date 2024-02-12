@@ -633,22 +633,3 @@ public enum SystemBalanceType1Code
     Restricted = SystemBalanceTypeCode.Restricted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemBalanceType1CodeMetadataExtensions
-{
-    private static readonly SystemBalanceType1CodeDropdownSource _dropdownSource = new SystemBalanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemBalanceType1CodeDropdownRow GetMetadata(this SystemBalanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

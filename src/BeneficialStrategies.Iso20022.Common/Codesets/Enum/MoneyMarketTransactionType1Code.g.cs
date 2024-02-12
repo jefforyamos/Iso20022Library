@@ -38,22 +38,3 @@ public enum MoneyMarketTransactionType1Code
     CashLending = MoneyMarketTransactionTypeCode.CashLending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MoneyMarketTransactionType1CodeMetadataExtensions
-{
-    private static readonly MoneyMarketTransactionType1CodeDropdownSource _dropdownSource = new MoneyMarketTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMoneyMarketTransactionType1CodeDropdownRow GetMetadata(this MoneyMarketTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum DataModificationCode
     DeleteDataSet,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataModificationCodeMetadataExtensions
-{
-    private static readonly DataModificationCodeDropdownSource _dropdownSource = new DataModificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataModificationCodeDropdownRow GetMetadata(this DataModificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

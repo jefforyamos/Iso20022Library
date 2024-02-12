@@ -38,22 +38,3 @@ public enum MoveTypeCode
     Float,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MoveTypeCodeMetadataExtensions
-{
-    private static readonly MoveTypeCodeDropdownSource _dropdownSource = new MoveTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMoveTypeCodeDropdownRow GetMetadata(this MoveTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

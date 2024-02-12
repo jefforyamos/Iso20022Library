@@ -38,22 +38,3 @@ public enum CorporateActionCancellationReason1Code
     Processing = CorporateActionCancellationReasonCode.Processing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionCancellationReason1CodeMetadataExtensions
-{
-    private static readonly CorporateActionCancellationReason1CodeDropdownSource _dropdownSource = new CorporateActionCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionCancellationReason1CodeDropdownRow GetMetadata(this CorporateActionCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -398,22 +398,3 @@ public enum ReconciliationMessageType1Code
     AddendumResponse = ReconciliationMessageTypeCode.AddendumResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationMessageType1CodeMetadataExtensions
-{
-    private static readonly ReconciliationMessageType1CodeDropdownSource _dropdownSource = new ReconciliationMessageType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationMessageType1CodeDropdownRow GetMetadata(this ReconciliationMessageType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

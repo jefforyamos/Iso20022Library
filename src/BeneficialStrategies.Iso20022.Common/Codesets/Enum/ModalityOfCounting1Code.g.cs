@@ -56,22 +56,3 @@ public enum ModalityOfCounting1Code
     PhysicalAtMeeting = ModalityOfCountingCode.PhysicalAtMeeting, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ModalityOfCounting1CodeMetadataExtensions
-{
-    private static readonly ModalityOfCounting1CodeDropdownSource _dropdownSource = new ModalityOfCounting1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModalityOfCounting1CodeDropdownRow GetMetadata(this ModalityOfCounting1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

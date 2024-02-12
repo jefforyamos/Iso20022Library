@@ -47,22 +47,3 @@ public enum BuyInStateCode
     PartiallySuccessful,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BuyInStateCodeMetadataExtensions
-{
-    private static readonly BuyInStateCodeDropdownSource _dropdownSource = new BuyInStateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBuyInStateCodeDropdownRow GetMetadata(this BuyInStateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

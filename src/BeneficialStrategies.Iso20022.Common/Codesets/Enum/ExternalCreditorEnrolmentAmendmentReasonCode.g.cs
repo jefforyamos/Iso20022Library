@@ -66,22 +66,3 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
     UnknownCreditor,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCreditorEnrolmentAmendmentReasonCodeMetadataExtensions
-{
-    private static readonly ExternalCreditorEnrolmentAmendmentReasonCodeDropdownSource _dropdownSource = new ExternalCreditorEnrolmentAmendmentReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCreditorEnrolmentAmendmentReasonCodeDropdownRow GetMetadata(this ExternalCreditorEnrolmentAmendmentReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

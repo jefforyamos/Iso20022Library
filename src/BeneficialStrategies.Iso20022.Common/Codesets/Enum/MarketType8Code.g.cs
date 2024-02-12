@@ -83,22 +83,3 @@ public enum MarketType8Code
     Various = MarketTypeCode.Various, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketType8CodeMetadataExtensions
-{
-    private static readonly MarketType8CodeDropdownSource _dropdownSource = new MarketType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketType8CodeDropdownRow GetMetadata(this MarketType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

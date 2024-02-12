@@ -56,22 +56,3 @@ public enum GDPRDataConsentCode
     ConsentProfilingTargeted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GDPRDataConsentCodeMetadataExtensions
-{
-    private static readonly GDPRDataConsentCodeDropdownSource _dropdownSource = new GDPRDataConsentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGDPRDataConsentCodeDropdownRow GetMetadata(this GDPRDataConsentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

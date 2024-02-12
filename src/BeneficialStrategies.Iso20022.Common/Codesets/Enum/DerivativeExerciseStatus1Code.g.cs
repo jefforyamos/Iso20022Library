@@ -47,22 +47,3 @@ public enum DerivativeExerciseStatus1Code
     Valid = DerivativeExerciseStatusCode.Valid, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DerivativeExerciseStatus1CodeMetadataExtensions
-{
-    private static readonly DerivativeExerciseStatus1CodeDropdownSource _dropdownSource = new DerivativeExerciseStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDerivativeExerciseStatus1CodeDropdownRow GetMetadata(this DerivativeExerciseStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum LiquidityIndicatorTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LiquidityIndicatorTypeCodeMetadataExtensions
-{
-    private static readonly LiquidityIndicatorTypeCodeDropdownSource _dropdownSource = new LiquidityIndicatorTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILiquidityIndicatorTypeCodeDropdownRow GetMetadata(this LiquidityIndicatorTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

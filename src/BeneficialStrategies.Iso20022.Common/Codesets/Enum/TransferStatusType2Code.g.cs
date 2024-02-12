@@ -119,22 +119,3 @@ public enum TransferStatusType2Code
     ConversionStatus = TransferStatusTypeCode.ConversionStatus, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatusType2CodeMetadataExtensions
-{
-    private static readonly TransferStatusType2CodeDropdownSource _dropdownSource = new TransferStatusType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatusType2CodeDropdownRow GetMetadata(this TransferStatusType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

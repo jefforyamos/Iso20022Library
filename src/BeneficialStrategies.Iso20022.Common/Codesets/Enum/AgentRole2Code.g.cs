@@ -65,22 +65,3 @@ public enum AgentRole2Code
     PayingAgent = AgentRoleCode.PayingAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgentRole2CodeMetadataExtensions
-{
-    private static readonly AgentRole2CodeDropdownSource _dropdownSource = new AgentRole2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgentRole2CodeDropdownRow GetMetadata(this AgentRole2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

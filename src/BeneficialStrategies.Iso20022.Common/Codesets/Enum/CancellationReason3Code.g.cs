@@ -83,22 +83,3 @@ public enum CancellationReason3Code
     InsufficientCreditorDetails = CancellationReasonCode.InsufficientCreditorDetails, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationReason3CodeMetadataExtensions
-{
-    private static readonly CancellationReason3CodeDropdownSource _dropdownSource = new CancellationReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationReason3CodeDropdownRow GetMetadata(this CancellationReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

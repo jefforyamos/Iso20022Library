@@ -111,22 +111,3 @@ public enum ExternalPendingProcessingReason1Code
     SystemOnHold = ExternalPendingProcessingReasonCode.SystemOnHold, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPendingProcessingReason1CodeMetadataExtensions
-{
-    private static readonly ExternalPendingProcessingReason1CodeDropdownSource _dropdownSource = new ExternalPendingProcessingReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPendingProcessingReason1CodeDropdownRow GetMetadata(this ExternalPendingProcessingReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

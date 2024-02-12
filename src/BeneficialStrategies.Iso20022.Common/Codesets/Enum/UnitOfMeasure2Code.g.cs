@@ -425,22 +425,3 @@ public enum UnitOfMeasure2Code
     MetricTon,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure2CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure2CodeDropdownSource _dropdownSource = new UnitOfMeasure2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure2CodeDropdownRow GetMetadata(this UnitOfMeasure2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

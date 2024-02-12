@@ -335,22 +335,3 @@ public enum InstructionProcessingStatusCode
     RejectedByAccountOwner,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionProcessingStatusCodeMetadataExtensions
-{
-    private static readonly InstructionProcessingStatusCodeDropdownSource _dropdownSource = new InstructionProcessingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionProcessingStatusCodeDropdownRow GetMetadata(this InstructionProcessingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

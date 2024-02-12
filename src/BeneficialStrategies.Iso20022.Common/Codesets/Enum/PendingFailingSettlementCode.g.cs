@@ -425,22 +425,3 @@ public enum PendingFailingSettlementCode
     MultipleSettlementAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingFailingSettlementCodeMetadataExtensions
-{
-    private static readonly PendingFailingSettlementCodeDropdownSource _dropdownSource = new PendingFailingSettlementCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingFailingSettlementCodeDropdownRow GetMetadata(this PendingFailingSettlementCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

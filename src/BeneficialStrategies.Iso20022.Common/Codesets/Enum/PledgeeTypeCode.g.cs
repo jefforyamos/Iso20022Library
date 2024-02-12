@@ -38,22 +38,3 @@ public enum PledgeeTypeCode
     Counterparty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PledgeeTypeCodeMetadataExtensions
-{
-    private static readonly PledgeeTypeCodeDropdownSource _dropdownSource = new PledgeeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPledgeeTypeCodeDropdownRow GetMetadata(this PledgeeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

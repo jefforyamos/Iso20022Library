@@ -353,22 +353,3 @@ public enum DTCAdjustmentPaymentTypeCode
     IntraDayReversalOfOriginalTaxWithholding,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentTypeCodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentTypeCodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentTypeCodeDropdownRow GetMetadata(this DTCAdjustmentPaymentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

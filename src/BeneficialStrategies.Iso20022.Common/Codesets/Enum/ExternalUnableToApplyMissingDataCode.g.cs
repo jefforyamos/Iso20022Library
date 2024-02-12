@@ -192,22 +192,3 @@ public enum ExternalUnableToApplyMissingDataCode
     Narrative,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUnableToApplyMissingDataCodeMetadataExtensions
-{
-    private static readonly ExternalUnableToApplyMissingDataCodeDropdownSource _dropdownSource = new ExternalUnableToApplyMissingDataCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUnableToApplyMissingDataCodeDropdownRow GetMetadata(this ExternalUnableToApplyMissingDataCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

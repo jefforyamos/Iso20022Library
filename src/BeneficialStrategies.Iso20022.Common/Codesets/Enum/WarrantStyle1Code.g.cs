@@ -47,22 +47,3 @@ public enum WarrantStyle1Code
     Bermudan = WarrantStyleCode.Bermudan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WarrantStyle1CodeMetadataExtensions
-{
-    private static readonly WarrantStyle1CodeDropdownSource _dropdownSource = new WarrantStyle1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWarrantStyle1CodeDropdownRow GetMetadata(this WarrantStyle1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

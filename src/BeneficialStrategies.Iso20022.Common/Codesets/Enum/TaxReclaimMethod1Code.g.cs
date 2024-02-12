@@ -56,22 +56,3 @@ public enum TaxReclaimMethod1Code
     Other = TaxReclaimMethodCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxReclaimMethod1CodeMetadataExtensions
-{
-    private static readonly TaxReclaimMethod1CodeDropdownSource _dropdownSource = new TaxReclaimMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxReclaimMethod1CodeDropdownRow GetMetadata(this TaxReclaimMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

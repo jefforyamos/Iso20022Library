@@ -84,22 +84,3 @@ public enum ValidationRuleStatus2Code
     Pending = ValidationRuleCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleStatus2CodeMetadataExtensions
-{
-    private static readonly ValidationRuleStatus2CodeDropdownSource _dropdownSource = new ValidationRuleStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleStatus2CodeDropdownRow GetMetadata(this ValidationRuleStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

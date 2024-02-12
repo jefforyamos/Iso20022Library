@@ -47,22 +47,3 @@ public enum Reporting2Code
     DeferredReport = ReportingCode.DeferredReport, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Reporting2CodeMetadataExtensions
-{
-    private static readonly Reporting2CodeDropdownSource _dropdownSource = new Reporting2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReporting2CodeDropdownRow GetMetadata(this Reporting2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

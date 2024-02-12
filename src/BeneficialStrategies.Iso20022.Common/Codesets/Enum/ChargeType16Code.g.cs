@@ -74,22 +74,3 @@ public enum ChargeType16Code
     ServiceProvisionFee = ChargeTypeCode.ServiceProvisionFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType16CodeMetadataExtensions
-{
-    private static readonly ChargeType16CodeDropdownSource _dropdownSource = new ChargeType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType16CodeDropdownRow GetMetadata(this ChargeType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

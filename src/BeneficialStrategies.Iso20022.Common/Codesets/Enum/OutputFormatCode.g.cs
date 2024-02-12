@@ -209,22 +209,3 @@ public enum OutputFormatCode
     SVG,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OutputFormatCodeMetadataExtensions
-{
-    private static readonly OutputFormatCodeDropdownSource _dropdownSource = new OutputFormatCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOutputFormatCodeDropdownRow GetMetadata(this OutputFormatCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

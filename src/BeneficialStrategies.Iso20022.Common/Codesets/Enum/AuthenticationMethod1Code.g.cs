@@ -119,22 +119,3 @@ public enum AuthenticationMethod1Code
     SecuredChannel = AuthenticationMethodCode.SecuredChannel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationMethod1CodeMetadataExtensions
-{
-    private static readonly AuthenticationMethod1CodeDropdownSource _dropdownSource = new AuthenticationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationMethod1CodeDropdownRow GetMetadata(this AuthenticationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

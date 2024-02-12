@@ -84,22 +84,3 @@ public enum ExternalDebtorActivationStatusReasonCode
     TechnicalRejection,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDebtorActivationStatusReasonCodeMetadataExtensions
-{
-    private static readonly ExternalDebtorActivationStatusReasonCodeDropdownSource _dropdownSource = new ExternalDebtorActivationStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDebtorActivationStatusReasonCodeDropdownRow GetMetadata(this ExternalDebtorActivationStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

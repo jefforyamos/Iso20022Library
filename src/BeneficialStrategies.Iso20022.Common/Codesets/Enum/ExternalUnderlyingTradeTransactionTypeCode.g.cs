@@ -84,22 +84,3 @@ public enum ExternalUnderlyingTradeTransactionTypeCode
     Tender,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUnderlyingTradeTransactionTypeCodeMetadataExtensions
-{
-    private static readonly ExternalUnderlyingTradeTransactionTypeCodeDropdownSource _dropdownSource = new ExternalUnderlyingTradeTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUnderlyingTradeTransactionTypeCodeDropdownRow GetMetadata(this ExternalUnderlyingTradeTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

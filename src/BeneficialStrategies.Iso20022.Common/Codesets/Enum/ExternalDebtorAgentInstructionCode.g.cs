@@ -83,22 +83,3 @@ public enum ExternalDebtorAgentInstructionCode
     PayerTokenRequested,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDebtorAgentInstructionCodeMetadataExtensions
-{
-    private static readonly ExternalDebtorAgentInstructionCodeDropdownSource _dropdownSource = new ExternalDebtorAgentInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDebtorAgentInstructionCodeDropdownRow GetMetadata(this ExternalDebtorAgentInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum EmissionAllowanceProductType2Code
     EUAA = AssetClassDetailedSubProductTypeCode.EUAA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EmissionAllowanceProductType2CodeMetadataExtensions
-{
-    private static readonly EmissionAllowanceProductType2CodeDropdownSource _dropdownSource = new EmissionAllowanceProductType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEmissionAllowanceProductType2CodeDropdownRow GetMetadata(this EmissionAllowanceProductType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

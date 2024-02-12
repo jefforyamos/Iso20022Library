@@ -587,22 +587,3 @@ public enum SecuritiesTransactionTypeV3Code
     OfferingIssuingTrade,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionTypeV3CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionTypeV3CodeDropdownSource _dropdownSource = new SecuritiesTransactionTypeV3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionTypeV3CodeDropdownRow GetMetadata(this SecuritiesTransactionTypeV3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CommissionValueType1Code
     Absolute = PriceValueTypeCode.Absolute, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionValueType1CodeMetadataExtensions
-{
-    private static readonly CommissionValueType1CodeDropdownSource _dropdownSource = new CommissionValueType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionValueType1CodeDropdownRow GetMetadata(this CommissionValueType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

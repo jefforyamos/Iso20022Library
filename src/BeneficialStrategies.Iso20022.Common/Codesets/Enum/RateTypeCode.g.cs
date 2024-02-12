@@ -281,22 +281,3 @@ public enum RateTypeCode
     AnyAndAll,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateTypeCodeMetadataExtensions
-{
-    private static readonly RateTypeCodeDropdownSource _dropdownSource = new RateTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateTypeCodeDropdownRow GetMetadata(this RateTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

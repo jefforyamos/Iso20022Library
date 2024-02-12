@@ -47,22 +47,3 @@ public enum UnderlyingIdentificationCode
     Index,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingIdentificationCodeMetadataExtensions
-{
-    private static readonly UnderlyingIdentificationCodeDropdownSource _dropdownSource = new UnderlyingIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingIdentificationCodeDropdownRow GetMetadata(this UnderlyingIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

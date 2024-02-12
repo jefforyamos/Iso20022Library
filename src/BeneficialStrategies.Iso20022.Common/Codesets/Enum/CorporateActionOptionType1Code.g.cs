@@ -200,22 +200,3 @@ public enum CorporateActionOptionType1Code
     QualifiedInvestor = CorporateActionOptionTypeCode.QualifiedInvestor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOptionType1CodeMetadataExtensions
-{
-    private static readonly CorporateActionOptionType1CodeDropdownSource _dropdownSource = new CorporateActionOptionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOptionType1CodeDropdownRow GetMetadata(this CorporateActionOptionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

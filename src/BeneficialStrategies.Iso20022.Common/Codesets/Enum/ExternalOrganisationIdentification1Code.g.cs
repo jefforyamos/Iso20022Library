@@ -148,22 +148,3 @@ public enum ExternalOrganisationIdentification1Code
     BusinessOtherIdentification = ExternalOrganisationIdentificationCode.BusinessOtherIdentification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalOrganisationIdentification1CodeMetadataExtensions
-{
-    private static readonly ExternalOrganisationIdentification1CodeDropdownSource _dropdownSource = new ExternalOrganisationIdentification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalOrganisationIdentification1CodeDropdownRow GetMetadata(this ExternalOrganisationIdentification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

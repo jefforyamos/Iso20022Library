@@ -65,22 +65,3 @@ public enum AssetClassDetailedSubProductType8Code
     Other = AssetClassDetailedSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType8CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType8CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType8CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum InvestorType1Code
     PhysicalPerson = InvestorTypeCode.PhysicalPerson, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestorType1CodeMetadataExtensions
-{
-    private static readonly InvestorType1CodeDropdownSource _dropdownSource = new InvestorType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestorType1CodeDropdownRow GetMetadata(this InvestorType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

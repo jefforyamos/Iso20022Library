@@ -47,22 +47,3 @@ public enum SpecialCollateralCode
     MatchedAndReverseRepurchaseAgreement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SpecialCollateralCodeMetadataExtensions
-{
-    private static readonly SpecialCollateralCodeDropdownSource _dropdownSource = new SpecialCollateralCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISpecialCollateralCodeDropdownRow GetMetadata(this SpecialCollateralCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

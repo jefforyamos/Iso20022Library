@@ -56,22 +56,3 @@ public enum Algorithm3Code
     SHA256CMACwithDES112 = AlgorithmCode.SHA256CMACwithDES112, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm3CodeMetadataExtensions
-{
-    private static readonly Algorithm3CodeDropdownSource _dropdownSource = new Algorithm3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm3CodeDropdownRow GetMetadata(this Algorithm3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

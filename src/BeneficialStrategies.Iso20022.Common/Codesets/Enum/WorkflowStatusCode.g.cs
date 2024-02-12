@@ -65,22 +65,3 @@ public enum WorkflowStatusCode
     Deleted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WorkflowStatusCodeMetadataExtensions
-{
-    private static readonly WorkflowStatusCodeDropdownSource _dropdownSource = new WorkflowStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWorkflowStatusCodeDropdownRow GetMetadata(this WorkflowStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

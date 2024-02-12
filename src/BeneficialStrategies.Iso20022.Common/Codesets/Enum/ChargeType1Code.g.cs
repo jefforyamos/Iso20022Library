@@ -38,22 +38,3 @@ public enum ChargeType1Code
     Commission = ChargeTypeCode.Commission, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType1CodeMetadataExtensions
-{
-    private static readonly ChargeType1CodeDropdownSource _dropdownSource = new ChargeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType1CodeDropdownRow GetMetadata(this ChargeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

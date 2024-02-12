@@ -29,22 +29,3 @@ public enum SecuritiesTransactionType5Code
     Trade = SecuritiesTransactionTypeV2Code.Trade, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType5CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType5CodeDropdownSource _dropdownSource = new SecuritiesTransactionType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType5CodeDropdownRow GetMetadata(this SecuritiesTransactionType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

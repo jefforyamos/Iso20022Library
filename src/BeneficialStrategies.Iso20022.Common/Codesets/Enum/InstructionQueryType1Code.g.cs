@@ -47,22 +47,3 @@ public enum InstructionQueryType1Code
     SettlementAndIntraPosition = InstructionQueryTypeCode.SettlementAndIntraPosition, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionQueryType1CodeMetadataExtensions
-{
-    private static readonly InstructionQueryType1CodeDropdownSource _dropdownSource = new InstructionQueryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionQueryType1CodeDropdownRow GetMetadata(this InstructionQueryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

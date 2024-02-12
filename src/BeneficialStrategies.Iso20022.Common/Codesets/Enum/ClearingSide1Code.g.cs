@@ -56,22 +56,3 @@ public enum ClearingSide1Code
     Borrow = ClearingSideCode.Borrow, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingSide1CodeMetadataExtensions
-{
-    private static readonly ClearingSide1CodeDropdownSource _dropdownSource = new ClearingSide1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingSide1CodeDropdownRow GetMetadata(this ClearingSide1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

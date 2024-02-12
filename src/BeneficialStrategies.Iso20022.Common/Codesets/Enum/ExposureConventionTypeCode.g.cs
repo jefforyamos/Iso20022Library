@@ -38,22 +38,3 @@ public enum ExposureConventionTypeCode
     Net,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureConventionTypeCodeMetadataExtensions
-{
-    private static readonly ExposureConventionTypeCodeDropdownSource _dropdownSource = new ExposureConventionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureConventionTypeCodeDropdownRow GetMetadata(this ExposureConventionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

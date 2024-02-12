@@ -83,22 +83,3 @@ public enum FraudReportingActionCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FraudReportingActionCodeMetadataExtensions
-{
-    private static readonly FraudReportingActionCodeDropdownSource _dropdownSource = new FraudReportingActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFraudReportingActionCodeDropdownRow GetMetadata(this FraudReportingActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

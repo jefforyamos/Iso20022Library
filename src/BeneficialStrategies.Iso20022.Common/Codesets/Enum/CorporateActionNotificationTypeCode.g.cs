@@ -74,22 +74,3 @@ public enum CorporateActionNotificationTypeCode
     Processing,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionNotificationTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionNotificationTypeCodeDropdownSource _dropdownSource = new CorporateActionNotificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionNotificationTypeCodeDropdownRow GetMetadata(this CorporateActionNotificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

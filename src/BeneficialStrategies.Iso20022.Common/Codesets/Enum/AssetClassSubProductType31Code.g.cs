@@ -29,22 +29,3 @@ public enum AssetClassSubProductType31Code
     Dry = AssetClassSubProductTypeCode.Dry, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType31CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType31CodeDropdownSource _dropdownSource = new AssetClassSubProductType31CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType31CodeDropdownRow GetMetadata(this AssetClassSubProductType31Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

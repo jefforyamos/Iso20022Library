@@ -29,22 +29,3 @@ public enum AssetClassSubProductType6Code
     Electricity = AssetClassSubProductTypeCode.Electricity, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType6CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType6CodeDropdownSource _dropdownSource = new AssetClassSubProductType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType6CodeDropdownRow GetMetadata(this AssetClassSubProductType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

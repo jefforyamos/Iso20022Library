@@ -38,22 +38,3 @@ public enum CashAssetTypeCode
     CashInHolding,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashAssetTypeCodeMetadataExtensions
-{
-    private static readonly CashAssetTypeCodeDropdownSource _dropdownSource = new CashAssetTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashAssetTypeCodeDropdownRow GetMetadata(this CashAssetTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

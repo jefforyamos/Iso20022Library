@@ -74,22 +74,3 @@ public enum CancellationReason4Code
     CancelUponUnableToApply = CancellationReasonCode.CancelUponUnableToApply, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationReason4CodeMetadataExtensions
-{
-    private static readonly CancellationReason4CodeDropdownSource _dropdownSource = new CancellationReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationReason4CodeDropdownRow GetMetadata(this CancellationReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

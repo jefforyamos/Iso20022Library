@@ -137,22 +137,3 @@ public enum CollateralType8Code
     TotalCollateralValueAfterRelativeCreditLimit = CollateralTypeCode.TotalCollateralValueAfterRelativeCreditLimit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralType8CodeMetadataExtensions
-{
-    private static readonly CollateralType8CodeDropdownSource _dropdownSource = new CollateralType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralType8CodeDropdownRow GetMetadata(this CollateralType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

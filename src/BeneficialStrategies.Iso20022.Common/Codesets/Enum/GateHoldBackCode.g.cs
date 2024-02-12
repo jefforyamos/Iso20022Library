@@ -38,22 +38,3 @@ public enum GateHoldBackCode
     Gating,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GateHoldBackCodeMetadataExtensions
-{
-    private static readonly GateHoldBackCodeDropdownSource _dropdownSource = new GateHoldBackCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGateHoldBackCodeDropdownRow GetMetadata(this GateHoldBackCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

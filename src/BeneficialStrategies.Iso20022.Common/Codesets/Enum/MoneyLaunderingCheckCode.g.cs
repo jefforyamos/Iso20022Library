@@ -74,22 +74,3 @@ public enum MoneyLaunderingCheckCode
     PostalOrElectronicPaymentExempt,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MoneyLaunderingCheckCodeMetadataExtensions
-{
-    private static readonly MoneyLaunderingCheckCodeDropdownSource _dropdownSource = new MoneyLaunderingCheckCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMoneyLaunderingCheckCodeDropdownRow GetMetadata(this MoneyLaunderingCheckCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

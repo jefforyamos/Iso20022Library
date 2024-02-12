@@ -56,22 +56,3 @@ public enum CashClearingSystem2Code
     FedNet = CashClearingSystemCode.FedNet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashClearingSystem2CodeMetadataExtensions
-{
-    private static readonly CashClearingSystem2CodeDropdownSource _dropdownSource = new CashClearingSystem2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashClearingSystem2CodeDropdownRow GetMetadata(this CashClearingSystem2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

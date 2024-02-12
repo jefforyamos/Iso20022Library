@@ -38,22 +38,3 @@ public enum RedemptionCompletionCode
     RedemptionNo,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RedemptionCompletionCodeMetadataExtensions
-{
-    private static readonly RedemptionCompletionCodeDropdownSource _dropdownSource = new RedemptionCompletionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRedemptionCompletionCodeDropdownRow GetMetadata(this RedemptionCompletionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

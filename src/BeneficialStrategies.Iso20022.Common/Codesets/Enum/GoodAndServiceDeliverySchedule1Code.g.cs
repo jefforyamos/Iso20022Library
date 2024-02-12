@@ -65,22 +65,3 @@ public enum GoodAndServiceDeliverySchedule1Code
     TwoDaysOrMoreDelivery = GoodAndServiceDeliveryScheduleCode.TwoDaysOrMoreDelivery, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodAndServiceDeliverySchedule1CodeMetadataExtensions
-{
-    private static readonly GoodAndServiceDeliverySchedule1CodeDropdownSource _dropdownSource = new GoodAndServiceDeliverySchedule1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodAndServiceDeliverySchedule1CodeDropdownRow GetMetadata(this GoodAndServiceDeliverySchedule1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

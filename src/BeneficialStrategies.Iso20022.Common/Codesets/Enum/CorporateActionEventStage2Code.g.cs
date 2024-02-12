@@ -83,22 +83,3 @@ public enum CorporateActionEventStage2Code
     Lapsed = CorporateActionEventStageCode.Lapsed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStage2CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStage2CodeDropdownSource _dropdownSource = new CorporateActionEventStage2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStage2CodeDropdownRow GetMetadata(this CorporateActionEventStage2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

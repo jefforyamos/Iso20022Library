@@ -47,22 +47,3 @@ public enum HoldingCode
     Certificate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class HoldingCodeMetadataExtensions
-{
-    private static readonly HoldingCodeDropdownSource _dropdownSource = new HoldingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHoldingCodeDropdownRow GetMetadata(this HoldingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

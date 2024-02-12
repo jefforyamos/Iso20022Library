@@ -47,22 +47,3 @@ public enum LegalRestrictions1Code
     Restrictions = LegalRestrictionsCode.Restrictions, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalRestrictions1CodeMetadataExtensions
-{
-    private static readonly LegalRestrictions1CodeDropdownSource _dropdownSource = new LegalRestrictions1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalRestrictions1CodeDropdownRow GetMetadata(this LegalRestrictions1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

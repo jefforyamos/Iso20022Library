@@ -47,22 +47,3 @@ public enum CardFallbackCode
     FallbackAfterFailure,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardFallbackCodeMetadataExtensions
-{
-    private static readonly CardFallbackCodeDropdownSource _dropdownSource = new CardFallbackCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardFallbackCodeDropdownRow GetMetadata(this CardFallbackCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

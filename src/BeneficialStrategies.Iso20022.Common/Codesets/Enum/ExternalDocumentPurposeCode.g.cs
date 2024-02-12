@@ -39,22 +39,3 @@ public enum ExternalDocumentPurposeCode
     Factoredinvoice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalDocumentPurposeCodeMetadataExtensions
-{
-    private static readonly ExternalDocumentPurposeCodeDropdownSource _dropdownSource = new ExternalDocumentPurposeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalDocumentPurposeCodeDropdownRow GetMetadata(this ExternalDocumentPurposeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

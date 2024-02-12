@@ -785,22 +785,3 @@ public enum FinancialInstrumentProductTypeCode
     Deposit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentProductTypeCodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentProductTypeCodeDropdownSource _dropdownSource = new FinancialInstrumentProductTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentProductTypeCodeDropdownRow GetMetadata(this FinancialInstrumentProductTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

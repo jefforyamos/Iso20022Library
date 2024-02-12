@@ -47,22 +47,3 @@ public enum SupportDocumentTypeCode
     LetterToBank,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SupportDocumentTypeCodeMetadataExtensions
-{
-    private static readonly SupportDocumentTypeCodeDropdownSource _dropdownSource = new SupportDocumentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISupportDocumentTypeCodeDropdownRow GetMetadata(this SupportDocumentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

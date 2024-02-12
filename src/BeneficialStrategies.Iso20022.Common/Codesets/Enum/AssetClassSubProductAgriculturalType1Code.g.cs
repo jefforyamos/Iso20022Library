@@ -83,22 +83,3 @@ public enum AssetClassSubProductAgriculturalType1Code
     Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductAgriculturalType1CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductAgriculturalType1CodeDropdownSource _dropdownSource = new AssetClassSubProductAgriculturalType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductAgriculturalType1CodeDropdownRow GetMetadata(this AssetClassSubProductAgriculturalType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

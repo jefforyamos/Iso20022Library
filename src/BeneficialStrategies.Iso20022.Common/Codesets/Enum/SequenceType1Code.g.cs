@@ -56,22 +56,3 @@ public enum SequenceType1Code
     OneOff = SequenceTypeCode.OneOff, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SequenceType1CodeMetadataExtensions
-{
-    private static readonly SequenceType1CodeDropdownSource _dropdownSource = new SequenceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISequenceType1CodeDropdownRow GetMetadata(this SequenceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

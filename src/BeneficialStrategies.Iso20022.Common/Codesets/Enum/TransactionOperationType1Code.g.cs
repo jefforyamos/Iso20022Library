@@ -56,22 +56,3 @@ public enum TransactionOperationType1Code
     NewTransaction = TransactionOperationTypeCode.NewTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType1CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType1CodeDropdownSource _dropdownSource = new TransactionOperationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType1CodeDropdownRow GetMetadata(this TransactionOperationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

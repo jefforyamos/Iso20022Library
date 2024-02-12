@@ -38,22 +38,3 @@ public enum AccountTypeCode
     Securities,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountTypeCodeMetadataExtensions
-{
-    private static readonly AccountTypeCodeDropdownSource _dropdownSource = new AccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountTypeCodeDropdownRow GetMetadata(this AccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

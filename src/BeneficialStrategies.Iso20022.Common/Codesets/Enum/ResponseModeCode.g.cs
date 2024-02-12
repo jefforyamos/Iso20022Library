@@ -56,22 +56,3 @@ public enum ResponseModeCode
     SoundEnd,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResponseModeCodeMetadataExtensions
-{
-    private static readonly ResponseModeCodeDropdownSource _dropdownSource = new ResponseModeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponseModeCodeDropdownRow GetMetadata(this ResponseModeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

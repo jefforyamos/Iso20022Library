@@ -560,22 +560,3 @@ public enum FinancialAssetBalanceType1Code
     FXSpot = FinancialAssetBalanceTypeCode.FXSpot, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialAssetBalanceType1CodeMetadataExtensions
-{
-    private static readonly FinancialAssetBalanceType1CodeDropdownSource _dropdownSource = new FinancialAssetBalanceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialAssetBalanceType1CodeDropdownRow GetMetadata(this FinancialAssetBalanceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

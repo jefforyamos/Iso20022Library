@@ -335,22 +335,3 @@ public enum TransactionRejectReason2Code
     Narrative = TransactionReasonCode.Narrative, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionRejectReason2CodeMetadataExtensions
-{
-    private static readonly TransactionRejectReason2CodeDropdownSource _dropdownSource = new TransactionRejectReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionRejectReason2CodeDropdownRow GetMetadata(this TransactionRejectReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -362,22 +362,3 @@ public enum UnitOfMeasure6Code
     GasolineGallonEquivalent = UnitOfMeasureCode.GasolineGallonEquivalent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure6CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure6CodeDropdownSource _dropdownSource = new UnitOfMeasure6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure6CodeDropdownRow GetMetadata(this UnitOfMeasure6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

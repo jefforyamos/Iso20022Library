@@ -47,22 +47,3 @@ public enum ProrationTypeCode
     NotUsed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProrationTypeCodeMetadataExtensions
-{
-    private static readonly ProrationTypeCodeDropdownSource _dropdownSource = new ProrationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProrationTypeCodeDropdownRow GetMetadata(this ProrationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum OnLineCapabilityCode
     BothOnLineAndOffLine,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OnLineCapabilityCodeMetadataExtensions
-{
-    private static readonly OnLineCapabilityCodeDropdownSource _dropdownSource = new OnLineCapabilityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOnLineCapabilityCodeDropdownRow GetMetadata(this OnLineCapabilityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

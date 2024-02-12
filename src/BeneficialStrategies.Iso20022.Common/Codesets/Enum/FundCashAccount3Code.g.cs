@@ -65,22 +65,3 @@ public enum FundCashAccount3Code
     HedgeFund = FundCashAccountCode.HedgeFund, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundCashAccount3CodeMetadataExtensions
-{
-    private static readonly FundCashAccount3CodeDropdownSource _dropdownSource = new FundCashAccount3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundCashAccount3CodeDropdownRow GetMetadata(this FundCashAccount3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

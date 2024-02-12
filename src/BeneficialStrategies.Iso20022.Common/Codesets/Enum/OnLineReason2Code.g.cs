@@ -146,22 +146,3 @@ public enum OnLineReason2Code
     IssuerForcedPINRequest = OnLineReasonCode.IssuerForcedPINRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OnLineReason2CodeMetadataExtensions
-{
-    private static readonly OnLineReason2CodeDropdownSource _dropdownSource = new OnLineReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOnLineReason2CodeDropdownRow GetMetadata(this OnLineReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -218,22 +218,3 @@ public enum ATMServiceType10Code
     VerifiedDeposit = ATMServiceTypeCode.VerifiedDeposit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMServiceType10CodeMetadataExtensions
-{
-    private static readonly ATMServiceType10CodeDropdownSource _dropdownSource = new ATMServiceType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMServiceType10CodeDropdownRow GetMetadata(this ATMServiceType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

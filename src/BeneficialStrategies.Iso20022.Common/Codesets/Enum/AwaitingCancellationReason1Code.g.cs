@@ -29,22 +29,3 @@ public enum AwaitingCancellationReason1Code
     AwaitingCancellation = AwaitingCancellationReasonCode.AwaitingCancellation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AwaitingCancellationReason1CodeMetadataExtensions
-{
-    private static readonly AwaitingCancellationReason1CodeDropdownSource _dropdownSource = new AwaitingCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAwaitingCancellationReason1CodeDropdownRow GetMetadata(this AwaitingCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

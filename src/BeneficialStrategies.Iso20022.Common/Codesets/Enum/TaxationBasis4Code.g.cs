@@ -56,22 +56,3 @@ public enum TaxationBasis4Code
     NetAmount = TaxationBasisCode.NetAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxationBasis4CodeMetadataExtensions
-{
-    private static readonly TaxationBasis4CodeDropdownSource _dropdownSource = new TaxationBasis4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxationBasis4CodeDropdownRow GetMetadata(this TaxationBasis4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum AmountUnit1Code
     Point = AmountUnitCode.Point, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountUnit1CodeMetadataExtensions
-{
-    private static readonly AmountUnit1CodeDropdownSource _dropdownSource = new AmountUnit1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountUnit1CodeDropdownRow GetMetadata(this AmountUnit1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

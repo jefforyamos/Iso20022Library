@@ -66,22 +66,3 @@ public enum ExternalClaimNonReceiptRejectionCode
     RegulatoryReason,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalClaimNonReceiptRejectionCodeMetadataExtensions
-{
-    private static readonly ExternalClaimNonReceiptRejectionCodeDropdownSource _dropdownSource = new ExternalClaimNonReceiptRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalClaimNonReceiptRejectionCodeDropdownRow GetMetadata(this ExternalClaimNonReceiptRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

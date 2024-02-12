@@ -56,22 +56,3 @@ public enum Modification1Code
     Addition = ModificationCode.Addition, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Modification1CodeMetadataExtensions
-{
-    private static readonly Modification1CodeDropdownSource _dropdownSource = new Modification1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IModification1CodeDropdownRow GetMetadata(this Modification1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

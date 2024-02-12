@@ -48,22 +48,3 @@ public enum ValidationRuleInstruction1Code
     Telecom = ValidationRuleCode.Telecom, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleInstruction1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleInstruction1CodeDropdownSource _dropdownSource = new ValidationRuleInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleInstruction1CodeDropdownRow GetMetadata(this ValidationRuleInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

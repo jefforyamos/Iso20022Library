@@ -101,22 +101,3 @@ public enum SecuritiesTransactionReasonCode
     Repair,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionReasonCodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionReasonCodeDropdownSource _dropdownSource = new SecuritiesTransactionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionReasonCodeDropdownRow GetMetadata(this SecuritiesTransactionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

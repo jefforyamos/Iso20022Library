@@ -38,22 +38,3 @@ public enum ReportPeriodActivity3Code
     NoReportFromAgent = ReportPeriodActivityCode.NoReportFromAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportPeriodActivity3CodeMetadataExtensions
-{
-    private static readonly ReportPeriodActivity3CodeDropdownSource _dropdownSource = new ReportPeriodActivity3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportPeriodActivity3CodeDropdownRow GetMetadata(this ReportPeriodActivity3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

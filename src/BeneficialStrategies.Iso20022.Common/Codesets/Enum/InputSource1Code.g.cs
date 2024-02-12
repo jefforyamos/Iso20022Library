@@ -47,22 +47,3 @@ public enum InputSource1Code
     UploadedViaCIS = InputSourceCode.UploadedViaCIS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InputSource1CodeMetadataExtensions
-{
-    private static readonly InputSource1CodeDropdownSource _dropdownSource = new InputSource1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInputSource1CodeDropdownRow GetMetadata(this InputSource1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

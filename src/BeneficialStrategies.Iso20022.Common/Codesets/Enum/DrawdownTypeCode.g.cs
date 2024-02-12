@@ -47,22 +47,3 @@ public enum DrawdownTypeCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DrawdownTypeCodeMetadataExtensions
-{
-    private static readonly DrawdownTypeCodeDropdownSource _dropdownSource = new DrawdownTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDrawdownTypeCodeDropdownRow GetMetadata(this DrawdownTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

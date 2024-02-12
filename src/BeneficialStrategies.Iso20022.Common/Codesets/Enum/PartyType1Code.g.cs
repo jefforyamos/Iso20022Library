@@ -182,22 +182,3 @@ public enum PartyType1Code
     Investor = PartyTypeCode.Investor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType1CodeMetadataExtensions
-{
-    private static readonly PartyType1CodeDropdownSource _dropdownSource = new PartyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType1CodeDropdownRow GetMetadata(this PartyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

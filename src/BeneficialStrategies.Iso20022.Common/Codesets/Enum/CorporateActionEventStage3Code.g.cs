@@ -110,22 +110,3 @@ public enum CorporateActionEventStage3Code
     WhollyUnconditional = CorporateActionEventStageV2Code.WhollyUnconditional, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStage3CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStage3CodeDropdownSource _dropdownSource = new CorporateActionEventStage3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStage3CodeDropdownRow GetMetadata(this CorporateActionEventStage3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -60,22 +60,3 @@ public enum ESGCategoryGermanFundMarket1Code
     BasicCategory = ESGCategoryGermanFundMarketCode.BasicCategory, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGCategoryGermanFundMarket1CodeMetadataExtensions
-{
-    private static readonly ESGCategoryGermanFundMarket1CodeDropdownSource _dropdownSource = new ESGCategoryGermanFundMarket1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGCategoryGermanFundMarket1CodeDropdownRow GetMetadata(this ESGCategoryGermanFundMarket1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

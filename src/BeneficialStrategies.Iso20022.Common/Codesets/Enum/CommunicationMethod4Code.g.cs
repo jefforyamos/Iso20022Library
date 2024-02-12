@@ -101,22 +101,3 @@ public enum CommunicationMethod4Code
     SWIFTMX = CommunicationMethodCode.SWIFTMX, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommunicationMethod4CodeMetadataExtensions
-{
-    private static readonly CommunicationMethod4CodeDropdownSource _dropdownSource = new CommunicationMethod4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommunicationMethod4CodeDropdownRow GetMetadata(this CommunicationMethod4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

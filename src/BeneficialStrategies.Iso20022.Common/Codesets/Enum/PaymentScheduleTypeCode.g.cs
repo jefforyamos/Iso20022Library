@@ -47,22 +47,3 @@ public enum PaymentScheduleTypeCode
     Both,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentScheduleTypeCodeMetadataExtensions
-{
-    private static readonly PaymentScheduleTypeCodeDropdownSource _dropdownSource = new PaymentScheduleTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentScheduleTypeCodeDropdownRow GetMetadata(this PaymentScheduleTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

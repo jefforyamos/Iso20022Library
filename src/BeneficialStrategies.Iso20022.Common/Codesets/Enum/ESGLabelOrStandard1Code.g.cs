@@ -155,22 +155,3 @@ public enum ESGLabelOrStandard1Code
     UZ49 = ESGLabelOrStandardCode.UZ49, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGLabelOrStandard1CodeMetadataExtensions
-{
-    private static readonly ESGLabelOrStandard1CodeDropdownSource _dropdownSource = new ESGLabelOrStandard1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGLabelOrStandard1CodeDropdownRow GetMetadata(this ESGLabelOrStandard1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

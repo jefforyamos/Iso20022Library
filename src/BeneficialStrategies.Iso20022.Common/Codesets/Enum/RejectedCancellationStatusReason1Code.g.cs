@@ -47,22 +47,3 @@ public enum RejectedCancellationStatusReason1Code
     NotCompliantWithSLA = RejectedStatusReasonCode.NotCompliantWithSLA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedCancellationStatusReason1CodeMetadataExtensions
-{
-    private static readonly RejectedCancellationStatusReason1CodeDropdownSource _dropdownSource = new RejectedCancellationStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedCancellationStatusReason1CodeDropdownRow GetMetadata(this RejectedCancellationStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum CancelledStatusReason17Code
     CancelledBySystem = CancelledStatusReasonCode.CancelledBySystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason17CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason17CodeDropdownSource _dropdownSource = new CancelledStatusReason17CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason17CodeDropdownRow GetMetadata(this CancelledStatusReason17Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -380,22 +380,3 @@ public enum CarRentalServiceTypeCode
     Tolls,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CarRentalServiceTypeCodeMetadataExtensions
-{
-    private static readonly CarRentalServiceTypeCodeDropdownSource _dropdownSource = new CarRentalServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICarRentalServiceTypeCodeDropdownRow GetMetadata(this CarRentalServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

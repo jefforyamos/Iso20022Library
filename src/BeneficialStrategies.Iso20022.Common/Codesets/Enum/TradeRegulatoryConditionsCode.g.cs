@@ -38,22 +38,3 @@ public enum TradeRegulatoryConditionsCode
     Unsolicited,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeRegulatoryConditionsCodeMetadataExtensions
-{
-    private static readonly TradeRegulatoryConditionsCodeDropdownSource _dropdownSource = new TradeRegulatoryConditionsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeRegulatoryConditionsCodeDropdownRow GetMetadata(this TradeRegulatoryConditionsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

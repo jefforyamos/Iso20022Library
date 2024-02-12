@@ -38,22 +38,3 @@ public enum RateType7Code
     Unscheduled = InterestRateTypeCode.Unscheduled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateType7CodeMetadataExtensions
-{
-    private static readonly RateType7CodeDropdownSource _dropdownSource = new RateType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateType7CodeDropdownRow GetMetadata(this RateType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum AccountUsageType2Code
     TradingParticipant = AccountUsageTypeCode.TradingParticipant, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountUsageType2CodeMetadataExtensions
-{
-    private static readonly AccountUsageType2CodeDropdownSource _dropdownSource = new AccountUsageType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountUsageType2CodeDropdownRow GetMetadata(this AccountUsageType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

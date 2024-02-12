@@ -849,22 +849,3 @@ public enum TypeOfAmountCode
     CashBackInterchangeFee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmountCodeMetadataExtensions
-{
-    private static readonly TypeOfAmountCodeDropdownSource _dropdownSource = new TypeOfAmountCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmountCodeDropdownRow GetMetadata(this TypeOfAmountCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

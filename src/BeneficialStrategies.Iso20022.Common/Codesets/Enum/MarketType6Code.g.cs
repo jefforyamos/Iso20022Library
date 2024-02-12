@@ -47,22 +47,3 @@ public enum MarketType6Code
     StockExchange = MarketTypeCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketType6CodeMetadataExtensions
-{
-    private static readonly MarketType6CodeDropdownSource _dropdownSource = new MarketType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketType6CodeDropdownRow GetMetadata(this MarketType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

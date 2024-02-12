@@ -39,22 +39,3 @@ public enum ExternalEffectiveDateParameter1Code
     TradeDate = ExternalEffectiveDateParameterCode.TradeDate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalEffectiveDateParameter1CodeMetadataExtensions
-{
-    private static readonly ExternalEffectiveDateParameter1CodeDropdownSource _dropdownSource = new ExternalEffectiveDateParameter1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalEffectiveDateParameter1CodeDropdownRow GetMetadata(this ExternalEffectiveDateParameter1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

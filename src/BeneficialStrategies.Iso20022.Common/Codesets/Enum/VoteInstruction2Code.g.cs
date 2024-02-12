@@ -92,22 +92,3 @@ public enum VoteInstruction2Code
     Discretionary = VoteInstructionCode.Discretionary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteInstruction2CodeMetadataExtensions
-{
-    private static readonly VoteInstruction2CodeDropdownSource _dropdownSource = new VoteInstruction2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteInstruction2CodeDropdownRow GetMetadata(this VoteInstruction2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

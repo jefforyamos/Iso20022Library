@@ -110,22 +110,3 @@ public enum InstructionCancellationReasonCode
     SecuritiesNoLongerEligible,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionCancellationReasonCodeMetadataExtensions
-{
-    private static readonly InstructionCancellationReasonCodeDropdownSource _dropdownSource = new InstructionCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionCancellationReasonCodeDropdownRow GetMetadata(this InstructionCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

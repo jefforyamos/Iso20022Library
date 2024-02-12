@@ -65,22 +65,3 @@ public enum NetworkTypeCode
     Sock5,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NetworkTypeCodeMetadataExtensions
-{
-    private static readonly NetworkTypeCodeDropdownSource _dropdownSource = new NetworkTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INetworkTypeCodeDropdownRow GetMetadata(this NetworkTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

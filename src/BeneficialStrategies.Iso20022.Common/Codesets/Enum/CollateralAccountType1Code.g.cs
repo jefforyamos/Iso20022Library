@@ -65,22 +65,3 @@ public enum CollateralAccountType1Code
     DefaultFund = CollateralAccountTypeCode.DefaultFund, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralAccountType1CodeMetadataExtensions
-{
-    private static readonly CollateralAccountType1CodeDropdownSource _dropdownSource = new CollateralAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralAccountType1CodeDropdownRow GetMetadata(this CollateralAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

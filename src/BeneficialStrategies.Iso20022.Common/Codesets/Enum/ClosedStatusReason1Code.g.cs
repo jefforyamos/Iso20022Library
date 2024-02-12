@@ -38,22 +38,3 @@ public enum ClosedStatusReason1Code
     ClientInstruction = ClosedStatusReasonCode.ClientInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClosedStatusReason1CodeMetadataExtensions
-{
-    private static readonly ClosedStatusReason1CodeDropdownSource _dropdownSource = new ClosedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClosedStatusReason1CodeDropdownRow GetMetadata(this ClosedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum TradingCapacity5Code
     Agent = TradingCapacityCode.Agent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingCapacity5CodeMetadataExtensions
-{
-    private static readonly TradingCapacity5CodeDropdownSource _dropdownSource = new TradingCapacity5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingCapacity5CodeDropdownRow GetMetadata(this TradingCapacity5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

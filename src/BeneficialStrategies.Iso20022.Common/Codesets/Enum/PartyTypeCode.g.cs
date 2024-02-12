@@ -542,22 +542,3 @@ public enum PartyTypeCode
     WalletProvider,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyTypeCodeMetadataExtensions
-{
-    private static readonly PartyTypeCodeDropdownSource _dropdownSource = new PartyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyTypeCodeDropdownRow GetMetadata(this PartyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

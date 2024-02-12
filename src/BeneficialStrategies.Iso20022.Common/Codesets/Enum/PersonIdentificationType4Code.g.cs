@@ -56,22 +56,3 @@ public enum PersonIdentificationType4Code
     DriverNumber = PersonIdentificationTypeCode.DriverNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PersonIdentificationType4CodeMetadataExtensions
-{
-    private static readonly PersonIdentificationType4CodeDropdownSource _dropdownSource = new PersonIdentificationType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPersonIdentificationType4CodeDropdownRow GetMetadata(this PersonIdentificationType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

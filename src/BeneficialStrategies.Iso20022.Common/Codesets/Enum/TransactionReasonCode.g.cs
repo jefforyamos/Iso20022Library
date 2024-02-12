@@ -470,22 +470,3 @@ public enum TransactionReasonCode
     Narrative,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionReasonCodeMetadataExtensions
-{
-    private static readonly TransactionReasonCodeDropdownSource _dropdownSource = new TransactionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionReasonCodeDropdownRow GetMetadata(this TransactionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -960,22 +960,3 @@ public enum ExternalReturnReasonCode
     InvalidDebtorBankIdentifier,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReturnReasonCodeMetadataExtensions
-{
-    private static readonly ExternalReturnReasonCodeDropdownSource _dropdownSource = new ExternalReturnReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReturnReasonCodeDropdownRow GetMetadata(this ExternalReturnReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

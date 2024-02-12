@@ -29,22 +29,3 @@ public enum PaymentMethod2Code
     DirectDebit = PaymentMethodCode.DirectDebit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentMethod2CodeMetadataExtensions
-{
-    private static readonly PaymentMethod2CodeDropdownSource _dropdownSource = new PaymentMethod2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentMethod2CodeDropdownRow GetMetadata(this PaymentMethod2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

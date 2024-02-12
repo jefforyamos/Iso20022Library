@@ -65,22 +65,3 @@ public enum OrderWaiverReason1Code
     CommissionWaiver = OrderWaiverReasonCode.CommissionWaiver, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderWaiverReason1CodeMetadataExtensions
-{
-    private static readonly OrderWaiverReason1CodeDropdownSource _dropdownSource = new OrderWaiverReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderWaiverReason1CodeDropdownRow GetMetadata(this OrderWaiverReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

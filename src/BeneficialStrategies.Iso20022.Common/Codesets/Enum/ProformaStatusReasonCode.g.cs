@@ -38,22 +38,3 @@ public enum ProformaStatusReasonCode
     ModificationInProcess,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProformaStatusReasonCodeMetadataExtensions
-{
-    private static readonly ProformaStatusReasonCodeDropdownSource _dropdownSource = new ProformaStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProformaStatusReasonCodeDropdownRow GetMetadata(this ProformaStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

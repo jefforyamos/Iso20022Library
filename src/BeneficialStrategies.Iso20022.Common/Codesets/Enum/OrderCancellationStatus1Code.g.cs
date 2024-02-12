@@ -47,22 +47,3 @@ public enum OrderCancellationStatus1Code
     CancellationCompleted = OrderCancellationStatusCode.CancellationCompleted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderCancellationStatus1CodeMetadataExtensions
-{
-    private static readonly OrderCancellationStatus1CodeDropdownSource _dropdownSource = new OrderCancellationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderCancellationStatus1CodeDropdownRow GetMetadata(this OrderCancellationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

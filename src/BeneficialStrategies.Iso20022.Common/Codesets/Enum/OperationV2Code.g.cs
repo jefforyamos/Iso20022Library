@@ -56,22 +56,3 @@ public enum OperationV2Code
     Till,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OperationV2CodeMetadataExtensions
-{
-    private static readonly OperationV2CodeDropdownSource _dropdownSource = new OperationV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperationV2CodeDropdownRow GetMetadata(this OperationV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

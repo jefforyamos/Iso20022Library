@@ -254,22 +254,3 @@ public enum MessageFunction6Code
     NetworkManagementRequest = MessageFunctionCode.NetworkManagementRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction6CodeMetadataExtensions
-{
-    private static readonly MessageFunction6CodeDropdownSource _dropdownSource = new MessageFunction6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction6CodeDropdownRow GetMetadata(this MessageFunction6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

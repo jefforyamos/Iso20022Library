@@ -326,22 +326,3 @@ public enum SettlementTransactionType7Code
     OfferingIssuingTrade = SecuritiesTransactionTypeV3Code.OfferingIssuingTrade, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionType7CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionType7CodeDropdownSource _dropdownSource = new SettlementTransactionType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionType7CodeDropdownRow GetMetadata(this SettlementTransactionType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -128,22 +128,3 @@ public enum Algorithm19Code
     SignatureWithEllipticCurveP_512 = AlgorithmCode.SignatureWithEllipticCurveP_512, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm19CodeMetadataExtensions
-{
-    private static readonly Algorithm19CodeDropdownSource _dropdownSource = new Algorithm19CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm19CodeDropdownRow GetMetadata(this Algorithm19Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -390,22 +390,3 @@ public enum ExternalUnableToApplyIncorrectDataCode
     IncorrectRelatedRemittanceInformation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUnableToApplyIncorrectDataCodeMetadataExtensions
-{
-    private static readonly ExternalUnableToApplyIncorrectDataCodeDropdownSource _dropdownSource = new ExternalUnableToApplyIncorrectDataCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUnableToApplyIncorrectDataCodeDropdownRow GetMetadata(this ExternalUnableToApplyIncorrectDataCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

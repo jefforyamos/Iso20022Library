@@ -101,22 +101,3 @@ public enum BalanceType14Code
     Ledger = BalanceTypeCode.Ledger, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType14CodeMetadataExtensions
-{
-    private static readonly BalanceType14CodeDropdownSource _dropdownSource = new BalanceType14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType14CodeDropdownRow GetMetadata(this BalanceType14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

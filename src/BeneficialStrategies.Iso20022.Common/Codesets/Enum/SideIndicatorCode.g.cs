@@ -38,22 +38,3 @@ public enum SideIndicatorCode
     CCPLeg,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SideIndicatorCodeMetadataExtensions
-{
-    private static readonly SideIndicatorCodeDropdownSource _dropdownSource = new SideIndicatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISideIndicatorCodeDropdownRow GetMetadata(this SideIndicatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

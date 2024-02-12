@@ -74,22 +74,3 @@ public enum CaseAssignmentRejectionCode
     PaymentPreviouslyCancelledOrRejected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CaseAssignmentRejectionCodeMetadataExtensions
-{
-    private static readonly CaseAssignmentRejectionCodeDropdownSource _dropdownSource = new CaseAssignmentRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICaseAssignmentRejectionCodeDropdownRow GetMetadata(this CaseAssignmentRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

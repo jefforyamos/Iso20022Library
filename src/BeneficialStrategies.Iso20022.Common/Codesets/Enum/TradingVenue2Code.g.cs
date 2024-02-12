@@ -38,22 +38,3 @@ public enum TradingVenue2Code
     ConsolidatedTapeProvider = TradingVenueCode.ConsolidatedTapeProvider, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingVenue2CodeMetadataExtensions
-{
-    private static readonly TradingVenue2CodeDropdownSource _dropdownSource = new TradingVenue2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingVenue2CodeDropdownRow GetMetadata(this TradingVenue2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

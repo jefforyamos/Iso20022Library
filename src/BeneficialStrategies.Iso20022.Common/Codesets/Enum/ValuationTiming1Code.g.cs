@@ -47,22 +47,3 @@ public enum ValuationTiming1Code
     Particular = ValuationTimingCode.Particular, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValuationTiming1CodeMetadataExtensions
-{
-    private static readonly ValuationTiming1CodeDropdownSource _dropdownSource = new ValuationTiming1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValuationTiming1CodeDropdownRow GetMetadata(this ValuationTiming1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

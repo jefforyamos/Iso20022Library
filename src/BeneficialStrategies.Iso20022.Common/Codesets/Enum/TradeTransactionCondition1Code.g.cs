@@ -481,22 +481,3 @@ public enum TradeTransactionCondition1Code
     SpecialPrice = TradeTransactionConditionCode.SpecialPrice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTransactionCondition1CodeMetadataExtensions
-{
-    private static readonly TradeTransactionCondition1CodeDropdownSource _dropdownSource = new TradeTransactionCondition1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTransactionCondition1CodeDropdownRow GetMetadata(this TradeTransactionCondition1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

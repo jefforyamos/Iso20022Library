@@ -83,22 +83,3 @@ public enum OrderStatus5Code
     CashSettledOrderNotExecuted = OrderStatusCode.CashSettledOrderNotExecuted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderStatus5CodeMetadataExtensions
-{
-    private static readonly OrderStatus5CodeDropdownSource _dropdownSource = new OrderStatus5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderStatus5CodeDropdownRow GetMetadata(this OrderStatus5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

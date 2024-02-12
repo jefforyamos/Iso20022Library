@@ -137,22 +137,3 @@ public enum PaymentTime3Code
     PaymentOnReceiptOfInvoice = PaymentTimeCode.PaymentOnReceiptOfInvoice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTime3CodeMetadataExtensions
-{
-    private static readonly PaymentTime3CodeDropdownSource _dropdownSource = new PaymentTime3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTime3CodeDropdownRow GetMetadata(this PaymentTime3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

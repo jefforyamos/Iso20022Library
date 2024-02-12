@@ -83,22 +83,3 @@ public enum ReconciliationV2Code
     SingleSidedForeign,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationV2CodeMetadataExtensions
-{
-    private static readonly ReconciliationV2CodeDropdownSource _dropdownSource = new ReconciliationV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationV2CodeDropdownRow GetMetadata(this ReconciliationV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum TaxIdentificationNumberType1Code
     TaxIdentificationNumber = TaxIdentificationNumberTypeCode.TaxIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxIdentificationNumberType1CodeMetadataExtensions
-{
-    private static readonly TaxIdentificationNumberType1CodeDropdownSource _dropdownSource = new TaxIdentificationNumberType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxIdentificationNumberType1CodeDropdownRow GetMetadata(this TaxIdentificationNumberType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

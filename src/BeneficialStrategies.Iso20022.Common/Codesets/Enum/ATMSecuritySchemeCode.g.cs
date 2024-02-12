@@ -110,22 +110,3 @@ public enum ATMSecuritySchemeCode
     TR34,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMSecuritySchemeCodeMetadataExtensions
-{
-    private static readonly ATMSecuritySchemeCodeDropdownSource _dropdownSource = new ATMSecuritySchemeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMSecuritySchemeCodeDropdownRow GetMetadata(this ATMSecuritySchemeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

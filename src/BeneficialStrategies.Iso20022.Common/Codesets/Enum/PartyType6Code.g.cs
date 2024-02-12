@@ -74,22 +74,3 @@ public enum PartyType6Code
     TerminalManager = PartyTypeCode.TerminalManager, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType6CodeMetadataExtensions
-{
-    private static readonly PartyType6CodeDropdownSource _dropdownSource = new PartyType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType6CodeDropdownRow GetMetadata(this PartyType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

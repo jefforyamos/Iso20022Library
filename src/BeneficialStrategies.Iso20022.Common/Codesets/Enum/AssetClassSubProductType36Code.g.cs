@@ -29,22 +29,3 @@ public enum AssetClassSubProductType36Code
     Newsprint = AssetClassSubProductTypeCode.Newsprint, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType36CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType36CodeDropdownSource _dropdownSource = new AssetClassSubProductType36CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType36CodeDropdownRow GetMetadata(this AssetClassSubProductType36Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

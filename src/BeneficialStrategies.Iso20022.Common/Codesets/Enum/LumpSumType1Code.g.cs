@@ -47,22 +47,3 @@ public enum LumpSumType1Code
     Uncrystallised = LumpSumTypeCode.Uncrystallised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LumpSumType1CodeMetadataExtensions
-{
-    private static readonly LumpSumType1CodeDropdownSource _dropdownSource = new LumpSumType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILumpSumType1CodeDropdownRow GetMetadata(this LumpSumType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

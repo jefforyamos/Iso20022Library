@@ -74,22 +74,3 @@ public enum ReservationType2Code
     Blocked = ReservationTypeCode.Blocked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReservationType2CodeMetadataExtensions
-{
-    private static readonly ReservationType2CodeDropdownSource _dropdownSource = new ReservationType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReservationType2CodeDropdownRow GetMetadata(this ReservationType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

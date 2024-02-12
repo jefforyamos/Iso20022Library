@@ -470,22 +470,3 @@ public enum TypeOfPriceCode
     TaxableIncomePerShareCalculated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPriceCodeMetadataExtensions
-{
-    private static readonly TypeOfPriceCodeDropdownSource _dropdownSource = new TypeOfPriceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPriceCodeDropdownRow GetMetadata(this TypeOfPriceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

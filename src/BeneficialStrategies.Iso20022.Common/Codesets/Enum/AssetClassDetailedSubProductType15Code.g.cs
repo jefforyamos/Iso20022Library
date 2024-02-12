@@ -29,22 +29,3 @@ public enum AssetClassDetailedSubProductType15Code
     MillingWheat = AssetClassDetailedSubProductTypeCode.MillingWheat, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType15CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType15CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType15CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

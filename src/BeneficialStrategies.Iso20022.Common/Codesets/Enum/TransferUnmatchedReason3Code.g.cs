@@ -119,22 +119,3 @@ public enum TransferUnmatchedReason3Code
     SafekeepingAccount = TransferUnmatchedReasonCode.SafekeepingAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferUnmatchedReason3CodeMetadataExtensions
-{
-    private static readonly TransferUnmatchedReason3CodeDropdownSource _dropdownSource = new TransferUnmatchedReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferUnmatchedReason3CodeDropdownRow GetMetadata(this TransferUnmatchedReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

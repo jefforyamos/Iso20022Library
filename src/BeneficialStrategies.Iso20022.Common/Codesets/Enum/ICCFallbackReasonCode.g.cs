@@ -65,22 +65,3 @@ public enum ICCFallbackReasonCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ICCFallbackReasonCodeMetadataExtensions
-{
-    private static readonly ICCFallbackReasonCodeDropdownSource _dropdownSource = new ICCFallbackReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IICCFallbackReasonCodeDropdownRow GetMetadata(this ICCFallbackReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

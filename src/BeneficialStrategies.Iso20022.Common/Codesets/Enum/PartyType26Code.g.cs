@@ -92,22 +92,3 @@ public enum PartyType26Code
     OtherPrivate = PartyTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType26CodeMetadataExtensions
-{
-    private static readonly PartyType26CodeDropdownSource _dropdownSource = new PartyType26CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType26CodeDropdownRow GetMetadata(this PartyType26Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

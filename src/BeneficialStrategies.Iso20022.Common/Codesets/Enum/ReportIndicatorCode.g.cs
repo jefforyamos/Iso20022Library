@@ -38,22 +38,3 @@ public enum ReportIndicatorCode
     Proprietary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportIndicatorCodeMetadataExtensions
-{
-    private static readonly ReportIndicatorCodeDropdownSource _dropdownSource = new ReportIndicatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportIndicatorCodeDropdownRow GetMetadata(this ReportIndicatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

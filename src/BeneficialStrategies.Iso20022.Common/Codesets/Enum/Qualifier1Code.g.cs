@@ -182,22 +182,3 @@ public enum Qualifier1Code
     PreOpen = QualifierCode.PreOpen, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Qualifier1CodeMetadataExtensions
-{
-    private static readonly Qualifier1CodeDropdownSource _dropdownSource = new Qualifier1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQualifier1CodeDropdownRow GetMetadata(this Qualifier1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum CompanyAssigner2Code
     OtherNational = CompanyAssignerCode.OtherNational, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CompanyAssigner2CodeMetadataExtensions
-{
-    private static readonly CompanyAssigner2CodeDropdownSource _dropdownSource = new CompanyAssigner2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICompanyAssigner2CodeDropdownRow GetMetadata(this CompanyAssigner2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

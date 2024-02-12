@@ -46,22 +46,3 @@ public enum AmountFullfilTypeCode
     TotalOrPartial,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountFullfilTypeCodeMetadataExtensions
-{
-    private static readonly AmountFullfilTypeCodeDropdownSource _dropdownSource = new AmountFullfilTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountFullfilTypeCodeDropdownRow GetMetadata(this AmountFullfilTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

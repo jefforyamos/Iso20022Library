@@ -74,22 +74,3 @@ public enum Status8Code
     Forwarded = StatusCode.Forwarded, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Status8CodeMetadataExtensions
-{
-    private static readonly Status8CodeDropdownSource _dropdownSource = new Status8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatus8CodeDropdownRow GetMetadata(this Status8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

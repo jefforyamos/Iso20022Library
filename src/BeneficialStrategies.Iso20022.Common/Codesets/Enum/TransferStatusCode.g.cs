@@ -146,22 +146,3 @@ public enum TransferStatusCode
     Delayed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatusCodeMetadataExtensions
-{
-    private static readonly TransferStatusCodeDropdownSource _dropdownSource = new TransferStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatusCodeDropdownRow GetMetadata(this TransferStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum TypeOfIdentificationCode
     NationalRegistrationIdentificationNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfIdentificationCodeMetadataExtensions
-{
-    private static readonly TypeOfIdentificationCodeDropdownSource _dropdownSource = new TypeOfIdentificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfIdentificationCodeDropdownRow GetMetadata(this TypeOfIdentificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

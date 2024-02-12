@@ -74,22 +74,3 @@ public enum PaymentMethodCode
     Classical,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentMethodCodeMetadataExtensions
-{
-    private static readonly PaymentMethodCodeDropdownSource _dropdownSource = new PaymentMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentMethodCodeDropdownRow GetMetadata(this PaymentMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

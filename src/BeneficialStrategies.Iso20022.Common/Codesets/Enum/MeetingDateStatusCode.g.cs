@@ -56,22 +56,3 @@ public enum MeetingDateStatusCode
     NoQuorum,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingDateStatusCodeMetadataExtensions
-{
-    private static readonly MeetingDateStatusCodeDropdownSource _dropdownSource = new MeetingDateStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingDateStatusCodeDropdownRow GetMetadata(this MeetingDateStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum AssetClassSubProductType26Code
     InterEnergy = AssetClassSubProductTypeCode.InterEnergy, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType26CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType26CodeDropdownSource _dropdownSource = new AssetClassSubProductType26CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType26CodeDropdownRow GetMetadata(this AssetClassSubProductType26Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum FinancialInstrumentRemovalCode
     Termination,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentRemovalCodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentRemovalCodeDropdownSource _dropdownSource = new FinancialInstrumentRemovalCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentRemovalCodeDropdownRow GetMetadata(this FinancialInstrumentRemovalCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

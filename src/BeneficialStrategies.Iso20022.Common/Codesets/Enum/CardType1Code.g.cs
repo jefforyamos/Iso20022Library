@@ -38,22 +38,3 @@ public enum CardType1Code
     DebitCard = CardTypeCode.DebitCard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardType1CodeMetadataExtensions
-{
-    private static readonly CardType1CodeDropdownSource _dropdownSource = new CardType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardType1CodeDropdownRow GetMetadata(this CardType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

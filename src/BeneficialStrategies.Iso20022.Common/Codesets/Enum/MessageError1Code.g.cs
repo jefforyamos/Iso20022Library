@@ -182,22 +182,3 @@ public enum MessageError1Code
     InvalidCollection = MessageErrorCode.InvalidCollection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageError1CodeMetadataExtensions
-{
-    private static readonly MessageError1CodeDropdownSource _dropdownSource = new MessageError1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageError1CodeDropdownRow GetMetadata(this MessageError1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

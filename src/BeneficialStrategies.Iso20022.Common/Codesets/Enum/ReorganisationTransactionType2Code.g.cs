@@ -29,22 +29,3 @@ public enum ReorganisationTransactionType2Code
     CoverProtectDirectlyToAgentHeaderTransaction = ReorganisationTransactionTypeCode.CoverProtectDirectlyToAgentHeaderTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReorganisationTransactionType2CodeMetadataExtensions
-{
-    private static readonly ReorganisationTransactionType2CodeDropdownSource _dropdownSource = new ReorganisationTransactionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReorganisationTransactionType2CodeDropdownRow GetMetadata(this ReorganisationTransactionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

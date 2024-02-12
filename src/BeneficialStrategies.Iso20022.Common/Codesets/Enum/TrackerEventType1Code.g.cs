@@ -83,22 +83,3 @@ public enum TrackerEventType1Code
     StatusUpdateCustomerCreditTransferPayment = TrackerEventTypeCode.StatusUpdateCustomerCreditTransferPayment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerEventType1CodeMetadataExtensions
-{
-    private static readonly TrackerEventType1CodeDropdownSource _dropdownSource = new TrackerEventType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerEventType1CodeDropdownRow GetMetadata(this TrackerEventType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

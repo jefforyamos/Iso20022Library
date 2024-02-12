@@ -155,22 +155,3 @@ public enum FractionDispositionTypeCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FractionDispositionTypeCodeMetadataExtensions
-{
-    private static readonly FractionDispositionTypeCodeDropdownSource _dropdownSource = new FractionDispositionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFractionDispositionTypeCodeDropdownRow GetMetadata(this FractionDispositionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -101,22 +101,3 @@ public enum Frequency6Code
     Fortnightly = FrequencyCode.Fortnightly, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency6CodeMetadataExtensions
-{
-    private static readonly Frequency6CodeDropdownSource _dropdownSource = new Frequency6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency6CodeDropdownRow GetMetadata(this Frequency6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

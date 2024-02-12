@@ -56,22 +56,3 @@ public enum UnderlyingEquityType4Code
     VolatilityIndex = UnderlyingTypeV2Code.VolatilityIndex, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnderlyingEquityType4CodeMetadataExtensions
-{
-    private static readonly UnderlyingEquityType4CodeDropdownSource _dropdownSource = new UnderlyingEquityType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnderlyingEquityType4CodeDropdownRow GetMetadata(this UnderlyingEquityType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

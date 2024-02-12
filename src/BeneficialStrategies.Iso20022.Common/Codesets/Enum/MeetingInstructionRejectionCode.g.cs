@@ -128,22 +128,3 @@ public enum MeetingInstructionRejectionCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingInstructionRejectionCodeMetadataExtensions
-{
-    private static readonly MeetingInstructionRejectionCodeDropdownSource _dropdownSource = new MeetingInstructionRejectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingInstructionRejectionCodeDropdownRow GetMetadata(this MeetingInstructionRejectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

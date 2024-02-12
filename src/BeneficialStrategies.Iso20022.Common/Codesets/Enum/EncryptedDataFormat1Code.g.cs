@@ -74,22 +74,3 @@ public enum EncryptedDataFormat1Code
     OtherPrivate = EncryptedDataFormatCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EncryptedDataFormat1CodeMetadataExtensions
-{
-    private static readonly EncryptedDataFormat1CodeDropdownSource _dropdownSource = new EncryptedDataFormat1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEncryptedDataFormat1CodeDropdownRow GetMetadata(this EncryptedDataFormat1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

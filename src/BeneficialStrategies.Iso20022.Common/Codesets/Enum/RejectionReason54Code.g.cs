@@ -272,22 +272,3 @@ public enum RejectionReason54Code
     MissingTaxRate = RejectionReasonV3Code.MissingTaxRate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason54CodeMetadataExtensions
-{
-    private static readonly RejectionReason54CodeDropdownSource _dropdownSource = new RejectionReason54CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason54CodeDropdownRow GetMetadata(this RejectionReason54Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

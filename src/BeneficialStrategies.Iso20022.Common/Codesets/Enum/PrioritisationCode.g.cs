@@ -47,22 +47,3 @@ public enum PrioritisationCode
     SellSide,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PrioritisationCodeMetadataExtensions
-{
-    private static readonly PrioritisationCodeDropdownSource _dropdownSource = new PrioritisationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPrioritisationCodeDropdownRow GetMetadata(this PrioritisationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

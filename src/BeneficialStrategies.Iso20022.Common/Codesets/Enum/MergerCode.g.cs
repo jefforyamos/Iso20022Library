@@ -37,22 +37,3 @@ public enum MergerCode
     NoGeneralShareholdersMeeting,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MergerCodeMetadataExtensions
-{
-    private static readonly MergerCodeDropdownSource _dropdownSource = new MergerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMergerCodeDropdownRow GetMetadata(this MergerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

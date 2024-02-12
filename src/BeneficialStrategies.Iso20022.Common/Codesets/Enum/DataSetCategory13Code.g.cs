@@ -137,22 +137,3 @@ public enum DataSetCategory13Code
     SaleToPOIProtocolParameters = DataSetCategoryCode.SaleToPOIProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory13CodeMetadataExtensions
-{
-    private static readonly DataSetCategory13CodeDropdownSource _dropdownSource = new DataSetCategory13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory13CodeDropdownRow GetMetadata(this DataSetCategory13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

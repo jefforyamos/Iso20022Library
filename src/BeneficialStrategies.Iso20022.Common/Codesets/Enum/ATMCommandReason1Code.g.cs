@@ -65,22 +65,3 @@ public enum ATMCommandReason1Code
     Update = ATMCommandReasonCode.Update, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCommandReason1CodeMetadataExtensions
-{
-    private static readonly ATMCommandReason1CodeDropdownSource _dropdownSource = new ATMCommandReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCommandReason1CodeDropdownRow GetMetadata(this ATMCommandReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

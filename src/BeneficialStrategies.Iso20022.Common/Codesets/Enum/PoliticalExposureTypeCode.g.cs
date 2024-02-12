@@ -56,22 +56,3 @@ public enum PoliticalExposureTypeCode
     PoliticalExposure,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PoliticalExposureTypeCodeMetadataExtensions
-{
-    private static readonly PoliticalExposureTypeCodeDropdownSource _dropdownSource = new PoliticalExposureTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPoliticalExposureTypeCodeDropdownRow GetMetadata(this PoliticalExposureTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

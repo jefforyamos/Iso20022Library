@@ -65,22 +65,3 @@ public enum SafekeepingPlaceCode
     AllPlaces,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SafekeepingPlaceCodeMetadataExtensions
-{
-    private static readonly SafekeepingPlaceCodeDropdownSource _dropdownSource = new SafekeepingPlaceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISafekeepingPlaceCodeDropdownRow GetMetadata(this SafekeepingPlaceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

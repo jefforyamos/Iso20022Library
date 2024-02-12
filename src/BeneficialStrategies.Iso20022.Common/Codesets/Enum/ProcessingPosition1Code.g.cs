@@ -46,22 +46,3 @@ public enum ProcessingPosition1Code
     Before,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessingPosition1CodeMetadataExtensions
-{
-    private static readonly ProcessingPosition1CodeDropdownSource _dropdownSource = new ProcessingPosition1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessingPosition1CodeDropdownRow GetMetadata(this ProcessingPosition1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

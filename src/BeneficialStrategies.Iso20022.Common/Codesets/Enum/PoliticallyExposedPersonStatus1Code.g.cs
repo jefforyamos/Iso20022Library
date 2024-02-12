@@ -52,22 +52,3 @@ public enum PoliticallyExposedPersonStatus1Code
     FamilyMember = PoliticallyExposedPersonStatusCode.FamilyMember, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PoliticallyExposedPersonStatus1CodeMetadataExtensions
-{
-    private static readonly PoliticallyExposedPersonStatus1CodeDropdownSource _dropdownSource = new PoliticallyExposedPersonStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPoliticallyExposedPersonStatus1CodeDropdownRow GetMetadata(this PoliticallyExposedPersonStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -155,22 +155,3 @@ public enum EventFrequency8Code
     Weekly = EventFrequencyCode.Weekly, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency8CodeMetadataExtensions
-{
-    private static readonly EventFrequency8CodeDropdownSource _dropdownSource = new EventFrequency8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency8CodeDropdownRow GetMetadata(this EventFrequency8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

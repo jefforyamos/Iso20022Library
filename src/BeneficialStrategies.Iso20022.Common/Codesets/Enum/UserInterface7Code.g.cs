@@ -47,22 +47,3 @@ public enum UserInterface7Code
     ClearingAgentApplication = UserInterfaceCode.ClearingAgentApplication, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UserInterface7CodeMetadataExtensions
-{
-    private static readonly UserInterface7CodeDropdownSource _dropdownSource = new UserInterface7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUserInterface7CodeDropdownRow GetMetadata(this UserInterface7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

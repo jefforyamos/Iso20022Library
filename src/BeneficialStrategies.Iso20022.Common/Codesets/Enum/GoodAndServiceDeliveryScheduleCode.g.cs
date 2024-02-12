@@ -65,22 +65,3 @@ public enum GoodAndServiceDeliveryScheduleCode
     OtherNational,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodAndServiceDeliveryScheduleCodeMetadataExtensions
-{
-    private static readonly GoodAndServiceDeliveryScheduleCodeDropdownSource _dropdownSource = new GoodAndServiceDeliveryScheduleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodAndServiceDeliveryScheduleCodeDropdownRow GetMetadata(this GoodAndServiceDeliveryScheduleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

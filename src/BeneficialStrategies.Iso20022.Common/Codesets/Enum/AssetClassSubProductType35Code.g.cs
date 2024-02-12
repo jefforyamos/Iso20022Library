@@ -29,22 +29,3 @@ public enum AssetClassSubProductType35Code
     Containerboard = AssetClassSubProductTypeCode.Containerboard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType35CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType35CodeDropdownSource _dropdownSource = new AssetClassSubProductType35CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType35CodeDropdownRow GetMetadata(this AssetClassSubProductType35Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

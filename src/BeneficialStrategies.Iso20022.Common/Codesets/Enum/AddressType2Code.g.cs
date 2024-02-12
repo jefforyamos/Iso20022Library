@@ -74,22 +74,3 @@ public enum AddressType2Code
     DeliveryTo = AddressTypeCode.DeliveryTo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AddressType2CodeMetadataExtensions
-{
-    private static readonly AddressType2CodeDropdownSource _dropdownSource = new AddressType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAddressType2CodeDropdownRow GetMetadata(this AddressType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

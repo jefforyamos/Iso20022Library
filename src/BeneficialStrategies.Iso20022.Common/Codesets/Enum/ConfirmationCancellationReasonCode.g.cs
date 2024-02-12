@@ -218,22 +218,3 @@ public enum ConfirmationCancellationReasonCode
     IncorrectSettlementMethod,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationCancellationReasonCodeMetadataExtensions
-{
-    private static readonly ConfirmationCancellationReasonCodeDropdownSource _dropdownSource = new ConfirmationCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationCancellationReasonCodeDropdownRow GetMetadata(this ConfirmationCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

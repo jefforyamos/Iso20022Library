@@ -101,22 +101,3 @@ public enum TerminalManagementActionResult2Code
     UnknownKeyReference = TerminalManagementActionResultCode.UnknownKeyReference, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminalManagementActionResult2CodeMetadataExtensions
-{
-    private static readonly TerminalManagementActionResult2CodeDropdownSource _dropdownSource = new TerminalManagementActionResult2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminalManagementActionResult2CodeDropdownRow GetMetadata(this TerminalManagementActionResult2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

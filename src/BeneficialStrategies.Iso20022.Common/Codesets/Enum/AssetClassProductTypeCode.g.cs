@@ -155,22 +155,3 @@ public enum AssetClassProductTypeCode
     Index,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassProductTypeCodeMetadataExtensions
-{
-    private static readonly AssetClassProductTypeCodeDropdownSource _dropdownSource = new AssetClassProductTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassProductTypeCodeDropdownRow GetMetadata(this AssetClassProductTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum TransactionEnvironmentCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionEnvironmentCodeMetadataExtensions
-{
-    private static readonly TransactionEnvironmentCodeDropdownSource _dropdownSource = new TransactionEnvironmentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionEnvironmentCodeDropdownRow GetMetadata(this TransactionEnvironmentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

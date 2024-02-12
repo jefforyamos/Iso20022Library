@@ -29,22 +29,3 @@ public enum NoReasonCode
     NoReason = SpecialPurposeCode.NoReason, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NoReasonCodeMetadataExtensions
-{
-    private static readonly NoReasonCodeDropdownSource _dropdownSource = new NoReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INoReasonCodeDropdownRow GetMetadata(this NoReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum StatementUpdateTypeV2Code
     Delta,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementUpdateTypeV2CodeMetadataExtensions
-{
-    private static readonly StatementUpdateTypeV2CodeDropdownSource _dropdownSource = new StatementUpdateTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementUpdateTypeV2CodeDropdownRow GetMetadata(this StatementUpdateTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

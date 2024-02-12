@@ -92,22 +92,3 @@ public enum BarcodeType1Code
     BarcodeEncodedAsUPCA = BarcodeTypeCode.BarcodeEncodedAsUPCA, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BarcodeType1CodeMetadataExtensions
-{
-    private static readonly BarcodeType1CodeDropdownSource _dropdownSource = new BarcodeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBarcodeType1CodeDropdownRow GetMetadata(this BarcodeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

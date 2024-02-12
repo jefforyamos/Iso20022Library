@@ -65,22 +65,3 @@ public enum ReconciliationCategory1Code
     Chargeback = ReconciliationCategoryCode.Chargeback, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationCategory1CodeMetadataExtensions
-{
-    private static readonly ReconciliationCategory1CodeDropdownSource _dropdownSource = new ReconciliationCategory1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationCategory1CodeDropdownRow GetMetadata(this ReconciliationCategory1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

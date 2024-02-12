@@ -1235,22 +1235,3 @@ public enum InstructionRejectionReasonCode
     CustomerReferenceIdentificationMissingInSequence,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionRejectionReasonCodeMetadataExtensions
-{
-    private static readonly InstructionRejectionReasonCodeDropdownSource _dropdownSource = new InstructionRejectionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionRejectionReasonCodeDropdownRow GetMetadata(this InstructionRejectionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

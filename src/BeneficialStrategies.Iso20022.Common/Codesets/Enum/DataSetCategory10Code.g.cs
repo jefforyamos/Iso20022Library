@@ -110,22 +110,3 @@ public enum DataSetCategory10Code
     TMSProtocolParameters = DataSetCategoryCode.TMSProtocolParameters, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory10CodeMetadataExtensions
-{
-    private static readonly DataSetCategory10CodeDropdownSource _dropdownSource = new DataSetCategory10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory10CodeDropdownRow GetMetadata(this DataSetCategory10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

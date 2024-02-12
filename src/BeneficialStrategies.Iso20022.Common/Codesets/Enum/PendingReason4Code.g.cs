@@ -65,22 +65,3 @@ public enum PendingReason4Code
     ValidForTaxAuthorities = PendingFailingReasonCode.ValidForTaxAuthorities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason4CodeMetadataExtensions
-{
-    private static readonly PendingReason4CodeDropdownSource _dropdownSource = new PendingReason4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason4CodeDropdownRow GetMetadata(this PendingReason4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

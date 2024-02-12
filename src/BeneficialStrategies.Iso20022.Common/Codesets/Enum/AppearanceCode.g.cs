@@ -92,22 +92,3 @@ public enum AppearanceCode
     Global,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AppearanceCodeMetadataExtensions
-{
-    private static readonly AppearanceCodeDropdownSource _dropdownSource = new AppearanceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAppearanceCodeDropdownRow GetMetadata(this AppearanceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

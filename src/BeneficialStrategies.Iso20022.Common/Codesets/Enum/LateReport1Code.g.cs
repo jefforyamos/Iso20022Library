@@ -38,22 +38,3 @@ public enum LateReport1Code
     LateBecausePartial = LateReportCode.LateBecausePartial, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LateReport1CodeMetadataExtensions
-{
-    private static readonly LateReport1CodeDropdownSource _dropdownSource = new LateReport1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILateReport1CodeDropdownRow GetMetadata(this LateReport1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum DeviceOperatingSystemTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeviceOperatingSystemTypeCodeMetadataExtensions
-{
-    private static readonly DeviceOperatingSystemTypeCodeDropdownSource _dropdownSource = new DeviceOperatingSystemTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeviceOperatingSystemTypeCodeDropdownRow GetMetadata(this DeviceOperatingSystemTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

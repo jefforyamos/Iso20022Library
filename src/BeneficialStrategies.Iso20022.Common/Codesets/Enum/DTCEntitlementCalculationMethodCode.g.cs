@@ -74,22 +74,3 @@ public enum DTCEntitlementCalculationMethodCode
     SharesXStock,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCEntitlementCalculationMethodCodeMetadataExtensions
-{
-    private static readonly DTCEntitlementCalculationMethodCodeDropdownSource _dropdownSource = new DTCEntitlementCalculationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCEntitlementCalculationMethodCodeDropdownRow GetMetadata(this DTCEntitlementCalculationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

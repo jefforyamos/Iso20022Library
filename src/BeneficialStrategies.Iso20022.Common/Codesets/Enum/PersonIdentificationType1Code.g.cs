@@ -110,22 +110,3 @@ public enum PersonIdentificationType1Code
     EmployerIdentificationNumber = PersonIdentificationTypeCode.EmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PersonIdentificationType1CodeMetadataExtensions
-{
-    private static readonly PersonIdentificationType1CodeDropdownSource _dropdownSource = new PersonIdentificationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPersonIdentificationType1CodeDropdownRow GetMetadata(this PersonIdentificationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

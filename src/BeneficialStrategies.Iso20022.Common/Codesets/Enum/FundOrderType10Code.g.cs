@@ -65,22 +65,3 @@ public enum FundOrderType10Code
     Withdrawal = FundOrderTypeCode.Withdrawal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundOrderType10CodeMetadataExtensions
-{
-    private static readonly FundOrderType10CodeDropdownSource _dropdownSource = new FundOrderType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundOrderType10CodeDropdownRow GetMetadata(this FundOrderType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

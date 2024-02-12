@@ -92,22 +92,3 @@ public enum SettlementAdviceType1Code
     Termination = SettlementAdviceTypeCode.Termination, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementAdviceType1CodeMetadataExtensions
-{
-    private static readonly SettlementAdviceType1CodeDropdownSource _dropdownSource = new SettlementAdviceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementAdviceType1CodeDropdownRow GetMetadata(this SettlementAdviceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

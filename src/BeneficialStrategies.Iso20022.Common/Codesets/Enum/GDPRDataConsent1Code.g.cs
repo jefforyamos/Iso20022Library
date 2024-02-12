@@ -56,22 +56,3 @@ public enum GDPRDataConsent1Code
     ConsentTransferThirdPartyMarketing = GDPRDataConsentCode.ConsentTransferThirdPartyMarketing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GDPRDataConsent1CodeMetadataExtensions
-{
-    private static readonly GDPRDataConsent1CodeDropdownSource _dropdownSource = new GDPRDataConsent1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGDPRDataConsent1CodeDropdownRow GetMetadata(this GDPRDataConsent1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

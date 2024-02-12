@@ -209,22 +209,3 @@ public enum RejectionReason6Code
     RecordDateAfterPaymentDate = RejectionReasonCode.RecordDateAfterPaymentDate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason6CodeMetadataExtensions
-{
-    private static readonly RejectionReason6CodeDropdownSource _dropdownSource = new RejectionReason6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason6CodeDropdownRow GetMetadata(this RejectionReason6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

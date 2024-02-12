@@ -651,22 +651,3 @@ public enum ExternalSystemBalanceTypeCode
     Expected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalSystemBalanceTypeCodeMetadataExtensions
-{
-    private static readonly ExternalSystemBalanceTypeCodeDropdownSource _dropdownSource = new ExternalSystemBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalSystemBalanceTypeCodeDropdownRow GetMetadata(this ExternalSystemBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

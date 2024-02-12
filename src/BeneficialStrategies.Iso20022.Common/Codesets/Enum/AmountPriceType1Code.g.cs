@@ -56,22 +56,3 @@ public enum AmountPriceType1Code
     Premium = AmountPriceTypeCode.Premium, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountPriceType1CodeMetadataExtensions
-{
-    private static readonly AmountPriceType1CodeDropdownSource _dropdownSource = new AmountPriceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountPriceType1CodeDropdownRow GetMetadata(this AmountPriceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

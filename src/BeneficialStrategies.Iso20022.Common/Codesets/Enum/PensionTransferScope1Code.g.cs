@@ -56,22 +56,3 @@ public enum PensionTransferScope1Code
     UncrystallisedPart = PensionTransferScopeCode.UncrystallisedPart, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionTransferScope1CodeMetadataExtensions
-{
-    private static readonly PensionTransferScope1CodeDropdownSource _dropdownSource = new PensionTransferScope1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionTransferScope1CodeDropdownRow GetMetadata(this PensionTransferScope1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

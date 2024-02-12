@@ -56,22 +56,3 @@ public enum ResponseMode2Code
     PrintEnd = ResponseModeV2Code.PrintEnd, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResponseMode2CodeMetadataExtensions
-{
-    private static readonly ResponseMode2CodeDropdownSource _dropdownSource = new ResponseMode2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponseMode2CodeDropdownRow GetMetadata(this ResponseMode2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

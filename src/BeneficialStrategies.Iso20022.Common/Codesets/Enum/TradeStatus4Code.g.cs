@@ -191,22 +191,3 @@ public enum TradeStatus4Code
     OptionMature = TradeStatusCode.OptionMature, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeStatus4CodeMetadataExtensions
-{
-    private static readonly TradeStatus4CodeDropdownSource _dropdownSource = new TradeStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeStatus4CodeDropdownRow GetMetadata(this TradeStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

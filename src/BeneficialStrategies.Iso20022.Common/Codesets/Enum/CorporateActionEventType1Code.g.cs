@@ -200,22 +200,3 @@ public enum CorporateActionEventType1Code
     DecreaseInValue = CorporateActionEventTypeCode.DecreaseInValue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType1CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType1CodeDropdownSource _dropdownSource = new CorporateActionEventType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType1CodeDropdownRow GetMetadata(this CorporateActionEventType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

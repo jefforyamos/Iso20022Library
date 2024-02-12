@@ -47,22 +47,3 @@ public enum ChargeType10Code
     Penalty = ChargeTypeCode.Penalty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType10CodeMetadataExtensions
-{
-    private static readonly ChargeType10CodeDropdownSource _dropdownSource = new ChargeType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType10CodeDropdownRow GetMetadata(this ChargeType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -119,22 +119,3 @@ public enum InsuranceClausesCode
     InstituteRadioactiveContaminationExclusionClause,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InsuranceClausesCodeMetadataExtensions
-{
-    private static readonly InsuranceClausesCodeDropdownSource _dropdownSource = new InsuranceClausesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInsuranceClausesCodeDropdownRow GetMetadata(this InsuranceClausesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

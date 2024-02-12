@@ -38,22 +38,3 @@ public enum CorporateActionStatementReportingTypeCode
     MultipleEvents,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionStatementReportingTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionStatementReportingTypeCodeDropdownSource _dropdownSource = new CorporateActionStatementReportingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionStatementReportingTypeCodeDropdownRow GetMetadata(this CorporateActionStatementReportingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

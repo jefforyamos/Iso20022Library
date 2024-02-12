@@ -56,22 +56,3 @@ public enum RiskAssessmentCode
     DoNotApprove,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RiskAssessmentCodeMetadataExtensions
-{
-    private static readonly RiskAssessmentCodeDropdownSource _dropdownSource = new RiskAssessmentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRiskAssessmentCodeDropdownRow GetMetadata(this RiskAssessmentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum ATMStatus3Code
     WaitingActivation = ATMStatusCode.WaitingActivation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMStatus3CodeMetadataExtensions
-{
-    private static readonly ATMStatus3CodeDropdownSource _dropdownSource = new ATMStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMStatus3CodeDropdownRow GetMetadata(this ATMStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

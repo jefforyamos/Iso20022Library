@@ -92,22 +92,3 @@ public enum CardholderVerificationCapability3Code
     PersonalCode = CardholderVerificationCapabilityCode.PersonalCode, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderVerificationCapability3CodeMetadataExtensions
-{
-    private static readonly CardholderVerificationCapability3CodeDropdownSource _dropdownSource = new CardholderVerificationCapability3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderVerificationCapability3CodeDropdownRow GetMetadata(this CardholderVerificationCapability3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

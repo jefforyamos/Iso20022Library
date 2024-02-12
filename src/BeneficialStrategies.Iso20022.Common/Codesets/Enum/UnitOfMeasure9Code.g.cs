@@ -470,22 +470,3 @@ public enum UnitOfMeasure9Code
     Hectare = UnitOfMeasureCode.Hectare, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnitOfMeasure9CodeMetadataExtensions
-{
-    private static readonly UnitOfMeasure9CodeDropdownSource _dropdownSource = new UnitOfMeasure9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnitOfMeasure9CodeDropdownRow GetMetadata(this UnitOfMeasure9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

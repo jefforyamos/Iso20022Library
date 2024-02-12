@@ -47,22 +47,3 @@ public enum Trading1MethodCode
     Broker = TradingMethodCode.Broker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Trading1MethodCodeMetadataExtensions
-{
-    private static readonly Trading1MethodCodeDropdownSource _dropdownSource = new Trading1MethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrading1MethodCodeDropdownRow GetMetadata(this Trading1MethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

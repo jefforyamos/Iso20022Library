@@ -65,22 +65,3 @@ public enum AccountManagementTypeCode
     AccountStatus,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountManagementTypeCodeMetadataExtensions
-{
-    private static readonly AccountManagementTypeCodeDropdownSource _dropdownSource = new AccountManagementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountManagementTypeCodeDropdownRow GetMetadata(this AccountManagementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

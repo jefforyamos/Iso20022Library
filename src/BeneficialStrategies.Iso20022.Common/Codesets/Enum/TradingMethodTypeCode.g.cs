@@ -101,22 +101,3 @@ public enum TradingMethodTypeCode
     AnonymousClick,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingMethodTypeCodeMetadataExtensions
-{
-    private static readonly TradingMethodTypeCodeDropdownSource _dropdownSource = new TradingMethodTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingMethodTypeCodeDropdownRow GetMetadata(this TradingMethodTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

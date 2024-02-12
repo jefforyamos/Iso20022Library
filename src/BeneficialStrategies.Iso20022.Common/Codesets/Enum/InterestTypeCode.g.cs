@@ -92,22 +92,3 @@ public enum InterestTypeCode
     Fixed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestTypeCodeMetadataExtensions
-{
-    private static readonly InterestTypeCodeDropdownSource _dropdownSource = new InterestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestTypeCodeDropdownRow GetMetadata(this InterestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

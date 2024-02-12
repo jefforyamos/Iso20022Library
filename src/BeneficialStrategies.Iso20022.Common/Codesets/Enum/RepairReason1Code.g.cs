@@ -344,22 +344,3 @@ public enum RepairReason1Code
     VariableRateSupport = RepairReasonCode.VariableRateSupport, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReason1CodeMetadataExtensions
-{
-    private static readonly RepairReason1CodeDropdownSource _dropdownSource = new RepairReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReason1CodeDropdownRow GetMetadata(this RepairReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

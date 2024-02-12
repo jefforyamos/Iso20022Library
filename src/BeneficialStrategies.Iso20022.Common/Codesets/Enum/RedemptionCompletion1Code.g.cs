@@ -38,22 +38,3 @@ public enum RedemptionCompletion1Code
     RedemptionYes = RedemptionCompletionCode.RedemptionYes, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RedemptionCompletion1CodeMetadataExtensions
-{
-    private static readonly RedemptionCompletion1CodeDropdownSource _dropdownSource = new RedemptionCompletion1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRedemptionCompletion1CodeDropdownRow GetMetadata(this RedemptionCompletion1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

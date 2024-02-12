@@ -47,22 +47,3 @@ public enum CorporateActionEventProcessingStatus1Code
     Reconciled = CorporateActionEventProcessingStatusCode.Reconciled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventProcessingStatus1CodeDropdownSource _dropdownSource = new CorporateActionEventProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventProcessingStatus1CodeDropdownRow GetMetadata(this CorporateActionEventProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

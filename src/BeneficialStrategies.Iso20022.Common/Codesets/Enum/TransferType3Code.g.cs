@@ -47,22 +47,3 @@ public enum TransferType3Code
     Conversion = TransferTypeCode.Conversion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferType3CodeMetadataExtensions
-{
-    private static readonly TransferType3CodeDropdownSource _dropdownSource = new TransferType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferType3CodeDropdownRow GetMetadata(this TransferType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

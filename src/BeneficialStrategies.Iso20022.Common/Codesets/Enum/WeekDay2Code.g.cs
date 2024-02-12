@@ -83,22 +83,3 @@ public enum WeekDay2Code
     Friday = WeekDayCode.Friday, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class WeekDay2CodeMetadataExtensions
-{
-    private static readonly WeekDay2CodeDropdownSource _dropdownSource = new WeekDay2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IWeekDay2CodeDropdownRow GetMetadata(this WeekDay2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

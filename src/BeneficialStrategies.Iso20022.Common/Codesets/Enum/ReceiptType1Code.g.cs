@@ -65,22 +65,3 @@ public enum ReceiptType1Code
     UniformResourceIdentifier = ReceiptTypeCode.UniformResourceIdentifier, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReceiptType1CodeMetadataExtensions
-{
-    private static readonly ReceiptType1CodeDropdownSource _dropdownSource = new ReceiptType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReceiptType1CodeDropdownRow GetMetadata(this ReceiptType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

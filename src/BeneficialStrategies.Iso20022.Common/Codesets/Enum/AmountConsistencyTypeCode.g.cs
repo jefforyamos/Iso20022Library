@@ -65,22 +65,3 @@ public enum AmountConsistencyTypeCode
     InconsistentConfirmedAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountConsistencyTypeCodeMetadataExtensions
-{
-    private static readonly AmountConsistencyTypeCodeDropdownSource _dropdownSource = new AmountConsistencyTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountConsistencyTypeCodeDropdownRow GetMetadata(this AmountConsistencyTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -92,22 +92,3 @@ public enum CRSFormTypeCode
     PublicInformationEntity,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CRSFormTypeCodeMetadataExtensions
-{
-    private static readonly CRSFormTypeCodeDropdownSource _dropdownSource = new CRSFormTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICRSFormTypeCodeDropdownRow GetMetadata(this CRSFormTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

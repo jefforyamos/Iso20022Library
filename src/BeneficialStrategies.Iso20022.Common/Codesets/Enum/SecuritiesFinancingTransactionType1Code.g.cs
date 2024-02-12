@@ -56,22 +56,3 @@ public enum SecuritiesFinancingTransactionType1Code
     SecuritiesLending = SecuritiesTransactionTypeV2Code.SecuritiesLending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesFinancingTransactionType1CodeMetadataExtensions
-{
-    private static readonly SecuritiesFinancingTransactionType1CodeDropdownSource _dropdownSource = new SecuritiesFinancingTransactionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesFinancingTransactionType1CodeDropdownRow GetMetadata(this SecuritiesFinancingTransactionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

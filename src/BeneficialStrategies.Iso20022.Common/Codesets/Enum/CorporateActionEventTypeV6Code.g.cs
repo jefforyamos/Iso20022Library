@@ -731,22 +731,3 @@ public enum CorporateActionEventTypeV6Code
     TaxOnNonDistributedProceeds,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventTypeV6CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventTypeV6CodeDropdownSource _dropdownSource = new CorporateActionEventTypeV6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventTypeV6CodeDropdownRow GetMetadata(this CorporateActionEventTypeV6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

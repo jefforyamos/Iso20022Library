@@ -47,22 +47,3 @@ public enum FleetServiceTypeCode
     HighSpeedDispenser,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FleetServiceTypeCodeMetadataExtensions
-{
-    private static readonly FleetServiceTypeCodeDropdownSource _dropdownSource = new FleetServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFleetServiceTypeCodeDropdownRow GetMetadata(this FleetServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

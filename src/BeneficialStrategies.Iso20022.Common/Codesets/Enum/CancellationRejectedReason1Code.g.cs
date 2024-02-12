@@ -38,22 +38,3 @@ public enum CancellationRejectedReason1Code
     AlreadyExecuted = RejectedStatusReasonCode.AlreadyExecuted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationRejectedReason1CodeMetadataExtensions
-{
-    private static readonly CancellationRejectedReason1CodeDropdownSource _dropdownSource = new CancellationRejectedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationRejectedReason1CodeDropdownRow GetMetadata(this CancellationRejectedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

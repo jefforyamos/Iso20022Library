@@ -38,22 +38,3 @@ public enum BuyInDeferralCode
     BuyInDeferred,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BuyInDeferralCodeMetadataExtensions
-{
-    private static readonly BuyInDeferralCodeDropdownSource _dropdownSource = new BuyInDeferralCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBuyInDeferralCodeDropdownRow GetMetadata(this BuyInDeferralCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

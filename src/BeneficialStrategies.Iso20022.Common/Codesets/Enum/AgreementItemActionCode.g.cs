@@ -84,22 +84,3 @@ public enum AgreementItemActionCode
     Verify,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgreementItemActionCodeMetadataExtensions
-{
-    private static readonly AgreementItemActionCodeDropdownSource _dropdownSource = new AgreementItemActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgreementItemActionCodeDropdownRow GetMetadata(this AgreementItemActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

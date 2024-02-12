@@ -210,22 +210,3 @@ public enum ExternalBalanceSubType1Code
     Threshold = ExternalBalanceSubTypeCode.Threshold, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalBalanceSubType1CodeMetadataExtensions
-{
-    private static readonly ExternalBalanceSubType1CodeDropdownSource _dropdownSource = new ExternalBalanceSubType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalBalanceSubType1CodeDropdownRow GetMetadata(this ExternalBalanceSubType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

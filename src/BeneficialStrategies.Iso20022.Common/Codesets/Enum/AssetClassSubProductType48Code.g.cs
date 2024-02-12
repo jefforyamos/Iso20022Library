@@ -29,22 +29,3 @@ public enum AssetClassSubProductType48Code
     NonDeliverable = AssetClassSubProductTypeCode.NonDeliverable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType48CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType48CodeDropdownSource _dropdownSource = new AssetClassSubProductType48CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType48CodeDropdownRow GetMetadata(this AssetClassSubProductType48Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

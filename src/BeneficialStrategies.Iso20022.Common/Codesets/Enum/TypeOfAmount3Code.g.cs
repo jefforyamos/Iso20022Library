@@ -74,22 +74,3 @@ public enum TypeOfAmount3Code
     Surcharge = TypeOfAmountCode.Surcharge, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount3CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount3CodeDropdownSource _dropdownSource = new TypeOfAmount3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount3CodeDropdownRow GetMetadata(this TypeOfAmount3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

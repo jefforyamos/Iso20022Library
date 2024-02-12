@@ -38,22 +38,3 @@ public enum SecuritiesTransactionType15Code
     Sell = SecuritiesTransactionTypeV3Code.Sell, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType15CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType15CodeDropdownSource _dropdownSource = new SecuritiesTransactionType15CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType15CodeDropdownRow GetMetadata(this SecuritiesTransactionType15Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

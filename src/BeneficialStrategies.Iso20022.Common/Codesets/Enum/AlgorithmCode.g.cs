@@ -704,22 +704,3 @@ public enum AlgorithmCode
     EcdsaSha512,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AlgorithmCodeMetadataExtensions
-{
-    private static readonly AlgorithmCodeDropdownSource _dropdownSource = new AlgorithmCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithmCodeDropdownRow GetMetadata(this AlgorithmCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

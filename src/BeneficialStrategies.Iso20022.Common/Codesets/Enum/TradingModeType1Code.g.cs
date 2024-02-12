@@ -83,22 +83,3 @@ public enum TradingModeType1Code
     Anonymous = TradingModeTypeCode.Anonymous, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradingModeType1CodeMetadataExtensions
-{
-    private static readonly TradingModeType1CodeDropdownSource _dropdownSource = new TradingModeType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradingModeType1CodeDropdownRow GetMetadata(this TradingModeType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

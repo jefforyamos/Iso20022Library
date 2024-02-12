@@ -56,22 +56,3 @@ public enum ProcessingStatus1Code
     ForInformationOnly = ProcessingStatusCode.ForInformationOnly, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly ProcessingStatus1CodeDropdownSource _dropdownSource = new ProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessingStatus1CodeDropdownRow GetMetadata(this ProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

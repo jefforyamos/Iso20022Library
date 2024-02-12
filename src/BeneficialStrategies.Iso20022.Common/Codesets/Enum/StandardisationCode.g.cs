@@ -47,22 +47,3 @@ public enum StandardisationCode
     Flexible,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandardisationCodeMetadataExtensions
-{
-    private static readonly StandardisationCodeDropdownSource _dropdownSource = new StandardisationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandardisationCodeDropdownRow GetMetadata(this StandardisationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

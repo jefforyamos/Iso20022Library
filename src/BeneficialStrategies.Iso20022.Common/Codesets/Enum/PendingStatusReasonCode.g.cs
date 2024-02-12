@@ -74,22 +74,3 @@ public enum PendingStatusReasonCode
     AuthorisedButPending,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingStatusReasonCodeMetadataExtensions
-{
-    private static readonly PendingStatusReasonCodeDropdownSource _dropdownSource = new PendingStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingStatusReasonCodeDropdownRow GetMetadata(this PendingStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

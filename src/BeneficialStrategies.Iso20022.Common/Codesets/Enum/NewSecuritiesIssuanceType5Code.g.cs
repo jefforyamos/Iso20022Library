@@ -83,22 +83,3 @@ public enum NewSecuritiesIssuanceType5Code
     RefundedSecurityIndicator = NewSecuritiesIssuanceTypeCode.RefundedSecurityIndicator, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NewSecuritiesIssuanceType5CodeMetadataExtensions
-{
-    private static readonly NewSecuritiesIssuanceType5CodeDropdownSource _dropdownSource = new NewSecuritiesIssuanceType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INewSecuritiesIssuanceType5CodeDropdownRow GetMetadata(this NewSecuritiesIssuanceType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum FlowDirectionType1Code
     Outgoing = FlowDirectionTypeCode.Outgoing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FlowDirectionType1CodeMetadataExtensions
-{
-    private static readonly FlowDirectionType1CodeDropdownSource _dropdownSource = new FlowDirectionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFlowDirectionType1CodeDropdownRow GetMetadata(this FlowDirectionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

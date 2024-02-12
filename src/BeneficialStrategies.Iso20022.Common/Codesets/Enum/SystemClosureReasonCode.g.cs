@@ -65,22 +65,3 @@ public enum SystemClosureReasonCode
     AllowedDowntimeWindow,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SystemClosureReasonCodeMetadataExtensions
-{
-    private static readonly SystemClosureReasonCodeDropdownSource _dropdownSource = new SystemClosureReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISystemClosureReasonCodeDropdownRow GetMetadata(this SystemClosureReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

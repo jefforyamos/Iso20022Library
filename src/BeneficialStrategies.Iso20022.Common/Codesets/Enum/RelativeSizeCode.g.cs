@@ -56,22 +56,3 @@ public enum RelativeSizeCode
     Undisclosed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RelativeSizeCodeMetadataExtensions
-{
-    private static readonly RelativeSizeCodeDropdownSource _dropdownSource = new RelativeSizeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRelativeSizeCodeDropdownRow GetMetadata(this RelativeSizeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

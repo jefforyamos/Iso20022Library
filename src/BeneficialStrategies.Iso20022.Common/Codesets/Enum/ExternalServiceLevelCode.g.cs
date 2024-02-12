@@ -229,22 +229,3 @@ public enum ExternalServiceLevelCode
     EuroOneLegOut,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalServiceLevelCodeMetadataExtensions
-{
-    private static readonly ExternalServiceLevelCodeDropdownSource _dropdownSource = new ExternalServiceLevelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalServiceLevelCodeDropdownRow GetMetadata(this ExternalServiceLevelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

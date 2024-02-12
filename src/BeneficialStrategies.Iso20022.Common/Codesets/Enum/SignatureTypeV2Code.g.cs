@@ -56,22 +56,3 @@ public enum SignatureTypeV2Code
     None,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SignatureTypeV2CodeMetadataExtensions
-{
-    private static readonly SignatureTypeV2CodeDropdownSource _dropdownSource = new SignatureTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISignatureTypeV2CodeDropdownRow GetMetadata(this SignatureTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -569,22 +569,3 @@ public enum RejectionReason78Code
     ReceivingDeliveringParty1 = RejectionReasonV3Code.ReceivingDeliveringParty1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason78CodeMetadataExtensions
-{
-    private static readonly RejectionReason78CodeDropdownSource _dropdownSource = new RejectionReason78CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason78CodeDropdownRow GetMetadata(this RejectionReason78Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

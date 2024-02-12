@@ -74,22 +74,3 @@ public enum AccountChoiceMethod1Code
     TypeSelected = AccountChoiceMethodCode.TypeSelected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountChoiceMethod1CodeMetadataExtensions
-{
-    private static readonly AccountChoiceMethod1CodeDropdownSource _dropdownSource = new AccountChoiceMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountChoiceMethod1CodeDropdownRow GetMetadata(this AccountChoiceMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

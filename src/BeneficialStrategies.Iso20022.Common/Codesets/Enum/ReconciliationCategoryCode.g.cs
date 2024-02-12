@@ -65,22 +65,3 @@ public enum ReconciliationCategoryCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationCategoryCodeMetadataExtensions
-{
-    private static readonly ReconciliationCategoryCodeDropdownSource _dropdownSource = new ReconciliationCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationCategoryCodeDropdownRow GetMetadata(this ReconciliationCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum CallType1Code
     ProRata = CallTypeCode.ProRata, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CallType1CodeMetadataExtensions
-{
-    private static readonly CallType1CodeDropdownSource _dropdownSource = new CallType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICallType1CodeDropdownRow GetMetadata(this CallType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

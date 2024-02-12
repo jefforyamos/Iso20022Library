@@ -47,22 +47,3 @@ public enum ReorganisationWithdrawalTransactionTypeCode
     VoluntaryOfferInstructionWithdrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReorganisationWithdrawalTransactionTypeCodeMetadataExtensions
-{
-    private static readonly ReorganisationWithdrawalTransactionTypeCodeDropdownSource _dropdownSource = new ReorganisationWithdrawalTransactionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReorganisationWithdrawalTransactionTypeCodeDropdownRow GetMetadata(this ReorganisationWithdrawalTransactionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

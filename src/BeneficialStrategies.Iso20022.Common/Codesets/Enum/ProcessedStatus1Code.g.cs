@@ -56,22 +56,3 @@ public enum ProcessedStatus1Code
     Accepted = CorporateActionProcessedStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessedStatus1CodeMetadataExtensions
-{
-    private static readonly ProcessedStatus1CodeDropdownSource _dropdownSource = new ProcessedStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessedStatus1CodeDropdownRow GetMetadata(this ProcessedStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

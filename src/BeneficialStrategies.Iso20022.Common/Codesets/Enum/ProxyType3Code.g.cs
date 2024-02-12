@@ -56,22 +56,3 @@ public enum ProxyType3Code
     SecurityHolder = ProxyTypeCode.SecurityHolder, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProxyType3CodeMetadataExtensions
-{
-    private static readonly ProxyType3CodeDropdownSource _dropdownSource = new ProxyType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProxyType3CodeDropdownRow GetMetadata(this ProxyType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

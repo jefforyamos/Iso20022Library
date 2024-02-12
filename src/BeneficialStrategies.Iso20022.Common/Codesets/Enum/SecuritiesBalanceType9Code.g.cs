@@ -65,22 +65,3 @@ public enum SecuritiesBalanceType9Code
     ReservedForRemoval = BalanceTypeCode.ReservedForRemoval, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType9CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType9CodeDropdownSource _dropdownSource = new SecuritiesBalanceType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType9CodeDropdownRow GetMetadata(this SecuritiesBalanceType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

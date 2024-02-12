@@ -47,22 +47,3 @@ public enum ConfirmationRequestCode
     ConfirmationRequestRejected,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConfirmationRequestCodeMetadataExtensions
-{
-    private static readonly ConfirmationRequestCodeDropdownSource _dropdownSource = new ConfirmationRequestCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConfirmationRequestCodeDropdownRow GetMetadata(this ConfirmationRequestCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

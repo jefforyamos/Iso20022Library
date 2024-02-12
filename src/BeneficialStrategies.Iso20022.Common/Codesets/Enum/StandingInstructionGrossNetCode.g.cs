@@ -38,22 +38,3 @@ public enum StandingInstructionGrossNetCode
     Net,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StandingInstructionGrossNetCodeMetadataExtensions
-{
-    private static readonly StandingInstructionGrossNetCodeDropdownSource _dropdownSource = new StandingInstructionGrossNetCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandingInstructionGrossNetCodeDropdownRow GetMetadata(this StandingInstructionGrossNetCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

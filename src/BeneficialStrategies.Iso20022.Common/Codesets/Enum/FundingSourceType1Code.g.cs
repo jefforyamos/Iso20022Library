@@ -83,22 +83,3 @@ public enum FundingSourceType1Code
     UnsecuredBorrowing = FundingSourcesTypeCode.UnsecuredBorrowing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundingSourceType1CodeMetadataExtensions
-{
-    private static readonly FundingSourceType1CodeDropdownSource _dropdownSource = new FundingSourceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundingSourceType1CodeDropdownRow GetMetadata(this FundingSourceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum RejectionReason21Code
     ReferenceRejection = RejectionReasonV2Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason21CodeMetadataExtensions
-{
-    private static readonly RejectionReason21CodeDropdownSource _dropdownSource = new RejectionReason21CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason21CodeDropdownRow GetMetadata(this RejectionReason21Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

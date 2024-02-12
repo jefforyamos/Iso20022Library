@@ -47,22 +47,3 @@ public enum TrackerPaymentStatusCode
     AcceptedCreditSettlementCompleted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerPaymentStatusCodeMetadataExtensions
-{
-    private static readonly TrackerPaymentStatusCodeDropdownSource _dropdownSource = new TrackerPaymentStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerPaymentStatusCodeDropdownRow GetMetadata(this TrackerPaymentStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

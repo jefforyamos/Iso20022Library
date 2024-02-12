@@ -182,22 +182,3 @@ public enum UnableToApplyMissingInformationV2Code
     Narrative,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyMissingInformationV2CodeMetadataExtensions
-{
-    private static readonly UnableToApplyMissingInformationV2CodeDropdownSource _dropdownSource = new UnableToApplyMissingInformationV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyMissingInformationV2CodeDropdownRow GetMetadata(this UnableToApplyMissingInformationV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

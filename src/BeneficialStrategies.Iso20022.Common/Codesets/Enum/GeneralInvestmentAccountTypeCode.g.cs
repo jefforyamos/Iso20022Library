@@ -38,22 +38,3 @@ public enum GeneralInvestmentAccountTypeCode
     Any,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeneralInvestmentAccountTypeCodeMetadataExtensions
-{
-    private static readonly GeneralInvestmentAccountTypeCodeDropdownSource _dropdownSource = new GeneralInvestmentAccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeneralInvestmentAccountTypeCodeDropdownRow GetMetadata(this GeneralInvestmentAccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum CustomerAssigner1Code
     TravelAgency = CustomerAssignerCode.TravelAgency, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerAssigner1CodeMetadataExtensions
-{
-    private static readonly CustomerAssigner1CodeDropdownSource _dropdownSource = new CustomerAssigner1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerAssigner1CodeDropdownRow GetMetadata(this CustomerAssigner1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

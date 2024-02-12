@@ -110,22 +110,3 @@ public enum SwitchStatusCode
     Accepted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SwitchStatusCodeMetadataExtensions
-{
-    private static readonly SwitchStatusCodeDropdownSource _dropdownSource = new SwitchStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISwitchStatusCodeDropdownRow GetMetadata(this SwitchStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

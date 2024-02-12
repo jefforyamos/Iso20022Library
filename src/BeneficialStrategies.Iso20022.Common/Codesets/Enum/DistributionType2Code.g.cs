@@ -47,22 +47,3 @@ public enum DistributionType2Code
     Final = DistributionTypeCode.Final, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionType2CodeMetadataExtensions
-{
-    private static readonly DistributionType2CodeDropdownSource _dropdownSource = new DistributionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionType2CodeDropdownRow GetMetadata(this DistributionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

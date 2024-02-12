@@ -57,22 +57,3 @@ public enum MessageFunction18Code
     CollectionRequest = MessageFunctionCode.CollectionRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction18CodeMetadataExtensions
-{
-    private static readonly MessageFunction18CodeDropdownSource _dropdownSource = new MessageFunction18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction18CodeDropdownRow GetMetadata(this MessageFunction18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

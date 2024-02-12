@@ -92,22 +92,3 @@ public enum Exemption1Code
     TrustedMerchantBeneficiaryExemption = ExemptionCode.TrustedMerchantBeneficiaryExemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Exemption1CodeMetadataExtensions
-{
-    private static readonly Exemption1CodeDropdownSource _dropdownSource = new Exemption1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExemption1CodeDropdownRow GetMetadata(this Exemption1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

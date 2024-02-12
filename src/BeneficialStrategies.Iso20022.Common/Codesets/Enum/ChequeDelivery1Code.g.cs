@@ -128,22 +128,3 @@ public enum ChequeDelivery1Code
     RegisteredMailToFinalAgent = ChequeDeliveryCode.RegisteredMailToFinalAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChequeDelivery1CodeMetadataExtensions
-{
-    private static readonly ChequeDelivery1CodeDropdownSource _dropdownSource = new ChequeDelivery1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChequeDelivery1CodeDropdownRow GetMetadata(this ChequeDelivery1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

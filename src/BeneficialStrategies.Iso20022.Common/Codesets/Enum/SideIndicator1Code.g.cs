@@ -38,22 +38,3 @@ public enum SideIndicator1Code
     ClientLeg = SideIndicatorCode.ClientLeg, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SideIndicator1CodeMetadataExtensions
-{
-    private static readonly SideIndicator1CodeDropdownSource _dropdownSource = new SideIndicator1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISideIndicator1CodeDropdownRow GetMetadata(this SideIndicator1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

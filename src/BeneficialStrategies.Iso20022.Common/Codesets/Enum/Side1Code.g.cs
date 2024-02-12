@@ -137,22 +137,3 @@ public enum Side1Code
     Undisclosed = SideCode.Undisclosed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Side1CodeMetadataExtensions
-{
-    private static readonly Side1CodeDropdownSource _dropdownSource = new Side1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISide1CodeDropdownRow GetMetadata(this Side1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

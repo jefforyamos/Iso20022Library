@@ -120,22 +120,3 @@ public enum ExternalReversalReasonCode
     CutOffTime,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReversalReasonCodeMetadataExtensions
-{
-    private static readonly ExternalReversalReasonCodeDropdownSource _dropdownSource = new ExternalReversalReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReversalReasonCodeDropdownRow GetMetadata(this ExternalReversalReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

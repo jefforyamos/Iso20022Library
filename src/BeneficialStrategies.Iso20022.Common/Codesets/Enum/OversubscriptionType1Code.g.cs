@@ -47,22 +47,3 @@ public enum OversubscriptionType1Code
     NoOversubscription = OversubscriptionTypeCode.NoOversubscription, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OversubscriptionType1CodeMetadataExtensions
-{
-    private static readonly OversubscriptionType1CodeDropdownSource _dropdownSource = new OversubscriptionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOversubscriptionType1CodeDropdownRow GetMetadata(this OversubscriptionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum AccountStatusUpdateRequestReasonCode
     AccountClosureInstructionError,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatusUpdateRequestReasonCodeMetadataExtensions
-{
-    private static readonly AccountStatusUpdateRequestReasonCodeDropdownSource _dropdownSource = new AccountStatusUpdateRequestReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatusUpdateRequestReasonCodeDropdownRow GetMetadata(this AccountStatusUpdateRequestReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

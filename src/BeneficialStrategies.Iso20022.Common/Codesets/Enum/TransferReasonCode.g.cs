@@ -119,22 +119,3 @@ public enum TransferReasonCode
     TDTFrameworkTransfer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferReasonCodeMetadataExtensions
-{
-    private static readonly TransferReasonCodeDropdownSource _dropdownSource = new TransferReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferReasonCodeDropdownRow GetMetadata(this TransferReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

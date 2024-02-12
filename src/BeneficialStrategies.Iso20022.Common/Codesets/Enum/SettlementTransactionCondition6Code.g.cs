@@ -218,22 +218,3 @@ public enum SettlementTransactionCondition6Code
     AcceptAfterRegularSettlementDeadline = SettlementTransactionConditionCode.AcceptAfterRegularSettlementDeadline, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementTransactionCondition6CodeMetadataExtensions
-{
-    private static readonly SettlementTransactionCondition6CodeDropdownSource _dropdownSource = new SettlementTransactionCondition6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementTransactionCondition6CodeDropdownRow GetMetadata(this SettlementTransactionCondition6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

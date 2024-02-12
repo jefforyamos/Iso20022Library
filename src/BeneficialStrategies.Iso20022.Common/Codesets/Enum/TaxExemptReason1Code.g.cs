@@ -281,22 +281,3 @@ public enum TaxExemptReason1Code
     EducationIRANonPrototype = TaxExemptReasonCode.EducationIRANonPrototype, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TaxExemptReason1CodeMetadataExtensions
-{
-    private static readonly TaxExemptReason1CodeDropdownSource _dropdownSource = new TaxExemptReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITaxExemptReason1CodeDropdownRow GetMetadata(this TaxExemptReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

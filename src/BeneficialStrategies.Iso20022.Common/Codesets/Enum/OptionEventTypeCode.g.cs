@@ -74,22 +74,3 @@ public enum OptionEventTypeCode
     Trigger,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionEventTypeCodeMetadataExtensions
-{
-    private static readonly OptionEventTypeCodeDropdownSource _dropdownSource = new OptionEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionEventTypeCodeDropdownRow GetMetadata(this OptionEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

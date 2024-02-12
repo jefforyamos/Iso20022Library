@@ -128,22 +128,3 @@ public enum OptionFeatures10Code
     InstructCashAmount = OptionFeaturesCode.InstructCashAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeatures10CodeMetadataExtensions
-{
-    private static readonly OptionFeatures10CodeDropdownSource _dropdownSource = new OptionFeatures10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeatures10CodeDropdownRow GetMetadata(this OptionFeatures10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

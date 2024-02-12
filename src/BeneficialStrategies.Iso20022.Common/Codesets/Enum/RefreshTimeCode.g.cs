@@ -38,22 +38,3 @@ public enum RefreshTimeCode
     Exhaust,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RefreshTimeCodeMetadataExtensions
-{
-    private static readonly RefreshTimeCodeDropdownSource _dropdownSource = new RefreshTimeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRefreshTimeCodeDropdownRow GetMetadata(this RefreshTimeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

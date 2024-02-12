@@ -173,22 +173,3 @@ public enum ChargeType6Code
     Initial = ChargeTypeCode.Initial, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeType6CodeMetadataExtensions
-{
-    private static readonly ChargeType6CodeDropdownSource _dropdownSource = new ChargeType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeType6CodeDropdownRow GetMetadata(this ChargeType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

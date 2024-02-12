@@ -227,22 +227,3 @@ public enum FrequencyCode
     TwiceAWeek,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FrequencyCodeMetadataExtensions
-{
-    private static readonly FrequencyCodeDropdownSource _dropdownSource = new FrequencyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequencyCodeDropdownRow GetMetadata(this FrequencyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

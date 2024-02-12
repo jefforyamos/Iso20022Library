@@ -398,22 +398,3 @@ public enum RejectionReason70Code
     PlaceOfListing = RejectionReasonV3Code.PlaceOfListing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason70CodeMetadataExtensions
-{
-    private static readonly RejectionReason70CodeDropdownSource _dropdownSource = new RejectionReason70CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason70CodeDropdownRow GetMetadata(this RejectionReason70Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

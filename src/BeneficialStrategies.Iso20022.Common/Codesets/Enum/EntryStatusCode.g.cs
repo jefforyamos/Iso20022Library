@@ -56,22 +56,3 @@ public enum EntryStatusCode
     Future,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryStatusCodeMetadataExtensions
-{
-    private static readonly EntryStatusCodeDropdownSource _dropdownSource = new EntryStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryStatusCodeDropdownRow GetMetadata(this EntryStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum ExposureConventionType1Code
     Net = ExposureConventionTypeCode.Net, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureConventionType1CodeMetadataExtensions
-{
-    private static readonly ExposureConventionType1CodeDropdownSource _dropdownSource = new ExposureConventionType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureConventionType1CodeDropdownRow GetMetadata(this ExposureConventionType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

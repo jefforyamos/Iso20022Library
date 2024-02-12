@@ -65,22 +65,3 @@ public enum ReportingMessageStatus2Code
     NotAuthorised = MessageStatusCode.NotAuthorised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingMessageStatus2CodeMetadataExtensions
-{
-    private static readonly ReportingMessageStatus2CodeDropdownSource _dropdownSource = new ReportingMessageStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingMessageStatus2CodeDropdownRow GetMetadata(this ReportingMessageStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

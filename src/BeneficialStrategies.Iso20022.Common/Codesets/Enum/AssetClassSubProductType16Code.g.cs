@@ -29,22 +29,3 @@ public enum AssetClassSubProductType16Code
     Precious = AssetClassSubProductTypeCode.Precious, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType16CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType16CodeDropdownSource _dropdownSource = new AssetClassSubProductType16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType16CodeDropdownRow GetMetadata(this AssetClassSubProductType16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

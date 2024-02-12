@@ -38,22 +38,3 @@ public enum InterimFinalPaymentCode
     Final,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterimFinalPaymentCodeMetadataExtensions
-{
-    private static readonly InterimFinalPaymentCodeDropdownSource _dropdownSource = new InterimFinalPaymentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterimFinalPaymentCodeDropdownRow GetMetadata(this InterimFinalPaymentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

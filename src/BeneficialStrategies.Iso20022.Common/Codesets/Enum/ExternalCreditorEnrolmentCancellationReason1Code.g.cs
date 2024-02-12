@@ -66,22 +66,3 @@ public enum ExternalCreditorEnrolmentCancellationReason1Code
     UnknownCreditor = ExternalCreditorEnrolmentCancellationReasonCode.UnknownCreditor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCreditorEnrolmentCancellationReason1CodeMetadataExtensions
-{
-    private static readonly ExternalCreditorEnrolmentCancellationReason1CodeDropdownSource _dropdownSource = new ExternalCreditorEnrolmentCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCreditorEnrolmentCancellationReason1CodeDropdownRow GetMetadata(this ExternalCreditorEnrolmentCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

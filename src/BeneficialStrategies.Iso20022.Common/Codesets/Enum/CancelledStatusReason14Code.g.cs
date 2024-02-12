@@ -29,22 +29,3 @@ public enum CancelledStatusReason14Code
     NarrativeReason = CancelledStatusReasonV2Code.NarrativeReason, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancelledStatusReason14CodeMetadataExtensions
-{
-    private static readonly CancelledStatusReason14CodeDropdownSource _dropdownSource = new CancelledStatusReason14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancelledStatusReason14CodeDropdownRow GetMetadata(this CancelledStatusReason14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

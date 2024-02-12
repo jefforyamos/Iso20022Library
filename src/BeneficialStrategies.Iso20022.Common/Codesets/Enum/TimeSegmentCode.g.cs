@@ -38,22 +38,3 @@ public enum TimeSegmentCode
     PM,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TimeSegmentCodeMetadataExtensions
-{
-    private static readonly TimeSegmentCodeDropdownSource _dropdownSource = new TimeSegmentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITimeSegmentCodeDropdownRow GetMetadata(this TimeSegmentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

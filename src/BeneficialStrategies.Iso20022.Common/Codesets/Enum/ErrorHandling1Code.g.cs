@@ -47,22 +47,3 @@ public enum ErrorHandling1Code
     DataNotAvailable = ErrorHandlingCode.DataNotAvailable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ErrorHandling1CodeMetadataExtensions
-{
-    private static readonly ErrorHandling1CodeDropdownSource _dropdownSource = new ErrorHandling1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IErrorHandling1CodeDropdownRow GetMetadata(this ErrorHandling1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

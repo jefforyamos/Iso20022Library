@@ -92,22 +92,3 @@ public enum ReinvestmentIncomeClassification2Code
     ShortTermCapitalGains = ReinvestmentIncomeClassificationCode.ShortTermCapitalGains, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReinvestmentIncomeClassification2CodeMetadataExtensions
-{
-    private static readonly ReinvestmentIncomeClassification2CodeDropdownSource _dropdownSource = new ReinvestmentIncomeClassification2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReinvestmentIncomeClassification2CodeDropdownRow GetMetadata(this ReinvestmentIncomeClassification2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

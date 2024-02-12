@@ -56,22 +56,3 @@ public enum CrossType1Code
     SamePrice = CrossTypeCode.SamePrice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CrossType1CodeMetadataExtensions
-{
-    private static readonly CrossType1CodeDropdownSource _dropdownSource = new CrossType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICrossType1CodeDropdownRow GetMetadata(this CrossType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

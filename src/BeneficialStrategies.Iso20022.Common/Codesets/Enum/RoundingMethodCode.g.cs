@@ -56,22 +56,3 @@ public enum RoundingMethodCode
     Closer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RoundingMethodCodeMetadataExtensions
-{
-    private static readonly RoundingMethodCodeDropdownSource _dropdownSource = new RoundingMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRoundingMethodCodeDropdownRow GetMetadata(this RoundingMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

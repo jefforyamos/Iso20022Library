@@ -56,22 +56,3 @@ public enum UndertakingStatus1Code
     Rejected = UndertakingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UndertakingStatus1CodeMetadataExtensions
-{
-    private static readonly UndertakingStatus1CodeDropdownSource _dropdownSource = new UndertakingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUndertakingStatus1CodeDropdownRow GetMetadata(this UndertakingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

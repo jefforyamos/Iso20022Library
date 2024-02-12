@@ -55,22 +55,3 @@ public enum DividendTypeCode
     InKind,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DividendTypeCodeMetadataExtensions
-{
-    private static readonly DividendTypeCodeDropdownSource _dropdownSource = new DividendTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDividendTypeCodeDropdownRow GetMetadata(this DividendTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

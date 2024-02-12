@@ -145,22 +145,3 @@ public enum UnableToApplyMissingInfo1Code
     MissingInstruction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyMissingInfo1CodeMetadataExtensions
-{
-    private static readonly UnableToApplyMissingInfo1CodeDropdownSource _dropdownSource = new UnableToApplyMissingInfo1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyMissingInfo1CodeDropdownRow GetMetadata(this UnableToApplyMissingInfo1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

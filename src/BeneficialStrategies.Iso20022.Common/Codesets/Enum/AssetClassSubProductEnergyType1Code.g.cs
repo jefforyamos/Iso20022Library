@@ -74,22 +74,3 @@ public enum AssetClassSubProductEnergyType1Code
     Other = AssetClassSubProductTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductEnergyType1CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductEnergyType1CodeDropdownSource _dropdownSource = new AssetClassSubProductEnergyType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductEnergyType1CodeDropdownRow GetMetadata(this AssetClassSubProductEnergyType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

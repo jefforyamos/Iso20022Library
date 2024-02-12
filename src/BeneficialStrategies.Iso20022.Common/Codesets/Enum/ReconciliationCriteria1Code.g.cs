@@ -47,22 +47,3 @@ public enum ReconciliationCriteria1Code
     PoiGroup = ReconciliationCriteriaCode.PoiGroup, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationCriteria1CodeMetadataExtensions
-{
-    private static readonly ReconciliationCriteria1CodeDropdownSource _dropdownSource = new ReconciliationCriteria1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationCriteria1CodeDropdownRow GetMetadata(this ReconciliationCriteria1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

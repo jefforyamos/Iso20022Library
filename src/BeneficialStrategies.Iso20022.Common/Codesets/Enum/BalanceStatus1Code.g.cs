@@ -38,22 +38,3 @@ public enum BalanceStatus1Code
     Settled = BalanceStatusCode.Settled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceStatus1CodeMetadataExtensions
-{
-    private static readonly BalanceStatus1CodeDropdownSource _dropdownSource = new BalanceStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceStatus1CodeDropdownRow GetMetadata(this BalanceStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

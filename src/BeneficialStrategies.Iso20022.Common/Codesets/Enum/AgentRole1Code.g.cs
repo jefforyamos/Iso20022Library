@@ -38,22 +38,3 @@ public enum AgentRole1Code
     SubAgent = AgentRoleCode.SubAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgentRole1CodeMetadataExtensions
-{
-    private static readonly AgentRole1CodeDropdownSource _dropdownSource = new AgentRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgentRole1CodeDropdownRow GetMetadata(this AgentRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

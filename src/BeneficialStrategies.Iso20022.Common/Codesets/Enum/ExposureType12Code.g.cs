@@ -317,22 +317,3 @@ public enum ExposureType12Code
     TreasuryCrossProduct = ExposureTypeV3Code.TreasuryCrossProduct, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType12CodeMetadataExtensions
-{
-    private static readonly ExposureType12CodeDropdownSource _dropdownSource = new ExposureType12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType12CodeDropdownRow GetMetadata(this ExposureType12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

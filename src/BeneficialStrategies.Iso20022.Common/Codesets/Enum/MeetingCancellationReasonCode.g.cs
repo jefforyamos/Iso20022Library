@@ -56,22 +56,3 @@ public enum MeetingCancellationReasonCode
     Withdrawal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingCancellationReasonCodeMetadataExtensions
-{
-    private static readonly MeetingCancellationReasonCodeDropdownSource _dropdownSource = new MeetingCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingCancellationReasonCodeDropdownRow GetMetadata(this MeetingCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

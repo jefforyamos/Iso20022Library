@@ -173,22 +173,3 @@ public enum ATMCommandCode
     KeyReplace,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCommandCodeMetadataExtensions
-{
-    private static readonly ATMCommandCodeDropdownSource _dropdownSource = new ATMCommandCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCommandCodeDropdownRow GetMetadata(this ATMCommandCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

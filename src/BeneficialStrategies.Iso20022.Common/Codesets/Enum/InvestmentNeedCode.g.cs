@@ -83,22 +83,3 @@ public enum InvestmentNeedCode
     SpecificNeed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentNeedCodeMetadataExtensions
-{
-    private static readonly InvestmentNeedCodeDropdownSource _dropdownSource = new InvestmentNeedCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentNeedCodeDropdownRow GetMetadata(this InvestmentNeedCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum DataTypeCode
     ExerciseData,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataTypeCodeMetadataExtensions
-{
-    private static readonly DataTypeCodeDropdownSource _dropdownSource = new DataTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataTypeCodeDropdownRow GetMetadata(this DataTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

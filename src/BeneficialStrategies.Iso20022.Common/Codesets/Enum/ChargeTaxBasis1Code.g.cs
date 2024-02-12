@@ -38,22 +38,3 @@ public enum ChargeTaxBasis1Code
     PerUnit = ChargeTaxBasisCode.PerUnit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeTaxBasis1CodeMetadataExtensions
-{
-    private static readonly ChargeTaxBasis1CodeDropdownSource _dropdownSource = new ChargeTaxBasis1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeTaxBasis1CodeDropdownRow GetMetadata(this ChargeTaxBasis1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

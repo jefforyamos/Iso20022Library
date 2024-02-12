@@ -264,22 +264,3 @@ public enum InvestmentFundMiFIDFeeCode
     OngoingCostsAccumulatedStructured,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundMiFIDFeeCodeMetadataExtensions
-{
-    private static readonly InvestmentFundMiFIDFeeCodeDropdownSource _dropdownSource = new InvestmentFundMiFIDFeeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundMiFIDFeeCodeDropdownRow GetMetadata(this InvestmentFundMiFIDFeeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

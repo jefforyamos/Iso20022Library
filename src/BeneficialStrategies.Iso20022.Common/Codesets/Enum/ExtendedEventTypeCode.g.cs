@@ -83,22 +83,3 @@ public enum ExtendedEventTypeCode
     PartialPrerefunding,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExtendedEventTypeCodeMetadataExtensions
-{
-    private static readonly ExtendedEventTypeCodeDropdownSource _dropdownSource = new ExtendedEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExtendedEventTypeCodeDropdownRow GetMetadata(this ExtendedEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum CardServiceType4Code
     OtherPrivate = CardServiceTypeCode.OtherPrivate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardServiceType4CodeMetadataExtensions
-{
-    private static readonly CardServiceType4CodeDropdownSource _dropdownSource = new CardServiceType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardServiceType4CodeDropdownRow GetMetadata(this CardServiceType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

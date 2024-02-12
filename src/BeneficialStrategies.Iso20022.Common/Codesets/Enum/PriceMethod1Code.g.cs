@@ -38,22 +38,3 @@ public enum PriceMethod1Code
     HistoricalPrice = PriceMethodCode.HistoricalPrice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceMethod1CodeMetadataExtensions
-{
-    private static readonly PriceMethod1CodeDropdownSource _dropdownSource = new PriceMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceMethod1CodeDropdownRow GetMetadata(this PriceMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

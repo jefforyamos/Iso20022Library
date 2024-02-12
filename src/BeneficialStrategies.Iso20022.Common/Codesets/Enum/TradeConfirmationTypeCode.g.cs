@@ -47,22 +47,3 @@ public enum TradeConfirmationTypeCode
     NonConfirmed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeConfirmationTypeCodeMetadataExtensions
-{
-    private static readonly TradeConfirmationTypeCodeDropdownSource _dropdownSource = new TradeConfirmationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeConfirmationTypeCodeDropdownRow GetMetadata(this TradeConfirmationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

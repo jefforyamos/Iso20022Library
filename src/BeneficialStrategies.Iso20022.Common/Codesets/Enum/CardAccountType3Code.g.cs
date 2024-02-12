@@ -218,22 +218,3 @@ public enum CardAccountType3Code
     FleetCard = CardAccountTypeCode.FleetCard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardAccountType3CodeMetadataExtensions
-{
-    private static readonly CardAccountType3CodeDropdownSource _dropdownSource = new CardAccountType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardAccountType3CodeDropdownRow GetMetadata(this CardAccountType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

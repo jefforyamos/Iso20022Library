@@ -65,22 +65,3 @@ public enum DeliveryPlace3Code
     OtherAddress = DeliveryPlaceV2Code.OtherAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryPlace3CodeMetadataExtensions
-{
-    private static readonly DeliveryPlace3CodeDropdownSource _dropdownSource = new DeliveryPlace3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryPlace3CodeDropdownRow GetMetadata(this DeliveryPlace3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

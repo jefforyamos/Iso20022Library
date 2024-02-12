@@ -110,22 +110,3 @@ public enum ActionType8Code
     StepUpAuthentication = ActionTypeCode.StepUpAuthentication, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType8CodeMetadataExtensions
-{
-    private static readonly ActionType8CodeDropdownSource _dropdownSource = new ActionType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType8CodeDropdownRow GetMetadata(this ActionType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

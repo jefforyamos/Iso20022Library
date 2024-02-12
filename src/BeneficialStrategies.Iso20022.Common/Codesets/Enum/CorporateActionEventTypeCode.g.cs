@@ -344,22 +344,3 @@ public enum CorporateActionEventTypeCode
     OddLotSalePurchase,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionEventTypeCodeDropdownSource _dropdownSource = new CorporateActionEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventTypeCodeDropdownRow GetMetadata(this CorporateActionEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

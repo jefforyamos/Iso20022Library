@@ -38,22 +38,3 @@ public enum MoveType1Code
     Float = MoveTypeCode.Float, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MoveType1CodeMetadataExtensions
-{
-    private static readonly MoveType1CodeDropdownSource _dropdownSource = new MoveType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMoveType1CodeDropdownRow GetMetadata(this MoveType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

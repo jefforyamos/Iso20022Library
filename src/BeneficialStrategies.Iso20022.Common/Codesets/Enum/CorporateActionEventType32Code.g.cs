@@ -614,22 +614,3 @@ public enum CorporateActionEventType32Code
     TaxOnNonDistributedProceeds = CorporateActionEventTypeV6Code.TaxOnNonDistributedProceeds, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventType32CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventType32CodeDropdownSource _dropdownSource = new CorporateActionEventType32CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventType32CodeDropdownRow GetMetadata(this CorporateActionEventType32Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

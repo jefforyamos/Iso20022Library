@@ -110,22 +110,3 @@ public enum ActionType2Code
     RequestData = ActionTypeCode.RequestData, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionType2CodeMetadataExtensions
-{
-    private static readonly ActionType2CodeDropdownSource _dropdownSource = new ActionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionType2CodeDropdownRow GetMetadata(this ActionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

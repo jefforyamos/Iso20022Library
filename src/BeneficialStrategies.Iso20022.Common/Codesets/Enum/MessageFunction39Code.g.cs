@@ -38,22 +38,3 @@ public enum MessageFunction39Code
     ErrorNotification = MessageFunctionCode.ErrorNotification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction39CodeMetadataExtensions
-{
-    private static readonly MessageFunction39CodeDropdownSource _dropdownSource = new MessageFunction39CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction39CodeDropdownRow GetMetadata(this MessageFunction39Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

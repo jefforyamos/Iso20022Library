@@ -74,22 +74,3 @@ public enum VotingParticipationMethod1Code
     ElectronicVoting = VotingParticipationMethodCode.ElectronicVoting, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VotingParticipationMethod1CodeMetadataExtensions
-{
-    private static readonly VotingParticipationMethod1CodeDropdownSource _dropdownSource = new VotingParticipationMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVotingParticipationMethod1CodeDropdownRow GetMetadata(this VotingParticipationMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

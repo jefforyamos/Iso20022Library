@@ -47,22 +47,3 @@ public enum Standardisation1Code
     Standardised = StandardisationCode.Standardised, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Standardisation1CodeMetadataExtensions
-{
-    private static readonly Standardisation1CodeDropdownSource _dropdownSource = new Standardisation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStandardisation1CodeDropdownRow GetMetadata(this Standardisation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

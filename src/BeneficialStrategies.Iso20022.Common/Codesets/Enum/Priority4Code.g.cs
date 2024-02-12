@@ -38,22 +38,3 @@ public enum Priority4Code
     Urgent = PriorityCode.Urgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Priority4CodeMetadataExtensions
-{
-    private static readonly Priority4CodeDropdownSource _dropdownSource = new Priority4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriority4CodeDropdownRow GetMetadata(this Priority4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

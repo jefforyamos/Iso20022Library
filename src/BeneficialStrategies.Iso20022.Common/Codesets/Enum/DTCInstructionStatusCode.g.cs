@@ -182,22 +182,3 @@ public enum DTCInstructionStatusCode
     Open,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCInstructionStatusCodeMetadataExtensions
-{
-    private static readonly DTCInstructionStatusCodeDropdownSource _dropdownSource = new DTCInstructionStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCInstructionStatusCodeDropdownRow GetMetadata(this DTCInstructionStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

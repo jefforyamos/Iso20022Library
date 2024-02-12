@@ -38,22 +38,3 @@ public enum InterestCode
     OverNight,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestCodeMetadataExtensions
-{
-    private static readonly InterestCodeDropdownSource _dropdownSource = new InterestCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestCodeDropdownRow GetMetadata(this InterestCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

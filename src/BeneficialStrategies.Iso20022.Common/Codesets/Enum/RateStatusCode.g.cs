@@ -38,22 +38,3 @@ public enum RateStatusCode
     IndicativeRate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateStatusCodeMetadataExtensions
-{
-    private static readonly RateStatusCodeDropdownSource _dropdownSource = new RateStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateStatusCodeDropdownRow GetMetadata(this RateStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

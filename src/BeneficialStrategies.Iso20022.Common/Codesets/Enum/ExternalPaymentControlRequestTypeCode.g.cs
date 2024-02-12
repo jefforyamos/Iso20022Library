@@ -67,22 +67,3 @@ public enum ExternalPaymentControlRequestTypeCode
     ReleaseSuspicious,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentControlRequestTypeCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentControlRequestTypeCodeDropdownSource _dropdownSource = new ExternalPaymentControlRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentControlRequestTypeCodeDropdownRow GetMetadata(this ExternalPaymentControlRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

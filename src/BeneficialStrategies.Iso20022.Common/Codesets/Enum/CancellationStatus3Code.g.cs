@@ -56,22 +56,3 @@ public enum CancellationStatus3Code
     ReceivedByIssuerOrRegistrar = CancellationStatusCode.ReceivedByIssuerOrRegistrar, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationStatus3CodeMetadataExtensions
-{
-    private static readonly CancellationStatus3CodeDropdownSource _dropdownSource = new CancellationStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationStatus3CodeDropdownRow GetMetadata(this CancellationStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

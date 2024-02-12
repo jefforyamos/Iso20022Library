@@ -38,22 +38,3 @@ public enum AcceptedStatusReason1Code
     SectorNotAllowed = AcceptedStatusReasonCode.SectorNotAllowed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcceptedStatusReason1CodeMetadataExtensions
-{
-    private static readonly AcceptedStatusReason1CodeDropdownSource _dropdownSource = new AcceptedStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcceptedStatusReason1CodeDropdownRow GetMetadata(this AcceptedStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum CorporateActionMandatoryVoluntary1Code
     Voluntary = CorporateActionMandatoryVoluntaryCode.Voluntary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionMandatoryVoluntary1CodeMetadataExtensions
-{
-    private static readonly CorporateActionMandatoryVoluntary1CodeDropdownSource _dropdownSource = new CorporateActionMandatoryVoluntary1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionMandatoryVoluntary1CodeDropdownRow GetMetadata(this CorporateActionMandatoryVoluntary1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

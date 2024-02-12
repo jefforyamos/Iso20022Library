@@ -65,22 +65,3 @@ public enum DeviceIdentificationTypeCode
     OtherPrivate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeviceIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly DeviceIdentificationTypeCodeDropdownSource _dropdownSource = new DeviceIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeviceIdentificationTypeCodeDropdownRow GetMetadata(this DeviceIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

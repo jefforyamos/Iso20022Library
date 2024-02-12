@@ -55,22 +55,3 @@ public enum CrossTradeExecutionCode
     ExecutedWithExisting,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CrossTradeExecutionCodeMetadataExtensions
-{
-    private static readonly CrossTradeExecutionCodeDropdownSource _dropdownSource = new CrossTradeExecutionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICrossTradeExecutionCodeDropdownRow GetMetadata(this CrossTradeExecutionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

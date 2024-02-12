@@ -110,22 +110,3 @@ public enum DataSetCategory2Code
     ManagementPlan = DataSetCategoryCode.ManagementPlan, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory2CodeMetadataExtensions
-{
-    private static readonly DataSetCategory2CodeDropdownSource _dropdownSource = new DataSetCategory2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory2CodeDropdownRow GetMetadata(this DataSetCategory2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

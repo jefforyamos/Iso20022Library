@@ -38,22 +38,3 @@ public enum SettlementUnitType1Code
     Unit = SettlementUnitTypeCode.Unit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementUnitType1CodeMetadataExtensions
-{
-    private static readonly SettlementUnitType1CodeDropdownSource _dropdownSource = new SettlementUnitType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementUnitType1CodeDropdownRow GetMetadata(this SettlementUnitType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

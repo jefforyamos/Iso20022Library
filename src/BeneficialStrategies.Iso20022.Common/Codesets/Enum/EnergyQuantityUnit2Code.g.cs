@@ -200,22 +200,3 @@ public enum EnergyQuantityUnit2Code
     ThermPerDay = EnergyQuantityUnitCode.ThermPerDay, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnergyQuantityUnit2CodeMetadataExtensions
-{
-    private static readonly EnergyQuantityUnit2CodeDropdownSource _dropdownSource = new EnergyQuantityUnit2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnergyQuantityUnit2CodeDropdownRow GetMetadata(this EnergyQuantityUnit2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

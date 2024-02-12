@@ -155,22 +155,3 @@ public enum DividendRateTypeV2Code
     ForeignIncome,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DividendRateTypeV2CodeMetadataExtensions
-{
-    private static readonly DividendRateTypeV2CodeDropdownSource _dropdownSource = new DividendRateTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDividendRateTypeV2CodeDropdownRow GetMetadata(this DividendRateTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

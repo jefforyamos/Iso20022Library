@@ -38,22 +38,3 @@ public enum TimeOutCode
     NoAction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TimeOutCodeMetadataExtensions
-{
-    private static readonly TimeOutCodeDropdownSource _dropdownSource = new TimeOutCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITimeOutCodeDropdownRow GetMetadata(this TimeOutCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

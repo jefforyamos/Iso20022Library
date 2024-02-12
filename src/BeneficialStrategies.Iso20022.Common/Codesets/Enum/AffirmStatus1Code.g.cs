@@ -110,22 +110,3 @@ public enum AffirmStatus1Code
     Unreceived = AffirmStatusCode.Unreceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AffirmStatus1CodeMetadataExtensions
-{
-    private static readonly AffirmStatus1CodeDropdownSource _dropdownSource = new AffirmStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAffirmStatus1CodeDropdownRow GetMetadata(this AffirmStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

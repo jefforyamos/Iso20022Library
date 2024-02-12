@@ -38,22 +38,3 @@ public enum ReconciliationImpact1Code
     Credit = ReconciliationImpactCode.Credit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationImpact1CodeMetadataExtensions
-{
-    private static readonly ReconciliationImpact1CodeDropdownSource _dropdownSource = new ReconciliationImpact1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationImpact1CodeDropdownRow GetMetadata(this ReconciliationImpact1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

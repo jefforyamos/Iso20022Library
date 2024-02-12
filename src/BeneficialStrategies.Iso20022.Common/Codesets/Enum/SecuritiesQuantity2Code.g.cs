@@ -29,22 +29,3 @@ public enum SecuritiesQuantity2Code
     Unknown = SecuritiesQuantityTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesQuantity2CodeMetadataExtensions
-{
-    private static readonly SecuritiesQuantity2CodeDropdownSource _dropdownSource = new SecuritiesQuantity2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesQuantity2CodeDropdownRow GetMetadata(this SecuritiesQuantity2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

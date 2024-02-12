@@ -57,22 +57,3 @@ public enum ExternalPackagingTypeCode
     OtherPackagingType,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPackagingTypeCodeMetadataExtensions
-{
-    private static readonly ExternalPackagingTypeCodeDropdownSource _dropdownSource = new ExternalPackagingTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPackagingTypeCodeDropdownRow GetMetadata(this ExternalPackagingTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

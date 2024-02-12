@@ -102,22 +102,3 @@ public enum ExternalContractClosureReasonCode
     RegistrationExpired,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalContractClosureReasonCodeMetadataExtensions
-{
-    private static readonly ExternalContractClosureReasonCodeDropdownSource _dropdownSource = new ExternalContractClosureReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalContractClosureReasonCodeDropdownRow GetMetadata(this ExternalContractClosureReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

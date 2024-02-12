@@ -128,22 +128,3 @@ public enum TypeOfPrice10Code
     Actual = TypeOfPriceCode.Actual, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice10CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice10CodeDropdownSource _dropdownSource = new TypeOfPrice10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice10CodeDropdownRow GetMetadata(this TypeOfPrice10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum NotAvailable1Code
     NotAvailable = SpecialPurposeCode.NotAvailable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotAvailable1CodeMetadataExtensions
-{
-    private static readonly NotAvailable1CodeDropdownSource _dropdownSource = new NotAvailable1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotAvailable1CodeDropdownRow GetMetadata(this NotAvailable1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

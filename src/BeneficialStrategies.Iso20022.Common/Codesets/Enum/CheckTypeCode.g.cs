@@ -65,22 +65,3 @@ public enum CheckTypeCode
     GovernmentCheck,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CheckTypeCodeMetadataExtensions
-{
-    private static readonly CheckTypeCodeDropdownSource _dropdownSource = new CheckTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICheckTypeCodeDropdownRow GetMetadata(this CheckTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

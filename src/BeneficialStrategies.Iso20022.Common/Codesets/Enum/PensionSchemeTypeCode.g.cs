@@ -191,22 +191,3 @@ public enum PensionSchemeTypeCode
     PrivateOccupationalPension,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PensionSchemeTypeCodeMetadataExtensions
-{
-    private static readonly PensionSchemeTypeCodeDropdownSource _dropdownSource = new PensionSchemeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPensionSchemeTypeCodeDropdownRow GetMetadata(this PensionSchemeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

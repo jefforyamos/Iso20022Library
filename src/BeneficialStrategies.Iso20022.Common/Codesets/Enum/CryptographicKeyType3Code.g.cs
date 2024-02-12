@@ -74,22 +74,3 @@ public enum CryptographicKeyType3Code
     DES168 = CryptographicKeyTypeCode.DES168, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CryptographicKeyType3CodeMetadataExtensions
-{
-    private static readonly CryptographicKeyType3CodeDropdownSource _dropdownSource = new CryptographicKeyType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICryptographicKeyType3CodeDropdownRow GetMetadata(this CryptographicKeyType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

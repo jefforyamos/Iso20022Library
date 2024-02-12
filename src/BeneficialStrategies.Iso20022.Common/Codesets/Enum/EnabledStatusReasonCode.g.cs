@@ -29,22 +29,3 @@ public enum EnabledStatusReasonCode
     Modified,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EnabledStatusReasonCodeMetadataExtensions
-{
-    private static readonly EnabledStatusReasonCodeDropdownSource _dropdownSource = new EnabledStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEnabledStatusReasonCodeDropdownRow GetMetadata(this EnabledStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

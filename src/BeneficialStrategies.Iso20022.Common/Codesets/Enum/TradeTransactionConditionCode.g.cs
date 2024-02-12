@@ -517,22 +517,3 @@ public enum TradeTransactionConditionCode
     NonMarketPrice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TradeTransactionConditionCodeMetadataExtensions
-{
-    private static readonly TradeTransactionConditionCodeDropdownSource _dropdownSource = new TradeTransactionConditionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITradeTransactionConditionCodeDropdownRow GetMetadata(this TradeTransactionConditionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

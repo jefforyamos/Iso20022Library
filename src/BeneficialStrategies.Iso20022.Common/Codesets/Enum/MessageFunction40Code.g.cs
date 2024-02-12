@@ -146,22 +146,3 @@ public enum MessageFunction40Code
     TransactionAdvice = MessageFunctionCode.TransactionAdvice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction40CodeMetadataExtensions
-{
-    private static readonly MessageFunction40CodeDropdownSource _dropdownSource = new MessageFunction40CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction40CodeDropdownRow GetMetadata(this MessageFunction40Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

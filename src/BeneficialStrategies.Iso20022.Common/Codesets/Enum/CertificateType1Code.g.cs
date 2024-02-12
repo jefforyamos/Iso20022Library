@@ -101,22 +101,3 @@ public enum CertificateType1Code
     ProofOfAddress = CertificateTypeCode.ProofOfAddress, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CertificateType1CodeMetadataExtensions
-{
-    private static readonly CertificateType1CodeDropdownSource _dropdownSource = new CertificateType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICertificateType1CodeDropdownRow GetMetadata(this CertificateType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum EncryptionFormatCode
     CTCE,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EncryptionFormatCodeMetadataExtensions
-{
-    private static readonly EncryptionFormatCodeDropdownSource _dropdownSource = new EncryptionFormatCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEncryptionFormatCodeDropdownRow GetMetadata(this EncryptionFormatCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

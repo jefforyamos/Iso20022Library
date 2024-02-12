@@ -29,22 +29,3 @@ public enum AmountPriceType2Code
     ActualAmount = AmountPriceTypeCode.ActualAmount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountPriceType2CodeMetadataExtensions
-{
-    private static readonly AmountPriceType2CodeDropdownSource _dropdownSource = new AmountPriceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountPriceType2CodeDropdownRow GetMetadata(this AmountPriceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum BeneficiaryCertificationType4Code
     FractionBreakdown = BeneficiaryCertificationTypeCode.FractionBreakdown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BeneficiaryCertificationType4CodeMetadataExtensions
-{
-    private static readonly BeneficiaryCertificationType4CodeDropdownSource _dropdownSource = new BeneficiaryCertificationType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBeneficiaryCertificationType4CodeDropdownRow GetMetadata(this BeneficiaryCertificationType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

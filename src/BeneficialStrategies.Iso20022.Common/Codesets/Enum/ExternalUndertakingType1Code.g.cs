@@ -147,22 +147,3 @@ public enum ExternalUndertakingType1Code
     Warranty = ExternalUndertakingTypeCode.Warranty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingType1CodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingType1CodeDropdownSource _dropdownSource = new ExternalUndertakingType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingType1CodeDropdownRow GetMetadata(this ExternalUndertakingType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

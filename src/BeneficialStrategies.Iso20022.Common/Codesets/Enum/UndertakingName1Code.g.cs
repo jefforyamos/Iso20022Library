@@ -38,22 +38,3 @@ public enum UndertakingName1Code
     DemandGuarantee = UndertakingNameCode.DemandGuarantee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UndertakingName1CodeMetadataExtensions
-{
-    private static readonly UndertakingName1CodeDropdownSource _dropdownSource = new UndertakingName1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUndertakingName1CodeDropdownRow GetMetadata(this UndertakingName1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

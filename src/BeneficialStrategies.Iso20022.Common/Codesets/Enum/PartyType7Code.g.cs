@@ -65,22 +65,3 @@ public enum PartyType7Code
     SaleSystem = PartyTypeCode.SaleSystem, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType7CodeMetadataExtensions
-{
-    private static readonly PartyType7CodeDropdownSource _dropdownSource = new PartyType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType7CodeDropdownRow GetMetadata(this PartyType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

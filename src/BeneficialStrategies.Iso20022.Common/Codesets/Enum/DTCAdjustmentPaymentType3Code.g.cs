@@ -92,22 +92,3 @@ public enum DTCAdjustmentPaymentType3Code
     DynamicRateChange = DTCAdjustmentPaymentTypeV2Code.DynamicRateChange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAdjustmentPaymentType3CodeMetadataExtensions
-{
-    private static readonly DTCAdjustmentPaymentType3CodeDropdownSource _dropdownSource = new DTCAdjustmentPaymentType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAdjustmentPaymentType3CodeDropdownRow GetMetadata(this DTCAdjustmentPaymentType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

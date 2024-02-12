@@ -272,22 +272,3 @@ public enum MessageFunction14Code
     CardDebitResponse = MessageFunctionCode.CardDebitResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction14CodeMetadataExtensions
-{
-    private static readonly MessageFunction14CodeDropdownSource _dropdownSource = new MessageFunction14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction14CodeDropdownRow GetMetadata(this MessageFunction14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

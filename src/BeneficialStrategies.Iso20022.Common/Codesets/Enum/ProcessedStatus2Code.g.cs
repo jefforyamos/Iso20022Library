@@ -38,22 +38,3 @@ public enum ProcessedStatus2Code
     Completed = CorporateActionProcessedStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessedStatus2CodeMetadataExtensions
-{
-    private static readonly ProcessedStatus2CodeDropdownSource _dropdownSource = new ProcessedStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessedStatus2CodeDropdownRow GetMetadata(this ProcessedStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -146,22 +146,3 @@ public enum PendingReason18Code
     MissingTaxRate = PendingFailingReasonV2Code.MissingTaxRate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason18CodeMetadataExtensions
-{
-    private static readonly PendingReason18CodeDropdownSource _dropdownSource = new PendingReason18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason18CodeDropdownRow GetMetadata(this PendingReason18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

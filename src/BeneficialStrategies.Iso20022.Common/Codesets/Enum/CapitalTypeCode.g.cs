@@ -136,22 +136,3 @@ public enum CapitalTypeCode
     IssuedReserveCapital,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CapitalTypeCodeMetadataExtensions
-{
-    private static readonly CapitalTypeCodeDropdownSource _dropdownSource = new CapitalTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICapitalTypeCodeDropdownRow GetMetadata(this CapitalTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

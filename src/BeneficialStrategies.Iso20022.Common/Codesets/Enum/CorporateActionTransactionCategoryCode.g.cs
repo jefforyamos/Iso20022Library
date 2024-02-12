@@ -173,22 +173,3 @@ public enum CorporateActionTransactionCategoryCode
     RedemptionsRecordDateNotice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionTransactionCategoryCodeMetadataExtensions
-{
-    private static readonly CorporateActionTransactionCategoryCodeDropdownSource _dropdownSource = new CorporateActionTransactionCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionTransactionCategoryCodeDropdownRow GetMetadata(this CorporateActionTransactionCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

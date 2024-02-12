@@ -56,22 +56,3 @@ public enum ProcessingStatusCode
     ForInformationOnly,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessingStatusCodeMetadataExtensions
-{
-    private static readonly ProcessingStatusCodeDropdownSource _dropdownSource = new ProcessingStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessingStatusCodeDropdownRow GetMetadata(this ProcessingStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

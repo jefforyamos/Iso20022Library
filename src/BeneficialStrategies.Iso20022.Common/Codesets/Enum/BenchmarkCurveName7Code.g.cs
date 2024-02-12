@@ -372,22 +372,3 @@ public enum BenchmarkCurveName7Code
     WIBOR = BenchmarkCurveNameV2Code.WIBOR, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BenchmarkCurveName7CodeMetadataExtensions
-{
-    private static readonly BenchmarkCurveName7CodeDropdownSource _dropdownSource = new BenchmarkCurveName7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBenchmarkCurveName7CodeDropdownRow GetMetadata(this BenchmarkCurveName7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

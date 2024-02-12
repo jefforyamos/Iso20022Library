@@ -56,22 +56,3 @@ public enum DeliveryTypeV2Code
     HoldInCustody,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliveryTypeV2CodeMetadataExtensions
-{
-    private static readonly DeliveryTypeV2CodeDropdownSource _dropdownSource = new DeliveryTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliveryTypeV2CodeDropdownRow GetMetadata(this DeliveryTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

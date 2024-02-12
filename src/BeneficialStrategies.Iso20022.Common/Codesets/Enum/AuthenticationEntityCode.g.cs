@@ -74,22 +74,3 @@ public enum AuthenticationEntityCode
     Terminal,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationEntityCodeMetadataExtensions
-{
-    private static readonly AuthenticationEntityCodeDropdownSource _dropdownSource = new AuthenticationEntityCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationEntityCodeDropdownRow GetMetadata(this AuthenticationEntityCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

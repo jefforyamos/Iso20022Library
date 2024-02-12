@@ -101,22 +101,3 @@ public enum TemporaryServicesCharge1Code
     Hazard = TemporaryServicesChargeCode.Hazard, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TemporaryServicesCharge1CodeMetadataExtensions
-{
-    private static readonly TemporaryServicesCharge1CodeDropdownSource _dropdownSource = new TemporaryServicesCharge1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITemporaryServicesCharge1CodeDropdownRow GetMetadata(this TemporaryServicesCharge1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

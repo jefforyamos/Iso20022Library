@@ -137,22 +137,3 @@ public enum OrganisationLegalStatusCode
     CharitableIncorporatedOrganisation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrganisationLegalStatusCodeMetadataExtensions
-{
-    private static readonly OrganisationLegalStatusCodeDropdownSource _dropdownSource = new OrganisationLegalStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrganisationLegalStatusCodeDropdownRow GetMetadata(this OrganisationLegalStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

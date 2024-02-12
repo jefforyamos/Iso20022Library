@@ -228,22 +228,3 @@ public enum ValidationRuleCode
     RequestForCancellationDeliveryAcknowledgement,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleCodeMetadataExtensions
-{
-    private static readonly ValidationRuleCodeDropdownSource _dropdownSource = new ValidationRuleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleCodeDropdownRow GetMetadata(this ValidationRuleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum RoundingDirection2Code
     RoundDown = RoundingDirectionCode.RoundDown, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RoundingDirection2CodeMetadataExtensions
-{
-    private static readonly RoundingDirection2CodeDropdownSource _dropdownSource = new RoundingDirection2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRoundingDirection2CodeDropdownRow GetMetadata(this RoundingDirection2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

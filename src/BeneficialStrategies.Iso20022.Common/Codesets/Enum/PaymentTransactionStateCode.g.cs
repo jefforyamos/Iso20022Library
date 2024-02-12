@@ -65,22 +65,3 @@ public enum PaymentTransactionStateCode
     Credited,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTransactionStateCodeMetadataExtensions
-{
-    private static readonly PaymentTransactionStateCodeDropdownSource _dropdownSource = new PaymentTransactionStateCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTransactionStateCodeDropdownRow GetMetadata(this PaymentTransactionStateCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

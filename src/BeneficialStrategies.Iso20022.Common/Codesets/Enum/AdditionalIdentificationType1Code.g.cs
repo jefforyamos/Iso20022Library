@@ -56,22 +56,3 @@ public enum AdditionalIdentificationType1Code
     AustinTetra = AdditionalIdentificationTypeCode.AustinTetra, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalIdentificationType1CodeMetadataExtensions
-{
-    private static readonly AdditionalIdentificationType1CodeDropdownSource _dropdownSource = new AdditionalIdentificationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalIdentificationType1CodeDropdownRow GetMetadata(this AdditionalIdentificationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

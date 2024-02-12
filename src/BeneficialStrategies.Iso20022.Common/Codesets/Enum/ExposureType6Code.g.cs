@@ -56,22 +56,3 @@ public enum ExposureType6Code
     SecuritiesLendingAndBorrowing = ExposureTypeCode.SecuritiesLendingAndBorrowing, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType6CodeMetadataExtensions
-{
-    private static readonly ExposureType6CodeDropdownSource _dropdownSource = new ExposureType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType6CodeDropdownRow GetMetadata(this ExposureType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

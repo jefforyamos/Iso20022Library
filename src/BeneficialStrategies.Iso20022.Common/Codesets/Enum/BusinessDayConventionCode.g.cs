@@ -65,22 +65,3 @@ public enum BusinessDayConventionCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BusinessDayConventionCodeMetadataExtensions
-{
-    private static readonly BusinessDayConventionCodeDropdownSource _dropdownSource = new BusinessDayConventionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBusinessDayConventionCodeDropdownRow GetMetadata(this BusinessDayConventionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

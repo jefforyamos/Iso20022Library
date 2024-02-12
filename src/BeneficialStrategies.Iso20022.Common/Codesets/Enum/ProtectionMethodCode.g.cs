@@ -92,22 +92,3 @@ public enum ProtectionMethodCode
     VirtualTrustedExecutionEnvironment,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProtectionMethodCodeMetadataExtensions
-{
-    private static readonly ProtectionMethodCodeDropdownSource _dropdownSource = new ProtectionMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProtectionMethodCodeDropdownRow GetMetadata(this ProtectionMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

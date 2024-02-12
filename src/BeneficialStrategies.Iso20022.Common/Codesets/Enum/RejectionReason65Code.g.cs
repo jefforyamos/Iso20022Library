@@ -254,22 +254,3 @@ public enum RejectionReason65Code
     ParticipationMethodNotSupported = RejectionReasonV3Code.ParticipationMethodNotSupported, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason65CodeMetadataExtensions
-{
-    private static readonly RejectionReason65CodeDropdownSource _dropdownSource = new RejectionReason65CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason65CodeDropdownRow GetMetadata(this RejectionReason65Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

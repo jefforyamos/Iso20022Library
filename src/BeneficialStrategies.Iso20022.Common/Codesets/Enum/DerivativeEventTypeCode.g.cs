@@ -145,22 +145,3 @@ public enum DerivativeEventTypeCode
     Revive,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DerivativeEventTypeCodeMetadataExtensions
-{
-    private static readonly DerivativeEventTypeCodeDropdownSource _dropdownSource = new DerivativeEventTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDerivativeEventTypeCodeDropdownRow GetMetadata(this DerivativeEventTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

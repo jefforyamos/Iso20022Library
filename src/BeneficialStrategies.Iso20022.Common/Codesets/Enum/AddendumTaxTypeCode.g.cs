@@ -1073,22 +1073,3 @@ public enum AddendumTaxTypeCode
     TotalNonRoomTax,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AddendumTaxTypeCodeMetadataExtensions
-{
-    private static readonly AddendumTaxTypeCodeDropdownSource _dropdownSource = new AddendumTaxTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAddendumTaxTypeCodeDropdownRow GetMetadata(this AddendumTaxTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

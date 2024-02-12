@@ -47,22 +47,3 @@ public enum InvestmentFundPlanTypeCode
     SwitchPlan,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundPlanTypeCodeMetadataExtensions
-{
-    private static readonly InvestmentFundPlanTypeCodeDropdownSource _dropdownSource = new InvestmentFundPlanTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundPlanTypeCodeDropdownRow GetMetadata(this InvestmentFundPlanTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

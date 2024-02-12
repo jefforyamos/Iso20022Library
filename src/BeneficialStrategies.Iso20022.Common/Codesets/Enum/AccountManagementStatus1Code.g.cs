@@ -56,22 +56,3 @@ public enum AccountManagementStatus1Code
     SentToNextParty = AccountManagementStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountManagementStatus1CodeMetadataExtensions
-{
-    private static readonly AccountManagementStatus1CodeDropdownSource _dropdownSource = new AccountManagementStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountManagementStatus1CodeDropdownRow GetMetadata(this AccountManagementStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -353,22 +353,3 @@ public enum ExposureType14Code
     MarginLending = ExposureTypeV3Code.MarginLending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType14CodeMetadataExtensions
-{
-    private static readonly ExposureType14CodeDropdownSource _dropdownSource = new ExposureType14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType14CodeDropdownRow GetMetadata(this ExposureType14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

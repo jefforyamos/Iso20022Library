@@ -29,22 +29,3 @@ public enum AssetClassSubProductType10Code
     Emission = AssetClassSubProductTypeCode.Emission, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType10CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType10CodeDropdownSource _dropdownSource = new AssetClassSubProductType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType10CodeDropdownRow GetMetadata(this AssetClassSubProductType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

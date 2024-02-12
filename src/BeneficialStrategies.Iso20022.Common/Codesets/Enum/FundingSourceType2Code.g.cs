@@ -146,22 +146,3 @@ public enum FundingSourceType2Code
     LineOfCredit = FundingSourceTypeCode.LineOfCredit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundingSourceType2CodeMetadataExtensions
-{
-    private static readonly FundingSourceType2CodeDropdownSource _dropdownSource = new FundingSourceType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundingSourceType2CodeDropdownRow GetMetadata(this FundingSourceType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

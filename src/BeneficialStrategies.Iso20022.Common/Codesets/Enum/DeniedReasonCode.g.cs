@@ -137,22 +137,3 @@ public enum DeniedReasonCode
     ConditionalRegistrar,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeniedReasonCodeMetadataExtensions
-{
-    private static readonly DeniedReasonCodeDropdownSource _dropdownSource = new DeniedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeniedReasonCodeDropdownRow GetMetadata(this DeniedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

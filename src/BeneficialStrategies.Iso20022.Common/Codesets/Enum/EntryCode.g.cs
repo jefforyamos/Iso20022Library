@@ -47,22 +47,3 @@ public enum EntryCode
     Requested,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryCodeMetadataExtensions
-{
-    private static readonly EntryCodeDropdownSource _dropdownSource = new EntryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryCodeDropdownRow GetMetadata(this EntryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

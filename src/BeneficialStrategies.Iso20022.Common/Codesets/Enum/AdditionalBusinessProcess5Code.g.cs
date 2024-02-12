@@ -119,22 +119,3 @@ public enum AdditionalBusinessProcess5Code
     RequiredAction = AdditionalBusinessProcessCode.RequiredAction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalBusinessProcess5CodeMetadataExtensions
-{
-    private static readonly AdditionalBusinessProcess5CodeDropdownSource _dropdownSource = new AdditionalBusinessProcess5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalBusinessProcess5CodeDropdownRow GetMetadata(this AdditionalBusinessProcess5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -110,22 +110,3 @@ public enum CollateralisationTypeCode
     OneWayPartiallyCollateralisedCounterparty2,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralisationTypeCodeMetadataExtensions
-{
-    private static readonly CollateralisationTypeCodeDropdownSource _dropdownSource = new CollateralisationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralisationTypeCodeDropdownRow GetMetadata(this CollateralisationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

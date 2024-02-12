@@ -722,22 +722,3 @@ public enum CorporateActionEventTypeV5Code
     NonOfficialOffer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventTypeV5CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventTypeV5CodeDropdownSource _dropdownSource = new CorporateActionEventTypeV5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventTypeV5CodeDropdownRow GetMetadata(this CorporateActionEventTypeV5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

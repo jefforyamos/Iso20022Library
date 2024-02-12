@@ -38,22 +38,3 @@ public enum DeliverReturnCode
     Return,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DeliverReturnCodeMetadataExtensions
-{
-    private static readonly DeliverReturnCodeDropdownSource _dropdownSource = new DeliverReturnCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDeliverReturnCodeDropdownRow GetMetadata(this DeliverReturnCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

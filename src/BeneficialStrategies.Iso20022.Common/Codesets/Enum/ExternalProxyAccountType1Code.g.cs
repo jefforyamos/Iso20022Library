@@ -210,22 +210,3 @@ public enum ExternalProxyAccountType1Code
     BillerSubscriberIdentification = ExternalProxyAccountTypeCode.BillerSubscriberIdentification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalProxyAccountType1CodeMetadataExtensions
-{
-    private static readonly ExternalProxyAccountType1CodeDropdownSource _dropdownSource = new ExternalProxyAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalProxyAccountType1CodeDropdownRow GetMetadata(this ExternalProxyAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

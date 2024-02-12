@@ -407,22 +407,3 @@ public enum SecuritiesTransactionType20Code
     SwitchTo = SecuritiesTransactionTypeV2Code.SwitchTo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesTransactionType20CodeMetadataExtensions
-{
-    private static readonly SecuritiesTransactionType20CodeDropdownSource _dropdownSource = new SecuritiesTransactionType20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesTransactionType20CodeDropdownRow GetMetadata(this SecuritiesTransactionType20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

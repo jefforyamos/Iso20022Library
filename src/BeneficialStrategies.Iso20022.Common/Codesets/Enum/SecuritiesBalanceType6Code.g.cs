@@ -65,22 +65,3 @@ public enum SecuritiesBalanceType6Code
     ReservedForRemoval = BalanceTypeCode.ReservedForRemoval, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType6CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType6CodeDropdownSource _dropdownSource = new SecuritiesBalanceType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType6CodeDropdownRow GetMetadata(this SecuritiesBalanceType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -46,22 +46,3 @@ public enum MergerTypeCode
     TransferofShares,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MergerTypeCodeMetadataExtensions
-{
-    private static readonly MergerTypeCodeDropdownSource _dropdownSource = new MergerTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMergerTypeCodeDropdownRow GetMetadata(this MergerTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

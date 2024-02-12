@@ -47,22 +47,3 @@ public enum SettlementQueryType1Code
     StatusPeriod = SettlementQueryTypeCode.StatusPeriod, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementQueryType1CodeMetadataExtensions
-{
-    private static readonly SettlementQueryType1CodeDropdownSource _dropdownSource = new SettlementQueryType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementQueryType1CodeDropdownRow GetMetadata(this SettlementQueryType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

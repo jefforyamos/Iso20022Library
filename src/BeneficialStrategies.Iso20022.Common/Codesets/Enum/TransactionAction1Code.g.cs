@@ -38,22 +38,3 @@ public enum TransactionAction1Code
     Stop = TransactionActionCode.Stop, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionAction1CodeMetadataExtensions
-{
-    private static readonly TransactionAction1CodeDropdownSource _dropdownSource = new TransactionAction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionAction1CodeDropdownRow GetMetadata(this TransactionAction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

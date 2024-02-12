@@ -56,22 +56,3 @@ public enum CorporateActionStatementType2Code
     BalanceInformation = CorporateActionStatementTypeCode.BalanceInformation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionStatementType2CodeMetadataExtensions
-{
-    private static readonly CorporateActionStatementType2CodeDropdownSource _dropdownSource = new CorporateActionStatementType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionStatementType2CodeDropdownRow GetMetadata(this CorporateActionStatementType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -1010,22 +1010,3 @@ public enum PendingFailingReasonCode
     PendingBeneficiaryOwnerDetails,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingFailingReasonCodeMetadataExtensions
-{
-    private static readonly PendingFailingReasonCodeDropdownSource _dropdownSource = new PendingFailingReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingFailingReasonCodeDropdownRow GetMetadata(this PendingFailingReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

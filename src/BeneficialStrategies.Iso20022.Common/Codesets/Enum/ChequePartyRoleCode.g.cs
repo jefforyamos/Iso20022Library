@@ -56,22 +56,3 @@ public enum ChequePartyRoleCode
     Payer,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChequePartyRoleCodeMetadataExtensions
-{
-    private static readonly ChequePartyRoleCodeDropdownSource _dropdownSource = new ChequePartyRoleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChequePartyRoleCodeDropdownRow GetMetadata(this ChequePartyRoleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

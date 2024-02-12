@@ -66,22 +66,3 @@ public enum ExternalUndertakingDocumentTypeCode
     TransferForm,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingDocumentTypeCodeMetadataExtensions
-{
-    private static readonly ExternalUndertakingDocumentTypeCodeDropdownSource _dropdownSource = new ExternalUndertakingDocumentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingDocumentTypeCodeDropdownRow GetMetadata(this ExternalUndertakingDocumentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

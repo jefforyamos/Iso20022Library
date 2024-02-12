@@ -110,22 +110,3 @@ public enum VerificationCode
     NotSupported,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VerificationCodeMetadataExtensions
-{
-    private static readonly VerificationCodeDropdownSource _dropdownSource = new VerificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVerificationCodeDropdownRow GetMetadata(this VerificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

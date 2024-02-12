@@ -65,22 +65,3 @@ public enum ATMNoteType1Code
     Unfit = ATMNoteTypeCode.Unfit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMNoteType1CodeMetadataExtensions
-{
-    private static readonly ATMNoteType1CodeDropdownSource _dropdownSource = new ATMNoteType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMNoteType1CodeDropdownRow GetMetadata(this ATMNoteType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

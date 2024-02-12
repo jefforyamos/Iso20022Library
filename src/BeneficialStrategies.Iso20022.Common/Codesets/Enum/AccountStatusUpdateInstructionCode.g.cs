@@ -38,22 +38,3 @@ public enum AccountStatusUpdateInstructionCode
     Close,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatusUpdateInstructionCodeMetadataExtensions
-{
-    private static readonly AccountStatusUpdateInstructionCodeDropdownSource _dropdownSource = new AccountStatusUpdateInstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatusUpdateInstructionCodeDropdownRow GetMetadata(this AccountStatusUpdateInstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

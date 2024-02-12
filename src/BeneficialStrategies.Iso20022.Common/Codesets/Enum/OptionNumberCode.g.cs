@@ -29,22 +29,3 @@ public enum OptionNumberCode
     Unsolicited,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionNumberCodeMetadataExtensions
-{
-    private static readonly OptionNumberCodeDropdownSource _dropdownSource = new OptionNumberCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionNumberCodeDropdownRow GetMetadata(this OptionNumberCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

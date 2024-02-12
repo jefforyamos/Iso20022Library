@@ -65,22 +65,3 @@ public enum RequestModeTypeCode
     Forecast,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestModeTypeCodeMetadataExtensions
-{
-    private static readonly RequestModeTypeCodeDropdownSource _dropdownSource = new RequestModeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestModeTypeCodeDropdownRow GetMetadata(this RequestModeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

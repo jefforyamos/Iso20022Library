@@ -38,22 +38,3 @@ public enum Rank1Code
     Secondary = RankCode.Secondary, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Rank1CodeMetadataExtensions
-{
-    private static readonly Rank1CodeDropdownSource _dropdownSource = new Rank1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRank1CodeDropdownRow GetMetadata(this Rank1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

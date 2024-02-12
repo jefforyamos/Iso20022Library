@@ -56,22 +56,3 @@ public enum TransferType4Code
     InSpecie = TransferTypeCode.InSpecie, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferType4CodeMetadataExtensions
-{
-    private static readonly TransferType4CodeDropdownSource _dropdownSource = new TransferType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferType4CodeDropdownRow GetMetadata(this TransferType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

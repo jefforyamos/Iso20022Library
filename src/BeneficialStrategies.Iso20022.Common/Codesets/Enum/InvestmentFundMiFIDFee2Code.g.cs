@@ -288,22 +288,3 @@ public enum InvestmentFundMiFIDFee2Code
     TransactionCost = InvestmentFundMiFIDFeeV2Code.TransactionCost, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundMiFIDFee2CodeMetadataExtensions
-{
-    private static readonly InvestmentFundMiFIDFee2CodeDropdownSource _dropdownSource = new InvestmentFundMiFIDFee2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundMiFIDFee2CodeDropdownRow GetMetadata(this InvestmentFundMiFIDFee2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

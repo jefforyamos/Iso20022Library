@@ -56,22 +56,3 @@ public enum ExposureType10Code
     Repo = ExposureTypeV2Code.Repo, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExposureType10CodeMetadataExtensions
-{
-    private static readonly ExposureType10CodeDropdownSource _dropdownSource = new ExposureType10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExposureType10CodeDropdownRow GetMetadata(this ExposureType10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

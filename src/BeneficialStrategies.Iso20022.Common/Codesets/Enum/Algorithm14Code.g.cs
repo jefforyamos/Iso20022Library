@@ -47,22 +47,3 @@ public enum Algorithm14Code
     RSASSA_PSS = AlgorithmCode.RSASSA_PSS, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm14CodeMetadataExtensions
-{
-    private static readonly Algorithm14CodeDropdownSource _dropdownSource = new Algorithm14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm14CodeDropdownRow GetMetadata(this Algorithm14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

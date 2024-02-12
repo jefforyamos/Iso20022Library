@@ -65,22 +65,3 @@ public enum CorporateActionEventStatus1Code
     Withdrawn = CorporateActionEventStatusCode.Withdrawn, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStatus1CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStatus1CodeDropdownSource _dropdownSource = new CorporateActionEventStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStatus1CodeDropdownRow GetMetadata(this CorporateActionEventStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

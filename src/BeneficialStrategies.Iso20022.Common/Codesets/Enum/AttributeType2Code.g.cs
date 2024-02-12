@@ -38,22 +38,3 @@ public enum AttributeType2Code
     ChallengePassword = AttributeTypeCode.ChallengePassword, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AttributeType2CodeMetadataExtensions
-{
-    private static readonly AttributeType2CodeDropdownSource _dropdownSource = new AttributeType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAttributeType2CodeDropdownRow GetMetadata(this AttributeType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

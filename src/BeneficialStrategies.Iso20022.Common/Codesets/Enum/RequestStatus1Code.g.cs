@@ -47,22 +47,3 @@ public enum RequestStatus1Code
     NotFinanced = RequestStatusCode.NotFinanced, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestStatus1CodeMetadataExtensions
-{
-    private static readonly RequestStatus1CodeDropdownSource _dropdownSource = new RequestStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestStatus1CodeDropdownRow GetMetadata(this RequestStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum MandateCancellationReason1Code
     InsufficientCreditorDetails = MandateReasonCode.InsufficientCreditorDetails, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MandateCancellationReason1CodeMetadataExtensions
-{
-    private static readonly MandateCancellationReason1CodeDropdownSource _dropdownSource = new MandateCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMandateCancellationReason1CodeDropdownRow GetMetadata(this MandateCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

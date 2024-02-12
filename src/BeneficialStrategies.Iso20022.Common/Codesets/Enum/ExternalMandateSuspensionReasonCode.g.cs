@@ -76,22 +76,3 @@ public enum ExternalMandateSuspensionReasonCode
     MandateSuspended7ConsecutiveUnsuccessfulCollections,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalMandateSuspensionReasonCodeMetadataExtensions
-{
-    private static readonly ExternalMandateSuspensionReasonCodeDropdownSource _dropdownSource = new ExternalMandateSuspensionReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalMandateSuspensionReasonCodeDropdownRow GetMetadata(this ExternalMandateSuspensionReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

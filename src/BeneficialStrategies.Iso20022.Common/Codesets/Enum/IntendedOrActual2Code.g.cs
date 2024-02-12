@@ -38,22 +38,3 @@ public enum IntendedOrActual2Code
     ExPost = IntendedOrActualCode.ExPost, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IntendedOrActual2CodeMetadataExtensions
-{
-    private static readonly IntendedOrActual2CodeDropdownSource _dropdownSource = new IntendedOrActual2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIntendedOrActual2CodeDropdownRow GetMetadata(this IntendedOrActual2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

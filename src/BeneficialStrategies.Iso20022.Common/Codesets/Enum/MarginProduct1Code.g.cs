@@ -38,22 +38,3 @@ public enum MarginProduct1Code
     FixedIncome = MarginProductCode.FixedIncome, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarginProduct1CodeMetadataExtensions
-{
-    private static readonly MarginProduct1CodeDropdownSource _dropdownSource = new MarginProduct1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarginProduct1CodeDropdownRow GetMetadata(this MarginProduct1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

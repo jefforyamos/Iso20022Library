@@ -83,22 +83,3 @@ public enum CustomerDeviceType1Code
     SecureCardReader = CustomerDeviceTypeCode.SecureCardReader, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CustomerDeviceType1CodeMetadataExtensions
-{
-    private static readonly CustomerDeviceType1CodeDropdownSource _dropdownSource = new CustomerDeviceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICustomerDeviceType1CodeDropdownRow GetMetadata(this CustomerDeviceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

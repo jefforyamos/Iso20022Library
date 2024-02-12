@@ -101,22 +101,3 @@ public enum FinancialPartySectorType2Code
     UCITSManagementCompany = FinancialPartySectorTypeCode.UCITSManagementCompany, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialPartySectorType2CodeMetadataExtensions
-{
-    private static readonly FinancialPartySectorType2CodeDropdownSource _dropdownSource = new FinancialPartySectorType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialPartySectorType2CodeDropdownRow GetMetadata(this FinancialPartySectorType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

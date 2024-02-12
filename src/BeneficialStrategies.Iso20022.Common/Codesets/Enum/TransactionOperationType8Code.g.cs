@@ -119,22 +119,3 @@ public enum TransactionOperationType8Code
     MarginUpdate = TransactionOperationTypeV2Code.MarginUpdate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionOperationType8CodeMetadataExtensions
-{
-    private static readonly TransactionOperationType8CodeDropdownSource _dropdownSource = new TransactionOperationType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionOperationType8CodeDropdownRow GetMetadata(this TransactionOperationType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

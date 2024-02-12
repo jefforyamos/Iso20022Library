@@ -272,22 +272,3 @@ public enum CorporateActionOption4Code
     TaxInstruction = CorporateActionOptionCode.TaxInstruction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionOption4CodeMetadataExtensions
-{
-    private static readonly CorporateActionOption4CodeDropdownSource _dropdownSource = new CorporateActionOption4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionOption4CodeDropdownRow GetMetadata(this CorporateActionOption4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

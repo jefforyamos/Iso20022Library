@@ -65,22 +65,3 @@ public enum UserInterface4Code
     OtherCardholderInterface = UserInterfaceCode.OtherCardholderInterface, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UserInterface4CodeMetadataExtensions
-{
-    private static readonly UserInterface4CodeDropdownSource _dropdownSource = new UserInterface4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUserInterface4CodeDropdownRow GetMetadata(this UserInterface4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -236,22 +236,3 @@ public enum AssetClassDetailedSubProductType7Code
     Urals = AssetClassDetailedSubProductTypeCode.Urals, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType7CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType7CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType7CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

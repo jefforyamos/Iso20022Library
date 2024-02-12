@@ -47,22 +47,3 @@ public enum ClearingAccountType1Code
     LiquidityProvider = ClearingAccountTypeCode.LiquidityProvider, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingAccountType1CodeMetadataExtensions
-{
-    private static readonly ClearingAccountType1CodeDropdownSource _dropdownSource = new ClearingAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingAccountType1CodeDropdownRow GetMetadata(this ClearingAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

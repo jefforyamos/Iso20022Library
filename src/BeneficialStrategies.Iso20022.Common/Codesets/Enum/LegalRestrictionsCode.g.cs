@@ -92,22 +92,3 @@ public enum LegalRestrictionsCode
     Restrictions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalRestrictionsCodeMetadataExtensions
-{
-    private static readonly LegalRestrictionsCodeDropdownSource _dropdownSource = new LegalRestrictionsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalRestrictionsCodeDropdownRow GetMetadata(this LegalRestrictionsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

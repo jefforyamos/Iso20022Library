@@ -38,22 +38,3 @@ public enum AssignmentMethod1Code
     Prorata = AssignmentMethodCode.Prorata, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssignmentMethod1CodeMetadataExtensions
-{
-    private static readonly AssignmentMethod1CodeDropdownSource _dropdownSource = new AssignmentMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssignmentMethod1CodeDropdownRow GetMetadata(this AssignmentMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -74,22 +74,3 @@ public enum CardPaymentServiceType3Code
     FollowingRecurring = CardPaymentServiceTypeCode.FollowingRecurring, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType3CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType3CodeDropdownSource _dropdownSource = new CardPaymentServiceType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType3CodeDropdownRow GetMetadata(this CardPaymentServiceType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

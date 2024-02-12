@@ -182,22 +182,3 @@ public enum EventFrequencyCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequencyCodeMetadataExtensions
-{
-    private static readonly EventFrequencyCodeDropdownSource _dropdownSource = new EventFrequencyCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequencyCodeDropdownRow GetMetadata(this EventFrequencyCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

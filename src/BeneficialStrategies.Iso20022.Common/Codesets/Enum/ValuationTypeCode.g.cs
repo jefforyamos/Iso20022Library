@@ -56,22 +56,3 @@ public enum ValuationTypeCode
     AmortisedCost,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValuationTypeCodeMetadataExtensions
-{
-    private static readonly ValuationTypeCodeDropdownSource _dropdownSource = new ValuationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValuationTypeCodeDropdownRow GetMetadata(this ValuationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

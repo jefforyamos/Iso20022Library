@@ -47,22 +47,3 @@ public enum CashMarginOrderCode
     MarginClose,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashMarginOrderCodeMetadataExtensions
-{
-    private static readonly CashMarginOrderCodeDropdownSource _dropdownSource = new CashMarginOrderCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashMarginOrderCodeDropdownRow GetMetadata(this CashMarginOrderCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

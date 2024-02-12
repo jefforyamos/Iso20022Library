@@ -344,22 +344,3 @@ public enum DTCUnallocatedAdjustmentReason2Code
     FundsHeldAtChaseForOFAC = DTCUnallocatedAdjustmentReasonCode.FundsHeldAtChaseForOFAC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCUnallocatedAdjustmentReason2CodeMetadataExtensions
-{
-    private static readonly DTCUnallocatedAdjustmentReason2CodeDropdownSource _dropdownSource = new DTCUnallocatedAdjustmentReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCUnallocatedAdjustmentReason2CodeDropdownRow GetMetadata(this DTCUnallocatedAdjustmentReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

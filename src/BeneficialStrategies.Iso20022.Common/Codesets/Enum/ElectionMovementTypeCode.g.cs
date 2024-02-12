@@ -47,22 +47,3 @@ public enum ElectionMovementTypeCode
     Sequestered,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ElectionMovementTypeCodeMetadataExtensions
-{
-    private static readonly ElectionMovementTypeCodeDropdownSource _dropdownSource = new ElectionMovementTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IElectionMovementTypeCodeDropdownRow GetMetadata(this ElectionMovementTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

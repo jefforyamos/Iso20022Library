@@ -47,22 +47,3 @@ public enum CancellationStatus5Code
     SentToNextParty = CancellationStatusCode.SentToNextParty, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationStatus5CodeMetadataExtensions
-{
-    private static readonly CancellationStatus5CodeDropdownSource _dropdownSource = new CancellationStatus5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationStatus5CodeDropdownRow GetMetadata(this CancellationStatus5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

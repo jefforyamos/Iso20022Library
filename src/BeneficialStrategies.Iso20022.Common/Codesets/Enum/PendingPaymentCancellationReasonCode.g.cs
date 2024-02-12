@@ -47,22 +47,3 @@ public enum PendingPaymentCancellationReasonCode
     CancellationIndemnityRequired,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingPaymentCancellationReasonCodeMetadataExtensions
-{
-    private static readonly PendingPaymentCancellationReasonCodeDropdownSource _dropdownSource = new PendingPaymentCancellationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingPaymentCancellationReasonCodeDropdownRow GetMetadata(this PendingPaymentCancellationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum LifeCycleSupport1Code
     Financial = LifeCycleSupportCode.Financial, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LifeCycleSupport1CodeMetadataExtensions
-{
-    private static readonly LifeCycleSupport1CodeDropdownSource _dropdownSource = new LifeCycleSupport1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILifeCycleSupport1CodeDropdownRow GetMetadata(this LifeCycleSupport1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

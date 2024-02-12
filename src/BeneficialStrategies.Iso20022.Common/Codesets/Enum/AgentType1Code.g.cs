@@ -38,22 +38,3 @@ public enum AgentType1Code
     Other = AgentTypeCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AgentType1CodeMetadataExtensions
-{
-    private static readonly AgentType1CodeDropdownSource _dropdownSource = new AgentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAgentType1CodeDropdownRow GetMetadata(this AgentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum RepairReason3Code
     SettlementDate = RepairReasonCode.SettlementDate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepairReason3CodeMetadataExtensions
-{
-    private static readonly RepairReason3CodeDropdownSource _dropdownSource = new RepairReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepairReason3CodeDropdownRow GetMetadata(this RepairReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

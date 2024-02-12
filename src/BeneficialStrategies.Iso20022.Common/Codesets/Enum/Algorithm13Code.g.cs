@@ -83,22 +83,3 @@ public enum Algorithm13Code
     AES256CBC = AlgorithmCode.AES256CBC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm13CodeMetadataExtensions
-{
-    private static readonly Algorithm13CodeDropdownSource _dropdownSource = new Algorithm13CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm13CodeDropdownRow GetMetadata(this Algorithm13Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

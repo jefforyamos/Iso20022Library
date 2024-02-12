@@ -56,22 +56,3 @@ public enum RateBasisCode
     Days,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateBasisCodeMetadataExtensions
-{
-    private static readonly RateBasisCodeDropdownSource _dropdownSource = new RateBasisCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateBasisCodeDropdownRow GetMetadata(this RateBasisCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

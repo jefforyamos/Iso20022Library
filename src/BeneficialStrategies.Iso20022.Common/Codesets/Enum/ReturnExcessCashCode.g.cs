@@ -47,22 +47,3 @@ public enum ReturnExcessCashCode
     Suspended,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReturnExcessCashCodeMetadataExtensions
-{
-    private static readonly ReturnExcessCashCodeDropdownSource _dropdownSource = new ReturnExcessCashCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReturnExcessCashCodeDropdownRow GetMetadata(this ReturnExcessCashCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

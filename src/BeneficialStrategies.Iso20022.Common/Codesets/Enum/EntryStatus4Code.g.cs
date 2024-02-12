@@ -38,22 +38,3 @@ public enum EntryStatus4Code
     Pending = EntryStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EntryStatus4CodeMetadataExtensions
-{
-    private static readonly EntryStatus4CodeDropdownSource _dropdownSource = new EntryStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEntryStatus4CodeDropdownRow GetMetadata(this EntryStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

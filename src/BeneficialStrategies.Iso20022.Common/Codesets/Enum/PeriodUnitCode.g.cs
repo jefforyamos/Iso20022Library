@@ -128,22 +128,3 @@ public enum PeriodUnitCode
     Seconds,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PeriodUnitCodeMetadataExtensions
-{
-    private static readonly PeriodUnitCodeDropdownSource _dropdownSource = new PeriodUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPeriodUnitCodeDropdownRow GetMetadata(this PeriodUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

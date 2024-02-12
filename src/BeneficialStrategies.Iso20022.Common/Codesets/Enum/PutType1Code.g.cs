@@ -47,22 +47,3 @@ public enum PutType1Code
     Both = PutTypeCode.Both, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PutType1CodeMetadataExtensions
-{
-    private static readonly PutType1CodeDropdownSource _dropdownSource = new PutType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPutType1CodeDropdownRow GetMetadata(this PutType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

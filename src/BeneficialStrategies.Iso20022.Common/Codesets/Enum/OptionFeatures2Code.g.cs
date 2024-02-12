@@ -110,22 +110,3 @@ public enum OptionFeatures2Code
     NoServiceOffered = OptionFeaturesCode.NoServiceOffered, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeatures2CodeMetadataExtensions
-{
-    private static readonly OptionFeatures2CodeDropdownSource _dropdownSource = new OptionFeatures2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeatures2CodeDropdownRow GetMetadata(this OptionFeatures2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

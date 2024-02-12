@@ -371,22 +371,3 @@ public enum SecuritiesBalanceTypeCode
     ContingentRedemption,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceTypeCodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceTypeCodeDropdownSource _dropdownSource = new SecuritiesBalanceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceTypeCodeDropdownRow GetMetadata(this SecuritiesBalanceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

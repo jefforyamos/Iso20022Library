@@ -38,22 +38,3 @@ public enum AccountManagementType1Code
     AccountModification = AccountManagementTypeCode.AccountModification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountManagementType1CodeMetadataExtensions
-{
-    private static readonly AccountManagementType1CodeDropdownSource _dropdownSource = new AccountManagementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountManagementType1CodeDropdownRow GetMetadata(this AccountManagementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

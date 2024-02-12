@@ -83,22 +83,3 @@ public enum TransferStatus1Code
     Cancelled = TransferStatusCode.Cancelled, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransferStatus1CodeMetadataExtensions
-{
-    private static readonly TransferStatus1CodeDropdownSource _dropdownSource = new TransferStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransferStatus1CodeDropdownRow GetMetadata(this TransferStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

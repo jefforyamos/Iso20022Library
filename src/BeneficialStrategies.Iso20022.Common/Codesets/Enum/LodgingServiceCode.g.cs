@@ -281,22 +281,3 @@ public enum LodgingServiceCode
     RoomService,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LodgingServiceCodeMetadataExtensions
-{
-    private static readonly LodgingServiceCodeDropdownSource _dropdownSource = new LodgingServiceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILodgingServiceCodeDropdownRow GetMetadata(this LodgingServiceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

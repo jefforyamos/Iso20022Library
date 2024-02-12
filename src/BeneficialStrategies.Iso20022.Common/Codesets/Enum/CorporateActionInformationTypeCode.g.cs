@@ -29,22 +29,3 @@ public enum CorporateActionInformationTypeCode
     ConferenceCall,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionInformationTypeCodeMetadataExtensions
-{
-    private static readonly CorporateActionInformationTypeCodeDropdownSource _dropdownSource = new CorporateActionInformationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionInformationTypeCodeDropdownRow GetMetadata(this CorporateActionInformationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

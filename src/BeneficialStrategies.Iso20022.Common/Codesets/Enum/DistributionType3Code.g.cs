@@ -56,22 +56,3 @@ public enum DistributionType3Code
     RollingBasis = DistributionTypeCode.RollingBasis, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DistributionType3CodeMetadataExtensions
-{
-    private static readonly DistributionType3CodeDropdownSource _dropdownSource = new DistributionType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDistributionType3CodeDropdownRow GetMetadata(this DistributionType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

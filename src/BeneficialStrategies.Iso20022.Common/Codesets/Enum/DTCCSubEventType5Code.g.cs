@@ -380,22 +380,3 @@ public enum DTCCSubEventType5Code
     DeemedDividend305C = DTCCSubEventTypeCode.DeemedDividend305C, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCSubEventType5CodeMetadataExtensions
-{
-    private static readonly DTCCSubEventType5CodeDropdownSource _dropdownSource = new DTCCSubEventType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCSubEventType5CodeDropdownRow GetMetadata(this DTCCSubEventType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

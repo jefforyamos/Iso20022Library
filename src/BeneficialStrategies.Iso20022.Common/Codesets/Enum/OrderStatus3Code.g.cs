@@ -47,22 +47,3 @@ public enum OrderStatus3Code
     Completed = OrderStatusCode.Completed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderStatus3CodeMetadataExtensions
-{
-    private static readonly OrderStatus3CodeDropdownSource _dropdownSource = new OrderStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderStatus3CodeDropdownRow GetMetadata(this OrderStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum Gender1Code
     Male = GenderCode.Male, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Gender1CodeMetadataExtensions
-{
-    private static readonly Gender1CodeDropdownSource _dropdownSource = new Gender1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGender1CodeDropdownRow GetMetadata(this Gender1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

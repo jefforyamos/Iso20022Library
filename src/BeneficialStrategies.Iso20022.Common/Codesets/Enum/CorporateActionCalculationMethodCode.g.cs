@@ -56,22 +56,3 @@ public enum CorporateActionCalculationMethodCode
     NoNominalReduction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionCalculationMethodCodeMetadataExtensions
-{
-    private static readonly CorporateActionCalculationMethodCodeDropdownSource _dropdownSource = new CorporateActionCalculationMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionCalculationMethodCodeDropdownRow GetMetadata(this CorporateActionCalculationMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

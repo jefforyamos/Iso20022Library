@@ -47,22 +47,3 @@ public enum ConductClassificationCode
     Reluctant,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConductClassificationCodeMetadataExtensions
-{
-    private static readonly ConductClassificationCodeDropdownSource _dropdownSource = new ConductClassificationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConductClassificationCodeDropdownRow GetMetadata(this ConductClassificationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

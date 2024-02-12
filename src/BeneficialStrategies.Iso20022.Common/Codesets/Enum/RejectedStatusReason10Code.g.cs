@@ -344,22 +344,3 @@ public enum RejectedStatusReason10Code
     FundClosed = RejectedStatusReasonCode.FundClosed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason10CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason10CodeDropdownSource _dropdownSource = new RejectedStatusReason10CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason10CodeDropdownRow GetMetadata(this RejectedStatusReason10Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

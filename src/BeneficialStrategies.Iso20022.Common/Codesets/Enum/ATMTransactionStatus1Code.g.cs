@@ -47,22 +47,3 @@ public enum ATMTransactionStatus1Code
     Success = ATMTransactionStatusCode.Success, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMTransactionStatus1CodeMetadataExtensions
-{
-    private static readonly ATMTransactionStatus1CodeDropdownSource _dropdownSource = new ATMTransactionStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMTransactionStatus1CodeDropdownRow GetMetadata(this ATMTransactionStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

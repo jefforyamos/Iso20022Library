@@ -38,22 +38,3 @@ public enum VoteTypeCode
     Advisory,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteTypeCodeMetadataExtensions
-{
-    private static readonly VoteTypeCodeDropdownSource _dropdownSource = new VoteTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteTypeCodeDropdownRow GetMetadata(this VoteTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

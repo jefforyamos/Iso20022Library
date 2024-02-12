@@ -38,22 +38,3 @@ public enum InvestmentAccountCategoryCode
     MandateAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentAccountCategoryCodeMetadataExtensions
-{
-    private static readonly InvestmentAccountCategoryCodeDropdownSource _dropdownSource = new InvestmentAccountCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentAccountCategoryCodeDropdownRow GetMetadata(this InvestmentAccountCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -39,22 +39,3 @@ public enum ExternalEffectiveDateParameterCode
     TradeDate,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalEffectiveDateParameterCodeMetadataExtensions
-{
-    private static readonly ExternalEffectiveDateParameterCodeDropdownSource _dropdownSource = new ExternalEffectiveDateParameterCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalEffectiveDateParameterCodeDropdownRow GetMetadata(this ExternalEffectiveDateParameterCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

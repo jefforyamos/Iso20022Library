@@ -38,22 +38,3 @@ public enum MovementResponseTypeCode
     Status,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MovementResponseTypeCodeMetadataExtensions
-{
-    private static readonly MovementResponseTypeCodeDropdownSource _dropdownSource = new MovementResponseTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMovementResponseTypeCodeDropdownRow GetMetadata(this MovementResponseTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

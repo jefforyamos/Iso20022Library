@@ -119,22 +119,3 @@ public enum OrderStatus4Code
     InvalidAgentConfirmation = OrderStatusCode.InvalidAgentConfirmation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderStatus4CodeMetadataExtensions
-{
-    private static readonly OrderStatus4CodeDropdownSource _dropdownSource = new OrderStatus4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderStatus4CodeDropdownRow GetMetadata(this OrderStatus4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

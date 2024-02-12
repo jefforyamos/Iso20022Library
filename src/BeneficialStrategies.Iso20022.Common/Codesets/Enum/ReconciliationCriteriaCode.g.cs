@@ -47,22 +47,3 @@ public enum ReconciliationCriteriaCode
     CardBrand,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationCriteriaCodeMetadataExtensions
-{
-    private static readonly ReconciliationCriteriaCodeDropdownSource _dropdownSource = new ReconciliationCriteriaCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationCriteriaCodeDropdownRow GetMetadata(this ReconciliationCriteriaCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

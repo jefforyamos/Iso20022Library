@@ -47,22 +47,3 @@ public enum DrawdownStatus1Code
     Partial = DrawdownStatusCode.Partial, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DrawdownStatus1CodeMetadataExtensions
-{
-    private static readonly DrawdownStatus1CodeDropdownSource _dropdownSource = new DrawdownStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDrawdownStatus1CodeDropdownRow GetMetadata(this DrawdownStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

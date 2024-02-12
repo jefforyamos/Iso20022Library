@@ -56,22 +56,3 @@ public enum PartyNatureTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyNatureTypeCodeMetadataExtensions
-{
-    private static readonly PartyNatureTypeCodeDropdownSource _dropdownSource = new PartyNatureTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyNatureTypeCodeDropdownRow GetMetadata(this PartyNatureTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -56,22 +56,3 @@ public enum QRCodePresentmentMode1Code
     MerchantPresented = QRCodePresentmentModeCode.MerchantPresented, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodePresentmentMode1CodeMetadataExtensions
-{
-    private static readonly QRCodePresentmentMode1CodeDropdownSource _dropdownSource = new QRCodePresentmentMode1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodePresentmentMode1CodeDropdownRow GetMetadata(this QRCodePresentmentMode1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

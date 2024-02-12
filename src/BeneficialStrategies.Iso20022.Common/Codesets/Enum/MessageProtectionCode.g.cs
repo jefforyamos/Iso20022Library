@@ -56,22 +56,3 @@ public enum MessageProtectionCode
     NoProtection,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageProtectionCodeMetadataExtensions
-{
-    private static readonly MessageProtectionCodeDropdownSource _dropdownSource = new MessageProtectionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageProtectionCodeDropdownRow GetMetadata(this MessageProtectionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

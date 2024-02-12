@@ -236,22 +236,3 @@ public enum BalanceType4Code
     Master = BalanceTypeCode.Master, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BalanceType4CodeMetadataExtensions
-{
-    private static readonly BalanceType4CodeDropdownSource _dropdownSource = new BalanceType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBalanceType4CodeDropdownRow GetMetadata(this BalanceType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

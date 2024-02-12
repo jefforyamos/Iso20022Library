@@ -227,22 +227,3 @@ public enum ConditionallyAcceptedStatusReasonCode
     SubscriptionTopUpAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConditionallyAcceptedStatusReasonCodeMetadataExtensions
-{
-    private static readonly ConditionallyAcceptedStatusReasonCodeDropdownSource _dropdownSource = new ConditionallyAcceptedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConditionallyAcceptedStatusReasonCodeDropdownRow GetMetadata(this ConditionallyAcceptedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

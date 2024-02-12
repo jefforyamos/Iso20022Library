@@ -56,22 +56,3 @@ public enum MeetingInstructionCancellationStatus1Code
     CancellationRejected = MeetingInstructionCancellationStatusCode.CancellationRejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MeetingInstructionCancellationStatus1CodeMetadataExtensions
-{
-    private static readonly MeetingInstructionCancellationStatus1CodeDropdownSource _dropdownSource = new MeetingInstructionCancellationStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMeetingInstructionCancellationStatus1CodeDropdownRow GetMetadata(this MeetingInstructionCancellationStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

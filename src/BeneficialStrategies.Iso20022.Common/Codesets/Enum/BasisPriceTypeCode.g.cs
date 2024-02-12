@@ -101,22 +101,3 @@ public enum BasisPriceTypeCode
     OpenPrice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BasisPriceTypeCodeMetadataExtensions
-{
-    private static readonly BasisPriceTypeCodeDropdownSource _dropdownSource = new BasisPriceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBasisPriceTypeCodeDropdownRow GetMetadata(this BasisPriceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

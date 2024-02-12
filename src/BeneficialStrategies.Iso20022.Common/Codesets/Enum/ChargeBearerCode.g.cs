@@ -65,22 +65,3 @@ public enum ChargeBearerCode
     Intermediary,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeBearerCodeMetadataExtensions
-{
-    private static readonly ChargeBearerCodeDropdownSource _dropdownSource = new ChargeBearerCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeBearerCodeDropdownRow GetMetadata(this ChargeBearerCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

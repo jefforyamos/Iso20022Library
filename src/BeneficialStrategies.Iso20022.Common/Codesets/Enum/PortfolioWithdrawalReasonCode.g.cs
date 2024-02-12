@@ -29,22 +29,3 @@ public enum PortfolioWithdrawalReasonCode
     FirstTimeResidentialProperty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PortfolioWithdrawalReasonCodeMetadataExtensions
-{
-    private static readonly PortfolioWithdrawalReasonCodeDropdownSource _dropdownSource = new PortfolioWithdrawalReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPortfolioWithdrawalReasonCodeDropdownRow GetMetadata(this PortfolioWithdrawalReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -29,22 +29,3 @@ public enum AssetClassSubProductType20Code
     Dairy = AssetClassSubProductTypeCode.Dairy, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType20CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType20CodeDropdownSource _dropdownSource = new AssetClassSubProductType20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType20CodeDropdownRow GetMetadata(this AssetClassSubProductType20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

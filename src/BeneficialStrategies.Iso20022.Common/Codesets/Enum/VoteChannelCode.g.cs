@@ -38,22 +38,3 @@ public enum VoteChannelCode
     VoteAsPerIntermediaryInformation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteChannelCodeMetadataExtensions
-{
-    private static readonly VoteChannelCodeDropdownSource _dropdownSource = new VoteChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteChannelCodeDropdownRow GetMetadata(this VoteChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

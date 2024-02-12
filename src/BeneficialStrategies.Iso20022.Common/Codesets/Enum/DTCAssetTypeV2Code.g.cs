@@ -875,22 +875,3 @@ public enum DTCAssetTypeV2Code
     NonStandardAssetUserCUSIP,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCAssetTypeV2CodeMetadataExtensions
-{
-    private static readonly DTCAssetTypeV2CodeDropdownSource _dropdownSource = new DTCAssetTypeV2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCAssetTypeV2CodeDropdownRow GetMetadata(this DTCAssetTypeV2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

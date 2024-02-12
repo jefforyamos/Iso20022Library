@@ -38,22 +38,3 @@ public enum VoteChannel1Code
     VoteThroughChain = VoteChannelCode.VoteThroughChain, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class VoteChannel1CodeMetadataExtensions
-{
-    private static readonly VoteChannel1CodeDropdownSource _dropdownSource = new VoteChannel1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IVoteChannel1CodeDropdownRow GetMetadata(this VoteChannel1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

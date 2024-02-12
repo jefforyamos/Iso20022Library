@@ -38,22 +38,3 @@ public enum DateModeCode
     EODY,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DateModeCodeMetadataExtensions
-{
-    private static readonly DateModeCodeDropdownSource _dropdownSource = new DateModeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDateModeCodeDropdownRow GetMetadata(this DateModeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

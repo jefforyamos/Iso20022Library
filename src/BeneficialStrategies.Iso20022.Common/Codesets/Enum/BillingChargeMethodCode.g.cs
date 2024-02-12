@@ -200,22 +200,3 @@ public enum BillingChargeMethodCode
     BalanceBased,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingChargeMethodCodeMetadataExtensions
-{
-    private static readonly BillingChargeMethodCodeDropdownSource _dropdownSource = new BillingChargeMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingChargeMethodCodeDropdownRow GetMetadata(this BillingChargeMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

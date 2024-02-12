@@ -83,22 +83,3 @@ public enum GoodAndServiceDeliveryChannelCode
     ElectronicDelivery,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GoodAndServiceDeliveryChannelCodeMetadataExtensions
-{
-    private static readonly GoodAndServiceDeliveryChannelCodeDropdownSource _dropdownSource = new GoodAndServiceDeliveryChannelCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGoodAndServiceDeliveryChannelCodeDropdownRow GetMetadata(this GoodAndServiceDeliveryChannelCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

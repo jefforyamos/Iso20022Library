@@ -29,22 +29,3 @@ public enum AssetClassSubProductType3Code
     OliveOil = AssetClassSubProductTypeCode.OliveOil, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType3CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType3CodeDropdownSource _dropdownSource = new AssetClassSubProductType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType3CodeDropdownRow GetMetadata(this AssetClassSubProductType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

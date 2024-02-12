@@ -101,22 +101,3 @@ public enum InstructionCode
     TelecomNextAgent,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InstructionCodeMetadataExtensions
-{
-    private static readonly InstructionCodeDropdownSource _dropdownSource = new InstructionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInstructionCodeDropdownRow GetMetadata(this InstructionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

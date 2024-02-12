@@ -56,22 +56,3 @@ public enum OptionRightCode
     Expiration,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionRightCodeMetadataExtensions
-{
-    private static readonly OptionRightCodeDropdownSource _dropdownSource = new OptionRightCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionRightCodeDropdownRow GetMetadata(this OptionRightCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

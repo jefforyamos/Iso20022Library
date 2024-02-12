@@ -56,22 +56,3 @@ public enum NonEligibleProceedsIndicatorCode
     OtherNonEligibility,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NonEligibleProceedsIndicatorCodeMetadataExtensions
-{
-    private static readonly NonEligibleProceedsIndicatorCodeDropdownSource _dropdownSource = new NonEligibleProceedsIndicatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INonEligibleProceedsIndicatorCodeDropdownRow GetMetadata(this NonEligibleProceedsIndicatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

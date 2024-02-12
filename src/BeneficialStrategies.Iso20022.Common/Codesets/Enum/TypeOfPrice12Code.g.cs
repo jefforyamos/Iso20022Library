@@ -110,22 +110,3 @@ public enum TypeOfPrice12Code
     Switch = TypeOfPriceCode.Switch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfPrice12CodeMetadataExtensions
-{
-    private static readonly TypeOfPrice12CodeDropdownSource _dropdownSource = new TypeOfPrice12CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfPrice12CodeDropdownRow GetMetadata(this TypeOfPrice12Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

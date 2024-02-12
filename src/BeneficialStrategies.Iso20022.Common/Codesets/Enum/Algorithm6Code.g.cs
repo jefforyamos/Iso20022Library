@@ -38,22 +38,3 @@ public enum Algorithm6Code
     DES112CBC = AlgorithmCode.DES112CBC, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm6CodeMetadataExtensions
-{
-    private static readonly Algorithm6CodeDropdownSource _dropdownSource = new Algorithm6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm6CodeDropdownRow GetMetadata(this Algorithm6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

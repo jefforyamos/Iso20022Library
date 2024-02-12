@@ -137,22 +137,3 @@ public enum OptionFeatures11Code
     ShareholderNumber = OptionFeaturesCode.ShareholderNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionFeatures11CodeMetadataExtensions
-{
-    private static readonly OptionFeatures11CodeDropdownSource _dropdownSource = new OptionFeatures11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionFeatures11CodeDropdownRow GetMetadata(this OptionFeatures11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

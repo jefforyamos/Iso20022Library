@@ -398,22 +398,3 @@ public enum UnmatchedReason7Code
     AccruedInterestAmount1 = UnmatchedReasonCode.AccruedInterestAmount1, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnmatchedReason7CodeMetadataExtensions
-{
-    private static readonly UnmatchedReason7CodeDropdownSource _dropdownSource = new UnmatchedReason7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnmatchedReason7CodeDropdownRow GetMetadata(this UnmatchedReason7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

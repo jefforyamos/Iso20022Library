@@ -120,22 +120,3 @@ public enum ExternalReportingSourceCode
     MIBackOffice,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReportingSourceCodeMetadataExtensions
-{
-    private static readonly ExternalReportingSourceCodeDropdownSource _dropdownSource = new ExternalReportingSourceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReportingSourceCodeDropdownRow GetMetadata(this ExternalReportingSourceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

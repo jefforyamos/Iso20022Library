@@ -92,22 +92,3 @@ public enum RejectionReasonV021Code
     Other = RejectionReasonV2Code.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReasonV021CodeMetadataExtensions
-{
-    private static readonly RejectionReasonV021CodeDropdownSource _dropdownSource = new RejectionReasonV021CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReasonV021CodeDropdownRow GetMetadata(this RejectionReasonV021Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

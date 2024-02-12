@@ -38,22 +38,3 @@ public enum Quantity4Code
     AnyAndAll = QuantityCode.AnyAndAll, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Quantity4CodeMetadataExtensions
-{
-    private static readonly Quantity4CodeDropdownSource _dropdownSource = new Quantity4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQuantity4CodeDropdownRow GetMetadata(this Quantity4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

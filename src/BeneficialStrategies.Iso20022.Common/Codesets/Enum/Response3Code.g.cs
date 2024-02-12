@@ -74,22 +74,3 @@ public enum Response3Code
     NotProcessed = ResponseCode.NotProcessed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Response3CodeMetadataExtensions
-{
-    private static readonly Response3CodeDropdownSource _dropdownSource = new Response3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResponse3CodeDropdownRow GetMetadata(this Response3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

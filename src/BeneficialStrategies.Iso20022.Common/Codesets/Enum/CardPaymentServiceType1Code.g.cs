@@ -164,22 +164,3 @@ public enum CardPaymentServiceType1Code
     ValidityCheck = CardPaymentServiceTypeCode.ValidityCheck, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType1CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType1CodeDropdownSource _dropdownSource = new CardPaymentServiceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType1CodeDropdownRow GetMetadata(this CardPaymentServiceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

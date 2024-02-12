@@ -65,22 +65,3 @@ public enum LoyaltyHandling1Code
     Required = LoyaltyHandlingCode.Required, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LoyaltyHandling1CodeMetadataExtensions
-{
-    private static readonly LoyaltyHandling1CodeDropdownSource _dropdownSource = new LoyaltyHandling1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILoyaltyHandling1CodeDropdownRow GetMetadata(this LoyaltyHandling1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

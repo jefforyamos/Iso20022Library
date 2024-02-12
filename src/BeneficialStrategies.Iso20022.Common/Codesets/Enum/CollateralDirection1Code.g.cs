@@ -38,22 +38,3 @@ public enum CollateralDirection1Code
     CollateralDueToPartyB = CollateralDirectionCode.CollateralDueToPartyB, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CollateralDirection1CodeMetadataExtensions
-{
-    private static readonly CollateralDirection1CodeDropdownSource _dropdownSource = new CollateralDirection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICollateralDirection1CodeDropdownRow GetMetadata(this CollateralDirection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

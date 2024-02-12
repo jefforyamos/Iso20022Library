@@ -164,22 +164,3 @@ public enum Algorithm25Code
     EcdsaSha256 = AlgorithmCode.EcdsaSha256, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm25CodeMetadataExtensions
-{
-    private static readonly Algorithm25CodeDropdownSource _dropdownSource = new Algorithm25CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm25CodeDropdownRow GetMetadata(this Algorithm25Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

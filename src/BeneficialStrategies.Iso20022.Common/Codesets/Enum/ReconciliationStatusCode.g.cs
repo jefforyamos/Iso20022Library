@@ -47,22 +47,3 @@ public enum ReconciliationStatusCode
     NotApplicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationStatusCodeMetadataExtensions
-{
-    private static readonly ReconciliationStatusCodeDropdownSource _dropdownSource = new ReconciliationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationStatusCodeDropdownRow GetMetadata(this ReconciliationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

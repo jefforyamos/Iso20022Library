@@ -173,22 +173,3 @@ public enum OrderType2Code
     CounterOrderSelection = OrderTypeCode.CounterOrderSelection, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderType2CodeMetadataExtensions
-{
-    private static readonly OrderType2CodeDropdownSource _dropdownSource = new OrderType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderType2CodeDropdownRow GetMetadata(this OrderType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

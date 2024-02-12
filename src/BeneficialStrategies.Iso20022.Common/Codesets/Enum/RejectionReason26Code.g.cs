@@ -380,22 +380,3 @@ public enum RejectionReason26Code
     ReceivingDeliveringParty3 = RejectionReasonV2Code.ReceivingDeliveringParty3, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason26CodeMetadataExtensions
-{
-    private static readonly RejectionReason26CodeDropdownSource _dropdownSource = new RejectionReason26CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason26CodeDropdownRow GetMetadata(this RejectionReason26Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

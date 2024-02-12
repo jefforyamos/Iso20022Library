@@ -65,22 +65,3 @@ public enum OperatorCode
     EqualTo,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OperatorCodeMetadataExtensions
-{
-    private static readonly OperatorCodeDropdownSource _dropdownSource = new OperatorCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOperatorCodeDropdownRow GetMetadata(this OperatorCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

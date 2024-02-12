@@ -83,22 +83,3 @@ public enum RejectionReason77Code
     InvalidRequest = RejectionReasonV3Code.InvalidRequest, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason77CodeMetadataExtensions
-{
-    private static readonly RejectionReason77CodeDropdownSource _dropdownSource = new RejectionReason77CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason77CodeDropdownRow GetMetadata(this RejectionReason77Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

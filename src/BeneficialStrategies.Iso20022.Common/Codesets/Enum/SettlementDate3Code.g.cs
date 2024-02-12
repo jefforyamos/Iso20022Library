@@ -65,22 +65,3 @@ public enum SettlementDate3Code
     WhenIssued = SettlementDateCode.WhenIssued, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDate3CodeMetadataExtensions
-{
-    private static readonly SettlementDate3CodeDropdownSource _dropdownSource = new SettlementDate3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDate3CodeDropdownRow GetMetadata(this SettlementDate3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

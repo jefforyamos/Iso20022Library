@@ -47,22 +47,3 @@ public enum BillingStatementStatus1Code
     Test = BillingStatementStatusCode.Test, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BillingStatementStatus1CodeMetadataExtensions
-{
-    private static readonly BillingStatementStatus1CodeDropdownSource _dropdownSource = new BillingStatementStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBillingStatementStatus1CodeDropdownRow GetMetadata(this BillingStatementStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

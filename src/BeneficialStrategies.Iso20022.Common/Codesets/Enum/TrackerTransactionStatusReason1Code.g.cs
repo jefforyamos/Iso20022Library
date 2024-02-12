@@ -59,22 +59,3 @@ public enum TrackerTransactionStatusReason1Code
     PaymentTransferredAndNotTracked = TrackerTransactionStatusReasonCode.PaymentTransferredAndNotTracked, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerTransactionStatusReason1CodeMetadataExtensions
-{
-    private static readonly TrackerTransactionStatusReason1CodeDropdownSource _dropdownSource = new TrackerTransactionStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerTransactionStatusReason1CodeDropdownRow GetMetadata(this TrackerTransactionStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

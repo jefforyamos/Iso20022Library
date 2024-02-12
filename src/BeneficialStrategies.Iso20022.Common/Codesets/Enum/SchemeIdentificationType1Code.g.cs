@@ -56,22 +56,3 @@ public enum SchemeIdentificationType1Code
     ClearingMemberAccount = SchemeIdentificationTypeCode.ClearingMemberAccount, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SchemeIdentificationType1CodeMetadataExtensions
-{
-    private static readonly SchemeIdentificationType1CodeDropdownSource _dropdownSource = new SchemeIdentificationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISchemeIdentificationType1CodeDropdownRow GetMetadata(this SchemeIdentificationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

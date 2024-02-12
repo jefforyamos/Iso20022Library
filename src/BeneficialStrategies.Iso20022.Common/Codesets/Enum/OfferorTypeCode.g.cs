@@ -38,22 +38,3 @@ public enum OfferorTypeCode
     ThirdParty,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OfferorTypeCodeMetadataExtensions
-{
-    private static readonly OfferorTypeCodeDropdownSource _dropdownSource = new OfferorTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOfferorTypeCodeDropdownRow GetMetadata(this OfferorTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

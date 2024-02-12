@@ -47,22 +47,3 @@ public enum Holding1Code
     PartialHolding = HoldingCode.PartialHolding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Holding1CodeMetadataExtensions
-{
-    private static readonly Holding1CodeDropdownSource _dropdownSource = new Holding1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IHolding1CodeDropdownRow GetMetadata(this Holding1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

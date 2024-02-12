@@ -110,22 +110,3 @@ public enum Algorithm16Code
     SHAKE256 = AlgorithmCode.SHAKE256, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Algorithm16CodeMetadataExtensions
-{
-    private static readonly Algorithm16CodeDropdownSource _dropdownSource = new Algorithm16CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAlgorithm16CodeDropdownRow GetMetadata(this Algorithm16Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

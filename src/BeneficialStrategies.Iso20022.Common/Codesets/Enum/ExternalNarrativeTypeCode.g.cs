@@ -84,22 +84,3 @@ public enum ExternalNarrativeTypeCode
     TermsOfVariation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalNarrativeTypeCodeMetadataExtensions
-{
-    private static readonly ExternalNarrativeTypeCodeDropdownSource _dropdownSource = new ExternalNarrativeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalNarrativeTypeCodeDropdownRow GetMetadata(this ExternalNarrativeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

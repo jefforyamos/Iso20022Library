@@ -128,22 +128,3 @@ public enum CardholderAddressVerificationResult1Code
     PostalNotUsed = CardholderAddressVerificationResultCode.PostalNotUsed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardholderAddressVerificationResult1CodeMetadataExtensions
-{
-    private static readonly CardholderAddressVerificationResult1CodeDropdownSource _dropdownSource = new CardholderAddressVerificationResult1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardholderAddressVerificationResult1CodeDropdownRow GetMetadata(this CardholderAddressVerificationResult1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

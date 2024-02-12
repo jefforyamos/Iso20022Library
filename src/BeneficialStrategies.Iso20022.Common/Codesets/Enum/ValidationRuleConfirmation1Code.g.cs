@@ -30,22 +30,3 @@ public enum ValidationRuleConfirmation1Code
     Confirmation = ValidationRuleCode.Confirmation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRuleConfirmation1CodeMetadataExtensions
-{
-    private static readonly ValidationRuleConfirmation1CodeDropdownSource _dropdownSource = new ValidationRuleConfirmation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRuleConfirmation1CodeDropdownRow GetMetadata(this ValidationRuleConfirmation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

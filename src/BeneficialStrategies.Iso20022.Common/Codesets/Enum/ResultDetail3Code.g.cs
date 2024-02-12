@@ -38,22 +38,3 @@ public enum ResultDetail3Code
     UnsupportedService = ResultDetailCode.UnsupportedService, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ResultDetail3CodeMetadataExtensions
-{
-    private static readonly ResultDetail3CodeDropdownSource _dropdownSource = new ResultDetail3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IResultDetail3CodeDropdownRow GetMetadata(this ResultDetail3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

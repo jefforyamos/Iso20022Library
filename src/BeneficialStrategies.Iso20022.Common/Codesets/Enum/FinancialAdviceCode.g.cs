@@ -47,22 +47,3 @@ public enum FinancialAdviceCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialAdviceCodeMetadataExtensions
-{
-    private static readonly FinancialAdviceCodeDropdownSource _dropdownSource = new FinancialAdviceCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialAdviceCodeDropdownRow GetMetadata(this FinancialAdviceCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

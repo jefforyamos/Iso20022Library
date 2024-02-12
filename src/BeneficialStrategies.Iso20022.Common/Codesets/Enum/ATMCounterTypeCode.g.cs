@@ -74,22 +74,3 @@ public enum ATMCounterTypeCode
     Operation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMCounterTypeCodeMetadataExtensions
-{
-    private static readonly ATMCounterTypeCodeDropdownSource _dropdownSource = new ATMCounterTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMCounterTypeCodeDropdownRow GetMetadata(this ATMCounterTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

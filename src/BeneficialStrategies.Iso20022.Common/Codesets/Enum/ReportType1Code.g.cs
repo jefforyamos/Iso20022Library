@@ -47,22 +47,3 @@ public enum ReportType1Code
     ForwardAmend = ReportTypeCode.ForwardAmend, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportType1CodeMetadataExtensions
-{
-    private static readonly ReportType1CodeDropdownSource _dropdownSource = new ReportType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportType1CodeDropdownRow GetMetadata(this ReportType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum BytePadding1Code
     RandomPadding = BytePaddingCode.RandomPadding, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BytePadding1CodeMetadataExtensions
-{
-    private static readonly BytePadding1CodeDropdownSource _dropdownSource = new BytePadding1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBytePadding1CodeDropdownRow GetMetadata(this BytePadding1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

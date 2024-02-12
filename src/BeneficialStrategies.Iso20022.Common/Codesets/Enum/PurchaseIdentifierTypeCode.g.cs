@@ -191,22 +191,3 @@ public enum PurchaseIdentifierTypeCode
     TrackingNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PurchaseIdentifierTypeCodeMetadataExtensions
-{
-    private static readonly PurchaseIdentifierTypeCodeDropdownSource _dropdownSource = new PurchaseIdentifierTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPurchaseIdentifierTypeCodeDropdownRow GetMetadata(this PurchaseIdentifierTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

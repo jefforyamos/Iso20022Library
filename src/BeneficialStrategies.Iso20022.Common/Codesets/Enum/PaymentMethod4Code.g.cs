@@ -56,22 +56,3 @@ public enum PaymentMethod4Code
     TransferAdvice = PaymentMethodCode.TransferAdvice, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentMethod4CodeMetadataExtensions
-{
-    private static readonly PaymentMethod4CodeDropdownSource _dropdownSource = new PaymentMethod4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentMethod4CodeDropdownRow GetMetadata(this PaymentMethod4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

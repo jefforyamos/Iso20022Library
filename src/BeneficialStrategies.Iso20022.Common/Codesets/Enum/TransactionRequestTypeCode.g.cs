@@ -38,22 +38,3 @@ public enum TransactionRequestTypeCode
     DateTimeTransaction,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionRequestTypeCodeMetadataExtensions
-{
-    private static readonly TransactionRequestTypeCodeDropdownSource _dropdownSource = new TransactionRequestTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionRequestTypeCodeDropdownRow GetMetadata(this TransactionRequestTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

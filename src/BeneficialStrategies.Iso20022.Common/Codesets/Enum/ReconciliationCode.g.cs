@@ -119,22 +119,3 @@ public enum ReconciliationCode
     SingleSidedEEAPartiallyReconciledNoValuationReconciliation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReconciliationCodeMetadataExtensions
-{
-    private static readonly ReconciliationCodeDropdownSource _dropdownSource = new ReconciliationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReconciliationCodeDropdownRow GetMetadata(this ReconciliationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

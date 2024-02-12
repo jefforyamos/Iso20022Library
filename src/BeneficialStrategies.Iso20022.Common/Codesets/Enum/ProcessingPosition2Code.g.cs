@@ -56,22 +56,3 @@ public enum ProcessingPosition2Code
     Information = ProcessingPositionCode.Information, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ProcessingPosition2CodeMetadataExtensions
-{
-    private static readonly ProcessingPosition2CodeDropdownSource _dropdownSource = new ProcessingPosition2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IProcessingPosition2CodeDropdownRow GetMetadata(this ProcessingPosition2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

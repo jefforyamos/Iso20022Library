@@ -47,22 +47,3 @@ public enum BidRangeTypeCode
     Incremental,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BidRangeTypeCodeMetadataExtensions
-{
-    private static readonly BidRangeTypeCodeDropdownSource _dropdownSource = new BidRangeTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBidRangeTypeCodeDropdownRow GetMetadata(this BidRangeTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

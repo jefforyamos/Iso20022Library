@@ -47,22 +47,3 @@ public enum CILPaymentType1Code
     PayCIL = CILPaymentTypeCode.PayCIL, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CILPaymentType1CodeMetadataExtensions
-{
-    private static readonly CILPaymentType1CodeDropdownSource _dropdownSource = new CILPaymentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICILPaymentType1CodeDropdownRow GetMetadata(this CILPaymentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

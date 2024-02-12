@@ -38,22 +38,3 @@ public enum InvestigatedPartiesCode
     Owner,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigatedPartiesCodeMetadataExtensions
-{
-    private static readonly InvestigatedPartiesCodeDropdownSource _dropdownSource = new InvestigatedPartiesCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigatedPartiesCodeDropdownRow GetMetadata(this InvestigatedPartiesCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

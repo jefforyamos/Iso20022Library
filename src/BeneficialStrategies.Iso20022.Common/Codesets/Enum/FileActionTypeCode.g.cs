@@ -111,22 +111,3 @@ public enum FileActionTypeCode
     Request,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FileActionTypeCodeMetadataExtensions
-{
-    private static readonly FileActionTypeCodeDropdownSource _dropdownSource = new FileActionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFileActionTypeCodeDropdownRow GetMetadata(this FileActionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

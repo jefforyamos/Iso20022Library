@@ -38,22 +38,3 @@ public enum CurrencyDesignation1Code
     Offshore = CurrencyDesignationCode.Offshore, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CurrencyDesignation1CodeMetadataExtensions
-{
-    private static readonly CurrencyDesignation1CodeDropdownSource _dropdownSource = new CurrencyDesignation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICurrencyDesignation1CodeDropdownRow GetMetadata(this CurrencyDesignation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

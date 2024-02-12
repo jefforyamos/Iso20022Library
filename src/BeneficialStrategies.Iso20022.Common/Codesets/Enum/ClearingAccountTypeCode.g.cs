@@ -74,22 +74,3 @@ public enum ClearingAccountTypeCode
     IndividuallySegregatedAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingAccountTypeCodeMetadataExtensions
-{
-    private static readonly ClearingAccountTypeCodeDropdownSource _dropdownSource = new ClearingAccountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingAccountTypeCodeDropdownRow GetMetadata(this ClearingAccountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

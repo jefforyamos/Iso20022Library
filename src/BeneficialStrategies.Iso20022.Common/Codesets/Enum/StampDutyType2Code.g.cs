@@ -38,22 +38,3 @@ public enum StampDutyType2Code
     NotApplicable = StampDutyTypeCode.NotApplicable, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StampDutyType2CodeMetadataExtensions
-{
-    private static readonly StampDutyType2CodeDropdownSource _dropdownSource = new StampDutyType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStampDutyType2CodeDropdownRow GetMetadata(this StampDutyType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

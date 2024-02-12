@@ -47,22 +47,3 @@ public enum POIComponentAssessmentCode
     Approval,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POIComponentAssessmentCodeMetadataExtensions
-{
-    private static readonly POIComponentAssessmentCodeDropdownSource _dropdownSource = new POIComponentAssessmentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOIComponentAssessmentCodeDropdownRow GetMetadata(this POIComponentAssessmentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

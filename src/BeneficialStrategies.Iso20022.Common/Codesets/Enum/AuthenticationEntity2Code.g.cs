@@ -74,22 +74,3 @@ public enum AuthenticationEntity2Code
     Terminal = AuthenticationEntityCode.Terminal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AuthenticationEntity2CodeMetadataExtensions
-{
-    private static readonly AuthenticationEntity2CodeDropdownSource _dropdownSource = new AuthenticationEntity2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthenticationEntity2CodeDropdownRow GetMetadata(this AuthenticationEntity2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

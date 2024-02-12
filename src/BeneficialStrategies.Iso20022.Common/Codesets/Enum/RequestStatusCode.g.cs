@@ -47,22 +47,3 @@ public enum RequestStatusCode
     NotFinanced,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RequestStatusCodeMetadataExtensions
-{
-    private static readonly RequestStatusCodeDropdownSource _dropdownSource = new RequestStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRequestStatusCodeDropdownRow GetMetadata(this RequestStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

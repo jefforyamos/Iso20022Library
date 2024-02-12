@@ -56,22 +56,3 @@ public enum TargetMarketCode
     Unknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TargetMarketCodeMetadataExtensions
-{
-    private static readonly TargetMarketCodeDropdownSource _dropdownSource = new TargetMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITargetMarketCodeDropdownRow GetMetadata(this TargetMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

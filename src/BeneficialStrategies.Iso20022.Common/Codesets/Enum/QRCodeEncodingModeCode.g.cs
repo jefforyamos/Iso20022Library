@@ -56,22 +56,3 @@ public enum QRCodeEncodingModeCode
     Kanji,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QRCodeEncodingModeCodeMetadataExtensions
-{
-    private static readonly QRCodeEncodingModeCodeDropdownSource _dropdownSource = new QRCodeEncodingModeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQRCodeEncodingModeCodeDropdownRow GetMetadata(this QRCodeEncodingModeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

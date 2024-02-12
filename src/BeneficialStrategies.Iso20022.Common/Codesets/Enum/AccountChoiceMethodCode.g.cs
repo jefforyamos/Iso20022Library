@@ -74,22 +74,3 @@ public enum AccountChoiceMethodCode
     NoSelection,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountChoiceMethodCodeMetadataExtensions
-{
-    private static readonly AccountChoiceMethodCodeDropdownSource _dropdownSource = new AccountChoiceMethodCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountChoiceMethodCodeDropdownRow GetMetadata(this AccountChoiceMethodCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

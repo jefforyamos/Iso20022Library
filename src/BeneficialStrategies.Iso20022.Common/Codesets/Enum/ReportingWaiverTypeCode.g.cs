@@ -191,22 +191,3 @@ public enum ReportingWaiverTypeCode
     ExchangeForPhysical,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportingWaiverTypeCodeMetadataExtensions
-{
-    private static readonly ReportingWaiverTypeCodeDropdownSource _dropdownSource = new ReportingWaiverTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportingWaiverTypeCodeDropdownRow GetMetadata(this ReportingWaiverTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

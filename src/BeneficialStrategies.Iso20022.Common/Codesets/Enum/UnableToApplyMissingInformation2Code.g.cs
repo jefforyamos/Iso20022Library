@@ -173,22 +173,3 @@ public enum UnableToApplyMissingInformation2Code
     MissingInstructionForDebtorAgent = UnableToApplyMissingInformationV2Code.MissingInstructionForDebtorAgent, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class UnableToApplyMissingInformation2CodeMetadataExtensions
-{
-    private static readonly UnableToApplyMissingInformation2CodeDropdownSource _dropdownSource = new UnableToApplyMissingInformation2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IUnableToApplyMissingInformation2CodeDropdownRow GetMetadata(this UnableToApplyMissingInformation2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

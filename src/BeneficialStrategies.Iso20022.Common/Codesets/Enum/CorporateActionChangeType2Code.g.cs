@@ -110,22 +110,3 @@ public enum CorporateActionChangeType2Code
     Terms = CorporateActionChangeTypeCode.Terms, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionChangeType2CodeMetadataExtensions
-{
-    private static readonly CorporateActionChangeType2CodeDropdownSource _dropdownSource = new CorporateActionChangeType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionChangeType2CodeDropdownRow GetMetadata(this CorporateActionChangeType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

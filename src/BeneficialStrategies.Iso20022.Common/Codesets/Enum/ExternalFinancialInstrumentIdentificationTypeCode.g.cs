@@ -238,22 +238,3 @@ public enum ExternalFinancialInstrumentIdentificationTypeCode
     DigitalTokenIdentifier,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalFinancialInstrumentIdentificationTypeCodeMetadataExtensions
-{
-    private static readonly ExternalFinancialInstrumentIdentificationTypeCodeDropdownSource _dropdownSource = new ExternalFinancialInstrumentIdentificationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalFinancialInstrumentIdentificationTypeCodeDropdownRow GetMetadata(this ExternalFinancialInstrumentIdentificationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

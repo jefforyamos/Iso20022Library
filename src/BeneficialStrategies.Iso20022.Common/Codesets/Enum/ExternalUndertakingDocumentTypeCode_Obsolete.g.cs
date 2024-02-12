@@ -66,22 +66,3 @@ public enum ExternalUndertakingDocumentTypeCode_Obsolete
     TransferForm,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalUndertakingDocumentTypeCode_ObsoleteMetadataExtensions
-{
-    private static readonly ExternalUndertakingDocumentTypeCode_ObsoleteDropdownSource _dropdownSource = new ExternalUndertakingDocumentTypeCode_ObsoleteDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalUndertakingDocumentTypeCode_ObsoleteDropdownRow GetMetadata(this ExternalUndertakingDocumentTypeCode_Obsolete code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

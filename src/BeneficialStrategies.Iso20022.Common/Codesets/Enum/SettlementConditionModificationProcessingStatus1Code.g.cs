@@ -38,22 +38,3 @@ public enum SettlementConditionModificationProcessingStatus1Code
     Rejected = InstructionProcessingStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementConditionModificationProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly SettlementConditionModificationProcessingStatus1CodeDropdownSource _dropdownSource = new SettlementConditionModificationProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementConditionModificationProcessingStatus1CodeDropdownRow GetMetadata(this SettlementConditionModificationProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

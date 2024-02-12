@@ -101,22 +101,3 @@ public enum Frequency18Code
     TwiceAWeek = FrequencyCode.TwiceAWeek, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Frequency18CodeMetadataExtensions
-{
-    private static readonly Frequency18CodeDropdownSource _dropdownSource = new Frequency18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFrequency18CodeDropdownRow GetMetadata(this Frequency18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

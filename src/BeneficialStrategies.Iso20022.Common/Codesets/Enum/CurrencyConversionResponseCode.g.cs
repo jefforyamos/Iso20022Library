@@ -119,22 +119,3 @@ public enum CurrencyConversionResponseCode
     Catalogue,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CurrencyConversionResponseCodeMetadataExtensions
-{
-    private static readonly CurrencyConversionResponseCodeDropdownSource _dropdownSource = new CurrencyConversionResponseCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICurrencyConversionResponseCodeDropdownRow GetMetadata(this CurrencyConversionResponseCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

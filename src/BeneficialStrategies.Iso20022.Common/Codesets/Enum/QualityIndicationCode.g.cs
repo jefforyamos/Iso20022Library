@@ -47,22 +47,3 @@ public enum QualityIndicationCode
     High,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QualityIndicationCodeMetadataExtensions
-{
-    private static readonly QualityIndicationCodeDropdownSource _dropdownSource = new QualityIndicationCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQualityIndicationCodeDropdownRow GetMetadata(this QualityIndicationCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

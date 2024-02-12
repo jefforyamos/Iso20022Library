@@ -56,22 +56,3 @@ public enum TriggerType1Code
     PriceMovement = TriggerTypeCode.PriceMovement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TriggerType1CodeMetadataExtensions
-{
-    private static readonly TriggerType1CodeDropdownSource _dropdownSource = new TriggerType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITriggerType1CodeDropdownRow GetMetadata(this TriggerType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

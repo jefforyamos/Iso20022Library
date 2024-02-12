@@ -38,22 +38,3 @@ public enum OpeningClosingCode
     OpenPosition,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OpeningClosingCodeMetadataExtensions
-{
-    private static readonly OpeningClosingCodeDropdownSource _dropdownSource = new OpeningClosingCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOpeningClosingCodeDropdownRow GetMetadata(this OpeningClosingCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

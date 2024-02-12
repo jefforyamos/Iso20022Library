@@ -38,22 +38,3 @@ public enum BrokeredDeal1Code
     BrokeredTransaction = BrokeredDealCode.BrokeredTransaction, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class BrokeredDeal1CodeMetadataExtensions
-{
-    private static readonly BrokeredDeal1CodeDropdownSource _dropdownSource = new BrokeredDeal1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IBrokeredDeal1CodeDropdownRow GetMetadata(this BrokeredDeal1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

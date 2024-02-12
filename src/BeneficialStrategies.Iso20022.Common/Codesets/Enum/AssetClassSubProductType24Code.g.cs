@@ -29,22 +29,3 @@ public enum AssetClassSubProductType24Code
     Coal = AssetClassSubProductTypeCode.Coal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType24CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType24CodeDropdownSource _dropdownSource = new AssetClassSubProductType24CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType24CodeDropdownRow GetMetadata(this AssetClassSubProductType24Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -155,22 +155,3 @@ public enum InvestmentFundRole4Code
     PrimeBroker = PartyRoleCode.PrimeBroker, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundRole4CodeMetadataExtensions
-{
-    private static readonly InvestmentFundRole4CodeDropdownSource _dropdownSource = new InvestmentFundRole4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundRole4CodeDropdownRow GetMetadata(this InvestmentFundRole4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

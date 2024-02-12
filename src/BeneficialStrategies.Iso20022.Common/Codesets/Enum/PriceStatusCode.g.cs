@@ -38,22 +38,3 @@ public enum PriceStatusCode
     NotApplicable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceStatusCodeMetadataExtensions
-{
-    private static readonly PriceStatusCodeDropdownSource _dropdownSource = new PriceStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceStatusCodeDropdownRow GetMetadata(this PriceStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

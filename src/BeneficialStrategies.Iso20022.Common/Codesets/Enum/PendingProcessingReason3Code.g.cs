@@ -92,22 +92,3 @@ public enum PendingProcessingReason3Code
     WrongCertificatesNumbers = PendingFailingReasonCode.WrongCertificatesNumbers, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingProcessingReason3CodeMetadataExtensions
-{
-    private static readonly PendingProcessingReason3CodeDropdownSource _dropdownSource = new PendingProcessingReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingProcessingReason3CodeDropdownRow GetMetadata(this PendingProcessingReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum RepoCallRequestStatus1Code
     Denied = RepoCallRequestStatusCode.Denied, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RepoCallRequestStatus1CodeMetadataExtensions
-{
-    private static readonly RepoCallRequestStatus1CodeDropdownSource _dropdownSource = new RepoCallRequestStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRepoCallRequestStatus1CodeDropdownRow GetMetadata(this RepoCallRequestStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum Eligible1Code
     NotEligible = EligibleCode.NotEligible, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Eligible1CodeMetadataExtensions
-{
-    private static readonly Eligible1CodeDropdownSource _dropdownSource = new Eligible1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEligible1CodeDropdownRow GetMetadata(this Eligible1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

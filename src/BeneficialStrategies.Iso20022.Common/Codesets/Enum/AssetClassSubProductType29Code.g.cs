@@ -29,22 +29,3 @@ public enum AssetClassSubProductType29Code
     CarbonRelated = AssetClassSubProductTypeCode.CarbonRelated, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassSubProductType29CodeMetadataExtensions
-{
-    private static readonly AssetClassSubProductType29CodeDropdownSource _dropdownSource = new AssetClassSubProductType29CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassSubProductType29CodeDropdownRow GetMetadata(this AssetClassSubProductType29Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

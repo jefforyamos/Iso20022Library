@@ -83,22 +83,3 @@ public enum FundingSourcesTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundingSourcesTypeCodeMetadataExtensions
-{
-    private static readonly FundingSourcesTypeCodeDropdownSource _dropdownSource = new FundingSourcesTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundingSourcesTypeCodeDropdownRow GetMetadata(this FundingSourcesTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum QueryType3Code
     Modified = QueryTypeCode.Modified, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class QueryType3CodeMetadataExtensions
-{
-    private static readonly QueryType3CodeDropdownSource _dropdownSource = new QueryType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IQueryType3CodeDropdownRow GetMetadata(this QueryType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

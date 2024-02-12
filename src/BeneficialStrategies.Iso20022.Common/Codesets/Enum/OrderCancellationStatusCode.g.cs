@@ -56,22 +56,3 @@ public enum OrderCancellationStatusCode
     Received,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OrderCancellationStatusCodeMetadataExtensions
-{
-    private static readonly OrderCancellationStatusCodeDropdownSource _dropdownSource = new OrderCancellationStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOrderCancellationStatusCodeDropdownRow GetMetadata(this OrderCancellationStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

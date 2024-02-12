@@ -182,22 +182,3 @@ public enum CardPaymentServiceType8Code
     Instant = CardPaymentServiceTypeCode.Instant, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType8CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType8CodeDropdownSource _dropdownSource = new CardPaymentServiceType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType8CodeDropdownRow GetMetadata(this CardPaymentServiceType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum AcknowledgementReason2Code
     AcceptedWithoutVotingRights = AcknowledgementReasonCode.AcceptedWithoutVotingRights, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcknowledgementReason2CodeMetadataExtensions
-{
-    private static readonly AcknowledgementReason2CodeDropdownSource _dropdownSource = new AcknowledgementReason2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcknowledgementReason2CodeDropdownRow GetMetadata(this AcknowledgementReason2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

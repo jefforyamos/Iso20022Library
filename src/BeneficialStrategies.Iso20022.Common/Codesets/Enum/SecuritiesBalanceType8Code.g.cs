@@ -164,22 +164,3 @@ public enum SecuritiesBalanceType8Code
     QuasiIssued = SecuritiesBalanceTypeV2Code.QuasiIssued, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesBalanceType8CodeMetadataExtensions
-{
-    private static readonly SecuritiesBalanceType8CodeDropdownSource _dropdownSource = new SecuritiesBalanceType8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesBalanceType8CodeDropdownRow GetMetadata(this SecuritiesBalanceType8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

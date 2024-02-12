@@ -38,22 +38,3 @@ public enum SuspendedStatusReason3Code
     Overflow = SuspendedStatusReasonCode.Overflow, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SuspendedStatusReason3CodeMetadataExtensions
-{
-    private static readonly SuspendedStatusReason3CodeDropdownSource _dropdownSource = new SuspendedStatusReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISuspendedStatusReason3CodeDropdownRow GetMetadata(this SuspendedStatusReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

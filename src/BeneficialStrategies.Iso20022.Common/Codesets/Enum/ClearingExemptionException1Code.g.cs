@@ -83,22 +83,3 @@ public enum ClearingExemptionException1Code
     SmallBankExemption = ClearingExemptionExceptionCode.SmallBankExemption, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ClearingExemptionException1CodeMetadataExtensions
-{
-    private static readonly ClearingExemptionException1CodeDropdownSource _dropdownSource = new ClearingExemptionException1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IClearingExemptionException1CodeDropdownRow GetMetadata(this ClearingExemptionException1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

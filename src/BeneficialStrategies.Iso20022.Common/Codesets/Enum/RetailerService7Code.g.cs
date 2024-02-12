@@ -38,22 +38,3 @@ public enum RetailerService7Code
     AdministrativeReportGetTotalsResponse = RetailerServiceCode.AdministrativeReportGetTotalsResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RetailerService7CodeMetadataExtensions
-{
-    private static readonly RetailerService7CodeDropdownSource _dropdownSource = new RetailerService7CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRetailerService7CodeDropdownRow GetMetadata(this RetailerService7Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

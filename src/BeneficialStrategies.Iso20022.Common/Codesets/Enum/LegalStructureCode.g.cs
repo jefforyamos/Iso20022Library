@@ -119,22 +119,3 @@ public enum LegalStructureCode
     National,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LegalStructureCodeMetadataExtensions
-{
-    private static readonly LegalStructureCodeDropdownSource _dropdownSource = new LegalStructureCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILegalStructureCodeDropdownRow GetMetadata(this LegalStructureCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

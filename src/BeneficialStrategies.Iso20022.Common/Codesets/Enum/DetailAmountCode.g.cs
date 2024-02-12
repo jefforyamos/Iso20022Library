@@ -110,22 +110,3 @@ public enum DetailAmountCode
     ForeignExchangeFee,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DetailAmountCodeMetadataExtensions
-{
-    private static readonly DetailAmountCodeDropdownSource _dropdownSource = new DetailAmountCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDetailAmountCodeDropdownRow GetMetadata(this DetailAmountCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

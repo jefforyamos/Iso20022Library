@@ -164,22 +164,3 @@ public enum TransactionAttribute1Code
     Completion = TransactionAttributeCode.Completion, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionAttribute1CodeMetadataExtensions
-{
-    private static readonly TransactionAttribute1CodeDropdownSource _dropdownSource = new TransactionAttribute1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionAttribute1CodeDropdownRow GetMetadata(this TransactionAttribute1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

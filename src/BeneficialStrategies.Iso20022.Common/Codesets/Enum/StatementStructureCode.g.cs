@@ -38,22 +38,3 @@ public enum StatementStructureCode
     Transactions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StatementStructureCodeMetadataExtensions
-{
-    private static readonly StatementStructureCodeDropdownSource _dropdownSource = new StatementStructureCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStatementStructureCodeDropdownRow GetMetadata(this StatementStructureCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -182,22 +182,3 @@ public enum CardPaymentServiceType5Code
     CardsFundTransferPull = CardPaymentServiceTypeCode.CardsFundTransferPull, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardPaymentServiceType5CodeMetadataExtensions
-{
-    private static readonly CardPaymentServiceType5CodeDropdownSource _dropdownSource = new CardPaymentServiceType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardPaymentServiceType5CodeDropdownRow GetMetadata(this CardPaymentServiceType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

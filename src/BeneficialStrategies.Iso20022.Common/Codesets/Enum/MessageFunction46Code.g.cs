@@ -344,22 +344,3 @@ public enum MessageFunction46Code
     CurrencyConversionRateResponse = MessageFunctionCode.CurrencyConversionRateResponse, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction46CodeMetadataExtensions
-{
-    private static readonly MessageFunction46CodeDropdownSource _dropdownSource = new MessageFunction46CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction46CodeDropdownRow GetMetadata(this MessageFunction46Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

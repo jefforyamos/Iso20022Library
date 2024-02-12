@@ -29,22 +29,3 @@ public enum ValidationRulePending1Code
     Pending = ValidationRuleCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationRulePending1CodeMetadataExtensions
-{
-    private static readonly ValidationRulePending1CodeDropdownSource _dropdownSource = new ValidationRulePending1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationRulePending1CodeDropdownRow GetMetadata(this ValidationRulePending1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

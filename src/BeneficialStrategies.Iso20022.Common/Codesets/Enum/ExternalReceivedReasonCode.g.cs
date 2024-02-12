@@ -31,22 +31,3 @@ public enum ExternalReceivedReasonCode
     NotStraightThroughProcessing,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalReceivedReasonCodeMetadataExtensions
-{
-    private static readonly ExternalReceivedReasonCodeDropdownSource _dropdownSource = new ExternalReceivedReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalReceivedReasonCodeDropdownRow GetMetadata(this ExternalReceivedReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

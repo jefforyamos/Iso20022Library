@@ -47,22 +47,3 @@ public enum ReportItemStatusCode
     Accepted,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReportItemStatusCodeMetadataExtensions
-{
-    private static readonly ReportItemStatusCodeDropdownSource _dropdownSource = new ReportItemStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReportItemStatusCodeDropdownRow GetMetadata(this ReportItemStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -246,22 +246,3 @@ public enum ExternalRejectedReason1Code
     SettlementBatchRemovalNotification = ExternalRejectedReasonCode.SettlementBatchRemovalNotification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalRejectedReason1CodeMetadataExtensions
-{
-    private static readonly ExternalRejectedReason1CodeDropdownSource _dropdownSource = new ExternalRejectedReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalRejectedReason1CodeDropdownRow GetMetadata(this ExternalRejectedReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

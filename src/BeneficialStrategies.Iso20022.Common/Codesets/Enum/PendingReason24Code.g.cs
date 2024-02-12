@@ -569,22 +569,3 @@ public enum PendingReason24Code
     PartialDiffer = PendingFailingReasonV2Code.PartialDiffer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingReason24CodeMetadataExtensions
-{
-    private static readonly PendingReason24CodeDropdownSource _dropdownSource = new PendingReason24CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingReason24CodeDropdownRow GetMetadata(this PendingReason24Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

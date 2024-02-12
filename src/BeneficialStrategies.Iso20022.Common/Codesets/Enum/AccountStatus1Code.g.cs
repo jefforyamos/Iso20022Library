@@ -47,22 +47,3 @@ public enum AccountStatus1Code
     Deleted = AccountStatusCode.Deleted, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AccountStatus1CodeMetadataExtensions
-{
-    private static readonly AccountStatus1CodeDropdownSource _dropdownSource = new AccountStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAccountStatus1CodeDropdownRow GetMetadata(this AccountStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

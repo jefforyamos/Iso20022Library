@@ -74,22 +74,3 @@ public enum ValidationGroupStatus2Code
     Pending = PaymentStatusCode.Pending, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ValidationGroupStatus2CodeMetadataExtensions
-{
-    private static readonly ValidationGroupStatus2CodeDropdownSource _dropdownSource = new ValidationGroupStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IValidationGroupStatus2CodeDropdownRow GetMetadata(this ValidationGroupStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

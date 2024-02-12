@@ -208,22 +208,3 @@ public enum PaymentModificationRejection1Code
     UnableToModifySubmitCancellation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentModificationRejection1CodeMetadataExtensions
-{
-    private static readonly PaymentModificationRejection1CodeDropdownSource _dropdownSource = new PaymentModificationRejection1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentModificationRejection1CodeDropdownRow GetMetadata(this PaymentModificationRejection1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

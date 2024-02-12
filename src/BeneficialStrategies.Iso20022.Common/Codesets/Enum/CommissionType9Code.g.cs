@@ -119,22 +119,3 @@ public enum CommissionType9Code
     PointsPerBondOrContract = CommissionTypeV2Code.PointsPerBondOrContract, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionType9CodeMetadataExtensions
-{
-    private static readonly CommissionType9CodeDropdownSource _dropdownSource = new CommissionType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionType9CodeDropdownRow GetMetadata(this CommissionType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -146,22 +146,3 @@ public enum OnLineReasonCode
     IssuerForcedPINRequest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OnLineReasonCodeMetadataExtensions
-{
-    private static readonly OnLineReasonCodeDropdownSource _dropdownSource = new OnLineReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOnLineReasonCodeDropdownRow GetMetadata(this OnLineReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -173,22 +173,3 @@ public enum SettlementDate2Code
     EndOfMonth = SettlementDateCode.EndOfMonth, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettlementDate2CodeMetadataExtensions
-{
-    private static readonly SettlementDate2CodeDropdownSource _dropdownSource = new SettlementDate2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettlementDate2CodeDropdownRow GetMetadata(this SettlementDate2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

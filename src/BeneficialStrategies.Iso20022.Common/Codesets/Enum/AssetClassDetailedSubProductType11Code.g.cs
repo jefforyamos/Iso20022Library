@@ -65,22 +65,3 @@ public enum AssetClassDetailedSubProductType11Code
     Silver = AssetClassDetailedSubProductTypeCode.Silver, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AssetClassDetailedSubProductType11CodeMetadataExtensions
-{
-    private static readonly AssetClassDetailedSubProductType11CodeDropdownSource _dropdownSource = new AssetClassDetailedSubProductType11CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAssetClassDetailedSubProductType11CodeDropdownRow GetMetadata(this AssetClassDetailedSubProductType11Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

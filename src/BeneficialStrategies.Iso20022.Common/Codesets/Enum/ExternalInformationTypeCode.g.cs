@@ -75,22 +75,3 @@ public enum ExternalInformationTypeCode
     SellerDomicileLocation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalInformationTypeCodeMetadataExtensions
-{
-    private static readonly ExternalInformationTypeCodeDropdownSource _dropdownSource = new ExternalInformationTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalInformationTypeCodeDropdownRow GetMetadata(this ExternalInformationTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

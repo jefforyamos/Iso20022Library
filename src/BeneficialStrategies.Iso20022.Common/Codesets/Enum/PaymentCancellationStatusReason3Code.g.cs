@@ -38,22 +38,3 @@ public enum PaymentCancellationStatusReason3Code
     DeliveryAcknowledgementReceived = PaymentCancellationStatusReasonCode.DeliveryAcknowledgementReceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentCancellationStatusReason3CodeMetadataExtensions
-{
-    private static readonly PaymentCancellationStatusReason3CodeDropdownSource _dropdownSource = new PaymentCancellationStatusReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentCancellationStatusReason3CodeDropdownRow GetMetadata(this PaymentCancellationStatusReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

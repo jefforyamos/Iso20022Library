@@ -47,22 +47,3 @@ public enum IndependentAmountConventionTypeCode
     Segregated,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class IndependentAmountConventionTypeCodeMetadataExtensions
-{
-    private static readonly IndependentAmountConventionTypeCodeDropdownSource _dropdownSource = new IndependentAmountConventionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IIndependentAmountConventionTypeCodeDropdownRow GetMetadata(this IndependentAmountConventionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

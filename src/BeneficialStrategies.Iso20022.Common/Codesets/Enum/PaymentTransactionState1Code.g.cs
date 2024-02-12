@@ -65,22 +65,3 @@ public enum PaymentTransactionState1Code
     SentByDebtorAgentOrDebtor = PaymentTransactionStateCode.SentByDebtorAgentOrDebtor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PaymentTransactionState1CodeMetadataExtensions
-{
-    private static readonly PaymentTransactionState1CodeDropdownSource _dropdownSource = new PaymentTransactionState1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPaymentTransactionState1CodeDropdownRow GetMetadata(this PaymentTransactionState1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

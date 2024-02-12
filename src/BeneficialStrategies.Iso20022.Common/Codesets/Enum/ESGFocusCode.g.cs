@@ -47,22 +47,3 @@ public enum ESGFocusCode
     Governance,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGFocusCodeMetadataExtensions
-{
-    private static readonly ESGFocusCodeDropdownSource _dropdownSource = new ESGFocusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGFocusCodeDropdownRow GetMetadata(this ESGFocusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

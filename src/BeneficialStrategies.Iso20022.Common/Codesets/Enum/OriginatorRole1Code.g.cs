@@ -65,22 +65,3 @@ public enum OriginatorRole1Code
     Investor = OriginatorRoleCode.Investor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OriginatorRole1CodeMetadataExtensions
-{
-    private static readonly OriginatorRole1CodeDropdownSource _dropdownSource = new OriginatorRole1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOriginatorRole1CodeDropdownRow GetMetadata(this OriginatorRole1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -83,22 +83,3 @@ public enum TimeUnitCode
     Year,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TimeUnitCodeMetadataExtensions
-{
-    private static readonly TimeUnitCodeDropdownSource _dropdownSource = new TimeUnitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITimeUnitCodeDropdownRow GetMetadata(this TimeUnitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

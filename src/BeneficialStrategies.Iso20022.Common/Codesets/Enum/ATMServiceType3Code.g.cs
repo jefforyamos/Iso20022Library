@@ -92,22 +92,3 @@ public enum ATMServiceType3Code
     BalanceInquiry = ATMServiceTypeCode.BalanceInquiry, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ATMServiceType3CodeMetadataExtensions
-{
-    private static readonly ATMServiceType3CodeDropdownSource _dropdownSource = new ATMServiceType3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IATMServiceType3CodeDropdownRow GetMetadata(this ATMServiceType3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

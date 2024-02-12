@@ -47,22 +47,3 @@ public enum InvestmentFundRole5Code
     Distributor = PartyRoleCode.Distributor, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestmentFundRole5CodeMetadataExtensions
-{
-    private static readonly InvestmentFundRole5CodeDropdownSource _dropdownSource = new InvestmentFundRole5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestmentFundRole5CodeDropdownRow GetMetadata(this InvestmentFundRole5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

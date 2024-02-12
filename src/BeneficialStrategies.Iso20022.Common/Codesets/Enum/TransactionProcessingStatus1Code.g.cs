@@ -83,22 +83,3 @@ public enum TransactionProcessingStatus1Code
     InRepair = InstructionProcessingStatusCode.InRepair, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionProcessingStatus1CodeMetadataExtensions
-{
-    private static readonly TransactionProcessingStatus1CodeDropdownSource _dropdownSource = new TransactionProcessingStatus1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionProcessingStatus1CodeDropdownRow GetMetadata(this TransactionProcessingStatus1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

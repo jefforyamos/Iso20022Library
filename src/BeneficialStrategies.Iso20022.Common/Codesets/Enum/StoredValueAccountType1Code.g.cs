@@ -137,22 +137,3 @@ public enum StoredValueAccountType1Code
     Travel = StoredValueAccountTypeCode.Travel, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StoredValueAccountType1CodeMetadataExtensions
-{
-    private static readonly StoredValueAccountType1CodeDropdownSource _dropdownSource = new StoredValueAccountType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStoredValueAccountType1CodeDropdownRow GetMetadata(this StoredValueAccountType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

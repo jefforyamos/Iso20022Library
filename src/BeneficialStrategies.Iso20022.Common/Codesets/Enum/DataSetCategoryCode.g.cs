@@ -380,22 +380,3 @@ public enum DataSetCategoryCode
     ServiceProviderParameters,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategoryCodeMetadataExtensions
-{
-    private static readonly DataSetCategoryCodeDropdownSource _dropdownSource = new DataSetCategoryCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategoryCodeDropdownRow GetMetadata(this DataSetCategoryCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

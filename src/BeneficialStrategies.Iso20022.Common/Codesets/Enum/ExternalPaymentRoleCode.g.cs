@@ -75,22 +75,3 @@ public enum ExternalPaymentRoleCode
     SettlementManager,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalPaymentRoleCodeMetadataExtensions
-{
-    private static readonly ExternalPaymentRoleCodeDropdownSource _dropdownSource = new ExternalPaymentRoleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalPaymentRoleCodeDropdownRow GetMetadata(this ExternalPaymentRoleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

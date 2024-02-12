@@ -29,22 +29,3 @@ public enum DTCCPayoutType4Code
     Securities = DTCCPayoutTypeCode.Securities, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCPayoutType4CodeMetadataExtensions
-{
-    private static readonly DTCCPayoutType4CodeDropdownSource _dropdownSource = new DTCCPayoutType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCPayoutType4CodeDropdownRow GetMetadata(this DTCCPayoutType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

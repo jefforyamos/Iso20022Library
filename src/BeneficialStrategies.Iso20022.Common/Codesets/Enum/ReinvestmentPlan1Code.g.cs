@@ -47,22 +47,3 @@ public enum ReinvestmentPlan1Code
     SubjectToShareholderApproval = ReinvestmentPlanCode.SubjectToShareholderApproval, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReinvestmentPlan1CodeMetadataExtensions
-{
-    private static readonly ReinvestmentPlan1CodeDropdownSource _dropdownSource = new ReinvestmentPlan1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReinvestmentPlan1CodeDropdownRow GetMetadata(this ReinvestmentPlan1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

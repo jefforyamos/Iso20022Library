@@ -56,22 +56,3 @@ public enum TerminationReasonCode
     ReductionTermsFulfilled,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TerminationReasonCodeMetadataExtensions
-{
-    private static readonly TerminationReasonCodeDropdownSource _dropdownSource = new TerminationReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITerminationReasonCodeDropdownRow GetMetadata(this TerminationReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

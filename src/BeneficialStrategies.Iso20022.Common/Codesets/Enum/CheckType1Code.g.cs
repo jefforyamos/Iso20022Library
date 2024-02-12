@@ -65,22 +65,3 @@ public enum CheckType1Code
     PersonalCheck = CheckTypeCode.PersonalCheck, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CheckType1CodeMetadataExtensions
-{
-    private static readonly CheckType1CodeDropdownSource _dropdownSource = new CheckType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICheckType1CodeDropdownRow GetMetadata(this CheckType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum LevelOfControlCode
     Transactions,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class LevelOfControlCodeMetadataExtensions
-{
-    private static readonly LevelOfControlCodeDropdownSource _dropdownSource = new LevelOfControlCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ILevelOfControlCodeDropdownRow GetMetadata(this LevelOfControlCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

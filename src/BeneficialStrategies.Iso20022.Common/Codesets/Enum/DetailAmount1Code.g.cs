@@ -110,22 +110,3 @@ public enum DetailAmount1Code
     Tax = DetailAmountCode.Tax, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DetailAmount1CodeMetadataExtensions
-{
-    private static readonly DetailAmount1CodeDropdownSource _dropdownSource = new DetailAmount1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDetailAmount1CodeDropdownRow GetMetadata(this DetailAmount1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

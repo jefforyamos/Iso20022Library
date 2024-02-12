@@ -155,22 +155,3 @@ public enum SecuritiesEntryType2Code
     OutForRegistration = SecuritiesEntryTypeCode.OutForRegistration, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SecuritiesEntryType2CodeMetadataExtensions
-{
-    private static readonly SecuritiesEntryType2CodeDropdownSource _dropdownSource = new SecuritiesEntryType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISecuritiesEntryType2CodeDropdownRow GetMetadata(this SecuritiesEntryType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

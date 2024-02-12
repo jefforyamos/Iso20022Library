@@ -128,22 +128,3 @@ public enum ActionCode
     CheckInvoiceReference,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ActionCodeMetadataExtensions
-{
-    private static readonly ActionCodeDropdownSource _dropdownSource = new ActionCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IActionCodeDropdownRow GetMetadata(this ActionCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

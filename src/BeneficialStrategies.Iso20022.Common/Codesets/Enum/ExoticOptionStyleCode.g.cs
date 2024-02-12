@@ -56,22 +56,3 @@ public enum ExoticOptionStyleCode
     VanillaOption,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExoticOptionStyleCodeMetadataExtensions
-{
-    private static readonly ExoticOptionStyleCodeDropdownSource _dropdownSource = new ExoticOptionStyleCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExoticOptionStyleCodeDropdownRow GetMetadata(this ExoticOptionStyleCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

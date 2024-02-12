@@ -56,22 +56,3 @@ public enum PriceSource2Code
     StockExchange = PriceSourceCode.StockExchange, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PriceSource2CodeMetadataExtensions
-{
-    private static readonly PriceSource2CodeDropdownSource _dropdownSource = new PriceSource2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPriceSource2CodeDropdownRow GetMetadata(this PriceSource2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

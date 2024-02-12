@@ -164,22 +164,3 @@ public enum TypeOfAmount18Code
     ExchangeTicketFee = TypeOfAmountCode.ExchangeTicketFee, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TypeOfAmount18CodeMetadataExtensions
-{
-    private static readonly TypeOfAmount18CodeDropdownSource _dropdownSource = new TypeOfAmount18CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITypeOfAmount18CodeDropdownRow GetMetadata(this TypeOfAmount18Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

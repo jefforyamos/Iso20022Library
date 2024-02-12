@@ -38,22 +38,3 @@ public enum ConsentTypeCode
     DueAndPayable,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ConsentTypeCodeMetadataExtensions
-{
-    private static readonly ConsentTypeCodeDropdownSource _dropdownSource = new ConsentTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IConsentTypeCodeDropdownRow GetMetadata(this ConsentTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

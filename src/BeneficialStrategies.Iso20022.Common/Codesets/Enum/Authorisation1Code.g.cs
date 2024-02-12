@@ -56,22 +56,3 @@ public enum Authorisation1Code
     InstructionLevelAuthorisation = AuthorisationCode.InstructionLevelAuthorisation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Authorisation1CodeMetadataExtensions
-{
-    private static readonly Authorisation1CodeDropdownSource _dropdownSource = new Authorisation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAuthorisation1CodeDropdownRow GetMetadata(this Authorisation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

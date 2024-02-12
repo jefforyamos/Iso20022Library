@@ -65,22 +65,3 @@ public enum TotalDetailsCode
     PerShiftNumber,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TotalDetailsCodeMetadataExtensions
-{
-    private static readonly TotalDetailsCodeDropdownSource _dropdownSource = new TotalDetailsCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITotalDetailsCodeDropdownRow GetMetadata(this TotalDetailsCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

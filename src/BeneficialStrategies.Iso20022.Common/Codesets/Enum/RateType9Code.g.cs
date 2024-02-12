@@ -29,22 +29,3 @@ public enum RateType9Code
     AnyAndAll = RateTypeCode.AnyAndAll, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateType9CodeMetadataExtensions
-{
-    private static readonly RateType9CodeDropdownSource _dropdownSource = new RateType9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateType9CodeDropdownRow GetMetadata(this RateType9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

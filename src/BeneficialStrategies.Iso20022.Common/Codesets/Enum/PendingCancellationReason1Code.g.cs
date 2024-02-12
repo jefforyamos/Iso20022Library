@@ -38,22 +38,3 @@ public enum PendingCancellationReason1Code
     AwaitingConfirmation = PendingFailingReasonCode.AwaitingConfirmation, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PendingCancellationReason1CodeMetadataExtensions
-{
-    private static readonly PendingCancellationReason1CodeDropdownSource _dropdownSource = new PendingCancellationReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPendingCancellationReason1CodeDropdownRow GetMetadata(this PendingCancellationReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

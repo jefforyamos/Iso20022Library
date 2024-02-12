@@ -64,22 +64,3 @@ public enum GeographicalEnvironmentCode
     NAFTA,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class GeographicalEnvironmentCodeMetadataExtensions
-{
-    private static readonly GeographicalEnvironmentCodeDropdownSource _dropdownSource = new GeographicalEnvironmentCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGeographicalEnvironmentCodeDropdownRow GetMetadata(this GeographicalEnvironmentCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

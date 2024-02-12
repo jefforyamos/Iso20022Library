@@ -137,22 +137,3 @@ public enum FundCashAccountCode
     CSDOmnibusAccount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FundCashAccountCodeMetadataExtensions
-{
-    private static readonly FundCashAccountCodeDropdownSource _dropdownSource = new FundCashAccountCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFundCashAccountCodeDropdownRow GetMetadata(this FundCashAccountCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

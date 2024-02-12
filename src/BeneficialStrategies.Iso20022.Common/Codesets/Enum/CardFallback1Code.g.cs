@@ -47,22 +47,3 @@ public enum CardFallback1Code
     NoFallback = CardFallbackCode.NoFallback, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardFallback1CodeMetadataExtensions
-{
-    private static readonly CardFallback1CodeDropdownSource _dropdownSource = new CardFallback1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardFallback1CodeDropdownRow GetMetadata(this CardFallback1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

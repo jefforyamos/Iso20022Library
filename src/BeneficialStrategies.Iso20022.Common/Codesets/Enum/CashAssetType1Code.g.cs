@@ -38,22 +38,3 @@ public enum CashAssetType1Code
     CashInvestment = CashAssetTypeCode.CashInvestment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CashAssetType1CodeMetadataExtensions
-{
-    private static readonly CashAssetType1CodeDropdownSource _dropdownSource = new CashAssetType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICashAssetType1CodeDropdownRow GetMetadata(this CashAssetType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum OtherAmountTypeCode
     PrepaidInterest,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OtherAmountTypeCodeMetadataExtensions
-{
-    private static readonly OtherAmountTypeCodeDropdownSource _dropdownSource = new OtherAmountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOtherAmountTypeCodeDropdownRow GetMetadata(this OtherAmountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

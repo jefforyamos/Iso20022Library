@@ -101,22 +101,3 @@ public enum RejectReasonCode
     MessageType,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectReasonCodeMetadataExtensions
-{
-    private static readonly RejectReasonCodeDropdownSource _dropdownSource = new RejectReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectReasonCodeDropdownRow GetMetadata(this RejectReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

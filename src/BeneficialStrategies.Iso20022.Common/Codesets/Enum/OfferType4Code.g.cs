@@ -83,22 +83,3 @@ public enum OfferType4Code
     DissenterRights = OfferTypeV2Code.DissenterRights, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OfferType4CodeMetadataExtensions
-{
-    private static readonly OfferType4CodeDropdownSource _dropdownSource = new OfferType4CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOfferType4CodeDropdownRow GetMetadata(this OfferType4Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

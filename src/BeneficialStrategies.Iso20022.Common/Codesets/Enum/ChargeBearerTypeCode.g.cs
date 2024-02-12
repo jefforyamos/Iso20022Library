@@ -56,22 +56,3 @@ public enum ChargeBearerTypeCode
     FollowingServiceLevel,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ChargeBearerTypeCodeMetadataExtensions
-{
-    private static readonly ChargeBearerTypeCodeDropdownSource _dropdownSource = new ChargeBearerTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IChargeBearerTypeCodeDropdownRow GetMetadata(this ChargeBearerTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

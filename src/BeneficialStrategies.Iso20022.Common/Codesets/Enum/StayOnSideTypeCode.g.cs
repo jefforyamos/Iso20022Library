@@ -47,22 +47,3 @@ public enum StayOnSideTypeCode
     DontCare,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class StayOnSideTypeCodeMetadataExtensions
-{
-    private static readonly StayOnSideTypeCodeDropdownSource _dropdownSource = new StayOnSideTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IStayOnSideTypeCodeDropdownRow GetMetadata(this StayOnSideTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

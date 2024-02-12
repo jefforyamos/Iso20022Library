@@ -47,22 +47,3 @@ public enum AdditionalRight1Code
     AgendaItemProposal = AdditionalRightCode.AgendaItemProposal, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AdditionalRight1CodeMetadataExtensions
-{
-    private static readonly AdditionalRight1CodeDropdownSource _dropdownSource = new AdditionalRight1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAdditionalRight1CodeDropdownRow GetMetadata(this AdditionalRight1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

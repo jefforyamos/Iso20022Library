@@ -38,22 +38,3 @@ public enum RateValueType6Code
     Open = RateTypeCode.Open, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RateValueType6CodeMetadataExtensions
-{
-    private static readonly RateValueType6CodeDropdownSource _dropdownSource = new RateValueType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRateValueType6CodeDropdownRow GetMetadata(this RateValueType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

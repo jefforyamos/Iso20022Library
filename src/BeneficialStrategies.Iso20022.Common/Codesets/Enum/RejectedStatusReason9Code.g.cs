@@ -92,22 +92,3 @@ public enum RejectedStatusReason9Code
     TradeDate = RejectedStatusReasonCode.TradeDate, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectedStatusReason9CodeMetadataExtensions
-{
-    private static readonly RejectedStatusReason9CodeDropdownSource _dropdownSource = new RejectedStatusReason9CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectedStatusReason9CodeDropdownRow GetMetadata(this RejectedStatusReason9Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

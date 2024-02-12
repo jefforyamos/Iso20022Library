@@ -83,22 +83,3 @@ public enum FinancialInstrumentProductType1Code
     Deposit = FinancialInstrumentProductTypeCode.Deposit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialInstrumentProductType1CodeMetadataExtensions
-{
-    private static readonly FinancialInstrumentProductType1CodeDropdownSource _dropdownSource = new FinancialInstrumentProductType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialInstrumentProductType1CodeDropdownRow GetMetadata(this FinancialInstrumentProductType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum AmountTypeCode
     MaximumAmount,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AmountTypeCodeMetadataExtensions
-{
-    private static readonly AmountTypeCodeDropdownSource _dropdownSource = new AmountTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAmountTypeCodeDropdownRow GetMetadata(this AmountTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

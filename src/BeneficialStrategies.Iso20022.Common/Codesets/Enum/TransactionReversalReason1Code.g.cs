@@ -65,22 +65,3 @@ public enum TransactionReversalReason1Code
     CollectionNotDue = TransactionReasonCode.CollectionNotDue, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TransactionReversalReason1CodeMetadataExtensions
-{
-    private static readonly TransactionReversalReason1CodeDropdownSource _dropdownSource = new TransactionReversalReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITransactionReversalReason1CodeDropdownRow GetMetadata(this TransactionReversalReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

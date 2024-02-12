@@ -56,22 +56,3 @@ public enum CancellationCompleteStatusReason1Code
     Other = CancelledStatusReasonCode.Other, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CancellationCompleteStatusReason1CodeMetadataExtensions
-{
-    private static readonly CancellationCompleteStatusReason1CodeDropdownSource _dropdownSource = new CancellationCompleteStatusReason1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICancellationCompleteStatusReason1CodeDropdownRow GetMetadata(this CancellationCompleteStatusReason1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

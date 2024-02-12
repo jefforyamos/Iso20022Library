@@ -128,22 +128,3 @@ public enum FailureReason3Code
     SecurityError = FailureReasonCode.SecurityError, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason3CodeMetadataExtensions
-{
-    private static readonly FailureReason3CodeDropdownSource _dropdownSource = new FailureReason3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason3CodeDropdownRow GetMetadata(this FailureReason3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

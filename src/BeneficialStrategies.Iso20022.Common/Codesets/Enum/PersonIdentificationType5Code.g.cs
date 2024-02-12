@@ -128,22 +128,3 @@ public enum PersonIdentificationType5Code
     GunLicenseNumber = PersonIdentificationTypeCode.GunLicenseNumber, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PersonIdentificationType5CodeMetadataExtensions
-{
-    private static readonly PersonIdentificationType5CodeDropdownSource _dropdownSource = new PersonIdentificationType5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPersonIdentificationType5CodeDropdownRow GetMetadata(this PersonIdentificationType5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

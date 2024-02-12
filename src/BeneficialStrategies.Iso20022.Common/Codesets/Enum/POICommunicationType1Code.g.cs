@@ -101,22 +101,3 @@ public enum POICommunicationType1Code
     Wifi = POICommunicationTypeCode.Wifi, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class POICommunicationType1CodeMetadataExtensions
-{
-    private static readonly POICommunicationType1CodeDropdownSource _dropdownSource = new POICommunicationType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPOICommunicationType1CodeDropdownRow GetMetadata(this POICommunicationType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

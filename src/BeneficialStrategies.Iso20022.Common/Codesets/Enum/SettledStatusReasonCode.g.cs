@@ -65,22 +65,3 @@ public enum SettledStatusReasonCode
     GatedMultipleNAV,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SettledStatusReasonCodeMetadataExtensions
-{
-    private static readonly SettledStatusReasonCodeDropdownSource _dropdownSource = new SettledStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISettledStatusReasonCodeDropdownRow GetMetadata(this SettledStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

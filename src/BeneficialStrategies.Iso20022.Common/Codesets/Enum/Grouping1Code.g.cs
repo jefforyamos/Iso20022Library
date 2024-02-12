@@ -47,22 +47,3 @@ public enum Grouping1Code
     Mixed = GroupingCode.Mixed, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class Grouping1CodeMetadataExtensions
-{
-    private static readonly Grouping1CodeDropdownSource _dropdownSource = new Grouping1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IGrouping1CodeDropdownRow GetMetadata(this Grouping1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

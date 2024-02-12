@@ -38,22 +38,3 @@ public enum CreditDebitCode
     Debit = AmountDirectionCode.Debit, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CreditDebitCodeMetadataExtensions
-{
-    private static readonly CreditDebitCodeDropdownSource _dropdownSource = new CreditDebitCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICreditDebitCodeDropdownRow GetMetadata(this CreditDebitCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

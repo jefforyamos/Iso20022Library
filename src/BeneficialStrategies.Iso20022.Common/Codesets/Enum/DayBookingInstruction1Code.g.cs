@@ -38,22 +38,3 @@ public enum DayBookingInstruction1Code
     SpeakFirst = DayBookingInstructionCode.SpeakFirst, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DayBookingInstruction1CodeMetadataExtensions
-{
-    private static readonly DayBookingInstruction1CodeDropdownSource _dropdownSource = new DayBookingInstruction1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDayBookingInstruction1CodeDropdownRow GetMetadata(this DayBookingInstruction1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

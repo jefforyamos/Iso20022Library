@@ -84,22 +84,3 @@ public enum MessageFunction20Code
     StatusNotification = MessageFunctionCode.StatusNotification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MessageFunction20CodeMetadataExtensions
-{
-    private static readonly MessageFunction20CodeDropdownSource _dropdownSource = new MessageFunction20CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMessageFunction20CodeDropdownRow GetMetadata(this MessageFunction20Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

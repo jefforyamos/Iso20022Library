@@ -92,22 +92,3 @@ public enum FailureReason8Code
     UnableToCapture = FailureReasonCode.UnableToCapture, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FailureReason8CodeMetadataExtensions
-{
-    private static readonly FailureReason8CodeDropdownSource _dropdownSource = new FailureReason8CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFailureReason8CodeDropdownRow GetMetadata(this FailureReason8Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

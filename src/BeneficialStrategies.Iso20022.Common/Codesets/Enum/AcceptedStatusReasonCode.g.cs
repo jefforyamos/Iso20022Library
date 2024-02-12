@@ -38,22 +38,3 @@ public enum AcceptedStatusReasonCode
     PlaceNotAllowed,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AcceptedStatusReasonCodeMetadataExtensions
-{
-    private static readonly AcceptedStatusReasonCodeDropdownSource _dropdownSource = new AcceptedStatusReasonCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAcceptedStatusReasonCodeDropdownRow GetMetadata(this AcceptedStatusReasonCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

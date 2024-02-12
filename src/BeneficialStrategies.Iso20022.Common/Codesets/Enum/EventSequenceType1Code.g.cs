@@ -38,22 +38,3 @@ public enum EventSequenceType1Code
     Interim = EventSequenceTypeCode.Interim, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventSequenceType1CodeMetadataExtensions
-{
-    private static readonly EventSequenceType1CodeDropdownSource _dropdownSource = new EventSequenceType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventSequenceType1CodeDropdownRow GetMetadata(this EventSequenceType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

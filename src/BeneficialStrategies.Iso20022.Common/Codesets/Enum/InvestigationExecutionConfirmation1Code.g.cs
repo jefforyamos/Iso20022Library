@@ -110,22 +110,3 @@ public enum InvestigationExecutionConfirmation1Code
     CancellationWillFollow = InvestigationExecutionConfirmationCode.CancellationWillFollow, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InvestigationExecutionConfirmation1CodeMetadataExtensions
-{
-    private static readonly InvestigationExecutionConfirmation1CodeDropdownSource _dropdownSource = new InvestigationExecutionConfirmation1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInvestigationExecutionConfirmation1CodeDropdownRow GetMetadata(this InvestigationExecutionConfirmation1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

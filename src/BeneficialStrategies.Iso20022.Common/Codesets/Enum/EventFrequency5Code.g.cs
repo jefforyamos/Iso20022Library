@@ -110,22 +110,3 @@ public enum EventFrequency5Code
     TwiceAMonth = EventFrequencyCode.TwiceAMonth, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EventFrequency5CodeMetadataExtensions
-{
-    private static readonly EventFrequency5CodeDropdownSource _dropdownSource = new EventFrequency5CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEventFrequency5CodeDropdownRow GetMetadata(this EventFrequency5Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

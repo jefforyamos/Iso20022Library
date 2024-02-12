@@ -47,22 +47,3 @@ public enum OptionDefinitionTypeCode
     Other,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class OptionDefinitionTypeCodeMetadataExtensions
-{
-    private static readonly OptionDefinitionTypeCodeDropdownSource _dropdownSource = new OptionDefinitionTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IOptionDefinitionTypeCodeDropdownRow GetMetadata(this OptionDefinitionTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -245,22 +245,3 @@ public enum RejectionReason58Code
     NotRegisteredInInStockLedger = RejectionReasonV3Code.NotRegisteredInInStockLedger, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class RejectionReason58CodeMetadataExtensions
-{
-    private static readonly RejectionReason58CodeDropdownSource _dropdownSource = new RejectionReason58CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IRejectionReason58CodeDropdownRow GetMetadata(this RejectionReason58Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

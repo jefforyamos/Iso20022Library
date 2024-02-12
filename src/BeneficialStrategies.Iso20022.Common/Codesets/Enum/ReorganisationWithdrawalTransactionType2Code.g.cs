@@ -29,22 +29,3 @@ public enum ReorganisationWithdrawalTransactionType2Code
     WithdrawalProtectOnBehalfOfAnotherParticipant = ReorganisationWithdrawalTransactionTypeCode.WithdrawalProtectOnBehalfOfAnotherParticipant, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ReorganisationWithdrawalTransactionType2CodeMetadataExtensions
-{
-    private static readonly ReorganisationWithdrawalTransactionType2CodeDropdownSource _dropdownSource = new ReorganisationWithdrawalTransactionType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IReorganisationWithdrawalTransactionType2CodeDropdownRow GetMetadata(this ReorganisationWithdrawalTransactionType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

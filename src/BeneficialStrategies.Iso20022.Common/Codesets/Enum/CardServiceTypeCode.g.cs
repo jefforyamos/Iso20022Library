@@ -173,22 +173,3 @@ public enum CardServiceTypeCode
     RequestKey,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CardServiceTypeCodeMetadataExtensions
-{
-    private static readonly CardServiceTypeCodeDropdownSource _dropdownSource = new CardServiceTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICardServiceTypeCodeDropdownRow GetMetadata(this CardServiceTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum FinancialCapture1Code
     Batch = FinancialCaptureCode.Batch, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class FinancialCapture1CodeMetadataExtensions
-{
-    private static readonly FinancialCapture1CodeDropdownSource _dropdownSource = new FinancialCapture1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IFinancialCapture1CodeDropdownRow GetMetadata(this FinancialCapture1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

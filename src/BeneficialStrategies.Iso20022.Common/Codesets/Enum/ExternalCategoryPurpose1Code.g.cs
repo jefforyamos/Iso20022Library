@@ -420,22 +420,3 @@ public enum ExternalCategoryPurpose1Code
     CarrierGuardedWholesaleValuables = ExternalCategoryPurposeCode.CarrierGuardedWholesaleValuables, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalCategoryPurpose1CodeMetadataExtensions
-{
-    private static readonly ExternalCategoryPurpose1CodeDropdownSource _dropdownSource = new ExternalCategoryPurpose1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalCategoryPurpose1CodeDropdownRow GetMetadata(this ExternalCategoryPurpose1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

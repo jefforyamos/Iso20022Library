@@ -65,22 +65,3 @@ public enum CheckCodeLine1Code
     OCRDefault = CheckCodeLineCode.OCRDefault, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CheckCodeLine1CodeMetadataExtensions
-{
-    private static readonly CheckCodeLine1CodeDropdownSource _dropdownSource = new CheckCodeLine1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICheckCodeLine1CodeDropdownRow GetMetadata(this CheckCodeLine1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

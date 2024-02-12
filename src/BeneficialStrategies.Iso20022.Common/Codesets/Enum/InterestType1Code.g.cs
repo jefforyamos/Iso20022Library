@@ -38,22 +38,3 @@ public enum InterestType1Code
     OverNight = InterestCode.OverNight, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class InterestType1CodeMetadataExtensions
-{
-    private static readonly InterestType1CodeDropdownSource _dropdownSource = new InterestType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IInterestType1CodeDropdownRow GetMetadata(this InterestType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

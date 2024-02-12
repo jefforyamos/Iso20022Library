@@ -47,22 +47,3 @@ public enum DisplayMethod1Code
     Random = DisplayMethodCode.Random, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DisplayMethod1CodeMetadataExtensions
-{
-    private static readonly DisplayMethod1CodeDropdownSource _dropdownSource = new DisplayMethod1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDisplayMethod1CodeDropdownRow GetMetadata(this DisplayMethod1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -60,22 +60,3 @@ public enum ESGCategoryGermanFundMarketCode
     Impact,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ESGCategoryGermanFundMarketCodeMetadataExtensions
-{
-    private static readonly ESGCategoryGermanFundMarketCodeDropdownSource _dropdownSource = new ESGCategoryGermanFundMarketCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IESGCategoryGermanFundMarketCodeDropdownRow GetMetadata(this ESGCategoryGermanFundMarketCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

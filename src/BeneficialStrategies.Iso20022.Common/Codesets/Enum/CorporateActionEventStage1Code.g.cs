@@ -110,22 +110,3 @@ public enum CorporateActionEventStage1Code
     RescissionReversalLotteryNotification = CorporateActionEventStageCode.RescissionReversalLotteryNotification, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionEventStage1CodeMetadataExtensions
-{
-    private static readonly CorporateActionEventStage1CodeDropdownSource _dropdownSource = new CorporateActionEventStage1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionEventStage1CodeDropdownRow GetMetadata(this CorporateActionEventStage1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

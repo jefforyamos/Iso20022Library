@@ -83,22 +83,3 @@ public enum PartyType28Code
     Issuer = PartyTypeCode.Issuer, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class PartyType28CodeMetadataExtensions
-{
-    private static readonly PartyType28CodeDropdownSource _dropdownSource = new PartyType28CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IPartyType28CodeDropdownRow GetMetadata(this PartyType28Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

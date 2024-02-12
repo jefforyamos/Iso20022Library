@@ -47,22 +47,3 @@ public enum NotificationStatus3Code
     NotReceived = NotificationToReceiveStatusCode.NotReceived, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class NotificationStatus3CodeMetadataExtensions
-{
-    private static readonly NotificationStatus3CodeDropdownSource _dropdownSource = new NotificationStatus3CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static INotificationStatus3CodeDropdownRow GetMetadata(this NotificationStatus3Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -65,22 +65,3 @@ public enum CorporateActionFrequencyType2Code
     FundCashDistributionReinvestment = CorporateActionFrequencyTypeCode.FundCashDistributionReinvestment, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CorporateActionFrequencyType2CodeMetadataExtensions
-{
-    private static readonly CorporateActionFrequencyType2CodeDropdownSource _dropdownSource = new CorporateActionFrequencyType2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICorporateActionFrequencyType2CodeDropdownRow GetMetadata(this CorporateActionFrequencyType2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

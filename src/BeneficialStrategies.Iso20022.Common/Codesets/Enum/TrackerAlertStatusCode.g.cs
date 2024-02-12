@@ -56,22 +56,3 @@ public enum TrackerAlertStatusCode
     RejectedInvestigation,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TrackerAlertStatusCodeMetadataExtensions
-{
-    private static readonly TrackerAlertStatusCodeDropdownSource _dropdownSource = new TrackerAlertStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITrackerAlertStatusCodeDropdownRow GetMetadata(this TrackerAlertStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -146,22 +146,3 @@ public enum DTCCPayoutTypeCode
     TaxCredit,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DTCCPayoutTypeCodeMetadataExtensions
-{
-    private static readonly DTCCPayoutTypeCodeDropdownSource _dropdownSource = new DTCCPayoutTypeCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDTCCPayoutTypeCodeDropdownRow GetMetadata(this DTCCPayoutTypeCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

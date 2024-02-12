@@ -47,22 +47,3 @@ public enum DividendPolicy1Code
     Both = DividendPolicyCode.Both, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DividendPolicy1CodeMetadataExtensions
-{
-    private static readonly DividendPolicy1CodeDropdownSource _dropdownSource = new DividendPolicy1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDividendPolicy1CodeDropdownRow GetMetadata(this DividendPolicy1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

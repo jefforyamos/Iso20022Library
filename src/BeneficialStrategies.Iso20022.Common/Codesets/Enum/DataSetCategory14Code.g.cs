@@ -209,22 +209,3 @@ public enum DataSetCategory14Code
     ReportFile = DataSetCategoryCode.ReportFile, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class DataSetCategory14CodeMetadataExtensions
-{
-    private static readonly DataSetCategory14CodeDropdownSource _dropdownSource = new DataSetCategory14CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IDataSetCategory14CodeDropdownRow GetMetadata(this DataSetCategory14Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -38,22 +38,3 @@ public enum MarketClientSide1Code
     MarketSide = MarketClientSideCode.MarketSide, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class MarketClientSide1CodeMetadataExtensions
-{
-    private static readonly MarketClientSide1CodeDropdownSource _dropdownSource = new MarketClientSide1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IMarketClientSide1CodeDropdownRow GetMetadata(this MarketClientSide1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

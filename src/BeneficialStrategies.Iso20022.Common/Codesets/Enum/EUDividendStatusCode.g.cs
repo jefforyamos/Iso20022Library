@@ -47,22 +47,3 @@ public enum EUDividendStatusCode
     DividendUnknown,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class EUDividendStatusCodeMetadataExtensions
-{
-    private static readonly EUDividendStatusCodeDropdownSource _dropdownSource = new EUDividendStatusCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IEUDividendStatusCodeDropdownRow GetMetadata(this EUDividendStatusCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

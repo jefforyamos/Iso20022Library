@@ -65,22 +65,3 @@ public enum ExchangeRateAgreementType1Code
     Spot = ExchangeRateAgreementTypeCode.Spot, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExchangeRateAgreementType1CodeMetadataExtensions
-{
-    private static readonly ExchangeRateAgreementType1CodeDropdownSource _dropdownSource = new ExchangeRateAgreementType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExchangeRateAgreementType1CodeDropdownRow GetMetadata(this ExchangeRateAgreementType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

@@ -47,22 +47,3 @@ public enum AllegementStatus2Code
     Rejected = AllegementStatusCode.Rejected, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class AllegementStatus2CodeMetadataExtensions
-{
-    private static readonly AllegementStatus2CodeDropdownSource _dropdownSource = new AllegementStatus2CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IAllegementStatus2CodeDropdownRow GetMetadata(this AllegementStatus2Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

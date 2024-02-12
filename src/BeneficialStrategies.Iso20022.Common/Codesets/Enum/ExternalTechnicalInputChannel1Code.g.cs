@@ -57,22 +57,3 @@ public enum ExternalTechnicalInputChannel1Code
     Internet = ExternalTechnicalInputChannelCode.Internet, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class ExternalTechnicalInputChannel1CodeMetadataExtensions
-{
-    private static readonly ExternalTechnicalInputChannel1CodeDropdownSource _dropdownSource = new ExternalTechnicalInputChannel1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static IExternalTechnicalInputChannel1CodeDropdownRow GetMetadata(this ExternalTechnicalInputChannel1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

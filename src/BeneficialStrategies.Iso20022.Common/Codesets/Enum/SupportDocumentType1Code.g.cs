@@ -47,22 +47,3 @@ public enum SupportDocumentType1Code
     SupportingDocument = SupportDocumentTypeCode.SupportingDocument, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class SupportDocumentType1CodeMetadataExtensions
-{
-    private static readonly SupportDocumentType1CodeDropdownSource _dropdownSource = new SupportDocumentType1CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ISupportDocumentType1CodeDropdownRow GetMetadata(this SupportDocumentType1Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

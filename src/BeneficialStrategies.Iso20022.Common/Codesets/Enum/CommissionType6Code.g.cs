@@ -47,22 +47,3 @@ public enum CommissionType6Code
     CommissionDePlacement = CommissionTypeV2Code.CommissionDePlacement, // same ordinal as derivation source for type conversions
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class CommissionType6CodeMetadataExtensions
-{
-    private static readonly CommissionType6CodeDropdownSource _dropdownSource = new CommissionType6CodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ICommissionType6CodeDropdownRow GetMetadata(this CommissionType6Code code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-

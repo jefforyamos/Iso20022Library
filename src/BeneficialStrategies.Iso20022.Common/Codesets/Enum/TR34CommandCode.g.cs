@@ -65,22 +65,3 @@ public enum TR34CommandCode
     HigherLevelRebind,
     
 }
-
-
-/// <summary>
-/// Provides access to the metadata associated with a specific enum.
-/// </summary>
-public static class TR34CommandCodeMetadataExtensions
-{
-    private static readonly TR34CommandCodeDropdownSource _dropdownSource = new TR34CommandCodeDropdownSource();
-    
-    /// <summary>
-    /// Returns the metadata associated with this enum value.
-    /// </summary>
-    public static ITR34CommandCodeDropdownRow GetMetadata(this TR34CommandCode code)
-    {
-        return _dropdownSource.Lookup(code) ;
-    }
-}
-
-
